@@ -91,6 +91,11 @@ var RnI18n = {
     ed_lease_figs: 'Infos de LOA',
     ed_lease_figs_helper: 'Décochez une info pour la masquer ; toutes décochées, seule la barre de LOA reste',
     ed_image_height: 'Hauteur de l\'image',
+    ed_battery_severity: 'Couleurs de la barre de batterie',
+    ed_fuel_severity: 'Couleurs de la barre de carburant',
+    ed_green: 'Vert à partir de',
+    ed_yellow: 'Orange à partir de',
+    ed_red: 'Rouge à partir de',
     ed_tap_action: 'Action au toucher',
     ed_hold_action: 'Action à l\'appui long',
     ed_data_plan_device_id: 'Forfait Orange Internet On the move',
@@ -228,6 +233,11 @@ var RnI18n = {
     ed_lease_figs: 'Lease details',
     ed_lease_figs_helper: 'Uncheck an item to hide it; with none checked, only the lease status bar remains',
     ed_image_height: 'Picture height',
+    ed_battery_severity: 'Battery bar colours',
+    ed_fuel_severity: 'Fuel bar colours',
+    ed_green: 'Green from',
+    ed_yellow: 'Orange from',
+    ed_red: 'Red from',
     ed_tap_action: 'Tap action',
     ed_hold_action: 'Hold action',
     ed_data_plan_device_id: 'Orange Internet On the move data plan',
@@ -365,6 +375,11 @@ var RnI18n = {
     ed_lease_figs: 'Leasing-Infos',
     ed_lease_figs_helper: 'Eintrag abwählen, um ihn auszublenden; keiner ausgewählt: nur der Leasing-Statusbalken bleibt',
     ed_image_height: 'Bildhöhe',
+    ed_battery_severity: 'Farben des Batteriebalkens',
+    ed_fuel_severity: 'Farben des Kraftstoffbalkens',
+    ed_green: 'Grün ab',
+    ed_yellow: 'Orange ab',
+    ed_red: 'Rot ab',
     ed_tap_action: 'Aktion beim Tippen',
     ed_hold_action: 'Aktion beim Halten',
     ed_data_plan_device_id: 'Datentarif Orange Internet On the move',
@@ -502,6 +517,11 @@ var RnI18n = {
     ed_lease_figs: 'Datos del leasing',
     ed_lease_figs_helper: 'Desmarque un dato para ocultarlo; sin ninguno marcado, solo queda la barra de estado del leasing',
     ed_image_height: 'Altura de la imagen',
+    ed_battery_severity: 'Colores de la barra de batería',
+    ed_fuel_severity: 'Colores de la barra de combustible',
+    ed_green: 'Verde desde',
+    ed_yellow: 'Naranja desde',
+    ed_red: 'Rojo desde',
     ed_tap_action: 'Acción al tocar',
     ed_hold_action: 'Acción al mantener pulsado',
     ed_data_plan_device_id: 'Plan de datos Orange Internet On the move',
@@ -639,6 +659,11 @@ var RnI18n = {
     ed_lease_figs: 'Подаци о лизингу',
     ed_lease_figs_helper: 'Поништите податак да бисте га сакрили; без иједног, остаје само трака стања лизинга',
     ed_image_height: 'Висина слике',
+    ed_battery_severity: 'Боје траке батерије',
+    ed_fuel_severity: 'Боје траке горива',
+    ed_green: 'Зелена од',
+    ed_yellow: 'Наранџаста од',
+    ed_red: 'Црвена од',
     ed_tap_action: 'Радња на додир',
     ed_hold_action: 'Радња на дуги притисак',
     ed_data_plan_device_id: 'Пакет података Orange Internet On the move',
@@ -776,6 +801,11 @@ var RnI18n = {
     ed_lease_figs: 'Podaci o lizingu',
     ed_lease_figs_helper: 'Poništite podatak da biste ga sakrili; bez ijednog, ostaje samo traka stanja lizinga',
     ed_image_height: 'Visina slike',
+    ed_battery_severity: 'Boje trake baterije',
+    ed_fuel_severity: 'Boje trake goriva',
+    ed_green: 'Zelena od',
+    ed_yellow: 'Narandžasta od',
+    ed_red: 'Crvena od',
     ed_tap_action: 'Radnja na dodir',
     ed_hold_action: 'Radnja na dugi pritisak',
     ed_data_plan_device_id: 'Paket podataka Orange Internet On the move',
@@ -913,6 +943,11 @@ var RnI18n = {
     ed_lease_figs: 'Dati del leasing',
     ed_lease_figs_helper: 'Deseleziona un dato per nasconderlo; nessuno selezionato, resta solo la barra di stato del leasing',
     ed_image_height: 'Altezza dell\'immagine',
+    ed_battery_severity: 'Colori della barra della batteria',
+    ed_fuel_severity: 'Colori della barra del carburante',
+    ed_green: 'Verde da',
+    ed_yellow: 'Arancione da',
+    ed_red: 'Rosso da',
     ed_tap_action: 'Azione al tocco',
     ed_hold_action: 'Azione alla pressione prolungata',
     ed_data_plan_device_id: 'Piano dati Orange Internet On the move',
@@ -1050,6 +1085,11 @@ var RnI18n = {
     ed_lease_figs: 'Leasegegevens',
     ed_lease_figs_helper: 'Vink een gegeven uit om het te verbergen; geen enkele aangevinkt: alleen de leasestatusbalk blijft',
     ed_image_height: 'Hoogte van de afbeelding',
+    ed_battery_severity: 'Kleuren van de accubalk',
+    ed_fuel_severity: 'Kleuren van de brandstofbalk',
+    ed_green: 'Groen vanaf',
+    ed_yellow: 'Oranje vanaf',
+    ed_red: 'Rood vanaf',
     ed_tap_action: 'Actie bij tikken',
     ed_hold_action: 'Actie bij vasthouden',
     ed_data_plan_device_id: 'Databundel Orange Internet On the move',
@@ -1187,6 +1227,11 @@ var RnI18n = {
     ed_lease_figs: 'Dados do leasing',
     ed_lease_figs_helper: 'Desmarque um dado para o ocultar; nenhum marcado, fica apenas a barra de estado do leasing',
     ed_image_height: 'Altura da imagem',
+    ed_battery_severity: 'Cores da barra da bateria',
+    ed_fuel_severity: 'Cores da barra de combustível',
+    ed_green: 'Verde a partir de',
+    ed_yellow: 'Laranja a partir de',
+    ed_red: 'Vermelho a partir de',
     ed_tap_action: 'Ação ao tocar',
     ed_hold_action: 'Ação ao manter premido',
     ed_data_plan_device_id: 'Tarifário Orange Internet On the move',
@@ -1324,6 +1369,11 @@ var RnI18n = {
     ed_lease_figs: 'Dane leasingu',
     ed_lease_figs_helper: 'Odznacz pozycję, aby ją ukryć; bez zaznaczonych zostaje tylko pasek stanu leasingu',
     ed_image_height: 'Wysokość obrazu',
+    ed_battery_severity: 'Kolory paska baterii',
+    ed_fuel_severity: 'Kolory paska paliwa',
+    ed_green: 'Zielony od',
+    ed_yellow: 'Pomarańczowy od',
+    ed_red: 'Czerwony od',
     ed_tap_action: 'Akcja po dotknięciu',
     ed_hold_action: 'Akcja po przytrzymaniu',
     ed_data_plan_device_id: 'Pakiet danych Orange Internet On the move',
@@ -1461,6 +1511,11 @@ var RnI18n = {
     ed_lease_figs: 'Detalii leasing',
     ed_lease_figs_helper: 'Debifați o informație pentru a o ascunde; niciuna bifată, rămâne doar bara de stare a leasingului',
     ed_image_height: 'Înălțimea imaginii',
+    ed_battery_severity: 'Culorile barei bateriei',
+    ed_fuel_severity: 'Culorile barei de combustibil',
+    ed_green: 'Verde de la',
+    ed_yellow: 'Portocaliu de la',
+    ed_red: 'Roșu de la',
     ed_tap_action: 'Acțiune la atingere',
     ed_hold_action: 'Acțiune la apăsare lungă',
     ed_data_plan_device_id: 'Abonament Orange Internet On the move',
@@ -1598,6 +1653,11 @@ var RnI18n = {
     ed_lease_figs: 'Leasingoplysninger',
     ed_lease_figs_helper: 'Fjern markeringen af en oplysning for at skjule den; ingen markeret: kun leasingens statuslinje bliver',
     ed_image_height: 'Billedets højde',
+    ed_battery_severity: 'Farver på batteribjælken',
+    ed_fuel_severity: 'Farver på brændstofbjælken',
+    ed_green: 'Grøn fra',
+    ed_yellow: 'Orange fra',
+    ed_red: 'Rød fra',
     ed_tap_action: 'Handling ved tryk',
     ed_hold_action: 'Handling ved langt tryk',
     ed_data_plan_device_id: 'Dataabonnement Orange Internet On the move',
@@ -1735,6 +1795,11 @@ var RnI18n = {
     ed_lease_figs: 'Leasinguppgifter',
     ed_lease_figs_helper: 'Avmarkera en uppgift för att dölja den; ingen markerad: bara leasingens statusfält visas',
     ed_image_height: 'Bildens höjd',
+    ed_battery_severity: 'Färger på batterifältet',
+    ed_fuel_severity: 'Färger på bränslefältet',
+    ed_green: 'Grön från',
+    ed_yellow: 'Orange från',
+    ed_red: 'Röd från',
     ed_tap_action: 'Åtgärd vid tryck',
     ed_hold_action: 'Åtgärd vid långt tryck',
     ed_data_plan_device_id: 'Datapaket Orange Internet On the move',
@@ -1872,6 +1937,11 @@ var RnI18n = {
     ed_lease_figs: 'Данни за лизинга',
     ed_lease_figs_helper: 'Махнете отметката от данна, за да я скриете; без отметки остава само лентата за състояние на лизинга',
     ed_image_height: 'Височина на изображението',
+    ed_battery_severity: 'Цветове на лентата на батерията',
+    ed_fuel_severity: 'Цветове на лентата на горивото',
+    ed_green: 'Зелено от',
+    ed_yellow: 'Оранжево от',
+    ed_red: 'Червено от',
     ed_tap_action: 'Действие при докосване',
     ed_hold_action: 'Действие при задържане',
     ed_data_plan_device_id: 'Пакет данни Orange Internet On the move',
@@ -2009,6 +2079,11 @@ var RnI18n = {
     ed_lease_figs: 'Данные лизинга',
     ed_lease_figs_helper: 'Снимите отметку с данных, чтобы скрыть их; без отметок остаётся только строка состояния лизинга',
     ed_image_height: 'Высота изображения',
+    ed_battery_severity: 'Цвета полосы батареи',
+    ed_fuel_severity: 'Цвета полосы топлива',
+    ed_green: 'Зелёный от',
+    ed_yellow: 'Оранжевый от',
+    ed_red: 'Красный от',
     ed_tap_action: 'Действие при нажатии',
     ed_hold_action: 'Действие при удержании',
     ed_data_plan_device_id: 'Тарифный план Orange Internet On the move',
@@ -2146,6 +2221,11 @@ var RnI18n = {
     ed_lease_figs: 'Дані лізингу',
     ed_lease_figs_helper: 'Зніміть позначку з даних, щоб приховати їх; без позначок залишається лише смуга стану лізингу',
     ed_image_height: 'Висота зображення',
+    ed_battery_severity: 'Кольори смуги батареї',
+    ed_fuel_severity: 'Кольори смуги пального',
+    ed_green: 'Зелений від',
+    ed_yellow: 'Помаранчевий від',
+    ed_red: 'Червоний від',
     ed_tap_action: 'Дія при натисканні',
     ed_hold_action: 'Дія при утриманні',
     ed_data_plan_device_id: 'Тарифний план Orange Internet On the move',
@@ -2283,6 +2363,11 @@ var RnI18n = {
     ed_lease_figs: 'Lízingadatok',
     ed_lease_figs_helper: 'Törölje egy adat jelölését az elrejtéséhez; ha egyik sincs bejelölve, csak a lízing állapotsávja marad',
     ed_image_height: 'Kép magassága',
+    ed_battery_severity: 'Az akkumulátorsáv színei',
+    ed_fuel_severity: 'Az üzemanyagsáv színei',
+    ed_green: 'Zöld ettől',
+    ed_yellow: 'Narancs ettől',
+    ed_red: 'Piros ettől',
     ed_tap_action: 'Művelet koppintáskor',
     ed_hold_action: 'Művelet nyomva tartáskor',
     ed_data_plan_device_id: 'Orange Internet On the move adatcsomag',
@@ -2420,6 +2505,11 @@ var RnI18n = {
     ed_lease_figs: 'Údaje lízingu',
     ed_lease_figs_helper: 'Zrušte označenie údaja, aby ste ho skryli; bez označenia zostane len stavový pruh lízingu',
     ed_image_height: 'Výška obrázka',
+    ed_battery_severity: 'Farby pruhu batérie',
+    ed_fuel_severity: 'Farby pruhu paliva',
+    ed_green: 'Zelená od',
+    ed_yellow: 'Oranžová od',
+    ed_red: 'Červená od',
     ed_tap_action: 'Akcia pri ťuknutí',
     ed_hold_action: 'Akcia pri podržaní',
     ed_data_plan_device_id: 'Dátový balík Orange Internet On the move',
@@ -2557,6 +2647,11 @@ var RnI18n = {
     ed_lease_figs: 'Údaje leasingu',
     ed_lease_figs_helper: 'Zrušte označení údaje, abyste ho skryli; bez označení zůstane jen stavový pruh leasingu',
     ed_image_height: 'Výška obrázku',
+    ed_battery_severity: 'Barvy pruhu baterie',
+    ed_fuel_severity: 'Barvy pruhu paliva',
+    ed_green: 'Zelená od',
+    ed_yellow: 'Oranžová od',
+    ed_red: 'Červená od',
     ed_tap_action: 'Akce při klepnutí',
     ed_hold_action: 'Akce při podržení',
     ed_data_plan_device_id: 'Datový tarif Orange Internet On the move',
@@ -2694,6 +2789,11 @@ var RnI18n = {
     ed_lease_figs: 'Podatki o lizingu',
     ed_lease_figs_helper: 'Odznačite podatek, da ga skrijete; brez označenih ostane le vrstica stanja lizinga',
     ed_image_height: 'Višina slike',
+    ed_battery_severity: 'Barve vrstice baterije',
+    ed_fuel_severity: 'Barve vrstice goriva',
+    ed_green: 'Zelena od',
+    ed_yellow: 'Oranžna od',
+    ed_red: 'Rdeča od',
     ed_tap_action: 'Dejanje ob dotiku',
     ed_hold_action: 'Dejanje ob dolgem pritisku',
     ed_data_plan_device_id: 'Podatkovni paket Orange Internet On the move',
@@ -2831,6 +2931,11 @@ var RnI18n = {
     ed_lease_figs: 'Līzinga dati',
     ed_lease_figs_helper: 'Noņemiet atzīmi no datiem, lai tos paslēptu; bez atzīmēm paliek tikai līzinga statusa josla',
     ed_image_height: 'Attēla augstums',
+    ed_battery_severity: 'Akumulatora joslas krāsas',
+    ed_fuel_severity: 'Degvielas joslas krāsas',
+    ed_green: 'Zaļa no',
+    ed_yellow: 'Oranža no',
+    ed_red: 'Sarkana no',
     ed_tap_action: 'Darbība pieskaroties',
     ed_hold_action: 'Darbība turot',
     ed_data_plan_device_id: 'Orange Internet On the move datu plāns',
@@ -2968,6 +3073,11 @@ var RnI18n = {
     ed_lease_figs: 'Στοιχεία λίζινγκ',
     ed_lease_figs_helper: 'Αποεπιλέξτε ένα στοιχείο για να το αποκρύψετε· χωρίς επιλογή, μένει μόνο η μπάρα κατάστασης του λίζινγκ',
     ed_image_height: 'Ύψος εικόνας',
+    ed_battery_severity: 'Χρώματα μπάρας μπαταρίας',
+    ed_fuel_severity: 'Χρώματα μπάρας καυσίμου',
+    ed_green: 'Πράσινο από',
+    ed_yellow: 'Πορτοκαλί από',
+    ed_red: 'Κόκκινο από',
     ed_tap_action: 'Ενέργεια με πάτημα',
     ed_hold_action: 'Ενέργεια με παρατεταμένο πάτημα',
     ed_data_plan_device_id: 'Πακέτο Orange Internet On the move',
@@ -3691,6 +3801,29 @@ function rnLeaseStatus(lease, mileage, now, points) {
   };
 }
 
+// Colour of a level (%) from a severity option, null when it sets none. Either the gauge card's form,
+// { green: 50, yellow: 20, red: 0 } (each colour from that level up, in the theme's success, warning and
+// error colours), or a list [{ from: 50, color: '#4caf50' }, …] for any colours. Under the lowest
+// threshold, the lowest colour.
+var RN_SEVERITY = [['green', RN_OK], ['yellow', RN_WARN], ['red', RN_ERR]];
+function rnSeverityColor(sev, pct) {
+  var steps = [];
+  var num = (v) => (v === '' || v == null || !Number.isFinite(Number(v)) ? null : Number(v));
+  if (Array.isArray(sev)) {
+    sev.forEach((x) => {
+      var from = num(x?.from), color = String(x?.color || '').trim();
+      // A colour name, #hex, rgb()/hsl() or var(): nothing that could leave the style attribute.
+      if (from != null && /^[#\w\s(),.%-]+$/.test(color)) steps.push([from, color]);
+    });
+  } else if (sev && typeof sev === 'object') {
+    RN_SEVERITY.forEach((k) => { var from = num(sev[k[0]]); if (from != null) steps.push([from, k[1]]); });
+  }
+  if (!steps.length || pct == null || Number.isNaN(pct)) return null;
+  steps.sort((a, b) => b[0] - a[0]);
+  var hit = steps.find((x) => pct >= x[0]);
+  return (hit || steps[steps.length - 1])[1];
+}
+
 // ── renault-card ─────────────────────────────────────────────────────────────
 // The stat tiles the tiles option picks from (all of them when it is not set), with their editor label.
 var RN_TILES = [['battery_level', 'en_battery_level'], ['battery_autonomy', 'en_battery_autonomy'], ['fuel_autonomy', 'en_fuel_autonomy'],
@@ -3998,7 +4131,7 @@ class RenaultCard extends HTMLElement {
     if (o.icon) icon = String(o.icon);
     return '<div class="tile' + (extra?.warn ? ' warn' : '') + '"' + (id ? ` data-more="${rnEsc(id)}"${extra?.key ? ` data-tile="${rnEsc(extra.key)}"` : ''} role="button" tabindex="0"` : '') + '>' +
       '<div class="tile-head"><ha-icon icon="' + rnEsc(icon) + '"></ha-icon><span class="lbl">' + rnEsc(label) + '</span></div>' +
-      '<span class="val">' + rnEsc(value) + '</span>' + (extra && extra.bar != null ? this._bar(extra.bar, this._levelColor(extra.bar)) : '') + '</div>';
+      '<span class="val">' + rnEsc(value) + '</span>' + (extra && extra.bar != null ? this._bar(extra.bar, this._levelColor(extra.bar, extra.key)) : '') + '</div>';
   }
 
   _bar(pct, color) {
@@ -4006,7 +4139,12 @@ class RenaultCard extends HTMLElement {
     return `<div class="bar"><div class="fill" style="width:${p}%;background:${color}"></div></div>`;
   }
 
-  _levelColor(pct) {
+  // The bar colour of the battery and fuel tiles: battery_severity / fuel_severity when set, else
+  // red under 10 %, orange under 25 %, the accent colour above.
+  _levelColor(pct, key) {
+    var sev = key === 'battery_level' ? this._config.battery_severity : key === 'fuel' ? this._config.fuel_severity : null;
+    var color = rnSeverityColor(sev, pct);
+    if (color) return color;
     if (pct < 10) return 'var(--error-color, #db4437)';
     if (pct < 25) return 'var(--warning-color, #ffa600)';
     return 'var(--rn-accent)';
@@ -4807,6 +4945,10 @@ class RenaultCardEditor extends HTMLElement {
           { name: 'hold_action', selector: { ui_action: { default_action: 'none' } } },
         ],
       },
+      ...['battery_severity', 'fuel_severity'].filter((k) => !Array.isArray(this._config?.[k])).map((k) => ({
+        type: 'expandable', name: k, title: t(`ed_${k}`), flatten: false, icon: k === 'fuel_severity' ? 'mdi:gas-station' : 'mdi:battery-high',
+        schema: [{ type: 'grid', name: '', schema: RN_SEVERITY.map((x) => ({ name: x[0], selector: { number: { min: 0, max: 100, step: 1, mode: 'box', unit_of_measurement: '%' } } })) }],
+      })),
       { name: 'image_height', selector: { number: { min: 40, max: 400, step: 10, mode: 'box', unit_of_measurement: 'px' } } },
       { name: 'buttons', selector: { entity: { multiple: true, domain: ['button', 'input_button', 'switch', 'input_boolean', 'script', 'scene', 'automation', 'lock', 'climate', 'light', 'fan', 'cover'] } } },
       { name: 'plate_department', selector: { text: {} } },
@@ -4870,6 +5012,12 @@ class RenaultCardEditor extends HTMLElement {
     });
     Object.keys(RN_EDITOR_DEFAULTS).forEach((key) => {
       if (value[key] === RN_EDITOR_DEFAULTS[key]) delete value[key];
+    });
+    ['battery_severity', 'fuel_severity'].forEach((k) => {
+      if (!value[k] || Array.isArray(value[k])) return;
+      var sv = {};
+      RN_SEVERITY.forEach((x) => { var v = value[k][x[0]]; if (v !== '' && v != null) sv[x[0]] = v; });
+      if (Object.keys(sv).length) value[k] = sv; else delete value[k];
     });
     // Every tile checked is the default: no tiles option (an empty list, no tile, is kept).
     if (Array.isArray(value.tiles) && RN_TILES.every((x) => value.tiles.indexOf(x[0]) >= 0)) delete value.tiles;

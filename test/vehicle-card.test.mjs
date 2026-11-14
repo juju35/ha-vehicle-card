@@ -1981,3 +1981,39 @@ test("tap_action / hold_action: more-info by default, none, Home Assistant actio
   card._onClick({ composedPath: () => [battery] });
   assert.equal(card.events.length, 1);
 });
+
+test("battery_severity / fuel_severity colour the bars; unchanged without them (#82)", () => {
+  const c = ctx.rnSeverityColor;
+  const gauge = { green: 50, yellow: 20, red: 0 };
+  assert.match(c(gauge, 80), /success-color/);
+  assert.match(c(gauge, 50), /success-color/);
+  assert.match(c(gauge, 35), /warning-color/);
+  assert.match(c(gauge, 10), /error-color/);
+  assert.match(c({ green: 50, red: 20 }, 5), /error-color/); // under the lowest: the lowest colour
+  assert.equal(c(undefined, 50), null);
+  assert.equal(c({}, 50), null);
+  assert.equal(c([{ from: 60, color: "#00c853" }, { from: 0, color: "rgb(255, 0, 0)" }], 70), "#00c853");
+  assert.equal(c([{ from: 60, color: "#00c853" }, { from: 0, color: "rgb(255, 0, 0)" }], 30), "rgb(255, 0, 0)");
+  assert.equal(c([{ from: 0, color: 'red" onload="x' }], 30), null);
+  const bar = (html) => html.match(/data-tile="battery_level".*?class="fill" style="width:[^;]+;background:([^"]+)"/)[1];
+  assert.equal(bar(renderCard({}).html), "var(--rn-accent)");
+  assert.match(bar(renderCard({ battery_severity: gauge }).html), /success-color/);
+  assert.match(bar(renderCard({ battery_severity: { green: 90, yellow: 50 } }).html), /warning-color/);
+  // The fuel option leaves the battery bar alone
+  assert.equal(bar(renderCard({ fuel_severity: { red: 100 } }).html), "var(--rn-accent)");
+});
+
+test("card editor: severity panels, kept short, YAML only for a list (#82)", () => {
+  const editor = Object.create(defined["renault-card-editor"].prototype);
+  editor._hass = { language: "en" };
+  editor._config = {};
+  assert.match(JSON.stringify(editor._schema()), /"fuel_severity".*"green".*"yellow".*"red"/);
+  editor.dispatchEvent = (ev) => { editor.last = ev.detail.config; };
+  editor._valueChanged({ stopPropagation() {}, detail: { value: { fuel_severity: { green: 50, yellow: "", red: undefined }, battery_severity: {} } } });
+  assert.deepEqual({ ...editor.last.fuel_severity }, { green: 50 });
+  assert.equal(editor.last.battery_severity, undefined);
+  editor._config = { fuel_severity: [{ from: 0, color: "red" }] };
+  const names = JSON.stringify(editor._schema());
+  assert.doesNotMatch(names, /"fuel_severity"/);
+  assert.match(names, /"battery_severity"/);
+});

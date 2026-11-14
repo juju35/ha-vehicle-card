@@ -262,6 +262,31 @@ tile_options:
 
 The action buttons and the lease section keep their own behaviour.
 
+### Battery and fuel bar colours
+
+By default the bars of the battery and fuel tiles turn red under 10 %, orange under 25 % and use the accent colour above. `battery_severity` and `fuel_severity` set your own thresholds, as in Home Assistant's gauge card: each colour applies from its level up (the theme's success, warning and error colours), and a level under the lowest threshold takes the lowest colour. Also in the visual editor (**Battery bar colours**, **Fuel bar colours**).
+
+```yaml
+fuel_severity:
+  green: 50   # 50 % and more
+  yellow: 20  # 20 to 49 % (orange)
+  red: 0      # under 20 %
+```
+
+For other colours, give a list of `from` / `color` (YAML only):
+
+```yaml
+battery_severity:
+  - from: 80
+    color: "#00c853"
+  - from: 30
+    color: var(--primary-color)
+  - from: 0
+    color: "#d50000"
+```
+
+The fuel bar shows for a fuel level in %, or for a fuel quantity with `fuel_tank_capacity`.
+
 ### Minimal
 
 ```yaml
@@ -324,6 +349,8 @@ entities:
 | `plate_department` | ❌ | — | Department number on the right of the plate, e.g. `35`; departments of Brittany, Occitania, Île-de-France, Provence, Corsica and Burgundy get their traditional regional emblem |
 | `show_location` | ❌ | `true` | Show the location row |
 | `show_actions` | ❌ | `true` | Show the action buttons and charge mode |
+| `battery_severity` | ❌ | — | Battery bar colours: `green`, `yellow`, `red` thresholds in % (each from that level up), or a list of `from` / `color` (YAML only); see [Battery and fuel bar colours](#battery-and-fuel-bar-colours) |
+| `fuel_severity` | ❌ | — | Same for the fuel bar |
 | `tap_action` | ❌ | `more-info` | Action on a tap on a tile, chip or row ([Home Assistant actions](https://www.home-assistant.io/dashboards/actions/)); `action: none` for no dialog |
 | `hold_action` | ❌ | `none` | Action on a press held for half a second on a tile, chip or row |
 | `tile_options` | ❌ | — | YAML only. Per tile (`battery_level`, `battery_autonomy`, `fuel_autonomy`, `fuel`, `mileage`, `outside_temperature`, `tyres`): `name`, `icon`, `tap_action`, `hold_action` (see [Tiles: names, icons and actions](#tiles-names-icons-and-actions)) |
