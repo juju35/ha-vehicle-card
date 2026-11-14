@@ -191,6 +191,8 @@ The projection starts after 30 days. It uses the average since the start of the 
 
 Tap the section to unfold the details (a click anywhere else folds it back): pace, end-of-lease projection, the current contract year (contract years run from the start date) with its allowance and year-end projection, and the chart of actual mileage, allowance and projection. The history comes from the long-term statistics of the mileage sensor, kept by Home Assistant's recorder; it is fetched once an hour. The details are folded by default; set `expand_lease: true` to show them unfolded.
 
+Each piece of the section can be shown or hidden with `lease_figs` (in the visual editor too): `target`, `month`, `budget`, `pace`, `projection`, `year` and `chart`. Keep only the ones you care about — for example `lease_figs: [budget]` for the kilometres per month, or `[]` to reduce the section to its status bar. The status, the progress bar and the dates always stay.
+
 ```yaml
 lease:
   start_date: "2024-12-01"
@@ -301,6 +303,7 @@ entities:
 | `show_data_plan` | ❌ | `true` | Show the Orange Internet On the move section when a data plan is found, and the connected services subscription of the car |
 | `data_plan_device_id` | ❌ | Auto | Orange Internet On the move device; found from the vehicle model when empty |
 | `expand_lease` | ❌ | `false` | Show the lease details and chart unfolded |
+| `lease_figs` | ❌ | All | Lease information to show: `target` (theoretical mileage today), `month` (left this month), `budget` (per month), `pace`, `projection` (end of lease), `year` (contract year), `chart`. `[]` keeps only the status bar. The status, the progress bar and the dates are always shown |
 | `lease` | ❌ | — | Lease tracking: `start_date` (`YYYY-MM-DD`), `duration` (months) and `km_per_year` are required to show it; `start_mileage` (km at delivery) defaults to `0`; `forecast`: `90` or `30` to project from the last days (average since the start by default); `extra_km_cost`: cost per extra km |
 | `language` | ❌ | Auto | Force language: `en`, `fr`, `de`, `es`, `sr`, `sr-Latn`, `it`, `nl`, `pt`, `pl`, `ro`, `da`, `sv`, `bg`, `ru`, `uk`, `hu`, `sk`, `cs`, `sl`, `lv` or `el` (auto-detects from HA settings) |
 | `entities` | ❌ | Auto | Override detected entities: `mileage`, `fuel_autonomy`, `fuel_quantity`, `fuel_level`, `battery_level`, `battery_autonomy`, `location` |

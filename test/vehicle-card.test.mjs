@@ -216,6 +216,36 @@ test("lease status text uses the same kilometres as its cost", () => {
   assert.match(html, /Allowance exceeded by 900 km · ≈ €900/);
 });
 
+test("lease_figs chooses which lease information is shown", () => {
+  const start = new Date();
+  start.setDate(start.getDate() - 200);
+  const d = `${start.getFullYear()}-${String(start.getMonth() + 1).padStart(2, "0")}-${String(start.getDate()).padStart(2, "0")}`;
+  const render = (extra) => {
+    const card = Object.create(RenaultCard.prototype);
+    card._config = { expand_lease: true, lease: { start_date: d, duration: 36, km_per_year: 12000 }, ...extra };
+    card._hass = { language: "en", config: { currency: "EUR" }, states: { "sensor.m": { state: "6000", attributes: {} } } };
+    card._leaseFetch = () => {};
+    card._leaseHist = { key: `sensor.m|${d}`, at: Date.now(), points: [[start.getTime(), 0], [Date.now(), 6000]] };
+    return card._leaseHtml({ mileage: "sensor.m" });
+  };
+  // By default every figure and the chart are shown.
+  const all = render();
+  for (const lbl of ["Target today", "Per month", "Pace", "End of lease", "Year 1", "Mileage tracking"]) assert.match(all, new RegExp(lbl));
+  // Only the chosen ones remain; the others, and the status bar, stay.
+  const some = render({ lease_figs: ["budget", "projection"] });
+  assert.match(some, /Per month/);
+  assert.match(some, /End of lease/);
+  assert.doesNotMatch(some, /Target today/);
+  assert.doesNotMatch(some, /Left this month/);
+  assert.doesNotMatch(some, /Pace/);
+  assert.doesNotMatch(some, /Year 1/);
+  assert.doesNotMatch(some, /Mileage tracking/);
+  // An empty list hides them all; the lease block itself still renders.
+  const none = render({ lease_figs: [] });
+  for (const lbl of ["Target today", "Per month", "Pace", "End of lease", "Year 1", "Mileage tracking"]) assert.doesNotMatch(none, new RegExp(lbl));
+  assert.match(none, /class="lease /);
+});
+
 test("the lease cost shows the euro sign in Romanian, Hungarian and Ukrainian, not Intl's EUR code", () => {
   for (const lang of ["ro", "hu", "uk"]) {
     const card = Object.create(RenaultCard.prototype);
