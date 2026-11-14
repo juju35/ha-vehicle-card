@@ -1839,3 +1839,53 @@ test("card editor offers show_title and show_subtitle, on by default", () => {
   assert.equal(ctx.RN_EDITOR_DEFAULTS.show_title, true);
   assert.equal(ctx.RN_EDITOR_DEFAULTS.show_subtitle, true);
 });
+
+test("tiles, show_chips and image_height: a card showing only the lease (#79)", () => {
+  const { entities, devices } = renaultRegistry();
+  const states = renaultStates(Object.keys(entities));
+  const render = (config) => {
+    const card = Object.create(RenaultCard.prototype);
+    card._config = { device_id: "d1", ...config };
+    card._hass = { entities, devices, states, language: "en" };
+    const root = { html: "", activeElement: null, querySelectorAll: () => [] };
+    Object.defineProperty(root, "innerHTML", { get: () => root.html, set: (h) => { root.html = h; } });
+    card.shadowRoot = root;
+    card._leaseFetch = () => {};
+    card._update();
+    return root.html;
+  };
+  const all = render({});
+  assert.match(all, /<div class="tiles">/);
+  assert.match(all, /Mileage/);
+  // Only the mileage tile
+  const mileage = render({ tiles: ["mileage"] });
+  assert.match(mileage, /<div class="tiles"><div class="tile" data-more="[^"]*mileage[^"]*"[^>]*>(?:(?!<div class="tile[ "]).)*<\/div><\/div>/);
+  // No tiles, no chips: the lease stays
+  const leaseOnly = render({ tiles: [], show_chips: false, show_location: false, show_actions: false, show_data_plan: false, show_image: false, lease });
+  assert.doesNotMatch(leaseOnly, /<div class="tiles">/);
+  assert.doesNotMatch(leaseOnly, /<div class="chips">/);
+  assert.match(leaseOnly, /<div class="lease lease-/);
+  // Picture height
+  assert.match(render({ show_image: true, image: "/car.png", image_height: 220 }), /<img src="\/car\.png" alt="[^"]*" style="max-height:220px">/);
+  assert.doesNotMatch(render({ show_image: true, image: "/car.png" }), /style="max-height/);
+});
+
+test("card editor: every tile checked by default, no tiles option kept in the YAML then", () => {
+  const editor = Object.create(defined["renault-card-editor"].prototype);
+  editor._hass = { language: "en" };
+  editor._config = { type: "custom:vehicle-card" };
+  const names = JSON.stringify(editor._schema());
+  assert.match(names, /"tiles"/);
+  assert.match(names, /"show_chips"/);
+  assert.match(names, /"image_height"/);
+  const all = ctx.RN_TILES.map((x) => x[0]);
+  const out = (value) => {
+    editor.dispatchEvent = (ev) => { editor.last = ev.detail.config; };
+    editor._valueChanged({ stopPropagation() {}, detail: { value } });
+    return editor.last;
+  };
+  assert.equal(out({ tiles: all }).tiles, undefined);
+  assert.deepEqual([...out({ tiles: ["mileage"] }).tiles], ["mileage"]);
+  assert.deepEqual([...out({ tiles: [] }).tiles], []);
+  assert.equal(out({ show_chips: true }).show_chips, undefined);
+});

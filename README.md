@@ -175,7 +175,7 @@ For another model, or to use your own photo, give the card any image, ideally a 
 image: /local/renault/clio.png
 ```
 
-Your `image` takes priority over the integration's picture. With no picture, or with `show_image: false`, the card shows only the brand's logo next to the name (or a car icon with `show_logo: false`, or for a brand without a logo).
+Your `image` takes priority over the integration's picture. `image_height` sets the picture's height in pixels (150 by default), for example `image_height: 220` for a bigger car or `90` for a smaller one. With no picture, or with `show_image: false`, the card shows only the brand's logo next to the name (or a car icon with `show_logo: false`, or for a brand without a logo).
 
 ### Lease tracking (LOA)
 
@@ -202,6 +202,28 @@ lease:
 ```
 
 Also in the visual editor, in the **Lease tracking** panel. Without `lease`, the section is not shown.
+
+#### Lease only
+
+To keep only the lease on the card (for example a second card next to the full one), hide the other sections: `tiles: []` removes every tile, `show_chips: false` the status chips. All of these are in the visual editor.
+
+```yaml
+type: custom:vehicle-card
+device_id: 5a8c1932ddf3f29163a275f06789b1bf
+show_image: false
+show_chips: false
+tiles: []
+show_location: false
+show_actions: false
+show_data_plan: false
+expand_lease: true
+lease:
+  start_date: "2024-12-01"
+  duration: 37
+  km_per_year: 20000
+```
+
+The lease still needs the vehicle's mileage sensor, even with its tile hidden.
 
 | Lease (details unfolded) | Dark theme |
 |---|---|
@@ -235,6 +257,9 @@ low_range: 100
 low_tyre_pressure: 2.2
 show_plate: true
 plate_department: "35"
+image_height: 150
+show_chips: true
+tiles: [battery_level, battery_autonomy, fuel_autonomy, fuel, mileage, outside_temperature, tyres]
 show_location: true
 show_actions: true
 show_data_plan: true
@@ -262,6 +287,9 @@ entities:
 | `image` | ❌ | Auto | Picture URL; overrides the integration's picture |
 | `show_logo` | ❌ | `true` | Show the brand's logo next to the name (follows the theme text colour) |
 | `show_image` | ❌ | `true` | Show the vehicle picture |
+| `image_height` | ❌ | `150` | Maximum height of the vehicle picture, in pixels (full card; the mini card keeps its compact picture) |
+| `show_chips` | ❌ | `true` | Show the status chips (low range, tyres, lock, doors, charging, air conditioning, offline) |
+| `tiles` | ❌ | All | Tiles to show, in the card's order: `battery_level`, `battery_autonomy`, `fuel_autonomy`, `fuel` (fuel quantity or level), `mileage`, `outside_temperature`, `tyres`; a tile without data is not shown either. `[]` for no tiles. The mini card follows it for its battery and range tiles |
 | `fuel_tank_capacity` | ❌ | — | Tank capacity in litres; shows the fuel gauge |
 | `low_range` | ❌ | `100` | Range (km) below which the card shows a low range warning; `0` turns it off. Converted when the range sensor reads miles. On a plug-in hybrid it is compared with the fuel plus battery range, so an empty battery alone does not warn |
 | `low_tyre_pressure` | ❌ | — | Tyre pressure (bar, whatever unit the sensors use) below which the tyre tile and a chip show a warning; empty or `0` turns it off |

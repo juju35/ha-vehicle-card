@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.3.0 - 2026-11-14
+
+### Features
+- **Pick the tiles to show** with the `tiles` option (battery, ranges, fuel, mileage, outside temperature, tyres), `show_chips: false` hides the status chips, and `image_height` sets the size of the vehicle picture; all three in the visual editor. With them and the existing `show_*` options, a card can show only the lease (#79, thanks @thomasfav28).
+
 ## 3.2.0 - 2026-11-14
 
 ### Features
