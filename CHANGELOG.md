@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.5.0 - 2026-11-15
+
+### Features
+- **Tile actions and names**: `tap_action` and `hold_action` (Home Assistant's standard actions, also in the visual editor) for the tiles, chips and rows, `action: none` to open no dialog; `tile_options` (YAML only) renames a tile, changes its icon and gives it its own actions (#81, thanks @thomasfav28).
+
 ## 3.4.0 - 2026-11-14
 
 ### Features

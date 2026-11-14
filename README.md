@@ -237,6 +237,31 @@ The lease section unfolding on tap — pace, end-of-lease projection, contract y
 |---|---|
 | <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/screenshots/lease.gif" alt="Lease section unfolding and folding back" width="387"> | <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/screenshots/lease-dark.gif" alt="Lease section unfolding and folding back, dark theme" width="387"> |
 
+### Tiles: names, icons and actions
+
+A tap on a tile, a chip or a row (location, Orange Internet On the move, connected services) opens its entity's more-info dialog. `tap_action` and `hold_action` change that for the whole card, with Home Assistant's [standard actions](https://www.home-assistant.io/dashboards/actions/) (`more-info`, `navigate`, `url`, `toggle`, `perform-action`, `assist`, `none`); a hold is a press of half a second, and does nothing by default. Both are in the visual editor.
+
+`tile_options` (YAML only) sets, per tile (the keys of `tiles`), its `name`, its `icon` and its own `tap_action` / `hold_action`, which win over the card's:
+
+```yaml
+tap_action:
+  action: none            # no dialog on the tiles, chips and rows
+tile_options:
+  battery_level:
+    name: Traction battery
+    icon: mdi:car-battery
+    tap_action:
+      action: navigate
+      navigation_path: /energy
+  fuel:
+    name: Tank
+  mileage:
+    tap_action:
+      action: more-info   # this one still opens its dialog
+```
+
+The action buttons and the lease section keep their own behaviour.
+
 ### Minimal
 
 ```yaml
@@ -299,6 +324,9 @@ entities:
 | `plate_department` | ❌ | — | Department number on the right of the plate, e.g. `35`; departments of Brittany, Occitania, Île-de-France, Provence, Corsica and Burgundy get their traditional regional emblem |
 | `show_location` | ❌ | `true` | Show the location row |
 | `show_actions` | ❌ | `true` | Show the action buttons and charge mode |
+| `tap_action` | ❌ | `more-info` | Action on a tap on a tile, chip or row ([Home Assistant actions](https://www.home-assistant.io/dashboards/actions/)); `action: none` for no dialog |
+| `hold_action` | ❌ | `none` | Action on a press held for half a second on a tile, chip or row |
+| `tile_options` | ❌ | — | YAML only. Per tile (`battery_level`, `battery_autonomy`, `fuel_autonomy`, `fuel`, `mileage`, `outside_temperature`, `tyres`): `name`, `icon`, `tap_action`, `hold_action` (see [Tiles: names, icons and actions](#tiles-names-icons-and-actions)) |
 | `buttons` | ❌ | — | Extra action buttons: a list of entity IDs (`button`, `switch`, `input_boolean`, `script`, `scene`, `automation`, `lock`, `climate`, `light`, `fan`, `cover`…), after the vehicle's own buttons. A tap presses, runs, locks / unlocks or toggles the entity, after the confirmation tap |
 | `show_data_plan` | ❌ | `true` | Show the Orange Internet On the move section when a data plan is found, and the connected services subscription of the car |
 | `data_plan_device_id` | ❌ | Auto | Orange Internet On the move device; found from the vehicle model when empty |
