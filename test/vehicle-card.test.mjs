@@ -268,18 +268,19 @@ test("rnRelative formats in the given language", () => {
   assert.equal(ctx.rnRelative("fr", new Date(Date.now() - 2 * 3600000)), "il y a 2 heures");
 });
 
-test("disconnecting the card cancels the armed button and call feedback timers", () => {
+test("disconnecting the card cancels the armed button, call feedback and hold timers", () => {
   const cleared = [];
   const card = Object.create(RenaultCard.prototype);
   const orig = ctx.clearTimeout;
   ctx.clearTimeout = (t) => cleared.push(t);
   card._armTimer = 42;
   card._resultTimer = 43;
+  card._holdTimer = 44;
   card._armed = "button.horn";
   card._result = { id: "button.horn", ok: true, msg: "" };
   card.disconnectedCallback();
   ctx.clearTimeout = orig;
-  assert.deepEqual(cleared, [42, 43]);
+  assert.deepEqual(cleared, [42, 43, 44]);
   assert.equal(card._armed, null);
   assert.equal(card._result, null);
 });
@@ -1918,4 +1919,101 @@ test("card editor: every tile checked by default, no tiles option kept in the YA
   assert.deepEqual([...out({ tiles: ["mileage"] }).tiles], ["mileage"]);
   assert.deepEqual([...out({ tiles: [] }).tiles], []);
   assert.equal(out({ show_chips: true }).show_chips, undefined);
+});
+
+function renderCard(config, Card = RenaultCard) {
+  const { entities, devices } = renaultRegistry();
+  const states = renaultStates(Object.keys(entities));
+  const card = Object.create(Card.prototype);
+  card._config = { device_id: "d1", ...config };
+  card._hass = { entities, devices, states, language: "en" };
+  const root = { html: "", activeElement: null, querySelectorAll: () => [] };
+  Object.defineProperty(root, "innerHTML", { get: () => root.html, set: (h) => { root.html = h; } });
+  card.shadowRoot = root;
+  card._leaseFetch = () => {};
+  card._update();
+  return { card, html: root.html };
+}
+
+test("tile_options renames a tile and changes its icon (#81)", () => {
+  const { html } = renderCard({ tile_options: { battery_level: { name: "Traction battery", icon: "mdi:car-battery" }, mileage: { name: "Odometer" } } });
+  assert.match(html, /data-tile="battery_level"[^>]*><div class="tile-head"><ha-icon icon="mdi:car-battery"><\/ha-icon><span class="lbl">Traction battery</);
+  assert.match(html, /<span class="lbl">Odometer</);
+  assert.doesNotMatch(html, /<span class="lbl">Mileage</);
+});
+
+test("tap_action / hold_action: more-info by default, none, Home Assistant actions, per tile (#81)", () => {
+  const el = (more, tile) => ({ dataset: tile ? { more, tile } : { more } });
+  const tap = (config, target) => {
+    const card = Object.create(RenaultCard.prototype);
+    card._config = config;
+    card.events = [];
+    card._onClick({ composedPath: () => [target] });
+    return card.events;
+  };
+  const battery = el("sensor.car_battery_level", "battery_level");
+  let ev = tap({}, battery);
+  assert.equal(ev.length, 1);
+  assert.equal(ev[0].type, "hass-more-info");
+  assert.equal(ev[0].detail.entityId, "sensor.car_battery_level");
+  assert.equal(tap({ tap_action: { action: "none" } }, battery).length, 0);
+  // A chip or row (no tile) follows the card's tap_action too
+  assert.equal(tap({ tap_action: { action: "none" } }, el("device_tracker.car_location")).length, 0);
+  ev = tap({ tap_action: { action: "navigate", navigation_path: "/energy" } }, battery);
+  assert.equal(ev[0].type, "hass-action");
+  assert.equal(ev[0].detail.action, "tap");
+  assert.equal(ev[0].detail.config.entity, "sensor.car_battery_level");
+  assert.equal(ev[0].detail.config.tap_action.navigation_path, "/energy");
+  // The tile's own action wins over the card's
+  const cfg = { tap_action: { action: "none" }, tile_options: { battery_level: { tap_action: { action: "more-info" } } } };
+  assert.equal(tap(cfg, battery)[0].type, "hass-more-info");
+  assert.equal(tap(cfg, el("sensor.car_mileage", "mileage")).length, 0);
+  // Hold: nothing by default, the configured action otherwise
+  const card = Object.create(RenaultCard.prototype);
+  card._config = {};
+  assert.equal(card._actionCfg(battery, "hold"), null);
+  card._config = { hold_action: { action: "more-info" } };
+  card.events = [];
+  card._runAction(battery, "hold");
+  assert.equal(card.events[0].type, "hass-more-info");
+  // The click ending a hold does not run the tap action as well
+  card._held = true;
+  card._onClick({ composedPath: () => [battery] });
+  assert.equal(card.events.length, 1);
+});
+
+test("battery_severity / fuel_severity colour the bars; unchanged without them (#82)", () => {
+  const c = ctx.rnSeverityColor;
+  const gauge = { green: 50, yellow: 20, red: 0 };
+  assert.match(c(gauge, 80), /success-color/);
+  assert.match(c(gauge, 50), /success-color/);
+  assert.match(c(gauge, 35), /warning-color/);
+  assert.match(c(gauge, 10), /error-color/);
+  assert.match(c({ green: 50, red: 20 }, 5), /error-color/); // under the lowest: the lowest colour
+  assert.equal(c(undefined, 50), null);
+  assert.equal(c({}, 50), null);
+  assert.equal(c([{ from: 60, color: "#00c853" }, { from: 0, color: "rgb(255, 0, 0)" }], 70), "#00c853");
+  assert.equal(c([{ from: 60, color: "#00c853" }, { from: 0, color: "rgb(255, 0, 0)" }], 30), "rgb(255, 0, 0)");
+  assert.equal(c([{ from: 0, color: 'red" onload="x' }], 30), null);
+  const bar = (html) => html.match(/data-tile="battery_level".*?class="fill" style="width:[^;]+;background:([^"]+)"/)[1];
+  assert.equal(bar(renderCard({}).html), "var(--rn-accent)");
+  assert.match(bar(renderCard({ battery_severity: gauge }).html), /success-color/);
+  assert.match(bar(renderCard({ battery_severity: { green: 90, yellow: 50 } }).html), /warning-color/);
+  // The fuel option leaves the battery bar alone
+  assert.equal(bar(renderCard({ fuel_severity: { red: 100 } }).html), "var(--rn-accent)");
+});
+
+test("card editor: severity panels, kept short, YAML only for a list (#82)", () => {
+  const editor = Object.create(defined["renault-card-editor"].prototype);
+  editor._hass = { language: "en" };
+  editor._config = {};
+  assert.match(JSON.stringify(editor._schema()), /"fuel_severity".*"green".*"yellow".*"red"/);
+  editor.dispatchEvent = (ev) => { editor.last = ev.detail.config; };
+  editor._valueChanged({ stopPropagation() {}, detail: { value: { fuel_severity: { green: 50, yellow: "", red: undefined }, battery_severity: {} } } });
+  assert.deepEqual({ ...editor.last.fuel_severity }, { green: 50 });
+  assert.equal(editor.last.battery_severity, undefined);
+  editor._config = { fuel_severity: [{ from: 0, color: "red" }] };
+  const names = JSON.stringify(editor._schema());
+  assert.doesNotMatch(names, /"fuel_severity"/);
+  assert.match(names, /"battery_severity"/);
 });
