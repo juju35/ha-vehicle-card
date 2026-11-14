@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.4.0 - 2026-11-14
+
+### Features
+- **Pick the lease information to show** with the `lease_figs` option (in the visual editor too): `target`, `month`, `budget`, `pace`, `projection`, `year` and `chart`. Keep only what matters — e.g. `lease_figs: [budget]` for the kilometres per month — or `[]` to reduce the section to its status bar; the status, the bar and the dates always stay (#83, thanks @thomasfav28).
+
 ## 3.3.0 - 2026-11-14
 
 ### Features

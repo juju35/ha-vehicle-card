@@ -88,6 +88,8 @@ var RnI18n = {
     ed_show_chips: 'Pastilles d\'état',
     ed_tiles: 'Tuiles',
     ed_tiles_helper: 'Décochez une tuile pour la masquer ; toutes décochées, aucune tuile (pour n\'afficher que la LOA, par exemple)',
+    ed_lease_figs: 'Infos de LOA',
+    ed_lease_figs_helper: 'Décochez une info pour la masquer ; toutes décochées, seule la barre de LOA reste',
     ed_image_height: 'Hauteur de l\'image',
     ed_data_plan_device_id: 'Forfait Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Laisser vide pour le trouver automatiquement à partir du modèle',
@@ -124,6 +126,7 @@ var RnI18n = {
     lease_projection_lbl: 'Fin de LOA',
     lease_year: 'Année {n}',
     lease_year_sub: 'sur {t}',
+    lease_year_lbl: 'Année de contrat',
     lease_chart: 'Suivi du kilométrage',
     lease_legend_actual: 'Réel',
     lease_legend_allowed: 'Forfait',
@@ -220,6 +223,8 @@ var RnI18n = {
     ed_show_chips: 'Status chips',
     ed_tiles: 'Tiles',
     ed_tiles_helper: 'Uncheck a tile to hide it; with none checked, no tiles (to show only the lease, for example)',
+    ed_lease_figs: 'Lease details',
+    ed_lease_figs_helper: 'Uncheck an item to hide it; with none checked, only the lease status bar remains',
     ed_image_height: 'Picture height',
     ed_data_plan_device_id: 'Orange Internet On the move data plan',
     ed_data_plan_device_id_helper: 'Leave empty to find it from the vehicle model',
@@ -256,6 +261,7 @@ var RnI18n = {
     lease_projection_lbl: 'End of lease',
     lease_year: 'Year {n}',
     lease_year_sub: 'of {t}',
+    lease_year_lbl: 'Contract year',
     lease_chart: 'Mileage tracking',
     lease_legend_actual: 'Actual',
     lease_legend_allowed: 'Allowance',
@@ -352,6 +358,8 @@ var RnI18n = {
     ed_show_chips: 'Statusanzeigen',
     ed_tiles: 'Kacheln',
     ed_tiles_helper: 'Kachel abwählen, um sie auszublenden; keine ausgewählt: keine Kacheln (z. B. nur das Leasing)',
+    ed_lease_figs: 'Leasing-Infos',
+    ed_lease_figs_helper: 'Eintrag abwählen, um ihn auszublenden; keiner ausgewählt: nur der Leasing-Statusbalken bleibt',
     ed_image_height: 'Bildhöhe',
     ed_data_plan_device_id: 'Datentarif Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Leer lassen, um ihn anhand des Fahrzeugmodells zu finden',
@@ -388,6 +396,7 @@ var RnI18n = {
     lease_projection_lbl: 'Leasingende',
     lease_year: 'Jahr {n}',
     lease_year_sub: 'von {t}',
+    lease_year_lbl: 'Vertragsjahr',
     lease_chart: 'Kilometerverlauf',
     lease_legend_actual: 'Ist',
     lease_legend_allowed: 'Kontingent',
@@ -484,6 +493,8 @@ var RnI18n = {
     ed_show_chips: 'Etiquetas de estado',
     ed_tiles: 'Mosaicos',
     ed_tiles_helper: 'Desmarque un mosaico para ocultarlo; sin ninguno marcado, no hay mosaicos (solo el leasing, por ejemplo)',
+    ed_lease_figs: 'Datos del leasing',
+    ed_lease_figs_helper: 'Desmarque un dato para ocultarlo; sin ninguno marcado, solo queda la barra de estado del leasing',
     ed_image_height: 'Altura de la imagen',
     ed_data_plan_device_id: 'Plan de datos Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Déjalo vacío para encontrarlo a partir del modelo del vehículo',
@@ -520,6 +531,7 @@ var RnI18n = {
     lease_projection_lbl: 'Fin del leasing',
     lease_year: 'Año {n}',
     lease_year_sub: 'de {t}',
+    lease_year_lbl: 'Año de contrato',
     lease_chart: 'Seguimiento del kilometraje',
     lease_legend_actual: 'Real',
     lease_legend_allowed: 'Límite',
@@ -616,6 +628,8 @@ var RnI18n = {
     ed_show_chips: 'Ознаке стања',
     ed_tiles: 'Плочице',
     ed_tiles_helper: 'Поништите плочицу да бисте је сакрили; без иједне, нема плочица (на пример само лизинг)',
+    ed_lease_figs: 'Подаци о лизингу',
+    ed_lease_figs_helper: 'Поништите податак да бисте га сакрили; без иједног, остаје само трака стања лизинга',
     ed_image_height: 'Висина слике',
     ed_data_plan_device_id: 'Пакет података Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Оставите празно да би се пронашао према моделу возила',
@@ -652,6 +666,7 @@ var RnI18n = {
     lease_projection_lbl: 'Крај лизинга',
     lease_year: 'Година {n}',
     lease_year_sub: 'од {t}',
+    lease_year_lbl: 'Година уговора',
     lease_chart: 'Праћење километраже',
     lease_legend_actual: 'Стварно',
     lease_legend_allowed: 'Дозвољено',
@@ -748,6 +763,8 @@ var RnI18n = {
     ed_show_chips: 'Oznake stanja',
     ed_tiles: 'Pločice',
     ed_tiles_helper: 'Poništite pločicu da biste je sakrili; bez ijedne, nema pločica (na primer samo lizing)',
+    ed_lease_figs: 'Podaci o lizingu',
+    ed_lease_figs_helper: 'Poništite podatak da biste ga sakrili; bez ijednog, ostaje samo traka stanja lizinga',
     ed_image_height: 'Visina slike',
     ed_data_plan_device_id: 'Paket podataka Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Ostavite prazno da bi se pronašao prema modelu vozila',
@@ -784,6 +801,7 @@ var RnI18n = {
     lease_projection_lbl: 'Kraj lizinga',
     lease_year: 'Godina {n}',
     lease_year_sub: 'od {t}',
+    lease_year_lbl: 'Godina ugovora',
     lease_chart: 'Praćenje kilometraže',
     lease_legend_actual: 'Stvarno',
     lease_legend_allowed: 'Dozvoljeno',
@@ -880,6 +898,8 @@ var RnI18n = {
     ed_show_chips: 'Etichette di stato',
     ed_tiles: 'Riquadri',
     ed_tiles_helper: 'Deseleziona un riquadro per nasconderlo; nessuno selezionato, nessun riquadro (ad esempio solo il leasing)',
+    ed_lease_figs: 'Dati del leasing',
+    ed_lease_figs_helper: 'Deseleziona un dato per nasconderlo; nessuno selezionato, resta solo la barra di stato del leasing',
     ed_image_height: 'Altezza dell\'immagine',
     ed_data_plan_device_id: 'Piano dati Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Lasciare vuoto per trovarlo dal modello del veicolo',
@@ -916,6 +936,7 @@ var RnI18n = {
     lease_projection_lbl: 'Fine del leasing',
     lease_year: 'Anno {n}',
     lease_year_sub: 'su {t}',
+    lease_year_lbl: 'Anno di contratto',
     lease_chart: 'Monitoraggio del chilometraggio',
     lease_legend_actual: 'Reale',
     lease_legend_allowed: 'Limite',
@@ -1012,6 +1033,8 @@ var RnI18n = {
     ed_show_chips: 'Statuslabels',
     ed_tiles: 'Tegels',
     ed_tiles_helper: 'Vink een tegel uit om hem te verbergen; geen enkele aangevinkt: geen tegels (bijvoorbeeld alleen de lease)',
+    ed_lease_figs: 'Leasegegevens',
+    ed_lease_figs_helper: 'Vink een gegeven uit om het te verbergen; geen enkele aangevinkt: alleen de leasestatusbalk blijft',
     ed_image_height: 'Hoogte van de afbeelding',
     ed_data_plan_device_id: 'Databundel Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Leeg laten om deze via het voertuigmodel te vinden',
@@ -1048,6 +1071,7 @@ var RnI18n = {
     lease_projection_lbl: 'Einde lease',
     lease_year: 'Jaar {n}',
     lease_year_sub: 'van {t}',
+    lease_year_lbl: 'Contractjaar',
     lease_chart: 'Kilometerregistratie',
     lease_legend_actual: 'Werkelijk',
     lease_legend_allowed: 'Budget',
@@ -1144,6 +1168,8 @@ var RnI18n = {
     ed_show_chips: 'Etiquetas de estado',
     ed_tiles: 'Mosaicos',
     ed_tiles_helper: 'Desmarque um mosaico para o ocultar; nenhum marcado, sem mosaicos (apenas o leasing, por exemplo)',
+    ed_lease_figs: 'Dados do leasing',
+    ed_lease_figs_helper: 'Desmarque um dado para o ocultar; nenhum marcado, fica apenas a barra de estado do leasing',
     ed_image_height: 'Altura da imagem',
     ed_data_plan_device_id: 'Tarifário Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Deixar vazio para o encontrar a partir do modelo do veículo',
@@ -1180,6 +1206,7 @@ var RnI18n = {
     lease_projection_lbl: 'Fim do leasing',
     lease_year: 'Ano {n}',
     lease_year_sub: 'de {t}',
+    lease_year_lbl: 'Ano de contrato',
     lease_chart: 'Acompanhamento da quilometragem',
     lease_legend_actual: 'Real',
     lease_legend_allowed: 'Limite',
@@ -1276,6 +1303,8 @@ var RnI18n = {
     ed_show_chips: 'Etykiety stanu',
     ed_tiles: 'Kafelki',
     ed_tiles_helper: 'Odznacz kafelek, aby go ukryć; bez zaznaczonych brak kafelków (np. tylko leasing)',
+    ed_lease_figs: 'Dane leasingu',
+    ed_lease_figs_helper: 'Odznacz pozycję, aby ją ukryć; bez zaznaczonych zostaje tylko pasek stanu leasingu',
     ed_image_height: 'Wysokość obrazu',
     ed_data_plan_device_id: 'Pakiet danych Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Pozostaw puste, aby znaleźć go na podstawie modelu pojazdu',
@@ -1312,6 +1341,7 @@ var RnI18n = {
     lease_projection_lbl: 'Koniec leasingu',
     lease_year: 'Rok {n}',
     lease_year_sub: 'z {t}',
+    lease_year_lbl: 'Rok umowy',
     lease_chart: 'Śledzenie przebiegu',
     lease_legend_actual: 'Rzeczywisty',
     lease_legend_allowed: 'Limit',
@@ -1408,6 +1438,8 @@ var RnI18n = {
     ed_show_chips: 'Etichete de stare',
     ed_tiles: 'Plăci',
     ed_tiles_helper: 'Debifați o placă pentru a o ascunde; niciuna bifată, nicio placă (de exemplu doar leasingul)',
+    ed_lease_figs: 'Detalii leasing',
+    ed_lease_figs_helper: 'Debifați o informație pentru a o ascunde; niciuna bifată, rămâne doar bara de stare a leasingului',
     ed_image_height: 'Înălțimea imaginii',
     ed_data_plan_device_id: 'Abonament Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Lăsați gol pentru a-l găsi după modelul vehiculului',
@@ -1444,6 +1476,7 @@ var RnI18n = {
     lease_projection_lbl: 'Sfârșitul leasingului',
     lease_year: 'Anul {n}',
     lease_year_sub: 'din {t}',
+    lease_year_lbl: 'An contractual',
     lease_chart: 'Evoluția kilometrajului',
     lease_legend_actual: 'Real',
     lease_legend_allowed: 'Limită',
@@ -1540,6 +1573,8 @@ var RnI18n = {
     ed_show_chips: 'Statusmærker',
     ed_tiles: 'Felter',
     ed_tiles_helper: 'Fjern markeringen af et felt for at skjule det; ingen markeret: ingen felter (f.eks. kun leasingen)',
+    ed_lease_figs: 'Leasingoplysninger',
+    ed_lease_figs_helper: 'Fjern markeringen af en oplysning for at skjule den; ingen markeret: kun leasingens statuslinje bliver',
     ed_image_height: 'Billedets højde',
     ed_data_plan_device_id: 'Dataabonnement Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Lad feltet stå tomt for at finde det ud fra køretøjets model',
@@ -1576,6 +1611,7 @@ var RnI18n = {
     lease_projection_lbl: 'Leasingens udløb',
     lease_year: 'År {n}',
     lease_year_sub: 'af {t}',
+    lease_year_lbl: 'Kontraktår',
     lease_chart: 'Kilometeropfølgning',
     lease_legend_actual: 'Faktisk',
     lease_legend_allowed: 'Ramme',
@@ -1672,6 +1708,8 @@ var RnI18n = {
     ed_show_chips: 'Statusetiketter',
     ed_tiles: 'Rutor',
     ed_tiles_helper: 'Avmarkera en ruta för att dölja den; ingen markerad: inga rutor (t.ex. bara leasingen)',
+    ed_lease_figs: 'Leasinguppgifter',
+    ed_lease_figs_helper: 'Avmarkera en uppgift för att dölja den; ingen markerad: bara leasingens statusfält visas',
     ed_image_height: 'Bildens höjd',
     ed_data_plan_device_id: 'Datapaket Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Lämna tomt för att hitta det utifrån fordonsmodellen',
@@ -1708,6 +1746,7 @@ var RnI18n = {
     lease_projection_lbl: 'Leasingens slut',
     lease_year: 'År {n}',
     lease_year_sub: 'av {t}',
+    lease_year_lbl: 'Avtalsår',
     lease_chart: 'Körsträckeuppföljning',
     lease_legend_actual: 'Faktisk',
     lease_legend_allowed: 'Tillåten',
@@ -1804,6 +1843,8 @@ var RnI18n = {
     ed_show_chips: 'Етикети за състояние',
     ed_tiles: 'Плочки',
     ed_tiles_helper: 'Махнете отметката от плочка, за да я скриете; без отметки няма плочки (например само лизингът)',
+    ed_lease_figs: 'Данни за лизинга',
+    ed_lease_figs_helper: 'Махнете отметката от данна, за да я скриете; без отметки остава само лентата за състояние на лизинга',
     ed_image_height: 'Височина на изображението',
     ed_data_plan_device_id: 'Пакет данни Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Оставете празно, за да бъде намерен по модела на автомобила',
@@ -1840,6 +1881,7 @@ var RnI18n = {
     lease_projection_lbl: 'Край на лизинга',
     lease_year: 'Година {n}',
     lease_year_sub: 'от {t}',
+    lease_year_lbl: 'Договорна година',
     lease_chart: 'Проследяване на километража',
     lease_legend_actual: 'Реален',
     lease_legend_allowed: 'Лимит',
@@ -1936,6 +1978,8 @@ var RnI18n = {
     ed_show_chips: 'Метки состояния',
     ed_tiles: 'Плитки',
     ed_tiles_helper: 'Снимите отметку с плитки, чтобы скрыть её; без отметок плиток нет (например, только лизинг)',
+    ed_lease_figs: 'Данные лизинга',
+    ed_lease_figs_helper: 'Снимите отметку с данных, чтобы скрыть их; без отметок остаётся только строка состояния лизинга',
     ed_image_height: 'Высота изображения',
     ed_data_plan_device_id: 'Тарифный план Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Оставьте пустым, чтобы найти его по модели автомобиля',
@@ -1972,6 +2016,7 @@ var RnI18n = {
     lease_projection_lbl: 'Конец лизинга',
     lease_year: 'Год {n}',
     lease_year_sub: 'из {t}',
+    lease_year_lbl: 'Год договора',
     lease_chart: 'Отслеживание пробега',
     lease_legend_actual: 'Факт',
     lease_legend_allowed: 'Лимит',
@@ -2068,6 +2113,8 @@ var RnI18n = {
     ed_show_chips: 'Мітки стану',
     ed_tiles: 'Плитки',
     ed_tiles_helper: 'Зніміть позначку з плитки, щоб приховати її; без позначок плиток немає (наприклад, лише лізинг)',
+    ed_lease_figs: 'Дані лізингу',
+    ed_lease_figs_helper: 'Зніміть позначку з даних, щоб приховати їх; без позначок залишається лише смуга стану лізингу',
     ed_image_height: 'Висота зображення',
     ed_data_plan_device_id: 'Тарифний план Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Залиште порожнім, щоб знайти його за моделлю автомобіля',
@@ -2104,6 +2151,7 @@ var RnI18n = {
     lease_projection_lbl: 'Кінець лізингу',
     lease_year: 'Рік {n}',
     lease_year_sub: 'з {t}',
+    lease_year_lbl: 'Рік договору',
     lease_chart: 'Відстеження пробігу',
     lease_legend_actual: 'Факт',
     lease_legend_allowed: 'Ліміт',
@@ -2200,6 +2248,8 @@ var RnI18n = {
     ed_show_chips: 'Állapotcímkék',
     ed_tiles: 'Csempék',
     ed_tiles_helper: 'Törölje egy csempe jelölését az elrejtéséhez; ha egyik sincs bejelölve, nincs csempe (például csak a lízing)',
+    ed_lease_figs: 'Lízingadatok',
+    ed_lease_figs_helper: 'Törölje egy adat jelölését az elrejtéséhez; ha egyik sincs bejelölve, csak a lízing állapotsávja marad',
     ed_image_height: 'Kép magassága',
     ed_data_plan_device_id: 'Orange Internet On the move adatcsomag',
     ed_data_plan_device_id_helper: 'Hagyja üresen, hogy a jármű modellje alapján keresse meg',
@@ -2236,6 +2286,7 @@ var RnI18n = {
     lease_projection_lbl: 'Lízing vége',
     lease_year: '{n}. év',
     lease_year_sub: 'keret: {t}',
+    lease_year_lbl: 'Szerződéses év',
     lease_chart: 'Kilométerkövetés',
     lease_legend_actual: 'Tényleges',
     lease_legend_allowed: 'Keret',
@@ -2332,6 +2383,8 @@ var RnI18n = {
     ed_show_chips: 'Stavové štítky',
     ed_tiles: 'Dlaždice',
     ed_tiles_helper: 'Zrušte označenie dlaždice, aby ste ju skryli; bez označenia žiadne dlaždice (napríklad len lízing)',
+    ed_lease_figs: 'Údaje lízingu',
+    ed_lease_figs_helper: 'Zrušte označenie údaja, aby ste ho skryli; bez označenia zostane len stavový pruh lízingu',
     ed_image_height: 'Výška obrázka',
     ed_data_plan_device_id: 'Dátový balík Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Nechajte prázdne, ak ho chcete nájsť podľa modelu vozidla',
@@ -2368,6 +2421,7 @@ var RnI18n = {
     lease_projection_lbl: 'Koniec lízingu',
     lease_year: 'Rok {n}',
     lease_year_sub: 'z {t}',
+    lease_year_lbl: 'Rok zmluvy',
     lease_chart: 'Sledovanie kilometrov',
     lease_legend_actual: 'Skutočnosť',
     lease_legend_allowed: 'Limit',
@@ -2464,6 +2518,8 @@ var RnI18n = {
     ed_show_chips: 'Stavové štítky',
     ed_tiles: 'Dlaždice',
     ed_tiles_helper: 'Zrušte označení dlaždice, abyste ji skryli; bez označení žádné dlaždice (například jen leasing)',
+    ed_lease_figs: 'Údaje leasingu',
+    ed_lease_figs_helper: 'Zrušte označení údaje, abyste ho skryli; bez označení zůstane jen stavový pruh leasingu',
     ed_image_height: 'Výška obrázku',
     ed_data_plan_device_id: 'Datový tarif Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Ponechte prázdné pro vyhledání podle modelu vozidla',
@@ -2500,6 +2556,7 @@ var RnI18n = {
     lease_projection_lbl: 'Konec leasingu',
     lease_year: 'Rok {n}',
     lease_year_sub: 'z {t}',
+    lease_year_lbl: 'Rok smlouvy',
     lease_chart: 'Sledování kilometrů',
     lease_legend_actual: 'Skutečnost',
     lease_legend_allowed: 'Limit',
@@ -2596,6 +2653,8 @@ var RnI18n = {
     ed_show_chips: 'Oznake stanja',
     ed_tiles: 'Ploščice',
     ed_tiles_helper: 'Odznačite ploščico, da jo skrijete; brez označenih ni ploščic (na primer samo lizing)',
+    ed_lease_figs: 'Podatki o lizingu',
+    ed_lease_figs_helper: 'Odznačite podatek, da ga skrijete; brez označenih ostane le vrstica stanja lizinga',
     ed_image_height: 'Višina slike',
     ed_data_plan_device_id: 'Podatkovni paket Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Pustite prazno, da se poišče po modelu vozila',
@@ -2632,6 +2691,7 @@ var RnI18n = {
     lease_projection_lbl: 'Konec lizinga',
     lease_year: 'Leto {n}',
     lease_year_sub: 'od {t}',
+    lease_year_lbl: 'Pogodbeno leto',
     lease_chart: 'Spremljanje kilometrov',
     lease_legend_actual: 'Dejansko',
     lease_legend_allowed: 'Omejitev',
@@ -2728,6 +2788,8 @@ var RnI18n = {
     ed_show_chips: 'Statusa birkas',
     ed_tiles: 'Flīzes',
     ed_tiles_helper: 'Noņemiet atzīmi no flīzes, lai to paslēptu; bez atzīmēm flīžu nav (piemēram, tikai līzings)',
+    ed_lease_figs: 'Līzinga dati',
+    ed_lease_figs_helper: 'Noņemiet atzīmi no datiem, lai tos paslēptu; bez atzīmēm paliek tikai līzinga statusa josla',
     ed_image_height: 'Attēla augstums',
     ed_data_plan_device_id: 'Orange Internet On the move datu plāns',
     ed_data_plan_device_id_helper: 'Atstājiet tukšu, lai to atrastu pēc transportlīdzekļa modeļa',
@@ -2764,6 +2826,7 @@ var RnI18n = {
     lease_projection_lbl: 'Līzinga beigas',
     lease_year: '{n}. gads',
     lease_year_sub: 'no {t}',
+    lease_year_lbl: 'Līguma gads',
     lease_chart: 'Nobraukuma uzskaite',
     lease_legend_actual: 'Faktiskais',
     lease_legend_allowed: 'Limits',
@@ -2860,6 +2923,8 @@ var RnI18n = {
     ed_show_chips: 'Ετικέτες κατάστασης',
     ed_tiles: 'Πλακίδια',
     ed_tiles_helper: 'Αποεπιλέξτε ένα πλακίδιο για να το αποκρύψετε· χωρίς επιλογή, κανένα πλακίδιο (για παράδειγμα μόνο η μίσθωση)',
+    ed_lease_figs: 'Στοιχεία λίζινγκ',
+    ed_lease_figs_helper: 'Αποεπιλέξτε ένα στοιχείο για να το αποκρύψετε· χωρίς επιλογή, μένει μόνο η μπάρα κατάστασης του λίζινγκ',
     ed_image_height: 'Ύψος εικόνας',
     ed_data_plan_device_id: 'Πακέτο Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Αφήστε κενό για εύρεση από το μοντέλο του οχήματος',
@@ -2896,6 +2961,7 @@ var RnI18n = {
     lease_projection_lbl: 'Τέλος μίσθωσης',
     lease_year: 'Έτος {n}',
     lease_year_sub: 'από {t}',
+    lease_year_lbl: 'Έτος σύμβασης',
     lease_chart: 'Παρακολούθηση χιλιομέτρων',
     lease_legend_actual: 'Πραγματικά',
     lease_legend_allowed: 'Όριο',
@@ -3586,6 +3652,12 @@ function rnLeaseStatus(lease, mileage, now, points) {
 var RN_TILES = [['battery_level', 'en_battery_level'], ['battery_autonomy', 'en_battery_autonomy'], ['fuel_autonomy', 'en_fuel_autonomy'],
   ['fuel', 'fuel_quantity'], ['mileage', 'en_mileage'], ['outside_temperature', 'outside_temperature'], ['tyres', 'tyres']];
 
+// The pieces of the lease section the user can show or hide (every one shown when the option is not set), each with the
+// translation key of its label: the folded figures (theoretical mileage, this month, monthly budget), the figures of the
+// unfolded view (pace, projection, contract year) and the chart.
+var RN_LEASE_FIGS = [['target', 'lease_expected_lbl'], ['month', 'lease_month_lbl'], ['budget', 'lease_budget_lbl'],
+  ['pace', 'lease_pace_lbl'], ['projection', 'lease_projection_lbl'], ['year', 'lease_year_lbl'], ['chart', 'lease_chart']];
+
 class RenaultCard extends HTMLElement {
   static getConfigElement() {
     return document.createElement('renault-card-editor');
@@ -3827,6 +3899,12 @@ class RenaultCard extends HTMLElement {
   _tileOn(key) {
     var t = this._config.tiles;
     return !Array.isArray(t) || t.indexOf(key) >= 0;
+  }
+
+  // lease_figs: the pieces of the lease section to show (an empty list for none); all of them when it is not set.
+  _leaseFigOn(key) {
+    var f = this._config.lease_figs;
+    return !Array.isArray(f) || f.indexOf(key) >= 0;
   }
 
   _tile(id, icon, label, value, extra) {
@@ -4177,16 +4255,18 @@ class RenaultCard extends HTMLElement {
     // Folded: theoretical mileage today, this month, and the monthly budget until the end.
     var figs = [];
     if (!st.ended) {
-      var dev = Math.round(st.deviation);
-      figs.push(this._leaseFig(this._t('lease_expected_lbl'), this._km(st.expectedOdo),
-        (dev > 0 ? '+' : '−') + this._km(Math.abs(dev)), false,
-        rnInk(dev > 0 ? RN_WARN : RN_OK)));
-      if (st.month) {
+      if (this._leaseFigOn('target')) {
+        var dev = Math.round(st.deviation);
+        figs.push(this._leaseFig(this._t('lease_expected_lbl'), this._km(st.expectedOdo),
+          (dev > 0 ? '+' : '−') + this._km(Math.abs(dev)), false,
+          rnInk(dev > 0 ? RN_WARN : RN_OK)));
+      }
+      if (st.month && this._leaseFigOn('month')) {
         var over = st.month.left < 0;
         figs.push(this._leaseFig(this._t('lease_month_lbl'), this._km(Math.abs(st.month.left)),
           this._t(over ? 'lease_month_over' : 'lease_month_left', { t: this._km(st.month.allowed) }), over));
       }
-      if (st.budget != null) {
+      if (st.budget != null && this._leaseFigOn('budget')) {
         figs.push(this._leaseFig(this._t('lease_budget_lbl'), st.budget > 0 ? this._km(st.budget) : '0 km', this._t('lease_budget_sub'), st.budget <= 0));
       }
     }
@@ -4205,7 +4285,7 @@ class RenaultCard extends HTMLElement {
       '<div class="plan-info"><span><b>' + rnEsc(this._km(st.driven)) + '</b> / ' + rnEsc(this._km(st.allowed)) + '</span>' +
       '<span>' + rnEsc(`${this._t('lease_ends', { d: endTxt })} · ${this._leaseLeft(st)}`) + '</span></div>' +
       (figs.length ? `<div class="figs">${figs.join('')}</div>` : '') +
-      (open ? `<div class="lease-more">${this._leaseDetails(st)}${this._leaseChart(st, ent.mileage)}</div>` : '') + '</div>';
+      (open ? `<div class="lease-more">${this._leaseDetails(st)}${this._leaseFigOn('chart') ? this._leaseChart(st, ent.mileage) : ''}</div>` : '') + '</div>';
   }
 
   // "Ended", "1 month", "5 months"… and the days under a month (rounding would say "0 months" or
@@ -4228,17 +4308,19 @@ class RenaultCard extends HTMLElement {
 
   _leaseDetails(st) {
     var figs = [];
-    if (st.pace != null && !st.ended) {
+    if (st.pace != null && !st.ended && this._leaseFigOn('pace')) {
       figs.push(this._leaseFig(this._t('lease_pace_lbl'), this._km(st.pace) + this._t('lease_per_year'),
         st.recent ? this._t('lease_recent', { n: Number(this._config.lease.forecast) }) : this._t('lease_since_start')));
     }
-    if (st.projected != null && !st.ended) {
-      figs.push(this._leaseFig(this._t('lease_projection_lbl'), this._km(st.projected),
-        st.cost != null ? `≈ ${this._money(st.cost)}` : null, st.projected > st.allowed));
-    } else if (st.projected == null) {
-      figs.push(this._leaseFig(this._t('lease_projection_lbl'), '—', this._t('lease_early')));
+    if (this._leaseFigOn('projection')) {
+      if (st.projected != null && !st.ended) {
+        figs.push(this._leaseFig(this._t('lease_projection_lbl'), this._km(st.projected),
+          st.cost != null ? `≈ ${this._money(st.cost)}` : null, st.projected > st.allowed));
+      } else if (st.projected == null) {
+        figs.push(this._leaseFig(this._t('lease_projection_lbl'), '—', this._t('lease_early')));
+      }
     }
-    if (st.year && !st.ended) {
+    if (st.year && !st.ended && this._leaseFigOn('year')) {
       var yr = st.year;
       figs.push(this._leaseFig(this._t('lease_year', { n: yr.index }), this._km(yr.driven),
         this._t('lease_year_sub', { t: this._km(yr.allowed) }),
@@ -4629,6 +4711,7 @@ class RenaultCardEditor extends HTMLElement {
         ],
       },
       { name: 'tiles', selector: { select: { multiple: true, mode: 'list', options: RN_TILES.map((x) => ({ value: x[0], label: t(x[1]) })) } } },
+      { name: 'lease_figs', selector: { select: { multiple: true, mode: 'list', options: RN_LEASE_FIGS.map((x) => ({ value: x[0], label: t(x[1]) })) } } },
       { name: 'image_height', selector: { number: { min: 40, max: 400, step: 10, mode: 'box', unit_of_measurement: 'px' } } },
       { name: 'buttons', selector: { entity: { multiple: true, domain: ['button', 'input_button', 'switch', 'input_boolean', 'script', 'scene', 'automation', 'lock', 'climate', 'light', 'fan', 'cover'] } } },
       { name: 'plate_department', selector: { text: {} } },
@@ -4678,6 +4761,7 @@ class RenaultCardEditor extends HTMLElement {
     };
     var data = Object.assign({}, RN_EDITOR_DEFAULTS, this._config);
     if (!Array.isArray(data.tiles)) data.tiles = RN_TILES.map((x) => x[0]);
+    if (!Array.isArray(data.lease_figs)) data.lease_figs = RN_LEASE_FIGS.map((x) => x[0]);
     if (data.lease) data.lease = Object.assign({}, data.lease, { forecast: data.lease.forecast ? String(data.lease.forecast) : 'contract' });
     this._form.data = data;
   }
@@ -4694,6 +4778,8 @@ class RenaultCardEditor extends HTMLElement {
     });
     // Every tile checked is the default: no tiles option (an empty list, no tile, is kept).
     if (Array.isArray(value.tiles) && RN_TILES.every((x) => value.tiles.indexOf(x[0]) >= 0)) delete value.tiles;
+    // Same for the lease figures: every one checked is the default, so no lease_figs option (an empty list is kept).
+    if (Array.isArray(value.lease_figs) && RN_LEASE_FIGS.every((x) => value.lease_figs.indexOf(x[0]) >= 0)) delete value.lease_figs;
     if (value.entities) {
       var e = Object.assign({}, value.entities);
       Object.keys(e).forEach((k) => { if (!e[k]) delete e[k]; });
