@@ -85,6 +85,10 @@ var RnI18n = {
     ed_show_location: 'Position',
     ed_show_actions: 'Boutons d\'action',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Pastilles d\'état',
+    ed_tiles: 'Tuiles',
+    ed_tiles_helper: 'Décochez une tuile pour la masquer ; toutes décochées, aucune tuile (pour n\'afficher que la LOA, par exemple)',
+    ed_image_height: 'Hauteur de l\'image',
     ed_data_plan_device_id: 'Forfait Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Laisser vide pour le trouver automatiquement à partir du modèle',
     ed_language: 'Langue',
@@ -213,6 +217,10 @@ var RnI18n = {
     ed_show_location: 'Location',
     ed_show_actions: 'Action buttons',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Status chips',
+    ed_tiles: 'Tiles',
+    ed_tiles_helper: 'Uncheck a tile to hide it; with none checked, no tiles (to show only the lease, for example)',
+    ed_image_height: 'Picture height',
     ed_data_plan_device_id: 'Orange Internet On the move data plan',
     ed_data_plan_device_id_helper: 'Leave empty to find it from the vehicle model',
     ed_language: 'Language',
@@ -341,6 +349,10 @@ var RnI18n = {
     ed_show_location: 'Standort',
     ed_show_actions: 'Aktionsschaltflächen',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Statusanzeigen',
+    ed_tiles: 'Kacheln',
+    ed_tiles_helper: 'Kachel abwählen, um sie auszublenden; keine ausgewählt: keine Kacheln (z. B. nur das Leasing)',
+    ed_image_height: 'Bildhöhe',
     ed_data_plan_device_id: 'Datentarif Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Leer lassen, um ihn anhand des Fahrzeugmodells zu finden',
     ed_language: 'Sprache',
@@ -469,6 +481,10 @@ var RnI18n = {
     ed_show_location: 'Ubicación',
     ed_show_actions: 'Botones de acción',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Etiquetas de estado',
+    ed_tiles: 'Mosaicos',
+    ed_tiles_helper: 'Desmarque un mosaico para ocultarlo; sin ninguno marcado, no hay mosaicos (solo el leasing, por ejemplo)',
+    ed_image_height: 'Altura de la imagen',
     ed_data_plan_device_id: 'Plan de datos Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Déjalo vacío para encontrarlo a partir del modelo del vehículo',
     ed_language: 'Idioma',
@@ -597,6 +613,10 @@ var RnI18n = {
     ed_show_location: 'Локација',
     ed_show_actions: 'Дугмад за радње',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Ознаке стања',
+    ed_tiles: 'Плочице',
+    ed_tiles_helper: 'Поништите плочицу да бисте је сакрили; без иједне, нема плочица (на пример само лизинг)',
+    ed_image_height: 'Висина слике',
     ed_data_plan_device_id: 'Пакет података Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Оставите празно да би се пронашао према моделу возила',
     ed_language: 'Језик',
@@ -725,6 +745,10 @@ var RnI18n = {
     ed_show_location: 'Lokacija',
     ed_show_actions: 'Dugmad za radnje',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Oznake stanja',
+    ed_tiles: 'Pločice',
+    ed_tiles_helper: 'Poništite pločicu da biste je sakrili; bez ijedne, nema pločica (na primer samo lizing)',
+    ed_image_height: 'Visina slike',
     ed_data_plan_device_id: 'Paket podataka Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Ostavite prazno da bi se pronašao prema modelu vozila',
     ed_language: 'Jezik',
@@ -853,6 +877,10 @@ var RnI18n = {
     ed_show_location: 'Posizione',
     ed_show_actions: 'Pulsanti di azione',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Etichette di stato',
+    ed_tiles: 'Riquadri',
+    ed_tiles_helper: 'Deseleziona un riquadro per nasconderlo; nessuno selezionato, nessun riquadro (ad esempio solo il leasing)',
+    ed_image_height: 'Altezza dell\'immagine',
     ed_data_plan_device_id: 'Piano dati Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Lasciare vuoto per trovarlo dal modello del veicolo',
     ed_language: 'Lingua',
@@ -981,6 +1009,10 @@ var RnI18n = {
     ed_show_location: 'Locatie',
     ed_show_actions: 'Actieknoppen',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Statuslabels',
+    ed_tiles: 'Tegels',
+    ed_tiles_helper: 'Vink een tegel uit om hem te verbergen; geen enkele aangevinkt: geen tegels (bijvoorbeeld alleen de lease)',
+    ed_image_height: 'Hoogte van de afbeelding',
     ed_data_plan_device_id: 'Databundel Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Leeg laten om deze via het voertuigmodel te vinden',
     ed_language: 'Taal',
@@ -1109,6 +1141,10 @@ var RnI18n = {
     ed_show_location: 'Localização',
     ed_show_actions: 'Botões de ação',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Etiquetas de estado',
+    ed_tiles: 'Mosaicos',
+    ed_tiles_helper: 'Desmarque um mosaico para o ocultar; nenhum marcado, sem mosaicos (apenas o leasing, por exemplo)',
+    ed_image_height: 'Altura da imagem',
     ed_data_plan_device_id: 'Tarifário Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Deixar vazio para o encontrar a partir do modelo do veículo',
     ed_language: 'Idioma',
@@ -1237,6 +1273,10 @@ var RnI18n = {
     ed_show_location: 'Lokalizacja',
     ed_show_actions: 'Przyciski akcji',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Etykiety stanu',
+    ed_tiles: 'Kafelki',
+    ed_tiles_helper: 'Odznacz kafelek, aby go ukryć; bez zaznaczonych brak kafelków (np. tylko leasing)',
+    ed_image_height: 'Wysokość obrazu',
     ed_data_plan_device_id: 'Pakiet danych Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Pozostaw puste, aby znaleźć go na podstawie modelu pojazdu',
     ed_language: 'Język',
@@ -1365,6 +1405,10 @@ var RnI18n = {
     ed_show_location: 'Locație',
     ed_show_actions: 'Butoane de acțiune',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Etichete de stare',
+    ed_tiles: 'Plăci',
+    ed_tiles_helper: 'Debifați o placă pentru a o ascunde; niciuna bifată, nicio placă (de exemplu doar leasingul)',
+    ed_image_height: 'Înălțimea imaginii',
     ed_data_plan_device_id: 'Abonament Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Lăsați gol pentru a-l găsi după modelul vehiculului',
     ed_language: 'Limbă',
@@ -1493,6 +1537,10 @@ var RnI18n = {
     ed_show_location: 'Placering',
     ed_show_actions: 'Handlingsknapper',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Statusmærker',
+    ed_tiles: 'Felter',
+    ed_tiles_helper: 'Fjern markeringen af et felt for at skjule det; ingen markeret: ingen felter (f.eks. kun leasingen)',
+    ed_image_height: 'Billedets højde',
     ed_data_plan_device_id: 'Dataabonnement Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Lad feltet stå tomt for at finde det ud fra køretøjets model',
     ed_language: 'Sprog',
@@ -1621,6 +1669,10 @@ var RnI18n = {
     ed_show_location: 'Plats',
     ed_show_actions: 'Åtgärdsknappar',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Statusetiketter',
+    ed_tiles: 'Rutor',
+    ed_tiles_helper: 'Avmarkera en ruta för att dölja den; ingen markerad: inga rutor (t.ex. bara leasingen)',
+    ed_image_height: 'Bildens höjd',
     ed_data_plan_device_id: 'Datapaket Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Lämna tomt för att hitta det utifrån fordonsmodellen',
     ed_language: 'Språk',
@@ -1749,6 +1801,10 @@ var RnI18n = {
     ed_show_location: 'Местоположение',
     ed_show_actions: 'Бутони за действия',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Етикети за състояние',
+    ed_tiles: 'Плочки',
+    ed_tiles_helper: 'Махнете отметката от плочка, за да я скриете; без отметки няма плочки (например само лизингът)',
+    ed_image_height: 'Височина на изображението',
     ed_data_plan_device_id: 'Пакет данни Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Оставете празно, за да бъде намерен по модела на автомобила',
     ed_language: 'Език',
@@ -1877,6 +1933,10 @@ var RnI18n = {
     ed_show_location: 'Местоположение',
     ed_show_actions: 'Кнопки действий',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Метки состояния',
+    ed_tiles: 'Плитки',
+    ed_tiles_helper: 'Снимите отметку с плитки, чтобы скрыть её; без отметок плиток нет (например, только лизинг)',
+    ed_image_height: 'Высота изображения',
     ed_data_plan_device_id: 'Тарифный план Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Оставьте пустым, чтобы найти его по модели автомобиля',
     ed_language: 'Язык',
@@ -2005,6 +2065,10 @@ var RnI18n = {
     ed_show_location: 'Розташування',
     ed_show_actions: 'Кнопки дій',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Мітки стану',
+    ed_tiles: 'Плитки',
+    ed_tiles_helper: 'Зніміть позначку з плитки, щоб приховати її; без позначок плиток немає (наприклад, лише лізинг)',
+    ed_image_height: 'Висота зображення',
     ed_data_plan_device_id: 'Тарифний план Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Залиште порожнім, щоб знайти його за моделлю автомобіля',
     ed_language: 'Мова',
@@ -2133,6 +2197,10 @@ var RnI18n = {
     ed_show_location: 'Hely',
     ed_show_actions: 'Műveletgombok',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Állapotcímkék',
+    ed_tiles: 'Csempék',
+    ed_tiles_helper: 'Törölje egy csempe jelölését az elrejtéséhez; ha egyik sincs bejelölve, nincs csempe (például csak a lízing)',
+    ed_image_height: 'Kép magassága',
     ed_data_plan_device_id: 'Orange Internet On the move adatcsomag',
     ed_data_plan_device_id_helper: 'Hagyja üresen, hogy a jármű modellje alapján keresse meg',
     ed_language: 'Nyelv',
@@ -2261,6 +2329,10 @@ var RnI18n = {
     ed_show_location: 'Poloha',
     ed_show_actions: 'Akčné tlačidlá',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Stavové štítky',
+    ed_tiles: 'Dlaždice',
+    ed_tiles_helper: 'Zrušte označenie dlaždice, aby ste ju skryli; bez označenia žiadne dlaždice (napríklad len lízing)',
+    ed_image_height: 'Výška obrázka',
     ed_data_plan_device_id: 'Dátový balík Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Nechajte prázdne, ak ho chcete nájsť podľa modelu vozidla',
     ed_language: 'Jazyk',
@@ -2389,6 +2461,10 @@ var RnI18n = {
     ed_show_location: 'Poloha',
     ed_show_actions: 'Akční tlačítka',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Stavové štítky',
+    ed_tiles: 'Dlaždice',
+    ed_tiles_helper: 'Zrušte označení dlaždice, abyste ji skryli; bez označení žádné dlaždice (například jen leasing)',
+    ed_image_height: 'Výška obrázku',
     ed_data_plan_device_id: 'Datový tarif Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Ponechte prázdné pro vyhledání podle modelu vozidla',
     ed_language: 'Jazyk',
@@ -2517,6 +2593,10 @@ var RnI18n = {
     ed_show_location: 'Lokacija',
     ed_show_actions: 'Gumbi za dejanja',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Oznake stanja',
+    ed_tiles: 'Ploščice',
+    ed_tiles_helper: 'Odznačite ploščico, da jo skrijete; brez označenih ni ploščic (na primer samo lizing)',
+    ed_image_height: 'Višina slike',
     ed_data_plan_device_id: 'Podatkovni paket Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Pustite prazno, da se poišče po modelu vozila',
     ed_language: 'Jezik',
@@ -2645,6 +2725,10 @@ var RnI18n = {
     ed_show_location: 'Atrašanās vieta',
     ed_show_actions: 'Darbību pogas',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Statusa birkas',
+    ed_tiles: 'Flīzes',
+    ed_tiles_helper: 'Noņemiet atzīmi no flīzes, lai to paslēptu; bez atzīmēm flīžu nav (piemēram, tikai līzings)',
+    ed_image_height: 'Attēla augstums',
     ed_data_plan_device_id: 'Orange Internet On the move datu plāns',
     ed_data_plan_device_id_helper: 'Atstājiet tukšu, lai to atrastu pēc transportlīdzekļa modeļa',
     ed_language: 'Valoda',
@@ -2773,6 +2857,10 @@ var RnI18n = {
     ed_show_location: 'Τοποθεσία',
     ed_show_actions: 'Κουμπιά ενεργειών',
     ed_show_data_plan: 'Orange Internet On the move',
+    ed_show_chips: 'Ετικέτες κατάστασης',
+    ed_tiles: 'Πλακίδια',
+    ed_tiles_helper: 'Αποεπιλέξτε ένα πλακίδιο για να το αποκρύψετε· χωρίς επιλογή, κανένα πλακίδιο (για παράδειγμα μόνο η μίσθωση)',
+    ed_image_height: 'Ύψος εικόνας',
     ed_data_plan_device_id: 'Πακέτο Orange Internet On the move',
     ed_data_plan_device_id_helper: 'Αφήστε κενό για εύρεση από το μοντέλο του οχήματος',
     ed_language: 'Γλώσσα',
@@ -3494,6 +3582,10 @@ function rnLeaseStatus(lease, mileage, now, points) {
 }
 
 // ── renault-card ─────────────────────────────────────────────────────────────
+// The stat tiles the tiles option picks from (all of them when it is not set), with their editor label.
+var RN_TILES = [['battery_level', 'en_battery_level'], ['battery_autonomy', 'en_battery_autonomy'], ['fuel_autonomy', 'en_fuel_autonomy'],
+  ['fuel', 'fuel_quantity'], ['mileage', 'en_mileage'], ['outside_temperature', 'outside_temperature'], ['tyres', 'tyres']];
+
 class RenaultCard extends HTMLElement {
   static getConfigElement() {
     return document.createElement('renault-card-editor');
@@ -3508,7 +3600,7 @@ class RenaultCard extends HTMLElement {
     if (!config) throw new Error('Invalid configuration');
     this._config = Object.assign({
       show_title: true, show_subtitle: true,
-      show_logo: true, show_image: true, show_plate: true, show_location: true, show_actions: true, show_data_plan: true, low_range: 100,
+      show_logo: true, show_image: true, show_plate: true, show_chips: true, show_location: true, show_actions: true, show_data_plan: true, low_range: 100,
     }, config);
     if (!this.shadowRoot) {
       this.attachShadow({ mode: 'open' });
@@ -3731,6 +3823,12 @@ class RenaultCard extends HTMLElement {
     this._render(r);
   }
 
+  // tiles: the list of tiles to show (an empty list for none); every tile when it is not set.
+  _tileOn(key) {
+    var t = this._config.tiles;
+    return !Array.isArray(t) || t.indexOf(key) >= 0;
+  }
+
   _tile(id, icon, label, value, extra) {
     return '<div class="tile' + (extra?.warn ? ' warn' : '') + '"' + (id ? ` data-more="${rnEsc(id)}" role="button" tabindex="0"` : '') + '>' +
       '<div class="tile-head"><ha-icon icon="' + rnEsc(icon) + '"></ha-icon><span class="lbl">' + rnEsc(label) + '</span></div>' +
@@ -3864,7 +3962,8 @@ class RenaultCard extends HTMLElement {
     var plate = c.show_plate && dev ? rnPlate(dev.name) : null;
 
     var header = this._header(name, model, plate, imgSrc);
-    var image = imgSrc ? `<div class="image"><img src="${rnEsc(imgSrc)}" alt="${rnEsc(name)}"></div>` : '';
+    var imgH = Number(c.image_height) || 0;
+    var image = imgSrc ? `<div class="image"><img src="${rnEsc(imgSrc)}" alt="${rnEsc(name)}"${imgH > 0 ? ` style="max-height:${imgH}px"` : ''}></div>` : '';
 
     // Status chips
     var chips = [];
@@ -3897,27 +3996,28 @@ class RenaultCard extends HTMLElement {
 
     // Stat tiles
     var tiles = [];
-    if (this._avail(ent.battery_level)) tiles.push(this._batteryTile(ent));
-    if (this._avail(ent.battery_autonomy)) tiles.push(this._rangeTile(ent, 'battery_autonomy'));
-    if (this._avail(ent.fuel_autonomy)) tiles.push(this._rangeTile(ent, 'fuel_autonomy'));
+    if (this._tileOn('battery_level') && this._avail(ent.battery_level)) tiles.push(this._batteryTile(ent));
+    if (this._tileOn('battery_autonomy') && this._avail(ent.battery_autonomy)) tiles.push(this._rangeTile(ent, 'battery_autonomy'));
+    if (this._tileOn('fuel_autonomy') && this._avail(ent.fuel_autonomy)) tiles.push(this._rangeTile(ent, 'fuel_autonomy'));
     var tank = Number(c.fuel_tank_capacity) || 0;
     var fuel = this._num(ent.fuel_quantity);
-    if (fuel != null) {
+    var fuelOn = this._tileOn('fuel');
+    if (fuelOn && fuel != null) {
       tiles.push(this._tile(ent.fuel_quantity, 'mdi:gas-station', this._t('fuel_quantity'), this._withUnit(ent.fuel_quantity),
         tank ? { bar: fuel / tank * 100 } : null));
     }
     // The fuel level in % of the tank, when there is no volume
     var level = fuel == null ? this._num(ent.fuel_level) : null;
-    if (level != null) {
+    if (fuelOn && level != null) {
       tiles.push(this._tile(ent.fuel_level, 'mdi:gas-station', this._t('fuel_level'), this._withUnit(ent.fuel_level), { bar: Math.max(0, Math.min(100, level)) }));
     }
-    if (this._avail(ent.mileage)) {
+    if (this._tileOn('mileage') && this._avail(ent.mileage)) {
       tiles.push(this._tile(ent.mileage, 'mdi:counter', this._t('mileage'), this._withUnit(ent.mileage)));
     }
-    if (this._avail(ent.outside_temperature)) {
+    if (this._tileOn('outside_temperature') && this._avail(ent.outside_temperature)) {
       tiles.push(this._tile(ent.outside_temperature, 'mdi:thermometer', this._t('outside_temperature'), this._fmtState(ent.outside_temperature)));
     }
-    if (tyres.length) tiles.push(this._tyreTile(tyres, lowTyres));
+    if (this._tileOn('tyres') && tyres.length) tiles.push(this._tyreTile(tyres, lowTyres));
 
     // Location
     var locationHtml = '';
@@ -3995,7 +4095,7 @@ class RenaultCard extends HTMLElement {
     }
 
     this._setHtml(this._styles() + '<ha-card>' + header + image +
-      (chips.length ? `<div class="chips">${chips.join('')}</div>` : '') +
+      (c.show_chips !== false && chips.length ? `<div class="chips">${chips.join('')}</div>` : '') +
       (tiles.length ? `<div class="tiles">${tiles.join('')}</div>` : '') +
       this._leaseHtml(ent) + locationHtml + planHtml + this._servicesHtml(ent) + actionsHtml + '</ha-card>');
   }
@@ -4472,7 +4572,7 @@ function rnEnsureForm(editor) {
   editor.appendChild(editor._form);
 }
 
-var RN_EDITOR_DEFAULTS = { show_title: true, show_subtitle: true, show_logo: true, show_image: true, show_plate: true, show_location: true, show_actions: true, show_data_plan: true, low_range: 100, expand_lease: false };
+var RN_EDITOR_DEFAULTS = { show_title: true, show_subtitle: true, show_logo: true, show_image: true, show_plate: true, show_chips: true, show_location: true, show_actions: true, show_data_plan: true, low_range: 100, expand_lease: false };
 
 class RenaultCardEditor extends HTMLElement {
   setConfig(config) {
@@ -4521,12 +4621,15 @@ class RenaultCardEditor extends HTMLElement {
           { name: 'show_logo', selector: { boolean: {} } },
           { name: 'show_image', selector: { boolean: {} } },
           { name: 'show_plate', selector: { boolean: {} } },
+          { name: 'show_chips', selector: { boolean: {} } },
           { name: 'show_location', selector: { boolean: {} } },
           { name: 'show_actions', selector: { boolean: {} } },
           { name: 'show_data_plan', selector: { boolean: {} } },
           { name: 'expand_lease', selector: { boolean: {} } },
         ],
       },
+      { name: 'tiles', selector: { select: { multiple: true, mode: 'list', options: RN_TILES.map((x) => ({ value: x[0], label: t(x[1]) })) } } },
+      { name: 'image_height', selector: { number: { min: 40, max: 400, step: 10, mode: 'box', unit_of_measurement: 'px' } } },
       { name: 'buttons', selector: { entity: { multiple: true, domain: ['button', 'input_button', 'switch', 'input_boolean', 'script', 'scene', 'automation', 'lock', 'climate', 'light', 'fan', 'cover'] } } },
       { name: 'plate_department', selector: { text: {} } },
       { name: 'data_plan_device_id', selector: { device: { integration: 'orange_internet_on_the_move' } } },
@@ -4574,6 +4677,7 @@ class RenaultCardEditor extends HTMLElement {
       return txt === key ? undefined : txt;
     };
     var data = Object.assign({}, RN_EDITOR_DEFAULTS, this._config);
+    if (!Array.isArray(data.tiles)) data.tiles = RN_TILES.map((x) => x[0]);
     if (data.lease) data.lease = Object.assign({}, data.lease, { forecast: data.lease.forecast ? String(data.lease.forecast) : 'contract' });
     this._form.data = data;
   }
@@ -4588,6 +4692,8 @@ class RenaultCardEditor extends HTMLElement {
     Object.keys(RN_EDITOR_DEFAULTS).forEach((key) => {
       if (value[key] === RN_EDITOR_DEFAULTS[key]) delete value[key];
     });
+    // Every tile checked is the default: no tiles option (an empty list, no tile, is kept).
+    if (Array.isArray(value.tiles) && RN_TILES.every((x) => value.tiles.indexOf(x[0]) >= 0)) delete value.tiles;
     if (value.entities) {
       var e = Object.assign({}, value.entities);
       Object.keys(e).forEach((k) => { if (!e[k]) delete e[k]; });
@@ -4683,12 +4789,12 @@ class RenaultMiniCard extends RenaultCard {
     }
     var ent = r.ent, id = this._identity(r);
     var tiles = [];
-    if (this._avail(ent.battery_level)) tiles.push(this._batteryTile(ent));
-    // The battery range of an electric or plug-in hybrid car, else the fuel range.
-    var range = ['battery_autonomy', 'fuel_autonomy'].find((role) => this._avail(ent[role]));
+    if (this._tileOn('battery_level') && this._avail(ent.battery_level)) tiles.push(this._batteryTile(ent));
+    // The battery range of an electric or plug-in hybrid car, else the fuel range (among the tiles option's).
+    var range = ['battery_autonomy', 'fuel_autonomy'].find((role) => this._tileOn(role) && this._avail(ent[role]));
     if (range) tiles.push(this._rangeTile(ent, range, range));
     var img = id.imgSrc ? `<div class="mimg"><img src="${rnEsc(id.imgSrc)}" alt="${rnEsc(id.name)}"></div>` : '';
-    var charge = this._chargeChip(ent);
+    var charge = this._config.show_chips !== false ? this._chargeChip(ent) : null;
     // No picture in the header: the logo, or the car icon, keeps the header's 40 px icon.
     this._setHtml(this._styles() + '<ha-card class="mini">' + this._header(id.name, id.model, null, null) +
       (img || tiles.length ? `<div class="mb${img && tiles.length ? '' : ' solo'}">${img}${tiles.length ? `<div class="mstats">${tiles.join('')}</div>` : ''}</div>` : '') +
