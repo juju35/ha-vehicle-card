@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.7.0 - 2026-11-15
+
+### Features
+- **Flat background** (`flat: true`, in the visual editor too): drops the grey surface behind the inner blocks — tiles, rows, action buttons, lease and data plan — for a clean, uniform card. The status colours (confirm, ok, error, warning) stay, and neutral buttons and the charge-mode menu keep an outline so they still read as tappable ([#89](https://github.com/juju35/ha-vehicle-card/issues/89), suggested by @thomasfav28).
+
 ## 3.6.0 - 2026-11-15
 
 ### Features
