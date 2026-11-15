@@ -359,6 +359,7 @@ entities:
 | `data_plan_device_id` | ❌ | Auto | Orange Internet On the move device; found from the vehicle model when empty |
 | `expand_lease` | ❌ | `false` | Show the lease details and chart unfolded |
 | `lease_figs` | ❌ | All | Lease information to show: `target` (theoretical mileage today), `month` (left this month), `budget` (per month), `pace`, `projection` (end of lease), `year` (contract year), `chart`. `[]` keeps only the status bar. The status, the progress bar and the dates are always shown |
+| `show_lease_margin` | ❌ | `true` | Show the kilometre margin next to the lease status when you are within the allowance. `false` hides that (fluctuating) value — the over-allowance and warning messages still show, and the section still opens from the chevron |
 | `lease` | ❌ | — | Lease tracking: `start_date` (`YYYY-MM-DD`), `duration` (months) and `km_per_year` are required to show it; `start_mileage` (km at delivery) defaults to `0`; `forecast`: `90` or `30` to project from the last days (average since the start by default); `extra_km_cost`: cost per extra km |
 | `language` | ❌ | Auto | Force language: `en`, `fr`, `de`, `es`, `sr`, `sr-Latn`, `it`, `nl`, `pt`, `pl`, `ro`, `da`, `sv`, `bg`, `ru`, `uk`, `hu`, `sk`, `cs`, `sl`, `lv` or `el` (auto-detects from HA settings) |
 | `entities` | ❌ | Auto | Override detected entities: `mileage`, `fuel_autonomy`, `fuel_quantity`, `fuel_level`, `battery_level`, `battery_autonomy`, `location` |
