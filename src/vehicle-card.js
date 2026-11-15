@@ -3850,6 +3850,7 @@ class RenaultCard extends HTMLElement {
     this._config = Object.assign({
       show_title: true, show_subtitle: true,
       show_logo: true, show_image: true, show_plate: true, show_chips: true, show_location: true, show_actions: true, show_data_plan: true, low_range: 100,
+      show_lease_margin: true,
     }, config);
     if (!this.shadowRoot) {
       this.attachShadow({ mode: 'open' });
@@ -4477,6 +4478,9 @@ class RenaultCard extends HTMLElement {
     // The cost follows the kilometres in the status: driven so far when over, projected when warned.
     var statusCost = st.state === 'over' ? st.costNow : st.cost;
     if (statusCost != null) status += ` · ≈ ${this._money(statusCost)}`;
+    // show_lease_margin: false hides the fluctuating OK margin (and its cost); the over / warn alerts stay,
+    // and the lease section still opens from the chevron to show the chart.
+    if (this._config.show_lease_margin === false && st.state === 'ok') status = '';
     var endTxt = st.end.toLocaleDateString(this._intl(), { month: 'short', year: 'numeric' });
 
     // Folded: theoretical mileage today, this month, and the monthly budget until the end.

@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.6.0 - 2026-11-15
+
+### Features
+- **Hide the lease margin** (`show_lease_margin: false`): hides the kilometre margin shown next to the lease status while you are within the allowance, which otherwise changes through the day. The over-allowance and warning messages still show, and the section still opens from the chevron to reveal the chart ([#86](https://github.com/juju35/ha-vehicle-card/issues/86), suggested by @thomasfav28).
+
 ## 3.5.0 - 2026-11-15
 
 ### Features
