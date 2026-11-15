@@ -349,6 +349,7 @@ entities:
 | `plate_department` | ❌ | — | Department number on the right of the plate, e.g. `35`; departments of Brittany, Occitania, Île-de-France, Provence, Corsica and Burgundy get their traditional regional emblem |
 | `show_location` | ❌ | `true` | Show the location row |
 | `show_actions` | ❌ | `true` | Show the action buttons and charge mode |
+| `flat` | ❌ | `false` | Drop the grey background behind the inner blocks (tiles, rows, buttons, lease, data plan) for a clean, uniform card; the status colours stay, and neutral buttons and the charge-mode menu keep an outline |
 | `battery_severity` | ❌ | — | Battery bar colours: `green`, `yellow`, `red` thresholds in % (each from that level up), or a list of `from` / `color` (YAML only); see [Battery and fuel bar colours](#battery-and-fuel-bar-colours) |
 | `fuel_severity` | ❌ | — | Same for the fuel bar |
 | `tap_action` | ❌ | `more-info` | Action on a tap on a tile, chip or row ([Home Assistant actions](https://www.home-assistant.io/dashboards/actions/)); `action: none` for no dialog |
