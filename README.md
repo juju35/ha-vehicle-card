@@ -396,13 +396,15 @@ height: 400
 |---|---|---|---|
 | `devices` | ❌ | All vehicles | List of vehicle device IDs to show |
 | `title` | ❌ | `Vehicles` | Card title; empty for none |
+| `illustration` | ❌ | `true` | Animated illustrated header, as on the vehicle card: the car's own picture (the first vehicle that has one) parked on a roadside scene with its charging post for a car that charges, the title on the sky with a status pill — the vehicle's zone (green at home, accent in another zone, grey away), or how many vehicles are at home ("Home · 1/2") — and the model, or the vehicles' names, below it. A round map-marker icon in the pill's colour carries the brand's logo in a badge. `false` for the classic header |
+| `illustration_theme` | ❌ | `auto` | `day` or `night` picture; `auto` shows the night picture when `sun.sun` is below the horizon or the theme is dark |
 | `map_style` | ❌ | `ha` | `ha` (Home Assistant vector map), `osm`, `osm_fr`, `ign`, `ign_photo`, `topo`, `cyclosm`, `satellite` or `custom` |
 | `theme` | ❌ | `auto` | Base map theme: `auto` (follows Home Assistant), `light` or `dark` |
 | `tile_url` | ❌ | — | Tile URL with `{z}`, `{x}`, `{y}`, for `map_style: custom` |
 | `tile_attribution` | ❌ | — | Attribution shown for custom tiles; rendered as HTML by Leaflet (as in Home Assistant's map card), so links are allowed |
 | `height` | ❌ | `400` | Map height in pixels |
 | `zoom` | ❌ | Auto | Fixed zoom level; by default the map fits the vehicles and home |
-| `show_icon` | ❌ | `true` | Brand logo in the header (when all the vehicles are of the same brand; a car icon otherwise) |
+| `show_icon` | ❌ | `true` | Brand logo in the header (when all the vehicles are of the same brand): in the icon's badge with the illustrated header; with the classic one, a car icon otherwise |
 | `show_home` | ❌ | `true` | Home marker |
 | `show_name` | ❌ | `true` | Vehicle name on the markers |
 | `show_picture` | ❌ | `true` | Vehicle picture on the markers and in the popup: the one the integration gives, else the `entity_picture` of its device tracker (which you can set with [customize](https://www.home-assistant.io/docs/configuration/customizing-devices/)) |
@@ -520,11 +522,12 @@ GLC 300 e (plug-in hybrid) with [Mercedes-Benz (mbapi2020)](https://github.com/R
 
 ### Map card
 
-Vehicles of two brands (Renault and Tesla): the header shows a car icon instead of a brand logo.
+The map card has the vehicle card's illustrated header. With vehicles of two brands (Renault and Tesla), the header icon carries no brand logo and the pill counts the vehicles at home; with one vehicle, the pill shows its zone, the model sits below the title and the scene has its charging post.
 
-| Light | Dark |
-|---|---|
-| <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/screenshots/map.png" alt="map card" width="400"> | <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/screenshots/map-dark.png" alt="map card, dark" width="400"> |
+| | Light | Dark |
+|---|---|---|
+| Several vehicles | <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/screenshots/map.png" alt="map card" width="400"> | <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/screenshots/map-dark.png" alt="map card, dark" width="400"> |
+| One vehicle | <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/screenshots/map-captur.png" alt="map card, one vehicle" width="400"> | <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/screenshots/map-captur-dark.png" alt="map card, one vehicle, dark" width="400"> |
 
 ### Pictures
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.9.0 - 2026-11-17
+
+### Features
+- **Illustrated header on the map card**, forgotten by 3.8.0: the vehicle card's animated roadside scene with the car's own picture (the first vehicle that has one) and its charging post, the road strip, day or night. The title sits on the sky beside a round map-marker icon (the brand's logo in a badge when all the vehicles share a brand) whose colour follows a status pill: one vehicle's zone (green at home, accent in another zone, grey away), or how many vehicles are at home ("Home · 1/2", green when all of them). Below the title, the vehicle's model or the vehicles' names. `illustration: false` keeps the classic header, `illustration_theme: day | night` forces the picture; both are in the visual editor.
+
 ## 3.8.0 - 2026-11-17
 
 ### Features

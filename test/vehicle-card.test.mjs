@@ -747,7 +747,7 @@ function mapCardWithVehicle() {
   card._ensureShell = () => {};
   card._reloadTilesIfNeeded = () => {};
   card._darkTiles = () => false;
-  card._vehicles = () => [{ deviceId: "d1" }];
+  card._vehicles = () => [{ deviceId: "d1", name: "Captur", model: "Captur II", ent: { location: "device_tracker.captur" }, tracker: { state: "home" } }];
   const el = () => ({ style: {}, classList: { toggle() {} }, hidden: true });
   const els = { ".header": el(), ".map": el(), ".message": el() };
   card._root = { querySelector: (s) => els[s] };
@@ -1267,19 +1267,62 @@ test("map header: the title is an ellipsed, escaped span; no title, no span", ()
   assert.match(rule, /text-overflow: ellipsis/);
   const { card } = mapCardWithVehicle();
   const header = card._root.querySelector(".header");
-  card._config = { title: "<b>Cars</b>", show_icon: true };
+  card._config = { title: "<b>Cars</b>", show_icon: true, illustration: false };
   try {
     card._update();
   } catch (_e) {
     // Only the header matters here; the map part needs Leaflet.
   }
   assert.match(header.innerHTML, /<span class="brand"[^>]*><\/span><span class="title">&lt;b&gt;Cars&lt;\/b&gt;<\/span>/);
-  card._config = { title: "", show_icon: false };
+  card._config = { title: "", show_icon: false, illustration: false };
   try {
     card._update();
   } catch (_e) {}
   assert.equal(header.innerHTML, "");
   assert.equal(header.hidden, true);
+});
+
+test("map header: illustrated by default, as the vehicle card's (scene, road, status icon, pill)", () => {
+  const { card } = mapCardWithVehicle();
+  const header = card._root.querySelector(".header");
+  card._config = { ...ctx.RN_MAP_DEFAULTS, title: "<b>Cars</b>" };
+  card._hass.formatEntityState = (s) => (s.state === "home" ? "Home" : s.state);
+  try {
+    card._update();
+  } catch (_e) {}
+  assert.equal(header.hidden, false);
+  assert.match(header.innerHTML, /^<div class="banner"><div class="g-road"><\/div><svg class="vc-scene"/);
+  assert.doesNotMatch(header.innerHTML, /undefined-glow/);
+  assert.match(header.innerHTML, /<div class="vc-icon st-ok"><ha-icon icon="mdi:map-marker"><\/ha-icon><span class="bbadge">/);
+  assert.match(header.innerHTML, /<div class="name">&lt;b&gt;Cars&lt;\/b&gt;<\/div><span class="bchip st-ok"[^>]*data-more="device_tracker.captur"/);
+  assert.match(header.innerHTML, /<div class="model" title="Captur II">Captur II<\/div>/);
+  // Night: forced, or the sun below the horizon.
+  card._config = { ...card._config, illustration_theme: "night" };
+  try {
+    card._update();
+  } catch (_e) {}
+  assert.match(header.innerHTML, /^<div class="banner night">/);
+  // Its styles: the vehicle card's scene, edge to edge above the map.
+  const css = RenaultMapCard._styles();
+  assert.ok(css.includes(ctx.RN_SCENE_STYLE) && css.includes(ctx.RN_PILL_STYLE));
+  assert.match(cssRule(css, ".banner"), /margin: 0/);
+  assert.match(cssRule(css, "ha-card"), /container-type: inline-size/);
+});
+
+test("map header status: zone of one vehicle, how many at home for several, charging post", () => {
+  const card = Object.create(RenaultMapCard.prototype);
+  card._config = { language: "en" };
+  card._hass = { language: "en", states: { "binary_sensor.c": { state: "on" } } };
+  const v = (state, extra) => ({ name: state, model: "M", ent: {}, tracker: { state }, ...extra });
+  assert.equal(card._mapStatus([v("home")]).level, "ok");
+  assert.equal(card._mapStatus([v("Work")]).level, "active");
+  assert.equal(card._mapStatus([v("not_home")]).level, "idle");
+  assert.equal(card._mapStatus([v("home", { ent: { charging: "binary_sensor.c" } })]).charger, "charging");
+  const two = card._mapStatus([v("home"), v("not_home")]);
+  assert.equal(two.pill, "Home · 1/2");
+  assert.equal(two.level, "idle");
+  assert.equal(two.text, "home, not_home");
+  assert.equal(card._mapStatus([v("home"), v("home")]).level, "ok");
 });
 
 test("phone width (6 columns, about 156 px): the plate goes under the name, which keeps 4 letters", () => {
