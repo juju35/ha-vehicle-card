@@ -2024,6 +2024,30 @@ test("card editor: severity panels, kept short, YAML only for a list (#82)", () 
   assert.match(names, /"battery_severity"/);
 });
 
+test("full card: the subtitle leaves out the range and the chips the body shows; the compact mini card keeps them", () => {
+  // Charging: the compact mini card's subtitle gives the time left.
+  const mini = miniCard();
+  assert.match(mini.root.html, /class="model"[^>]*>45 min left</);
+  // Zoomed (the full card): the charge chip says the time left: the subtitle gives the model instead.
+  mini.card._setZoom(true);
+  assert.match(mini.root.html, /Charging · 45 min left<\/span>/);
+  assert.match(mini.root.html, /class="model"[^>]*>Renault Espace</);
+  // Plugged in, not charging (the pill says "Plugged in"): the range in the compact subtitle; the full card shows it
+  // in a tile, so its subtitle gives the model.
+  const parked = miniCard();
+  parked.states["binary_sensor.car_charging"] = { state: "off", attributes: {} };
+  parked.card.hass = { ...parked.card._hass, states: { ...parked.states } };
+  assert.match(parked.root.html, /class="model"[^>]*>550 km</);
+  parked.card._setZoom(true);
+  assert.match(parked.root.html, /class="model"[^>]*>Renault Espace</);
+  // Without the range tiles and the chips, the full card's subtitle says them again.
+  const bare = miniCard({ tiles: [], show_chips: false });
+  bare.states["binary_sensor.car_charging"] = { state: "off", attributes: {} };
+  bare.card.hass = { ...bare.card._hass, states: { ...bare.states } };
+  bare.card._setZoom(true);
+  assert.match(bare.root.html, /class="model"[^>]*>550 km</);
+});
+
 test("illustrated header: car picture on the scene, status subtitle and icon colour, plate in the body", () => {
   const { card, root, states } = miniCard();
   assert.match(root.html, /<div class="banner">/);

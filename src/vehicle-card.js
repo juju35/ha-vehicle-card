@@ -4533,7 +4533,7 @@ class RenaultCard extends HTMLElement {
       if (total != null) {
         var rid = this._num(ent.fuel_autonomy) != null ? ent.fuel_autonomy : ent.battery_autonomy;
         var unit = this._st(rid)?.attributes.unit_of_measurement || 'km';
-        parts.push(`${this._fmtNum(total)} ${unit}`);
+        if (!this._bodyShows(ent).range) parts.push(`${this._fmtNum(total)} ${unit}`);
       }
     }
     if (offline) level = 'err';
@@ -4544,6 +4544,9 @@ class RenaultCard extends HTMLElement {
     if (charging) charger = 'charging';
     else if (plug) charger = plug;
     else if (this._avail(ent.charging)) charger = 'unplugged';
+    // On the full card, the subtitle leaves out what a body tile or chip already says.
+    var shown = this._bodyShows(ent);
+    parts = parts.filter((part) => !shown.chips.some((t) => t === part || t.indexOf(part) >= 0));
     // The entity behind the pill: a tap on it opens it, as the body's chip saying the same (hidden then) did.
     var pillEntity = { locked: lockId, unlocked: lockId, offline: ent.cellular, low_tyre_pressure: lowTyres[0], charging: ent.charging,
       plugged: ent.plugged_in, unplugged: ent.plugged_in }[pill] || null;
@@ -4660,6 +4663,46 @@ class RenaultCard extends HTMLElement {
     return `<div class="chips${shown ? '' : ' pill-echo'}">${html}</div>`;
   }
 
+  // The full card's status chips (the mini card keeps only the charge one).
+  _bodyChips(ent) {
+    var chips = [];
+    if (this._lowRange(ent)) {
+      chips.push(`<span class="chip warn"><ha-icon icon="mdi:gas-station-off-outline"></ha-icon>${this._t('low_range')}</span>`);
+    }
+    var lowTyres = this._lowTyres(ent.tyres.filter((id) => this._avail(id)));
+    if (lowTyres.length) {
+      chips.push(`<span class="chip warn" data-more="${rnEsc(lowTyres[0])}" role="button" tabindex="0"><ha-icon icon="mdi:car-tire-alert"></ha-icon>${this._t('low_tyre_pressure')}</span>`);
+    }
+    // The lock: Renault's binary sensor (on = unlocked), else the lock entity of the other integrations
+    var lockId = this._avail(ent.lock_status) ? ent.lock_status : this._avail(ent.lock) && /^(locked|unlocked)$/.test(this._val(ent.lock)) ? ent.lock : null;
+    if (lockId) {
+      var unlocked = lockId === ent.lock_status ? this._val(lockId) === 'on' : this._val(lockId) === 'unlocked';
+      chips.push(`<span class="chip${unlocked ? ' warn' : ''}" data-more="${rnEsc(lockId)}" role="button" tabindex="0"><ha-icon icon="${unlocked ? 'mdi:lock-open-variant-outline' : 'mdi:lock-outline'}"></ha-icon>${this._t(unlocked ? 'unlocked' : 'locked')}</span>`);
+    }
+    if (ent.doors.some((id) => this._val(id) === 'on')) {
+      chips.push(`<span class="chip warn"><ha-icon icon="mdi:car-door"></ha-icon>${this._t('doors_open')}</span>`);
+    }
+    var charge = this._chargeChip(ent);
+    if (charge) chips.push(charge);
+    if (this._val(ent.hvac_status) === 'on') {
+      chips.push(`<span class="chip ok"><ha-icon icon="mdi:air-conditioner"></ha-icon>${this._t('hvac_on')}</span>`);
+    }
+    // Neither mobile network nor Wi-Fi: the car does not answer, its values may be old.
+    if (this._val(ent.cellular) === 'off' && this._val(ent.wifi) !== 'on') {
+      chips.push(`<span class="chip warn" data-more="${rnEsc(ent.cellular)}" role="button" tabindex="0"><ha-icon icon="mdi:access-point-network-off"></ha-icon>${this._t('offline')}</span>`);
+    }
+    return chips;
+  }
+
+  // The full card's header subtitle leaves out what the body shows (a range tile, a chip): there it gives the rest, else
+  // the model. The compact mini card keeps the whole subtitle.
+  _bodyShows(ent) {
+    if (this._zoomed === false) return { range: false, chips: [] };
+    var range = ['battery_autonomy', 'fuel_autonomy'].some((role) => this._tileOn(role) && this._avail(ent[role]));
+    var chips = this._config.show_chips === false ? [] : this._bodyChips(ent).map((chip) => (/<\/ha-icon>([^<]*)<\/span>$/.exec(chip) || [])[1] || '');
+    return { range: range, chips: chips.filter(Boolean) };
+  }
+
   _chargeChip(ent) {
     if (this._val(ent.charging) === 'on') {
       var left = this._chargeMinutes(ent.charging_remaining_time);
@@ -4689,33 +4732,9 @@ class RenaultCard extends HTMLElement {
       : bodyPlate ? `<div class="plate-row">${bodyPlate}</div>` : '';
 
     // Status chips
-    var chips = [];
-    if (this._lowRange(ent)) {
-      chips.push(`<span class="chip warn"><ha-icon icon="mdi:gas-station-off-outline"></ha-icon>${this._t('low_range')}</span>`);
-    }
+    var chips = this._bodyChips(ent);
     var tyres = ent.tyres.filter((id) => this._avail(id));
     var lowTyres = this._lowTyres(tyres);
-    if (lowTyres.length) {
-      chips.push(`<span class="chip warn" data-more="${rnEsc(lowTyres[0])}" role="button" tabindex="0"><ha-icon icon="mdi:car-tire-alert"></ha-icon>${this._t('low_tyre_pressure')}</span>`);
-    }
-    // The lock: Renault's binary sensor (on = unlocked), else the lock entity of the other integrations
-    var lockId = this._avail(ent.lock_status) ? ent.lock_status : this._avail(ent.lock) && /^(locked|unlocked)$/.test(this._val(ent.lock)) ? ent.lock : null;
-    if (lockId) {
-      var unlocked = lockId === ent.lock_status ? this._val(lockId) === 'on' : this._val(lockId) === 'unlocked';
-      chips.push(`<span class="chip${unlocked ? ' warn' : ''}" data-more="${rnEsc(lockId)}" role="button" tabindex="0"><ha-icon icon="${unlocked ? 'mdi:lock-open-variant-outline' : 'mdi:lock-outline'}"></ha-icon>${this._t(unlocked ? 'unlocked' : 'locked')}</span>`);
-    }
-    if (ent.doors.some((id) => this._val(id) === 'on')) {
-      chips.push(`<span class="chip warn"><ha-icon icon="mdi:car-door"></ha-icon>${this._t('doors_open')}</span>`);
-    }
-    var charge = this._chargeChip(ent);
-    if (charge) chips.push(charge);
-    if (this._val(ent.hvac_status) === 'on') {
-      chips.push(`<span class="chip ok"><ha-icon icon="mdi:air-conditioner"></ha-icon>${this._t('hvac_on')}</span>`);
-    }
-    // Neither mobile network nor Wi-Fi: the car does not answer, its values may be old.
-    if (this._val(ent.cellular) === 'off' && this._val(ent.wifi) !== 'on') {
-      chips.push(`<span class="chip warn" data-more="${rnEsc(ent.cellular)}" role="button" tabindex="0"><ha-icon icon="mdi:access-point-network-off"></ha-icon>${this._t('offline')}</span>`);
-    }
 
     // Stat tiles
     var tiles = [];

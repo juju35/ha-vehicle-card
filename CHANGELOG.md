@@ -8,7 +8,7 @@
 - Night picture with the dark theme even while the sun is up.
 
 ### Fixes
-- The body's status chips no longer repeat the header pill ("Locked" under a "Locked" pill, "Low tyre pressure", "Air conditioning on"…): the chip saying the same is hidden and comes back only when the pill keeps just its dot. The pill now opens the entity behind it (the lock, the tyre, the charge…), as that chip did.
+- The body's status chips no longer repeat the header pill ("Locked" under a "Locked" pill, "Low tyre pressure", "Air conditioning on"…): the chip saying the same is hidden and comes back only when the pill keeps just its dot. The pill now opens the entity behind it (the lock, the tyre, the charge…), as that chip did. The full card's subtitle no longer repeats the body either: the range (shown in a range tile) and what a chip says (plugged in, the charge's time left…) give way to the model; the compact mini card keeps them.
 
 ## 3.7.0 - 2026-11-15
 
