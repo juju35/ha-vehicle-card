@@ -1518,7 +1518,7 @@ test("mini card: picture, battery level, battery range and charging state, with 
 });
 
 test("mini card: the plug state when not charging, the fuel range without a battery range, the car icon without logo", () => {
-  const { card, root, states } = miniCard({ show_logo: false });
+  const { card, root, states } = miniCard({ show_logo: false, illustration: false });
   states["binary_sensor.car_charging"] = { state: "off", attributes: {} };
   delete states["sensor.car_battery_autonomy"];
   card.hass = { ...card._hass, states: { ...states } };
@@ -1840,7 +1840,7 @@ test("connected services (VW group) row and the offline chip (Teslemetry)", () =
 test("show_title / show_subtitle hide the name and the model; a model equal to the name shows once", () => {
   const header = (config, name, model) => {
     const card = Object.create(RenaultCard.prototype);
-    card._config = { show_logo: false, ...config };
+    card._config = { show_logo: false, illustration: false, ...config };
     return card._header(name, model, null, "/car.png");
   };
   const both = header({}, "Espace", "Espace E-Tech");
@@ -2016,4 +2016,42 @@ test("card editor: severity panels, kept short, YAML only for a list (#82)", () 
   const names = JSON.stringify(editor._schema());
   assert.doesNotMatch(names, /"fuel_severity"/);
   assert.match(names, /"battery_severity"/);
+});
+
+test("illustrated header: car picture on the scene, status subtitle and icon colour, plate in the body", () => {
+  const { card, root, states } = miniCard();
+  assert.match(root.html, /<div class="banner">/);
+  assert.match(root.html, /<div class="g-road"><\/div>/);
+  assert.match(root.html, /<image href="\/pic.webp"/, "the car's own picture is parked on the scene");
+  assert.match(root.html, /class="mimg"><img src="\/pic.webp"/, "and stays in the card");
+  assert.match(root.html, /class="vc-icon st-ok"[^>]*><ha-icon icon="mdi:car">/, "charging: green icon");
+  assert.match(root.html, /class="model"[^>]*>Charging · 45 min left</);
+  assert.match(root.html, /class="vc-led charging"/);
+  assert.match(root.html, /class="bbadge"><span class="brand"/, "Renault's logo in a badge on the icon");
+  states["binary_sensor.car_charging"] = { state: "off", attributes: {} };
+  card.hass = { ...card._hass, states: { ...states } };
+  assert.doesNotMatch(root.html, /vc-led charging/);
+  assert.doesNotMatch(root.html, /class="vc-icon st-ok"/);
+  // The full card: no plate in the header, the plate above the picture in the body
+  card._onClick({ composedPath: () => [{ classList: { contains: (c) => c === "zoom" } }], stopPropagation() {}, detail: 1 });
+  const banner = root.html.slice(root.html.indexOf('<div class="banner'), root.html.indexOf('<div class="image'));
+  assert.doesNotMatch(banner, /class="plate"/);
+  assert.match(root.html, /<div class="image with-plate"><svg class="plate"/);
+});
+
+test("illustrated header: night from illustration_theme, sun.sun or the dark theme; unique ids per card", () => {
+  const { card, root, states } = miniCard({ illustration_theme: "night" });
+  assert.match(root.html, /<div class="banner night">/);
+  const id = root.html.match(/radialGradient id="([^"]+)"/)[1];
+  card.setConfig({ device_id: "d1", illustration_theme: "day" });
+  assert.match(root.html, /<div class="banner">/);
+  card.setConfig({ device_id: "d1" });
+  card.hass = { ...card._hass, states: { ...states, "sun.sun": { state: "below_horizon", attributes: {} } } };
+  assert.match(root.html, /<div class="banner night">/);
+  card.hass = { ...card._hass, states: { ...states }, themes: { darkMode: true } };
+  assert.match(root.html, /<div class="banner night">/);
+  const other = miniCard();
+  assert.notEqual(other.root.html.match(/radialGradient id="([^"]+)"/)[1], id);
+  const classic = miniCard({ illustration: false });
+  assert.doesNotMatch(classic.root.html, /class="banner/);
 });

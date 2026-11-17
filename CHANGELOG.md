@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.8.0 - 2026-11-17
+
+### Features
+- **Animated illustrated header** on the full and mini cards (90 px): the car's own picture (MyRenault photo or the integration's picture) parked on a roadside scene with a road strip edge to edge, its charging post for a car that charges (cable and blinking light while charging), drifting clouds, street lamp lit at night. The name and status ("Charging · 45 min left", "Locked · 806 km") sit on the sky beside a round car icon whose colour follows the status — green charging, accent with the air conditioning on, amber when unlocked, a door open, a low range or tyre, red offline, grey at rest — with the brand's logo in a badge. The licence plate moves to the body, at the top right of the picture. Day or night follows `sun.sun` (else the dark theme), forced with `illustration_theme: day | night`; `illustration: false` keeps the classic header. Both options are in the visual editor; animations stop with reduced motion.
+
 ## 3.7.0 - 2026-11-15
 
 ### Features
