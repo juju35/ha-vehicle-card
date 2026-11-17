@@ -335,7 +335,7 @@ entities:
 | `entity` | ❌ | — | Any entity of the vehicle, used to find the device (YAML only: the visual editor sets `device_id`) |
 | `name` | ❌ | Device name | Card title |
 | `illustration` | ❌ | `true` | Animated illustrated header (full and mini card): the car's own picture parked on a roadside scene (with its charging post for a car that charges), the name and status on the sky, a round icon whose colour follows the status (green charging, amber to check, red offline, grey at rest) with the brand's logo in a badge; the plate moves to the body, above the picture. `false` for the classic header |
-| `illustration_theme` | ❌ | `auto` | `day` or `night` picture; `auto` shows the night picture when `sun.sun` is below the horizon or the theme is dark |
+| `illustration_theme` | ❌ | `auto` | `auto` (follows the Home Assistant theme: night with a dark theme, day with a light theme), `day` or `night` |
 | `show_title` | ❌ | `true` | Show the title (the name) in the header, e.g. `false` when the card sits under a section heading |
 | `show_subtitle` | ❌ | `true` | Show the subtitle under the title (the time left or range on the illustrated header, else the model; the status is a pill after the title); a model that only repeats the name is never shown twice |
 | `image` | ❌ | Auto | Picture URL; overrides the integration's picture |
@@ -397,7 +397,7 @@ height: 400
 | `devices` | ❌ | All vehicles | List of vehicle device IDs to show |
 | `title` | ❌ | `Vehicles` | Card title; empty for none |
 | `illustration` | ❌ | `true` | Animated illustrated header, as on the vehicle card: the car's own picture (the first vehicle that has one) parked on a roadside scene with its charging post for a car that charges, the title on the sky with a status pill — the vehicle's zone (green at home, accent in another zone, grey away), or how many vehicles are at home ("Home · 1/2") — and the model, or the vehicles' names, below it. A round map-marker icon in the pill's colour carries the brand's logo in a badge. `false` for the classic header |
-| `illustration_theme` | ❌ | `auto` | `day` or `night` picture; `auto` shows the night picture when `sun.sun` is below the horizon or the theme is dark |
+| `illustration_theme` | ❌ | `auto` | `auto` (follows the Home Assistant theme: night with a dark theme, day with a light theme), `day` or `night` |
 | `map_style` | ❌ | `ha` | `ha` (Home Assistant vector map), `osm`, `osm_fr`, `ign`, `ign_photo`, `topo`, `cyclosm`, `satellite` or `custom` |
 | `theme` | ❌ | `auto` | Base map theme: `auto` (follows Home Assistant), `light` or `dark` |
 | `tile_url` | ❌ | — | Tile URL with `{z}`, `{x}`, `{y}`, for `map_style: custom` |

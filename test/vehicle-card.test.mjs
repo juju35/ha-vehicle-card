@@ -2115,15 +2115,18 @@ test("illustrated header: car picture on the scene, status subtitle and icon col
   assert.match(root.html, /<div class="image with-plate"><svg class="plate"/);
 });
 
-test("illustrated header: night from illustration_theme, sun.sun or the dark theme; unique ids per card", () => {
+test("illustrated header: night from illustration_theme or the dark theme alone; unique ids per card", () => {
   const { card, root, states } = miniCard({ illustration_theme: "night" });
   assert.match(root.html, /<div class="banner night">/);
   const id = root.html.match(/radialGradient id="([^"]+)"/)[1];
   card.setConfig({ device_id: "d1", illustration_theme: "day" });
   assert.match(root.html, /<div class="banner">/);
   card.setConfig({ device_id: "d1" });
-  card.hass = { ...card._hass, states: { ...states, "sun.sun": { state: "below_horizon", attributes: {} } } };
-  assert.match(root.html, /<div class="banner night">/);
+  const sunDown = { ...states, "sun.sun": { state: "below_horizon", attributes: {} } };
+  card.hass = { ...card._hass, states: sunDown, themes: { darkMode: false } };
+  assert.match(root.html, /<div class="banner">/, "light theme after sunset: day");
+  card.hass = { ...card._hass, states: sunDown, themes: { darkMode: true } };
+  assert.match(root.html, /<div class="banner night">/, "dark theme after sunset: night");
   card.hass = { ...card._hass, states: { ...states }, themes: { darkMode: true } };
   assert.match(root.html, /<div class="banner night">/);
   const sunUp = { ...states, "sun.sun": { state: "above_horizon", attributes: {} } };
@@ -2136,7 +2139,7 @@ test("illustrated header: night from illustration_theme, sun.sun or the dark the
   assert.match(root.html, /<div class="banner">/, "forced day wins over the dark theme");
   card.setConfig({ device_id: "d1", illustration_theme: "night" });
   card.hass = { ...card._hass, states: sunUp, themes: { darkMode: false } };
-  assert.match(root.html, /<div class="banner night">/, "forced night wins over the sun");
+  assert.match(root.html, /<div class="banner night">/, "forced night wins over the light theme");
   const other = miniCard();
   assert.notEqual(other.root.html.match(/radialGradient id="([^"]+)"/)[1], id);
   const classic = miniCard({ illustration: false });
