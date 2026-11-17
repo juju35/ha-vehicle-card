@@ -337,7 +337,7 @@ entities:
 | `illustration` | ❌ | `true` | Animated illustrated header (full and mini card): the car's own picture parked on a roadside scene (with its charging post for a car that charges), the name and status on the sky, a round icon whose colour follows the status (green charging, amber to check, red offline, grey at rest) with the brand's logo in a badge; the plate moves to the body, above the picture. `false` for the classic header |
 | `illustration_theme` | ❌ | `auto` | `day` or `night` picture; `auto` follows `sun.sun`, else the dark theme |
 | `show_title` | ❌ | `true` | Show the title (the name) in the header, e.g. `false` when the card sits under a section heading |
-| `show_subtitle` | ❌ | `true` | Show the subtitle under the title (the status on the illustrated header, else the model); a model that only repeats the name is never shown twice |
+| `show_subtitle` | ❌ | `true` | Show the subtitle under the title (the time left or range on the illustrated header, else the model; the status is a pill after the title); a model that only repeats the name is never shown twice |
 | `image` | ❌ | Auto | Picture URL; overrides the integration's picture |
 | `show_logo` | ❌ | `true` | Show the brand's logo next to the name (follows the theme text colour) |
 | `show_image` | ❌ | `true` | Show the vehicle picture |

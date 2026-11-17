@@ -31,6 +31,7 @@ var RnI18n = {
     hvac_on: 'Climatisation en marche',
     charging: 'En charge',
     charging_left: 'En charge · reste {t}',
+    parked: 'Garée',
     plugged: 'Branché',
     unplugged: 'Débranché',
     low_range: 'Autonomie faible',
@@ -179,6 +180,7 @@ var RnI18n = {
     hvac_on: 'Air conditioning on',
     charging: 'Charging',
     charging_left: 'Charging · {t} left',
+    parked: 'Parked',
     plugged: 'Plugged in',
     unplugged: 'Unplugged',
     low_range: 'Low range',
@@ -327,6 +329,7 @@ var RnI18n = {
     hvac_on: 'Klimaanlage an',
     charging: 'Lädt',
     charging_left: 'Lädt · noch {t}',
+    parked: 'Geparkt',
     plugged: 'Angeschlossen',
     unplugged: 'Nicht angeschlossen',
     low_range: 'Geringe Reichweite',
@@ -475,6 +478,7 @@ var RnI18n = {
     hvac_on: 'Climatización encendida',
     charging: 'Cargando',
     charging_left: 'Cargando · quedan {t}',
+    parked: 'Aparcado',
     plugged: 'Enchufado',
     unplugged: 'Desenchufado',
     low_range: 'Autonomía baja',
@@ -623,6 +627,7 @@ var RnI18n = {
     hvac_on: 'Клима укључена',
     charging: 'Пуњење',
     charging_left: 'Пуњење · још {t}',
+    parked: 'Паркирано',
     plugged: 'Прикључено',
     unplugged: 'Није прикључено',
     low_range: 'Мали домет',
@@ -771,6 +776,7 @@ var RnI18n = {
     hvac_on: 'Klima uključena',
     charging: 'Punjenje',
     charging_left: 'Punjenje · još {t}',
+    parked: 'Parkirano',
     plugged: 'Priključeno',
     unplugged: 'Nije priključeno',
     low_range: 'Mali domet',
@@ -919,6 +925,7 @@ var RnI18n = {
     hvac_on: 'Climatizzatore acceso',
     charging: 'In carica',
     charging_left: 'In carica · mancano {t}',
+    parked: 'Parcheggiata',
     plugged: 'Collegato',
     unplugged: 'Scollegato',
     low_range: 'Autonomia bassa',
@@ -1067,6 +1074,7 @@ var RnI18n = {
     hvac_on: 'Airconditioning aan',
     charging: 'Laden',
     charging_left: 'Laden · nog {t}',
+    parked: 'Geparkeerd',
     plugged: 'Aangesloten',
     unplugged: 'Losgekoppeld',
     low_range: 'Lage actieradius',
@@ -1215,6 +1223,7 @@ var RnI18n = {
     hvac_on: 'Ar condicionado ligado',
     charging: 'A carregar',
     charging_left: 'A carregar · faltam {t}',
+    parked: 'Estacionado',
     plugged: 'Ligado à corrente',
     unplugged: 'Desligado da corrente',
     low_range: 'Autonomia baixa',
@@ -1363,6 +1372,7 @@ var RnI18n = {
     hvac_on: 'Klimatyzacja włączona',
     charging: 'Ładowanie',
     charging_left: 'Ładowanie · pozostało {t}',
+    parked: 'Zaparkowany',
     plugged: 'Podłączony',
     unplugged: 'Odłączony',
     low_range: 'Niski zasięg',
@@ -1511,6 +1521,7 @@ var RnI18n = {
     hvac_on: 'Climatizare pornită',
     charging: 'Se încarcă',
     charging_left: 'Se încarcă · mai rămân {t}',
+    parked: 'Parcată',
     plugged: 'Conectat',
     unplugged: 'Deconectat',
     low_range: 'Autonomie redusă',
@@ -1659,6 +1670,7 @@ var RnI18n = {
     hvac_on: 'Aircondition tændt',
     charging: 'Oplader',
     charging_left: 'Oplader · {t} tilbage',
+    parked: 'Parkeret',
     plugged: 'Tilsluttet',
     unplugged: 'Ikke tilsluttet',
     low_range: 'Lav rækkevidde',
@@ -1807,6 +1819,7 @@ var RnI18n = {
     hvac_on: 'Luftkonditionering på',
     charging: 'Laddar',
     charging_left: 'Laddar · {t} kvar',
+    parked: 'Parkerad',
     plugged: 'Ansluten',
     unplugged: 'Inte ansluten',
     low_range: 'Låg räckvidd',
@@ -1955,6 +1968,7 @@ var RnI18n = {
     hvac_on: 'Климатикът е включен',
     charging: 'Зарежда се',
     charging_left: 'Зарежда се · остават {t}',
+    parked: 'Паркиран',
     plugged: 'Включен',
     unplugged: 'Изключен',
     low_range: 'Малък пробег',
@@ -2103,6 +2117,7 @@ var RnI18n = {
     hvac_on: 'Кондиционер включён',
     charging: 'Зарядка',
     charging_left: 'Зарядка · осталось {t}',
+    parked: 'Припаркован',
     plugged: 'Подключён',
     unplugged: 'Отключён',
     low_range: 'Малый запас хода',
@@ -2251,6 +2266,7 @@ var RnI18n = {
     hvac_on: 'Кондиціонер увімкнено',
     charging: 'Заряджання',
     charging_left: 'Заряджання · ще {t}',
+    parked: 'Припаркований',
     plugged: 'Підключено',
     unplugged: 'Відключено',
     low_range: 'Малий запас ходу',
@@ -2399,6 +2415,7 @@ var RnI18n = {
     hvac_on: 'Klíma bekapcsolva',
     charging: 'Töltés',
     charging_left: 'Töltés · még {t}',
+    parked: 'Parkol',
     plugged: 'Csatlakoztatva',
     unplugged: 'Nincs csatlakoztatva',
     low_range: 'Alacsony hatótáv',
@@ -2547,6 +2564,7 @@ var RnI18n = {
     hvac_on: 'Klimatizácia zapnutá',
     charging: 'Nabíja sa',
     charging_left: 'Nabíja sa · zostáva {t}',
+    parked: 'Zaparkované',
     plugged: 'Pripojené',
     unplugged: 'Odpojené',
     low_range: 'Nízky dojazd',
@@ -2695,6 +2713,7 @@ var RnI18n = {
     hvac_on: 'Klimatizace zapnuta',
     charging: 'Nabíjení',
     charging_left: 'Nabíjení · zbývá {t}',
+    parked: 'Zaparkováno',
     plugged: 'Připojeno',
     unplugged: 'Odpojeno',
     low_range: 'Nízký dojezd',
@@ -2843,6 +2862,7 @@ var RnI18n = {
     hvac_on: 'Klima vklopljena',
     charging: 'Polnjenje',
     charging_left: 'Polnjenje · še {t}',
+    parked: 'Parkirano',
     plugged: 'Priključeno',
     unplugged: 'Odklopljeno',
     low_range: 'Nizek doseg',
@@ -2991,6 +3011,7 @@ var RnI18n = {
     hvac_on: 'Kondicionieris ieslēgts',
     charging: 'Uzlādē',
     charging_left: 'Uzlādē · atlicis {t}',
+    parked: 'Novietots',
     plugged: 'Pievienots',
     unplugged: 'Atvienots',
     low_range: 'Zema sniedzamība',
@@ -3139,6 +3160,7 @@ var RnI18n = {
     hvac_on: 'Κλιματισμός ενεργός',
     charging: 'Φόρτιση',
     charging_left: 'Φόρτιση · απομένουν {t}',
+    parked: 'Σταθμευμένο',
     plugged: 'Συνδεδεμένο',
     unplugged: 'Αποσυνδεδεμένο',
     low_range: 'Χαμηλή αυτονομία',
@@ -4026,6 +4048,21 @@ function rnSceneSvg(o) {
     charger + car + '</svg>';
 }
 
+var RN_PILL_STYLE =
+  '.trow { display: flex; align-items: center; gap: 8px; min-width: 0; }' +
+  '.trow .name { flex: 0 100 auto; min-width: 4ch; }' +
+  '.bchip { --c: #6b7a89; display: inline-flex; align-items: center; gap: 4px; flex: 0 1 auto; min-width: 0; max-width: 51%; box-sizing: border-box;' +
+    ' overflow: hidden; white-space: nowrap; padding: 1px 8px; border-radius: 12px; font-size: 11px; font-weight: 500; line-height: 16px;' +
+    ' background: color-mix(in srgb, var(--c) 18%, rgba(255,255,255,.78)); color: color-mix(in srgb, var(--c) 45%, #0d2a45); }' +
+  '.bchip.st-ok { --c: ' + RN_OK + '; } .bchip.st-active { --c: var(--rn-accent); } .bchip.st-warn { --c: ' + RN_WARN + '; } .bchip.st-err { --c: ' + RN_ERR + '; }' +
+  '.bchip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--c); flex: none; }' +
+  '.bchip-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; }' +
+  // Not enough room after the title (measured by the card): the pill on its own line under the subtitle.
+  '[data-wrap] .titles { display: flex; flex-direction: column; } [data-wrap] .trow { display: contents; }' +
+  '[data-wrap] .bchip { order: 9; align-self: flex-start; max-width: 100%; margin-top: 3px; }' +
+  '@container (max-width: 200px) { .bchip { padding: 0; background: none; }' +
+    ' .bchip-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); } }';
+
 var RN_SCENE_STYLE =
   '.banner { position: relative; overflow: hidden; height: 90px; margin: -12px -12px -2px; flex: none; color: #0d2a45;' +
     ' border-radius: var(--ha-card-border-radius, 12px) var(--ha-card-border-radius, 12px) 0 0;' +
@@ -4073,8 +4110,20 @@ var RN_SCENE_STYLE =
     ' display: grid; place-items: center; background: #fff; box-shadow: 0 0 0 1px rgba(13,42,69,.16), 0 1px 3px rgba(13,42,69,.18); }' +
   '.bbadge .brand { width: 100%; height: 100%; background: #1c1c1c; }' +
   '.bbadge .brand-svg { width: 100%; height: 100%; padding: 0; fill: #1c1c1c; }' +
-  '.banner .zoom { position: absolute; top: 6px; right: 6px; margin: 0; color: #0d2a45; background: rgba(255,255,255,.55); }' +
-  '.banner.night .zoom { color: #fff; background: rgba(10,20,40,.45); }' +
+  // The status pill right after the title, in the icon's colour on a frosted tint; the title is cut first (about four
+  // characters kept). When it does not fit there (measured by the card, or a narrow card) it goes on its own line
+  // under the subtitle, where it may run over the left of the scene; very narrow, its dot alone.
+  '.night .bchip { background: color-mix(in srgb, var(--c) 30%, rgba(8,18,38,.55)); color: color-mix(in srgb, var(--c) 35%, #ffffff); }' +
+  '.night .bchip.st-idle { --c: #aab6c3; }' +
+  '.banner[data-wrap] .model, .banner .trow:has(> .bchip) ~ .model { -webkit-line-clamp: 1; }' +
+  '.banner[data-wrap] .bchip { order: 9; align-self: flex-start; max-width: calc(100cqw - 80px); margin-top: 3px; }' +
+  '@container (max-width: 260px) { .banner .titles { display: flex; flex-direction: column; } .banner .trow { display: contents; }' +
+    ' .banner .bchip { order: 9; align-self: flex-start; max-width: calc(100cqw - 80px); margin-top: 3px; } }' +
+  // The mini card's expand / collapse button: 24 px, frosted, 5 px from the banner's top right corner.
+  '.banner .zoom { position: absolute; top: 5px; right: 5px; z-index: 2; margin: 0; width: 24px; height: 24px; color: #33506b;' +
+    ' background: rgba(255,255,255,.55); box-shadow: inset 0 0 0 1px rgba(255,255,255,.7); backdrop-filter: blur(4px); --mdc-icon-size: 16px; }' +
+  '.banner.night .zoom { color: #fff; background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); }' +
+  '.banner .zoom:hover { background: rgba(255,255,255,.75); color: #33506b; } .banner.night .zoom:hover { background: rgba(255,255,255,.22); color: #fff; }' +
   '@keyframes vc-twinkle { from { opacity: .3; } to { opacity: 1; } }' +
   '@keyframes vc-drift { from { translate: -3px 0; } to { translate: 4px 0; } }' +
   '@keyframes vc-blink { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }' +
@@ -4148,9 +4197,31 @@ class RenaultCard extends HTMLElement {
       this._update();
     });
     document.addEventListener('click', this._onOutside, true);
+    // A new width fits the banner's status pill again (the banner keeps its height: no resize loop).
+    if (typeof ResizeObserver === 'function') {
+      this._pillResize = this._pillResize || new ResizeObserver(() => this._fitPill());
+      this._pillResize.observe(this);
+    }
+  }
+
+  // The header's status pill goes on its own line under the subtitle when it is cut next to the title. Measured with
+  // fractional widths: scrollWidth / clientWidth are rounded and miss a label cut by less than a pixel.
+  _fitPill() {
+    var chip = this.shadowRoot?.querySelector?.('.trow .bchip');
+    var banner = chip?.closest?.('.banner, .header');
+    if (!banner || !chip.getBoundingClientRect) return;
+    banner.removeAttribute('data-wrap');
+    var have = chip.getBoundingClientRect().width;
+    chip.style.maxWidth = 'none';
+    chip.style.flex = 'none';
+    var need = chip.getBoundingClientRect().width;
+    chip.style.maxWidth = '';
+    chip.style.flex = '';
+    if (need > have + 0.01) banner.setAttribute('data-wrap', '');
   }
 
   disconnectedCallback() {
+    this._pillResize?.disconnect();
     clearInterval(this._timer);
     clearTimeout(this._armTimer);
     clearTimeout(this._resultTimer);
@@ -4404,15 +4475,22 @@ class RenaultCard extends HTMLElement {
   _header(name, model, plate, imgSrc, sceneImg) {
     var c = this._config;
     if (this._illustrated()) return this._banner(name, model, sceneImg);
-    var title = c.show_title !== false ? `<div class="name">${rnEsc(name)}</div>` : '';
+    var st = this._r ? this._status(this._r.ent) : null;
+    var pill = st?.pill ? this._pill(st) : '';
+    var title = c.show_title !== false || pill ? `<div class="trow">${c.show_title !== false ? `<div class="name">${rnEsc(name)}</div>` : ''}${pill}</div>` : '';
     var same = model && name && String(model).trim().toLowerCase() === String(name).trim().toLowerCase();
-    var subtitle = c.show_subtitle !== false && model && !(same && title) ? `<div class="model">${rnEsc(model)}</div>` : '';
+    var subtitle = c.show_subtitle !== false && model && !(same && c.show_title !== false) ? `<div class="model">${rnEsc(model)}</div>` : '';
     return '<div class="header">' +
       ((c.show_logo && rnBrandHtml(this._r?.brand, () => { this._sig = null; this._update(); })) ||
         (imgSrc && !c.show_logo ? '' : '<div class="badge"><ha-icon icon="mdi:car"></ha-icon></div>')) +
       `<div class="titles">${title}${subtitle}</div>` +  // kept empty: it pushes the plate to the right
       (plate ? rnPlateSvg(plate, c.plate_department) : '') + this._headerAction() +
       '</div>';
+  }
+
+  // The status pill: a dot and the car's status, in the colour of the header icon.
+  _pill(st) {
+    return `<span class="bchip st-${st.level}" title="${rnEsc(st.pill)}"><span class="dot"></span><span class="bchip-text">${rnEsc(st.pill)}</span></span>`;
   }
 
   // Overridden by the mini card: its detail button.
@@ -4424,21 +4502,31 @@ class RenaultCard extends HTMLElement {
   // Offline is an error; unlocked, a door open, a low range or a low tyre need a look; charging is
   // green, the air conditioning on the accent colour; else the car rests (grey).
   _status(ent) {
-    var parts = [], level = 'idle';
+    var parts = [], level = 'idle', pill = null;
     var lowTyres = this._lowTyres(ent.tyres.filter((id) => this._avail(id)));
     var lockId = this._avail(ent.lock_status) ? ent.lock_status : this._avail(ent.lock) && /^(locked|unlocked)$/.test(this._val(ent.lock)) ? ent.lock : null;
     var unlocked = lockId && (lockId === ent.lock_status ? this._val(lockId) === 'on' : this._val(lockId) === 'unlocked');
     var doors = ent.doors.some((id) => this._val(id) === 'on');
     var charging = this._val(ent.charging) === 'on';
     var offline = this._val(ent.cellular) === 'off' && this._val(ent.wifi) !== 'on';
+    var lowRange = this._lowRange(ent);
+    var hvac = this._val(ent.hvac_status) === 'on';
+    var plug = this._avail(ent.plugged_in) ? (this._val(ent.plugged_in) === 'on' ? 'plugged' : 'unplugged') : null;
+    // The status pill: what sets the icon's colour first (offline, then what needs a look, then charging, the air
+    // conditioning), else the lock or the plug, else parked.
+    pill = offline ? 'offline' : doors ? 'doors_open' : unlocked ? 'unlocked' : lowRange ? 'low_range' : lowTyres.length ? 'low_tyre_pressure'
+      : charging ? 'charging' : hvac ? 'hvac_on' : lockId ? 'locked' : plug || 'parked';
+    // The subtitle: the rest, without the pill's word.
     if (charging) {
       var left = this._chargeMinutes(ent.charging_remaining_time);
-      parts.push(left ? this._t('charging_left', { t: this._duration(left) }) : this._t('charging'));
+      var text = left ? this._t('charging_left', { t: this._duration(left) }) : this._t('charging');
+      // "Charging · 45 min left" with the pill saying "Charging": "45 min left".
+      if (pill !== 'charging') parts.push(text);
+      else if (left) parts.push(text.split(' · ').slice(1).join(' · ') || text);
     } else {
-      if (offline) parts.push(this._t('offline'));
-      if (doors) parts.push(this._t('doors_open'));
-      else if (lockId) parts.push(this._t(unlocked ? 'unlocked' : 'locked'));
-      else if (this._avail(ent.plugged_in)) parts.push(this._t(this._val(ent.plugged_in) === 'on' ? 'plugged' : 'unplugged'));
+      if (doors && pill !== 'doors_open') parts.push(this._t('doors_open'));
+      else if (!doors && lockId && pill !== 'locked' && pill !== 'unlocked') parts.push(this._t(unlocked ? 'unlocked' : 'locked'));
+      else if (!doors && !lockId && plug && pill !== plug) parts.push(this._t(plug));
       var total = this._totalRange(ent);
       if (total != null) {
         var rid = this._num(ent.fuel_autonomy) != null ? ent.fuel_autonomy : ent.battery_autonomy;
@@ -4447,24 +4535,26 @@ class RenaultCard extends HTMLElement {
       }
     }
     if (offline) level = 'err';
-    else if (unlocked || doors || this._lowRange(ent) || lowTyres.length) level = 'warn';
+    else if (unlocked || doors || lowRange || lowTyres.length) level = 'warn';
     else if (charging) level = 'ok';
-    else if (this._val(ent.hvac_status) === 'on') level = 'active';
+    else if (hvac) level = 'active';
     var charger = null;
     if (charging) charger = 'charging';
-    else if (this._avail(ent.plugged_in)) charger = this._val(ent.plugged_in) === 'on' ? 'plugged' : 'unplugged';
+    else if (plug) charger = plug;
     else if (this._avail(ent.charging)) charger = 'unplugged';
-    return { level: level, text: parts.join(' · '), charger: charger };
+    return { level: level, pill: pill ? this._t(pill) : '', text: parts.join(' · '), charger: charger };
   }
 
   // The illustrated header: the round status icon (with the brand's logo in a badge) and the name and
   // status on the sky, the roadside scene with the car's own picture on the right, the road strip below.
   // The plate stays in the body, with the picture.
   _banner(name, model, img) {
-    var c = this._config, st = this._r ? this._status(this._r.ent) : { level: 'idle', text: '', charger: null };
-    var title = c.show_title !== false ? `<div class="name">${rnEsc(name)}</div>` : '';
+    var c = this._config, st = this._r ? this._status(this._r.ent) : { level: 'idle', pill: '', text: '', charger: null };
+    // The status pill right after the title (on its own line under the subtitle when it does not fit there).
+    var pill = st.pill ? this._pill(st) : '';
+    var title = c.show_title !== false || pill ? `<div class="trow">${c.show_title !== false ? `<div class="name">${rnEsc(name)}</div>` : ''}${pill}</div>` : '';
     var same = !st.text && model && name && String(model).trim().toLowerCase() === String(name).trim().toLowerCase();
-    var sub = st.text || (same && title ? '' : model);
+    var sub = st.text || (same && c.show_title !== false ? '' : model);
     var subtitle = c.show_subtitle !== false && sub ? `<div class="model" title="${rnEsc(model || '')}">${rnEsc(sub)}</div>` : '';
     var brand = c.show_logo ? rnBrandHtml(this._r?.brand, () => { this._sig = null; this._update(); }) : null;
     return `<div class="banner${rnIsNight(this._hass, c) ? ' night' : ''}">` +
@@ -4747,6 +4837,7 @@ class RenaultCard extends HTMLElement {
     // The same entity can have several elements (tile and row): keep the rank among them.
     var rank = key ? focusables().filter((el) => keyOf(el) === key).indexOf(root.activeElement) : -1;
     root.innerHTML = html;
+    this._fitPill();
     if (!key) return;
     var hit = focusables().filter((el) => keyOf(el) === key);
     var el = hit[Math.max(0, Math.min(rank, hit.length - 1))];
@@ -4956,6 +5047,8 @@ class RenaultCard extends HTMLElement {
       '.titles { flex: 1 1 0; min-width: 5ch; }' +
       '.name { font-size: 16px; font-weight: 500; line-height: 1.25; color: var(--primary-text-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }' +
       '.model { font-size: 12px; color: var(--secondary-text-color); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }' +
+      // Classic header: the status pill after the title, tinted with the status colour.
+      '.header .bchip { background: color-mix(in srgb, var(--c) 15%, transparent); color: color-mix(in srgb, var(--c) 50%, var(--primary-text-color)); }' +
       '.plate { height: 32px; width: auto; flex: 0 1 auto; min-width: 0; max-width: 45%; display: block; filter: drop-shadow(0 1px 1px rgba(0,0,0,0.25)); }' +
       '.image { display: flex; justify-content: center; margin: 0 0 -4px; }' +
       // Plate in the body: at the top right of the picture, the picture below it so they never overlap.
@@ -4963,7 +5056,7 @@ class RenaultCard extends HTMLElement {
       '.image.with-plate .plate { align-self: flex-end; max-width: 60%; margin-bottom: -18px; position: relative; z-index: 1; }' +
       '.plate-row { display: flex; justify-content: flex-end; }' +
       '.plate-row .plate, .image.with-plate .plate { height: 30px; }' +
-      (this._illustrated() ? RN_SCENE_STYLE : '') +
+      RN_PILL_STYLE + (this._illustrated() ? RN_SCENE_STYLE : '') +
       '.image img { max-width: 100%; max-height: 150px; object-fit: contain; }' +
       '.chips { display: flex; flex-wrap: wrap; gap: 6px; }' +
       '.chip { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; padding: 1px 8px 1px 5px; border-radius: 12px;' +

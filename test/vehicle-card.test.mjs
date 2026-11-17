@@ -2025,7 +2025,8 @@ test("illustrated header: car picture on the scene, status subtitle and icon col
   assert.match(root.html, /<image href="\/pic.webp"/, "the car's own picture is parked on the scene");
   assert.match(root.html, /class="mimg"><img src="\/pic.webp"/, "and stays in the card");
   assert.match(root.html, /class="vc-icon st-ok"[^>]*><ha-icon icon="mdi:car">/, "charging: green icon");
-  assert.match(root.html, /class="model"[^>]*>Charging · 45 min left</);
+  assert.match(root.html, /class="trow"><div class="name">[^<]*<\/div><span class="bchip st-ok" title="Charging"><span class="dot"><\/span><span class="bchip-text">Charging</, "status pill right after the title");
+  assert.match(root.html, /class="model"[^>]*>45 min left</, "the subtitle does not repeat the pill");
   assert.match(root.html, /class="vc-led charging"/);
   assert.match(root.html, /class="bbadge"><span class="brand"/, "Renault's logo in a badge on the icon");
   states["binary_sensor.car_charging"] = { state: "off", attributes: {} };
