@@ -6951,11 +6951,14 @@ class RenaultMapCard extends HTMLElement {
   _ensureMap(L) {
     if (this._map) return;
     var mapEl = this._root.querySelector('.map');
-    this._map = L.map(mapEl, { zoomControl: true, attributionControl: true, scrollWheelZoom: false, zoomSnap: 0.25 });
+    this._map = L.map(mapEl, { zoomControl: false, attributionControl: true, scrollWheelZoom: false, zoomSnap: 0.25 });
     mapEl.classList.toggle('dark', this._darkTiles());
     this._loadTiles(L);
     this._layer = L.layerGroup().addTo(this._map);
+    // At the bottom right, as on ha-carburants-france: bottom corners stack upwards, so the full screen
+    // button first, then the zoom above it; the CSS joins them into one bar above the attribution.
     if (this._config.show_fullscreen) this._addFullscreenControl(L);
+    L.control.zoom({ position: 'bottomright' }).addTo(this._map);
     this._fitted = false;
     if (window.ResizeObserver) {
       this._resizeObserver = new ResizeObserver(() => { this._invalidate(); });
@@ -7104,7 +7107,7 @@ class RenaultMapCard extends HTMLElement {
         return bar;
       },
     });
-    new Fullscreen({ position: 'topleft' }).addTo(this._map);
+    new Fullscreen({ position: 'bottomright' }).addTo(this._map);
     this._bindFs();
   }
 
@@ -7317,6 +7320,12 @@ class RenaultMapCard extends HTMLElement {
       'ha-card.fullscreen .map { flex: 1; height: auto !important; }',
       'ha-card.pseudo { position: fixed; inset: 0; z-index: 9999; height: 100vh; height: 100dvh; padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); box-sizing: border-box; }',
       '.rn-fs a { display: flex; align-items: center; justify-content: center; cursor: pointer; }',
+      // Zoom and full screen in one bar at the bottom right, above the attribution (as on ha-carburants-france).
+      '.leaflet-bottom.leaflet-right .leaflet-control-zoom:has(+ .rn-fs) { margin-bottom: 0; border-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }',
+      '.leaflet-bottom.leaflet-right .leaflet-control-zoom:has(+ .rn-fs) a:last-child { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom: 1px solid var(--divider-color, #ccc); }',
+      '.leaflet-bottom.leaflet-right .rn-fs { margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; }',
+      '.leaflet-bottom.leaflet-right .rn-fs a:first-child { border-top-left-radius: 0; border-top-right-radius: 0; }',
+      '.leaflet-bottom.leaflet-right .leaflet-bar { margin-bottom: 6px; }',
       // Leaflet's controls are white with black text whatever the theme: theme them like the HA map card.
       '.leaflet-touch .leaflet-bar { border-color: var(--divider-color, rgba(0,0,0,.2)); }',
       '.leaflet-container .leaflet-bar a { background-color: var(--card-background-color, #fff); color: var(--primary-text-color, #212121); border-bottom-color: var(--divider-color, #ccc); }',

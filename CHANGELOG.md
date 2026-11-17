@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.9.1 - 2026-11-18
+
+### Fixes
+- Map card: the zoom and full screen buttons move to the bottom right of the map, joined in one bar above the attribution, as on ha-carburants-france, so they no longer sit under the illustrated header's title.
+
 ## 3.9.0 - 2026-11-17
 
 ### Features

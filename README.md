@@ -408,7 +408,7 @@ height: 400
 | `show_home` | ❌ | `true` | Home marker |
 | `show_name` | ❌ | `true` | Vehicle name on the markers |
 | `show_picture` | ❌ | `true` | Vehicle picture on the markers and in the popup: the one the integration gives, else the `entity_picture` of its device tracker (which you can set with [customize](https://www.home-assistant.io/docs/configuration/customizing-devices/)) |
-| `show_fullscreen` | ❌ | `true` | Full screen button under the zoom buttons (on iPhone the card fills the screen) |
+| `show_fullscreen` | ❌ | `true` | Full screen button under the zoom buttons, at the bottom right of the map (on iPhone the card fills the screen) |
 | `language` | ❌ | Auto | Force language: `en`, `fr`, `de`, `es`, `sr`, `sr-Latn`, `it`, `nl`, `pt`, `pl`, `ro`, `da`, `sv`, `bg`, `ru`, `uk`, `hu`, `sk`, `cs`, `sl`, `lv` or `el` (auto-detects from HA settings) |
 
 The `ha` base map is the one Home Assistant's own map card uses (Home Assistant 2026.9 or later, WebGL2): OpenStreetMap vector tiles through your instance, in light or dark. On older versions or without WebGL2, the card falls back to OpenStreetMap raster tiles, also through Home Assistant when it can. Leaflet and MapLibre GL ship with the card (see [licenses](https://github.com/juju35/ha-vehicle-card/blob/main/licenses)): only the map tiles come from the network.
