@@ -3992,14 +3992,15 @@ var RN_LEASE_FIGS = [['target', 'lease_expected_lbl'], ['month', 'lease_month_lb
 // ── Illustrated header ──────────────────────────────────────────────────────
 // A 90 px banner: the sky with the title on its left, a 200 × 80 roadside scene on its right (hills, street
 // lamp, bush, and for a car that charges its charging post), the car's own picture parked on the road, and a
-// 10 px road strip edge to edge at the bottom. Day or night: illustration_theme, else sun.sun, else the dark theme.
+// 10 px road strip edge to edge at the bottom. Day or night: illustration_theme, else night when sun.sun is below the
+// horizon or Home Assistant's theme is dark (even with the sun up).
 var RN_NO_VALUE = ['unavailable', 'unknown', ''];
 function rnIsNight(hass, config) {
   var theme = config?.illustration_theme;
   if (theme === 'night') return true;
   if (theme === 'day') return false;
   var sun = hass?.states?.['sun.sun'];
-  if (sun && RN_NO_VALUE.indexOf(String(sun.state)) < 0) return sun.state === 'below_horizon';
+  if (sun && RN_NO_VALUE.indexOf(String(sun.state)) < 0 && sun.state === 'below_horizon') return true;
   return !!hass?.themes?.darkMode;
 }
 

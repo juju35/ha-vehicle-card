@@ -2051,6 +2051,17 @@ test("illustrated header: night from illustration_theme, sun.sun or the dark the
   assert.match(root.html, /<div class="banner night">/);
   card.hass = { ...card._hass, states: { ...states }, themes: { darkMode: true } };
   assert.match(root.html, /<div class="banner night">/);
+  const sunUp = { ...states, "sun.sun": { state: "above_horizon", attributes: {} } };
+  card.hass = { ...card._hass, states: sunUp, themes: { darkMode: true } };
+  assert.match(root.html, /<div class="banner night">/, "dark theme while the sun is up: night");
+  card.hass = { ...card._hass, states: sunUp, themes: { darkMode: false } };
+  assert.match(root.html, /<div class="banner">/, "light theme while the sun is up: day");
+  card.setConfig({ device_id: "d1", illustration_theme: "day" });
+  card.hass = { ...card._hass, states: sunUp, themes: { darkMode: true } };
+  assert.match(root.html, /<div class="banner">/, "forced day wins over the dark theme");
+  card.setConfig({ device_id: "d1", illustration_theme: "night" });
+  card.hass = { ...card._hass, states: sunUp, themes: { darkMode: false } };
+  assert.match(root.html, /<div class="banner night">/, "forced night wins over the sun");
   const other = miniCard();
   assert.notEqual(other.root.html.match(/radialGradient id="([^"]+)"/)[1], id);
   const classic = miniCard({ illustration: false });
