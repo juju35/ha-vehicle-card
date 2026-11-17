@@ -14,7 +14,7 @@ let skip = false;
 before(async () => {
   try {
     const { chromium } = await import("playwright");
-    browser = await chromium.launch();
+    browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
   } catch (e) {
     if (required) throw e;
     skip = `Chromium not available: ${String(e.message).split("\n")[0]}`;
@@ -93,3 +93,75 @@ for (const tag of ["renault-card", "renault-map-card"]) {
     });
   }
 }
+
+// The status pill: its whole label from 245 to 500 px, right after a readable title (at most about half of the title
+// row) or on its own line under the subtitle; the mini card's expand / collapse button 24 px, 5 px from the top
+// right corner of the banner.
+test("status pill shows its whole label next to a readable title; the zoom button sits at the banner corner", async (t) => {
+  if (skip) return t.skip(skip);
+  const failures = await page.evaluate(async () => {
+    const frames = (n) => new Promise((r) => {
+      const step = () => (n-- > 0 ? requestAnimationFrame(step) : r());
+      step();
+    });
+    const reg = (id, key) => ({ entity_id: id, device_id: "d1", platform: "renault", translation_key: key });
+    const out = [];
+    const cases = [
+      ["Captur", { "binary_sensor.car_charging": ["charging", "on"], "binary_sensor.car_plugged_in": ["plugged_in", "on"] }],
+      ["A very long vehicle name for the family", { "binary_sensor.car_lock_status": ["lock_status", "on"] }],
+      ["Espace", { "binary_sensor.car_lock_status": ["lock_status", "off"], "binary_sensor.car_hvac_status": ["hvac_status", "on"] }],
+    ];
+    for (const [name, ents] of cases) {
+      const entities = { "sensor.car_battery_level": reg("sensor.car_battery_level", "battery_level") };
+      const states = { "sensor.car_battery_level": { state: "80", attributes: { device_class: "battery" } } };
+      for (const [id, [key, state]] of Object.entries(ents)) {
+        entities[id] = reg(id, key);
+        states[id] = { state, attributes: {} };
+      }
+      const hass = { entities, states, devices: { d1: { id: "d1", name, model: "Model" } }, language: "en", locale: { language: "en" }, themes: {}, config: {}, callService: async () => {}, callWS: async () => ({}) };
+      for (const width of [245, 300, 400, 500]) {
+        for (const [tag, zoom, illustration] of [["renault-card", false, true], ["renault-mini-card", false, true], ["renault-mini-card", true, true], ["renault-card", false, false]]) {
+          const root = document.getElementById("root");
+          root.innerHTML = "";
+          root.style.width = `${width}px`;
+          const card = document.createElement(tag);
+          card.setConfig({ type: `custom:${tag}`, device_id: "d1", illustration });
+          card.hass = hass;
+          root.appendChild(card);
+          await frames(2);
+          if (zoom) card.shadowRoot.querySelector(".zoom").click();
+          await frames(4);
+          const r = card.shadowRoot;
+          const tag2 = `${tag}${zoom ? " zoomed" : ""}${illustration ? "" : " classic"} ${width}px "${name}"`;
+          const chip = r.querySelector(".bchip");
+          if (!chip) {
+            out.push(`${tag2}: no pill`);
+            continue;
+          }
+          const text = chip.querySelector(".bchip-text");
+          // Its whole label, or its dot alone (where it goes in every language: pill-layout.test.mjs).
+          const cut = getComputedStyle(text).display !== "none" && text.scrollWidth > text.clientWidth + 0.5;
+          if (cut) out.push(`${tag2}: label cut`);
+          const nb = r.querySelector(".trow .name").getBoundingClientRect();
+          if (nb.width < 24) out.push(`${tag2}: title ${Math.round(nb.width)}px`);
+          const cb = chip.getBoundingClientRect();
+          const onRow = Math.abs(cb.top + cb.height / 2 - (nb.top + nb.height / 2)) < 3;
+          if (onRow && cb.left - nb.right > 10.5) out.push(`${tag2}: pill ${Math.round(cb.left - nb.right)}px after the title`);
+          const banner = r.querySelector(".banner");
+          if (banner) {
+            const bb = banner.getBoundingClientRect();
+            if (cb.right > bb.right - 4 || cb.bottom > bb.bottom - 10) out.push(`${tag2}: pill out of the banner`);
+            if (tag === "renault-mini-card") {
+              const zb = banner.querySelector(".zoom")?.getBoundingClientRect();
+              if (!zb) out.push(`${tag2}: no zoom button`);
+              else if (Math.round(zb.width) !== 24 || Math.round(zb.height) !== 24 || Math.round(zb.top - bb.top) !== 5 || Math.round(bb.right - zb.right) !== 5)
+                out.push(`${tag2}: zoom ${Math.round(zb.width)}x${Math.round(zb.height)} at ${Math.round(zb.top - bb.top)}/${Math.round(bb.right - zb.right)}`);
+            }
+          }
+        }
+      }
+    }
+    return out;
+  });
+  assert.deepEqual(failures, []);
+});

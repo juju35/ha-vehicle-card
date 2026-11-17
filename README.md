@@ -334,8 +334,10 @@ entities:
 | `device_id` | ❌* | Auto | Vehicle device (*or `entity`; the first vehicle is used if both are missing) |
 | `entity` | ❌ | — | Any entity of the vehicle, used to find the device (YAML only: the visual editor sets `device_id`) |
 | `name` | ❌ | Device name | Card title |
+| `illustration` | ❌ | `true` | Animated illustrated header (full and mini card): the car's own picture parked on a roadside scene (with its charging post for a car that charges), the name and status on the sky, a round icon whose colour follows the status (green charging, amber to check, red offline, grey at rest) with the brand's logo in a badge; the plate moves to the body, above the picture. `false` for the classic header |
+| `illustration_theme` | ❌ | `auto` | `day` or `night` picture; `auto` shows the night picture when `sun.sun` is below the horizon or the theme is dark |
 | `show_title` | ❌ | `true` | Show the title (the name) in the header, e.g. `false` when the card sits under a section heading |
-| `show_subtitle` | ❌ | `true` | Show the subtitle (the model) under the title; a model that only repeats the name is never shown twice |
+| `show_subtitle` | ❌ | `true` | Show the subtitle under the title (the time left or range on the illustrated header, else the model; the status is a pill after the title); a model that only repeats the name is never shown twice |
 | `image` | ❌ | Auto | Picture URL; overrides the integration's picture |
 | `show_logo` | ❌ | `true` | Show the brand's logo next to the name (follows the theme text colour) |
 | `show_image` | ❌ | `true` | Show the vehicle picture |
@@ -377,6 +379,7 @@ device_id: 5a8c1932ddf3f29163a275f06789b1bf
 | Mini card | Mini card, dark |
 |---|---|
 | <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/screenshots/mini.png" alt="Renault mini card" width="280"> | <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/screenshots/mini-dark.png" alt="Renault mini card, dark theme" width="280"> |
+| <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/screenshots/mini-zoom.png" alt="Renault mini card expanded to the full card" width="400"> | <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/screenshots/mini-zoom-dark.png" alt="Renault mini card expanded to the full card, dark theme" width="400"> |
 
 ## Map card
 

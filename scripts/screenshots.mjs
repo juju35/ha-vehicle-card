@@ -555,6 +555,16 @@ await render(
     ]),
     { file: "mini", type: "vehicle-mini-card", theme: "light", width: 280, config: { device_id: "captur" } },
     { file: "mini-dark", type: "vehicle-mini-card", theme: "dark", width: 280, config: { device_id: "captur" } },
+    // The mini card expanded with its top right button: the full card, at the full card's width.
+    ...["light", "dark"].map((theme) => ({
+      file: theme === "dark" ? "mini-zoom-dark" : "mini-zoom", type: "vehicle-mini-card", theme, width: 460,
+      config: { device_id: "captur", plate_department: "35", show_data_plan: false },
+      after: (page) => page.evaluate(() => {
+        const root = document.querySelector("vehicle-mini-card").shadowRoot;
+        root.querySelector(".zoom").click();
+        root.activeElement?.blur(); // a keyboard-like click keeps the focus ring on the button
+      }),
+    })),
     { file: "map", type: "vehicle-map-card", theme: "light", width: 420, config: MAP_CONFIG, hass: mapHass },
     { file: "map-dark", type: "vehicle-map-card", theme: "dark", width: 420, config: MAP_CONFIG, hass: mapHass },
   ],

@@ -31,6 +31,7 @@ var RnI18n = {
     hvac_on: 'Climatisation en marche',
     charging: 'En charge',
     charging_left: 'En charge · reste {t}',
+    parked: 'Garée',
     plugged: 'Branché',
     unplugged: 'Débranché',
     low_range: 'Autonomie faible',
@@ -142,6 +143,11 @@ var RnI18n = {
     ed_lease: 'Suivi de LOA',
     ed_expand_lease: 'LOA dépliée par défaut',
     ed_flat: 'Fond uni',
+    ed_illustration: 'Illustration animée',
+    ed_illustration_theme: 'Thème de l\'illustration',
+    theme_auto: 'Automatique (soleil ou thème sombre)',
+    theme_day: 'Jour',
+    theme_night: 'Nuit',
     ed_start_date: 'Début de la LOA',
     ed_duration: 'Durée',
     ed_duration_unit: 'mois',
@@ -174,6 +180,7 @@ var RnI18n = {
     hvac_on: 'Air conditioning on',
     charging: 'Charging',
     charging_left: 'Charging · {t} left',
+    parked: 'Parked',
     plugged: 'Plugged in',
     unplugged: 'Unplugged',
     low_range: 'Low range',
@@ -285,6 +292,11 @@ var RnI18n = {
     ed_lease: 'Lease tracking',
     ed_expand_lease: 'Lease expanded by default',
     ed_flat: 'Flat background',
+    ed_illustration: 'Animated illustration',
+    ed_illustration_theme: 'Illustration theme',
+    theme_auto: 'Automatic (sun or dark theme)',
+    theme_day: 'Day',
+    theme_night: 'Night',
     ed_start_date: 'Lease start',
     ed_duration: 'Duration',
     ed_duration_unit: 'months',
@@ -317,6 +329,7 @@ var RnI18n = {
     hvac_on: 'Klimaanlage an',
     charging: 'Lädt',
     charging_left: 'Lädt · noch {t}',
+    parked: 'Geparkt',
     plugged: 'Angeschlossen',
     unplugged: 'Nicht angeschlossen',
     low_range: 'Geringe Reichweite',
@@ -428,6 +441,11 @@ var RnI18n = {
     ed_lease: 'Leasingverfolgung',
     ed_expand_lease: 'Leasing standardmäßig aufgeklappt',
     ed_flat: 'Einfarbiger Hintergrund',
+    ed_illustration: 'Animierte Illustration',
+    ed_illustration_theme: 'Thema der Illustration',
+    theme_auto: 'Automatisch (Sonne oder dunkles Design)',
+    theme_day: 'Tag',
+    theme_night: 'Nacht',
     ed_start_date: 'Leasingbeginn',
     ed_duration: 'Laufzeit',
     ed_duration_unit: 'Monate',
@@ -460,6 +478,7 @@ var RnI18n = {
     hvac_on: 'Climatización encendida',
     charging: 'Cargando',
     charging_left: 'Cargando · quedan {t}',
+    parked: 'Aparcado',
     plugged: 'Enchufado',
     unplugged: 'Desenchufado',
     low_range: 'Autonomía baja',
@@ -571,6 +590,11 @@ var RnI18n = {
     ed_lease: 'Seguimiento del leasing',
     ed_expand_lease: 'Leasing desplegado por defecto',
     ed_flat: 'Fondo plano',
+    ed_illustration: 'Ilustración animada',
+    ed_illustration_theme: 'Tema de la ilustración',
+    theme_auto: 'Automático (sol o tema oscuro)',
+    theme_day: 'Día',
+    theme_night: 'Noche',
     ed_start_date: 'Inicio del leasing',
     ed_duration: 'Duración',
     ed_duration_unit: 'meses',
@@ -603,6 +627,7 @@ var RnI18n = {
     hvac_on: 'Клима укључена',
     charging: 'Пуњење',
     charging_left: 'Пуњење · још {t}',
+    parked: 'Паркирано',
     plugged: 'Прикључено',
     unplugged: 'Није прикључено',
     low_range: 'Мали домет',
@@ -714,6 +739,11 @@ var RnI18n = {
     ed_lease: 'Праћење лизинга',
     ed_expand_lease: 'Лизинг подразумевано проширен',
     ed_flat: 'Равна позадина',
+    ed_illustration: 'Анимирана илустрација',
+    ed_illustration_theme: 'Тема илустрације',
+    theme_auto: 'Аутоматски (сунце или тамна тема)',
+    theme_day: 'Дан',
+    theme_night: 'Ноћ',
     ed_start_date: 'Почетак лизинга',
     ed_duration: 'Трајање',
     ed_duration_unit: 'месеци',
@@ -746,6 +776,7 @@ var RnI18n = {
     hvac_on: 'Klima uključena',
     charging: 'Punjenje',
     charging_left: 'Punjenje · još {t}',
+    parked: 'Parkirano',
     plugged: 'Priključeno',
     unplugged: 'Nije priključeno',
     low_range: 'Mali domet',
@@ -857,6 +888,11 @@ var RnI18n = {
     ed_lease: 'Praćenje lizinga',
     ed_expand_lease: 'Lizing podrazumevano proširen',
     ed_flat: 'Ravna pozadina',
+    ed_illustration: 'Animirana ilustracija',
+    ed_illustration_theme: 'Tema ilustracije',
+    theme_auto: 'Automatski (sunce ili tamna tema)',
+    theme_day: 'Dan',
+    theme_night: 'Noć',
     ed_start_date: 'Početak lizinga',
     ed_duration: 'Trajanje',
     ed_duration_unit: 'meseci',
@@ -889,6 +925,7 @@ var RnI18n = {
     hvac_on: 'Climatizzatore acceso',
     charging: 'In carica',
     charging_left: 'In carica · mancano {t}',
+    parked: 'Parcheggiata',
     plugged: 'Collegato',
     unplugged: 'Scollegato',
     low_range: 'Autonomia bassa',
@@ -1000,6 +1037,11 @@ var RnI18n = {
     ed_lease: 'Monitoraggio del leasing',
     ed_expand_lease: 'Leasing espanso per impostazione predefinita',
     ed_flat: 'Sfondo piatto',
+    ed_illustration: 'Illustrazione animata',
+    ed_illustration_theme: 'Tema dell\'illustrazione',
+    theme_auto: 'Automatico (sole o tema scuro)',
+    theme_day: 'Giorno',
+    theme_night: 'Notte',
     ed_start_date: 'Inizio del leasing',
     ed_duration: 'Durata',
     ed_duration_unit: 'mesi',
@@ -1032,6 +1074,7 @@ var RnI18n = {
     hvac_on: 'Airconditioning aan',
     charging: 'Laden',
     charging_left: 'Laden · nog {t}',
+    parked: 'Geparkeerd',
     plugged: 'Aangesloten',
     unplugged: 'Losgekoppeld',
     low_range: 'Lage actieradius',
@@ -1143,6 +1186,11 @@ var RnI18n = {
     ed_lease: 'Leaseopvolging',
     ed_expand_lease: 'Lease standaard uitgeklapt',
     ed_flat: 'Vlakke achtergrond',
+    ed_illustration: 'Geanimeerde illustratie',
+    ed_illustration_theme: 'Thema van de illustratie',
+    theme_auto: 'Automatisch (zon of donker thema)',
+    theme_day: 'Dag',
+    theme_night: 'Nacht',
     ed_start_date: 'Begin van de lease',
     ed_duration: 'Looptijd',
     ed_duration_unit: 'maanden',
@@ -1175,6 +1223,7 @@ var RnI18n = {
     hvac_on: 'Ar condicionado ligado',
     charging: 'A carregar',
     charging_left: 'A carregar · faltam {t}',
+    parked: 'Estacionado',
     plugged: 'Ligado à corrente',
     unplugged: 'Desligado da corrente',
     low_range: 'Autonomia baixa',
@@ -1286,6 +1335,11 @@ var RnI18n = {
     ed_lease: 'Acompanhamento do leasing',
     ed_expand_lease: 'Leasing expandido por predefinição',
     ed_flat: 'Fundo liso',
+    ed_illustration: 'Ilustração animada',
+    ed_illustration_theme: 'Tema da ilustração',
+    theme_auto: 'Automático (sol ou tema escuro)',
+    theme_day: 'Dia',
+    theme_night: 'Noite',
     ed_start_date: 'Início do leasing',
     ed_duration: 'Duração',
     ed_duration_unit: 'meses',
@@ -1318,6 +1372,7 @@ var RnI18n = {
     hvac_on: 'Klimatyzacja włączona',
     charging: 'Ładowanie',
     charging_left: 'Ładowanie · pozostało {t}',
+    parked: 'Zaparkowany',
     plugged: 'Podłączony',
     unplugged: 'Odłączony',
     low_range: 'Niski zasięg',
@@ -1429,6 +1484,11 @@ var RnI18n = {
     ed_lease: 'Śledzenie leasingu',
     ed_expand_lease: 'Leasing domyślnie rozwinięty',
     ed_flat: 'Płaskie tło',
+    ed_illustration: 'Animowana ilustracja',
+    ed_illustration_theme: 'Motyw ilustracji',
+    theme_auto: 'Automatycznie (słońce lub ciemny motyw)',
+    theme_day: 'Dzień',
+    theme_night: 'Noc',
     ed_start_date: 'Początek leasingu',
     ed_duration: 'Czas trwania',
     ed_duration_unit: 'mies.',
@@ -1461,6 +1521,7 @@ var RnI18n = {
     hvac_on: 'Climatizare pornită',
     charging: 'Se încarcă',
     charging_left: 'Se încarcă · mai rămân {t}',
+    parked: 'Parcată',
     plugged: 'Conectat',
     unplugged: 'Deconectat',
     low_range: 'Autonomie redusă',
@@ -1572,6 +1633,11 @@ var RnI18n = {
     ed_lease: 'Urmărirea leasingului',
     ed_expand_lease: 'Leasing extins implicit',
     ed_flat: 'Fundal uniform',
+    ed_illustration: 'Ilustrație animată',
+    ed_illustration_theme: 'Tema ilustrației',
+    theme_auto: 'Automat (soare sau temă întunecată)',
+    theme_day: 'Zi',
+    theme_night: 'Noapte',
     ed_start_date: 'Începutul leasingului',
     ed_duration: 'Durată',
     ed_duration_unit: 'luni',
@@ -1604,6 +1670,7 @@ var RnI18n = {
     hvac_on: 'Aircondition tændt',
     charging: 'Oplader',
     charging_left: 'Oplader · {t} tilbage',
+    parked: 'Parkeret',
     plugged: 'Tilsluttet',
     unplugged: 'Ikke tilsluttet',
     low_range: 'Lav rækkevidde',
@@ -1715,6 +1782,11 @@ var RnI18n = {
     ed_lease: 'Leasingopfølgning',
     ed_expand_lease: 'Leasing udfoldet som standard',
     ed_flat: 'Flad baggrund',
+    ed_illustration: 'Animeret illustration',
+    ed_illustration_theme: 'Illustrationens tema',
+    theme_auto: 'Automatisk (sol eller mørkt tema)',
+    theme_day: 'Dag',
+    theme_night: 'Nat',
     ed_start_date: 'Leasingstart',
     ed_duration: 'Varighed',
     ed_duration_unit: 'måneder',
@@ -1747,6 +1819,7 @@ var RnI18n = {
     hvac_on: 'Luftkonditionering på',
     charging: 'Laddar',
     charging_left: 'Laddar · {t} kvar',
+    parked: 'Parkerad',
     plugged: 'Ansluten',
     unplugged: 'Inte ansluten',
     low_range: 'Låg räckvidd',
@@ -1858,6 +1931,11 @@ var RnI18n = {
     ed_lease: 'Leasinguppföljning',
     ed_expand_lease: 'Leasing utfällt som standard',
     ed_flat: 'Platt bakgrund',
+    ed_illustration: 'Animerad illustration',
+    ed_illustration_theme: 'Illustrationens tema',
+    theme_auto: 'Automatiskt (sol eller mörkt tema)',
+    theme_day: 'Dag',
+    theme_night: 'Natt',
     ed_start_date: 'Leasingstart',
     ed_duration: 'Löptid',
     ed_duration_unit: 'månader',
@@ -1890,6 +1968,7 @@ var RnI18n = {
     hvac_on: 'Климатикът е включен',
     charging: 'Зарежда се',
     charging_left: 'Зарежда се · остават {t}',
+    parked: 'Паркиран',
     plugged: 'Включен',
     unplugged: 'Изключен',
     low_range: 'Малък пробег',
@@ -2001,6 +2080,11 @@ var RnI18n = {
     ed_lease: 'Проследяване на лизинга',
     ed_expand_lease: 'Лизингът е разгънат по подразбиране',
     ed_flat: 'Равен фон',
+    ed_illustration: 'Анимирана илюстрация',
+    ed_illustration_theme: 'Тема на илюстрацията',
+    theme_auto: 'Автоматично (слънце или тъмна тема)',
+    theme_day: 'Ден',
+    theme_night: 'Нощ',
     ed_start_date: 'Начало на лизинга',
     ed_duration: 'Продължителност',
     ed_duration_unit: 'месеца',
@@ -2033,6 +2117,7 @@ var RnI18n = {
     hvac_on: 'Кондиционер включён',
     charging: 'Зарядка',
     charging_left: 'Зарядка · осталось {t}',
+    parked: 'Припаркован',
     plugged: 'Подключён',
     unplugged: 'Отключён',
     low_range: 'Малый запас хода',
@@ -2144,6 +2229,11 @@ var RnI18n = {
     ed_lease: 'Отслеживание лизинга',
     ed_expand_lease: 'Лизинг развёрнут по умолчанию',
     ed_flat: 'Плоский фон',
+    ed_illustration: 'Анимированная иллюстрация',
+    ed_illustration_theme: 'Тема иллюстрации',
+    theme_auto: 'Автоматически (солнце или тёмная тема)',
+    theme_day: 'День',
+    theme_night: 'Ночь',
     ed_start_date: 'Начало лизинга',
     ed_duration: 'Срок',
     ed_duration_unit: 'мес.',
@@ -2176,6 +2266,7 @@ var RnI18n = {
     hvac_on: 'Кондиціонер увімкнено',
     charging: 'Заряджання',
     charging_left: 'Заряджання · ще {t}',
+    parked: 'Припаркований',
     plugged: 'Підключено',
     unplugged: 'Відключено',
     low_range: 'Малий запас ходу',
@@ -2287,6 +2378,11 @@ var RnI18n = {
     ed_lease: 'Відстеження лізингу',
     ed_expand_lease: 'Лізинг типово розгорнуто',
     ed_flat: 'Плаский фон',
+    ed_illustration: 'Анімована ілюстрація',
+    ed_illustration_theme: 'Тема ілюстрації',
+    theme_auto: 'Автоматично (сонце або темна тема)',
+    theme_day: 'День',
+    theme_night: 'Ніч',
     ed_start_date: 'Початок лізингу',
     ed_duration: 'Тривалість',
     ed_duration_unit: 'міс.',
@@ -2319,6 +2415,7 @@ var RnI18n = {
     hvac_on: 'Klíma bekapcsolva',
     charging: 'Töltés',
     charging_left: 'Töltés · még {t}',
+    parked: 'Parkol',
     plugged: 'Csatlakoztatva',
     unplugged: 'Nincs csatlakoztatva',
     low_range: 'Alacsony hatótáv',
@@ -2430,6 +2527,11 @@ var RnI18n = {
     ed_lease: 'Lízingkövetés',
     ed_expand_lease: 'Lízing alapértelmezetten kibontva',
     ed_flat: 'Egyszínű háttér',
+    ed_illustration: 'Animált illusztráció',
+    ed_illustration_theme: 'Az illusztráció témája',
+    theme_auto: 'Automatikus (nap vagy sötét téma)',
+    theme_day: 'Nappal',
+    theme_night: 'Éjszaka',
     ed_start_date: 'Lízing kezdete',
     ed_duration: 'Időtartam',
     ed_duration_unit: 'hónap',
@@ -2462,6 +2564,7 @@ var RnI18n = {
     hvac_on: 'Klimatizácia zapnutá',
     charging: 'Nabíja sa',
     charging_left: 'Nabíja sa · zostáva {t}',
+    parked: 'Zaparkované',
     plugged: 'Pripojené',
     unplugged: 'Odpojené',
     low_range: 'Nízky dojazd',
@@ -2573,6 +2676,11 @@ var RnI18n = {
     ed_lease: 'Sledovanie lízingu',
     ed_expand_lease: 'Lízing predvolene rozbalený',
     ed_flat: 'Ploché pozadie',
+    ed_illustration: 'Animovaná ilustrácia',
+    ed_illustration_theme: 'Téma ilustrácie',
+    theme_auto: 'Automaticky (slnko alebo tmavá téma)',
+    theme_day: 'Deň',
+    theme_night: 'Noc',
     ed_start_date: 'Začiatok lízingu',
     ed_duration: 'Trvanie',
     ed_duration_unit: 'mes.',
@@ -2605,6 +2713,7 @@ var RnI18n = {
     hvac_on: 'Klimatizace zapnuta',
     charging: 'Nabíjení',
     charging_left: 'Nabíjení · zbývá {t}',
+    parked: 'Zaparkováno',
     plugged: 'Připojeno',
     unplugged: 'Odpojeno',
     low_range: 'Nízký dojezd',
@@ -2716,6 +2825,11 @@ var RnI18n = {
     ed_lease: 'Sledování leasingu',
     ed_expand_lease: 'Leasing ve výchozím stavu rozbalený',
     ed_flat: 'Ploché pozadí',
+    ed_illustration: 'Animovaná ilustrace',
+    ed_illustration_theme: 'Motiv ilustrace',
+    theme_auto: 'Automaticky (slunce nebo tmavý motiv)',
+    theme_day: 'Den',
+    theme_night: 'Noc',
     ed_start_date: 'Začátek leasingu',
     ed_duration: 'Doba trvání',
     ed_duration_unit: 'měs.',
@@ -2748,6 +2862,7 @@ var RnI18n = {
     hvac_on: 'Klima vklopljena',
     charging: 'Polnjenje',
     charging_left: 'Polnjenje · še {t}',
+    parked: 'Parkirano',
     plugged: 'Priključeno',
     unplugged: 'Odklopljeno',
     low_range: 'Nizek doseg',
@@ -2859,6 +2974,11 @@ var RnI18n = {
     ed_lease: 'Spremljanje lizinga',
     ed_expand_lease: 'Lizing privzeto razširjen',
     ed_flat: 'Ravno ozadje',
+    ed_illustration: 'Animirana ilustracija',
+    ed_illustration_theme: 'Tema ilustracije',
+    theme_auto: 'Samodejno (sonce ali temna tema)',
+    theme_day: 'Dan',
+    theme_night: 'Noč',
     ed_start_date: 'Začetek lizinga',
     ed_duration: 'Trajanje',
     ed_duration_unit: 'mes.',
@@ -2891,6 +3011,7 @@ var RnI18n = {
     hvac_on: 'Kondicionieris ieslēgts',
     charging: 'Uzlādē',
     charging_left: 'Uzlādē · atlicis {t}',
+    parked: 'Novietots',
     plugged: 'Pievienots',
     unplugged: 'Atvienots',
     low_range: 'Zema sniedzamība',
@@ -3002,6 +3123,11 @@ var RnI18n = {
     ed_lease: 'Līzinga uzskaite',
     ed_expand_lease: 'Līzings pēc noklusējuma izvērsts',
     ed_flat: 'Vienkrāsains fons',
+    ed_illustration: 'Animēta ilustrācija',
+    ed_illustration_theme: 'Ilustrācijas tēma',
+    theme_auto: 'Automātiski (saule vai tumšā tēma)',
+    theme_day: 'Diena',
+    theme_night: 'Nakts',
     ed_start_date: 'Līzinga sākums',
     ed_duration: 'Ilgums',
     ed_duration_unit: 'mēn.',
@@ -3034,6 +3160,7 @@ var RnI18n = {
     hvac_on: 'Κλιματισμός ενεργός',
     charging: 'Φόρτιση',
     charging_left: 'Φόρτιση · απομένουν {t}',
+    parked: 'Σταθμευμένο',
     plugged: 'Συνδεδεμένο',
     unplugged: 'Αποσυνδεδεμένο',
     low_range: 'Χαμηλή αυτονομία',
@@ -3145,6 +3272,11 @@ var RnI18n = {
     ed_lease: 'Παρακολούθηση μίσθωσης',
     ed_expand_lease: 'Μίσθωση ανεπτυγμένη από προεπιλογή',
     ed_flat: 'Επίπεδο φόντο',
+    ed_illustration: 'Κινούμενη εικονογράφηση',
+    ed_illustration_theme: 'Θέμα εικονογράφησης',
+    theme_auto: 'Αυτόματα (ήλιος ή σκούρο θέμα)',
+    theme_day: 'Ημέρα',
+    theme_night: 'Νύχτα',
     ed_start_date: 'Έναρξη μίσθωσης',
     ed_duration: 'Διάρκεια',
     ed_duration_unit: 'μήνες',
@@ -3857,6 +3989,155 @@ var RN_TILES = [['battery_level', 'en_battery_level'], ['battery_autonomy', 'en_
 var RN_LEASE_FIGS = [['target', 'lease_expected_lbl'], ['month', 'lease_month_lbl'], ['budget', 'lease_budget_lbl'],
   ['pace', 'lease_pace_lbl'], ['projection', 'lease_projection_lbl'], ['year', 'lease_year_lbl'], ['chart', 'lease_chart']];
 
+// ── Illustrated header ──────────────────────────────────────────────────────
+// A 90 px banner: the sky with the title on its left, a 200 × 80 roadside scene on its right (hills, street
+// lamp, bush, and for a car that charges its charging post), the car's own picture parked on the road, and a
+// 10 px road strip edge to edge at the bottom. Day or night: illustration_theme, else night when sun.sun is below the
+// horizon or Home Assistant's theme is dark (even with the sun up).
+var RN_NO_VALUE = ['unavailable', 'unknown', ''];
+function rnIsNight(hass, config) {
+  var theme = config?.illustration_theme;
+  if (theme === 'night') return true;
+  if (theme === 'day') return false;
+  var sun = hass?.states?.['sun.sun'];
+  if (sun && RN_NO_VALUE.indexOf(String(sun.state)) < 0 && sun.state === 'below_horizon') return true;
+  return !!hass?.themes?.darkMode;
+}
+
+var rnUidSeq = 0;
+function rnUid() {
+  rnUidSeq += 1;
+  return `vc${rnUidSeq.toString(36)}`;
+}
+
+// A plain car drawn when there is no picture of the car (show_image: false, no picture entity).
+function rnSceneCar() {
+  return '<g class="vc-car" transform="translate(76 79) scale(2.1)"><path class="vc-body" d="M0 -6 Q1 -11 8 -12 L14 -16 H26 L33 -12 Q40 -11 40 -6 V-2 H0Z"/>' +
+    '<path class="vc-glass" d="M15 -15 H25 L30 -12 H11Z"/><circle class="vc-tyre" cx="9" cy="-2" r="3.4"/><circle class="vc-tyre" cx="31" cy="-2" r="3.4"/></g>';
+}
+
+// The scene: o.img (the car's picture URL, else a plain car), o.charger ('charging', 'plugged', 'unplugged',
+// or none for a car that does not charge), o.uid (keeps the gradient ids of several cards apart).
+function rnSceneSvg(o) {
+  var g = `${o.uid}-glow`;
+  var stars = [[12, 8], [44, 18], [96, 6], [132, 26], [166, 8], [190, 22], [70, 30], [112, 16]]
+    .map((p, i) => `<circle class="vc-star${i % 2 ? ' tw' : ''}" cx="${p[0]}" cy="${p[1]}" r=".6" style="animation-delay:${(i * 0.4).toFixed(1)}s"/>`).join('');
+  var charger = '';
+  if (o.charger) {
+    var cable = o.charger === 'unplugged'
+      ? '<path class="vc-cable" d="M180 60 C174 66 174 72 180 70 C184 69 184 64 182 62"/>'
+      : '<path class="vc-cable" d="M180 60 C172 60 174 74 166 70"/>' +
+        (o.charger === 'charging' ? '<path class="vc-flow" d="M180 60 C172 60 174 74 166 70"/>' : '');
+    charger = '<g class="vc-charger"><rect class="vc-post" x="176" y="44" width="12" height="35" rx="2"/>' +
+      '<rect class="vc-screen" x="178" y="47" width="8" height="6" rx="1"/>' +
+      `<circle class="vc-led ${o.charger}" cx="182" cy="57" r="1.3"/>` +
+      '<path class="vc-bolt" d="M182.8 48.2 L180.6 50.6 H182 L181.2 52.2 L183.4 49.8 H182Z"/>' + cable + '</g>';
+  }
+  var car = o.img
+    ? `<image href="${rnEsc(o.img)}" x="54" y="20" width="124" height="66" preserveAspectRatio="xMidYMax meet"/>`
+    : rnSceneCar();
+  return `<svg class="vc-scene" viewBox="0 0 200 80" preserveAspectRatio="xMaxYMax meet" aria-hidden="true">` +
+    `<defs><radialGradient id="${g}"><stop offset="0" stop-color="#ffd27a" stop-opacity=".55"/><stop offset="1" stop-color="#ffd27a" stop-opacity="0"/></radialGradient></defs>` +
+    `<g class="vc-night">${stars}<circle class="vc-moon" cx="148" cy="12" r="5.5"/><circle class="vc-moon-cut" cx="150.5" cy="10" r="4.5"/></g>` +
+    '<g class="vc-day"><circle class="vc-sun-halo" cx="148" cy="12" r="9"/><circle class="vc-sun" cx="148" cy="12" r="6"/></g>' +
+    '<path class="vc-cloud" transform="translate(66 14)" d="M-14,4 C-17,4 -18,0 -14.5,-1 C-14,-5 -8,-6 -6,-3 C-4,-8 4,-8 5,-2 C9,-3 12,0 10,4 Z"/>' +
+    '<path class="vc-cloud c2" transform="translate(114 24) scale(.75)" d="M-14,4 C-17,4 -18,0 -14.5,-1 C-14,-5 -8,-6 -6,-3 C-4,-8 4,-8 5,-2 C9,-3 12,0 10,4 Z"/>' +
+    '<path class="vc-hill far" d="M0,80 C30,70 60,64 100,66 C140,68 170,60 200,62 L200,80Z"/><path class="vc-hill" d="M0,80 C40,74 90,75 200,72 L200,80Z"/>' +
+    `<g class="vc-lamp"><circle class="vc-halo" cx="46" cy="40" r="16" fill="url(#${g})"/><rect class="vc-pole" x="38.4" y="38" width="1.4" height="42"/>` +
+    '<path class="vc-arm" d="M39 39 Q39 36 43 36 H47"/><rect class="vc-head" x="43" y="36" width="7" height="2.4" rx="1"/><rect class="vc-bulb" x="44" y="38.2" width="5" height="1.2" rx=".6"/></g>' +
+    '<g class="vc-bush"><circle cx="196" cy="72" r="6"/><circle cx="189" cy="75" r="5"/></g>' +
+    charger + car + '</svg>';
+}
+
+var RN_PILL_STYLE =
+  '.bchip { --c: #6b7a89; display: inline-flex; align-items: center; gap: 4px; flex: 0 1 auto; min-width: 0; max-width: 51%; box-sizing: border-box;' +
+    ' overflow: hidden; white-space: nowrap; padding: 1px 8px; border-radius: 12px; font-size: 11px; font-weight: 500; line-height: 16px;' +
+    ' background: color-mix(in srgb, var(--c) 18%, rgba(255,255,255,.78)); color: color-mix(in srgb, var(--c) 45%, #0d2a45); }' +
+  '.bchip.st-ok { --c: ' + RN_OK + '; } .bchip.st-active { --c: var(--rn-accent); } .bchip.st-warn { --c: ' + RN_WARN + '; } .bchip.st-err { --c: ' + RN_ERR + '; }' +
+  '.bchip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--c); flex: none; }' +
+  '.bchip-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; }' +
+`
+  /* The status pill, in every header: on the title row right after the title only when the whole title and the pill's
+     whole label fit there; otherwise on its own line under the subtitle, cut to one line; its dot alone, beside the
+     title, when the banner has no room left above its ground strip, or on a card of 200 px or less. Decided by
+     measurement (see _fitPill), so that every language and every width gets it right. */
+  .titles .trow { display: flex; align-items: center; gap: 8px; min-width: 0; width: 100%; }
+  .titles .trow > .name { flex: 0 1 auto; min-width: 0; }
+  .titles .trow > .bchip { flex: none; max-width: none; margin: 0; align-self: center; }
+  .titles.below { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+  .titles.below > * { max-width: 100%; }
+  .titles.below .trow { display: contents; }
+  .titles.below .trow > .name { max-width: 100%; }
+  .titles.below .trow > .bchip { order: 9; max-width: 100%; margin-top: 2px; align-self: flex-start; }
+  /* In the banner, a pill on its own line may run over the picture, up to the banner's edge. */
+  .banner .titles.below .trow > .bchip { max-width: none; }
+  .titles.below :is(.model) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .titles.dotonly .trow > .bchip { padding: 4px; } .titles.dotonly .trow > .bchip .bchip-text { display: none; }
+  @container (max-width: 200px) { .titles .trow > .bchip { padding: 4px; } .titles .trow > .bchip .bchip-text { display: none; } }
+`;
+
+var RN_SCENE_STYLE =
+  '.banner { position: relative; overflow: hidden; height: 90px; margin: -12px -12px -2px; flex: none; color: #0d2a45;' +
+    ' border-radius: var(--ha-card-border-radius, 12px) var(--ha-card-border-radius, 12px) 0 0;' +
+    ' background: linear-gradient(90deg, #f1f8ff 0%, #e2f1fd 34%, #b9def8 70%, #9fd0f3 100%); }' +
+  '.banner.night { color: #fff; background: linear-gradient(90deg, #1b2f52 0%, #15284a 36%, #0f1f3d 72%, #0a1830 100%); }' +
+  '.vc-scene { position: absolute; right: 0; bottom: 10px; height: 80px; width: min(200px, 62%); overflow: visible; }' +
+  '.vc-night, .night .vc-day { display: none; } .night .vc-night { display: inline; }' +
+  '.vc-sun { fill: #ffd65a; } .vc-sun-halo { fill: #ffd65a; opacity: .28; }' +
+  '.vc-moon { fill: #f3eed2; } .vc-moon-cut { fill: #0c1b37; } .vc-star { fill: #fff; opacity: .8; }' +
+  '.vc-star.tw { animation: vc-twinkle 3.2s ease-in-out infinite alternate; }' +
+  '.vc-cloud { fill: #fff; opacity: .92; animation: vc-drift 6s ease-in-out infinite alternate; } .vc-cloud.c2 { animation-duration: 8s; }' +
+  '.night .vc-cloud { opacity: .1; }' +
+  '.vc-hill.far { fill: #a7d39f; } .vc-hill { fill: #86c27f; } .night .vc-hill.far { fill: #1d3a4a; } .night .vc-hill { fill: #17303d; }' +
+  '.vc-bush { fill: #4f9a3a; } .night .vc-bush { fill: #1e3d2a; }' +
+  '.vc-pole, .vc-head { fill: #5f6b7a; } .vc-arm { fill: none; stroke: #5f6b7a; stroke-width: 1.2; } .vc-bulb { fill: #e8e0d0; }' +
+  '.night .vc-pole, .night .vc-head { fill: #7d8793; } .night .vc-arm { stroke: #7d8793; } .night .vc-bulb { fill: #ffd27a; }' +
+  '.vc-halo { display: none; } .night .vc-halo { display: inline; }' +
+  '.vc-post { fill: #eef1f4; stroke: #9aa3ae; stroke-width: .6; } .night .vc-post { fill: #3a414d; stroke: #5a6474; }' +
+  '.vc-screen { fill: #2a3038; } .vc-bolt { fill: #43c463; }' +
+  '.vc-led { fill: #9aa3ae; } .vc-led.plugged { fill: #2f80ed; } .vc-led.charging { fill: #43c463; animation: vc-blink 1.4s ease-in-out infinite; }' +
+  '.vc-cable { fill: none; stroke: #2a3038; stroke-width: 1.4; stroke-linecap: round; } .night .vc-cable { stroke: #11151b; }' +
+  '.vc-flow { fill: none; stroke: #7dffa0; stroke-width: 1; stroke-linecap: round; stroke-dasharray: 2 5; animation: vc-flow 1s linear infinite; }' +
+  '.vc-body { fill: var(--rn-accent); } .vc-glass { fill: #cfe6f7; } .night .vc-glass { fill: #3b4b5e; } .vc-tyre { fill: #22262b; }' +
+  // The road: a 10 px strip edge to edge, dashed centre line.
+  '.g-road { position: absolute; left: 0; right: 0; bottom: 0; height: 10px; background: #858c94; box-shadow: inset 0 1px 0 #6f767d; }' +
+  '.g-road::after { content: ""; position: absolute; left: 0; right: 0; top: calc(50% - .8px); height: 1.6px;' +
+    ' background: repeating-linear-gradient(90deg, rgba(255,255,255,.85) 0 9px, transparent 9px 18px); }' +
+  '.night .g-road { background: #2c323b; box-shadow: inset 0 1px 0 #3a414c; } .night .g-road::after { opacity: .6; }' +
+  // The title on the sky, left of the scene (whose left quarter is only sky and hills).
+  '.htext { position: absolute; left: 12px; top: 6px; bottom: 16px; right: calc(min(200px, 62%) * .74 + 4px); display: flex; align-items: center; gap: 10px; min-width: 0; }' +
+  '.htext .titles { flex: 1 1 0; min-width: 0; }' +
+  '.banner .name { color: inherit; font-weight: 600; }' +
+  '.banner .model { white-space: normal; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-height: 1.25; color: #3b5b78; } .banner.night .model { color: rgba(255,255,255,.78); }' +
+  '.vc-icon { position: relative; width: 40px; height: 40px; flex: none; border-radius: 50%; display: grid; place-items: center; --mdc-icon-size: 24px;' +
+    ' background: rgba(255,255,255,.62); box-shadow: inset 0 0 0 1px rgba(13,42,69,.12); color: var(--vc-st); }' +
+  '.night .vc-icon { background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }' +
+  // The icon's colour is the car's status: green charging, accent air conditioning on, amber to check, red offline, grey at rest.
+  '.vc-icon { --vc-st: #6b7a89; } .night .vc-icon { --vc-st: #aab6c3; }' +
+  '.vc-icon.st-ok { --vc-st: ' + RN_OK + '; } .night .vc-icon.st-ok { --vc-st: #66d17a; }' +
+  '.vc-icon.st-active { --vc-st: var(--rn-accent); }' +
+  '.vc-icon.st-warn { --vc-st: ' + RN_WARN + '; } .night .vc-icon.st-warn { --vc-st: #ffc04d; }' +
+  '.vc-icon.st-err { --vc-st: ' + RN_ERR + '; } .night .vc-icon.st-err { --vc-st: #ff7a6e; }' +
+  // The brand's logo in a badge at the icon's bottom right, on a white tile readable on any sky.
+  '.bbadge { position: absolute; right: -4px; bottom: -4px; width: 18px; height: 18px; border-radius: 5px; padding: 2px; box-sizing: border-box;' +
+    ' display: grid; place-items: center; background: #fff; box-shadow: 0 0 0 1px rgba(13,42,69,.16), 0 1px 3px rgba(13,42,69,.18); }' +
+  '.bbadge .brand { width: 100%; height: 100%; background: #1c1c1c; }' +
+  '.bbadge .brand-svg { width: 100%; height: 100%; padding: 0; fill: #1c1c1c; }' +
+  // The status pill in the icon's colour on a frosted tint (where it goes: RN_PILL_STYLE and _fitPill).
+  '.night .bchip { background: color-mix(in srgb, var(--c) 30%, rgba(8,18,38,.55)); color: color-mix(in srgb, var(--c) 35%, #ffffff); }' +
+  '.night .bchip.st-idle { --c: #aab6c3; }' +
+  '.banner .trow:has(> .bchip) ~ .model { -webkit-line-clamp: 1; }' +
+  // The mini card's expand / collapse button: 24 px, frosted, 5 px from the banner's top right corner.
+  '.banner .zoom { position: absolute; top: 5px; right: 5px; z-index: 2; margin: 0; width: 24px; height: 24px; color: #33506b;' +
+    ' background: rgba(255,255,255,.55); box-shadow: inset 0 0 0 1px rgba(255,255,255,.7); backdrop-filter: blur(4px); --mdc-icon-size: 16px; }' +
+  '.banner.night .zoom { color: #fff; background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); }' +
+  '.banner .zoom:hover { background: rgba(255,255,255,.75); color: #33506b; } .banner.night .zoom:hover { background: rgba(255,255,255,.22); color: #fff; }' +
+  '@keyframes vc-twinkle { from { opacity: .3; } to { opacity: 1; } }' +
+  '@keyframes vc-drift { from { translate: -3px 0; } to { translate: 4px 0; } }' +
+  '@keyframes vc-blink { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }' +
+  '@keyframes vc-flow { to { stroke-dashoffset: -7; } }' +
+  '@media (prefers-reduced-motion: reduce) { .vc-star, .vc-cloud, .vc-led, .vc-flow { animation: none !important; } }';
+
 class RenaultCard extends HTMLElement {
   static getConfigElement() {
     return document.createElement('renault-card-editor');
@@ -3872,8 +4153,9 @@ class RenaultCard extends HTMLElement {
     this._config = Object.assign({
       show_title: true, show_subtitle: true,
       show_logo: true, show_image: true, show_plate: true, show_chips: true, show_location: true, show_actions: true, show_data_plan: true, low_range: 100,
-      show_lease_margin: true,
+      show_lease_margin: true, illustration: true, illustration_theme: 'auto',
     }, config);
+    if (!this._uid) this._uid = rnUid();
     if (!this.shadowRoot) {
       this.attachShadow({ mode: 'open' });
       this.shadowRoot.addEventListener('click', (ev) => this._onClick(ev));
@@ -3923,9 +4205,58 @@ class RenaultCard extends HTMLElement {
       this._update();
     });
     document.addEventListener('click', this._onOutside, true);
+    // A new width fits the banner's status pill again (the banner keeps its height: no resize loop).
+    if (typeof ResizeObserver === 'function') {
+      this._pillResize = this._pillResize || new ResizeObserver(() => {
+        cancelAnimationFrame(this._fitFrame);
+        this._fitFrame = requestAnimationFrame(() => this._fitPill());
+      });
+      this._pillResize.observe(this);
+    }
+    document.fonts?.ready?.then(() => this._fitPill());
+  }
+
+  // The status pill goes right after the title only when the whole title and the pill's whole label fit on that row;
+  // otherwise it takes a line of its own under the subtitle (.titles.below, the subtitle cut to one line). In the
+  // banner (where that line may run over the picture), when the titles still run below the top of the ground strip or
+  // out of the banner, and in the classic header when the label does not fit even alone, the pill keeps its dot alone,
+  // beside the title (.titles.dotonly). Measured in fractional pixels.
+  _fitPill() {
+    for (const t of this.shadowRoot?.querySelectorAll?.(".titles") || []) {
+      const row = t.querySelector?.(".trow");
+      const chips = row ? [...row.querySelectorAll(":scope > .bchip")] : [];
+      if (!chips.length || !row.getBoundingClientRect) continue;
+      t.classList.remove("below", "dotonly");
+      const name = row.querySelector(":scope > .name");
+      const gap = parseFloat(getComputedStyle(row).columnGap) || 0;
+      const widths = chips.map((c) => c.getBoundingClientRect().width);
+      let need = -gap;
+      if (name && getComputedStyle(name).display !== "none") {
+        name.style.flex = "none";
+        need = name.getBoundingClientRect().width;
+        name.style.flex = "";
+      }
+      for (const w of widths) need += gap + w;
+      const room = row.getBoundingClientRect().width + 0.01;
+      if (need <= room) continue;
+      t.classList.add("below");
+      const banner = t.closest(".banner");
+      const cut = !banner && widths.some((w) => w > room);
+      let out = false;
+      if (banner) {
+        const b = banner.getBoundingClientRect();
+        const floor = b.bottom - (banner.querySelector(".g-road")?.getBoundingClientRect().height ?? 10) + 0.5;
+        out = [...t.querySelectorAll(".name, .model, .bchip")].some((e) => {
+          const r = e.getBoundingClientRect();
+          return r.height && (r.bottom > floor || r.top < b.top - 0.5 || r.right > b.right + 0.5);
+        });
+      }
+      if (cut || out) t.classList.replace("below", "dotonly");
+    }
   }
 
   disconnectedCallback() {
+    this._pillResize?.disconnect();
     clearInterval(this._timer);
     clearTimeout(this._armTimer);
     clearTimeout(this._resultTimer);
@@ -4095,7 +4426,7 @@ class RenaultCard extends HTMLElement {
     var ids = [];
     Object.keys(r.ent).forEach((k) => { ids = ids.concat(r.ent[k]); });
     if (r.plan) Object.keys(RN_PLAN_ROLES).forEach((k) => { ids.push(r.plan[k]); });
-    var sig = JSON.stringify([this._lang(), r.deviceId, this._armed, this._result, this._leaseOpen, this._leaseHist?.key, this._leaseHist?.at, rnPhotoKey(rnPhotoUrl(hass, r.photo)), this._timeSig(r), ids.map((id) => {
+    var sig = JSON.stringify([this._lang(), r.deviceId, this._illustrated() && rnIsNight(hass, this._config), this._armed, this._result, this._leaseOpen, this._leaseHist?.key, this._leaseHist?.at, rnPhotoKey(rnPhotoUrl(hass, r.photo)), this._timeSig(r), ids.map((id) => {
       var s = id && hass.states[id];
       return s ? [id, s.state, s.attributes.options] : null;
     })]);
@@ -4176,11 +4507,14 @@ class RenaultCard extends HTMLElement {
   // Logo (or car icon when there is neither logo nor picture), name and model, plate, then the
   // mini card's detail button (_headerAction). show_title / show_subtitle hide the name / the model;
   // a model that only repeats the name is not shown twice.
-  _header(name, model, plate, imgSrc) {
+  _header(name, model, plate, imgSrc, sceneImg) {
     var c = this._config;
-    var title = c.show_title !== false ? `<div class="name">${rnEsc(name)}</div>` : '';
+    if (this._illustrated()) return this._banner(name, model, sceneImg);
+    var st = this._r ? this._status(this._r.ent) : null;
+    var pill = st?.pill ? this._pill(st) : '';
+    var title = c.show_title !== false || pill ? `<div class="trow">${c.show_title !== false ? `<div class="name">${rnEsc(name)}</div>` : ''}${pill}</div>` : '';
     var same = model && name && String(model).trim().toLowerCase() === String(name).trim().toLowerCase();
-    var subtitle = c.show_subtitle !== false && model && !(same && title) ? `<div class="model">${rnEsc(model)}</div>` : '';
+    var subtitle = c.show_subtitle !== false && model && !(same && c.show_title !== false) ? `<div class="model" title="${rnEsc(model)}">${rnEsc(model)}</div>` : '';
     return '<div class="header">' +
       ((c.show_logo && rnBrandHtml(this._r?.brand, () => { this._sig = null; this._update(); })) ||
         (imgSrc && !c.show_logo ? '' : '<div class="badge"><ha-icon icon="mdi:car"></ha-icon></div>')) +
@@ -4189,8 +4523,88 @@ class RenaultCard extends HTMLElement {
       '</div>';
   }
 
+  // The status pill: a dot and the car's status, in the colour of the header icon.
+  _pill(st) {
+    var more = st.entity ? ` data-more="${rnEsc(st.entity)}" role="button" tabindex="0"` : '';
+    return `<span class="bchip st-${st.level}" title="${rnEsc(st.pill)}" aria-label="${rnEsc(st.pill)}"${more}><span class="dot"></span><span class="bchip-text">${rnEsc(st.pill)}</span></span>`;
+  }
+
   // Overridden by the mini card: its detail button.
   _headerAction() { return ''; }
+
+  _illustrated() { return this._config?.illustration !== false; }
+
+  // The car's status for the illustrated header: the icon's colour (level) and the subtitle (text).
+  // Offline is an error; unlocked, a door open, a low range or a low tyre need a look; charging is
+  // green, the air conditioning on the accent colour; else the car rests (grey).
+  _status(ent) {
+    var parts = [], level = 'idle', pill = null;
+    var lowTyres = this._lowTyres(ent.tyres.filter((id) => this._avail(id)));
+    var lockId = this._avail(ent.lock_status) ? ent.lock_status : this._avail(ent.lock) && /^(locked|unlocked)$/.test(this._val(ent.lock)) ? ent.lock : null;
+    var unlocked = lockId && (lockId === ent.lock_status ? this._val(lockId) === 'on' : this._val(lockId) === 'unlocked');
+    var doors = ent.doors.some((id) => this._val(id) === 'on');
+    var charging = this._val(ent.charging) === 'on';
+    var offline = this._val(ent.cellular) === 'off' && this._val(ent.wifi) !== 'on';
+    var lowRange = this._lowRange(ent);
+    var hvac = this._val(ent.hvac_status) === 'on';
+    var plug = this._avail(ent.plugged_in) ? (this._val(ent.plugged_in) === 'on' ? 'plugged' : 'unplugged') : null;
+    // The status pill: what sets the icon's colour first (offline, then what needs a look, then charging, the air
+    // conditioning), else the lock or the plug, else parked.
+    pill = offline ? 'offline' : doors ? 'doors_open' : unlocked ? 'unlocked' : lowRange ? 'low_range' : lowTyres.length ? 'low_tyre_pressure'
+      : charging ? 'charging' : hvac ? 'hvac_on' : lockId ? 'locked' : plug || 'parked';
+    // The subtitle: the rest, without the pill's word.
+    if (charging) {
+      var left = this._chargeMinutes(ent.charging_remaining_time);
+      var text = left ? this._t('charging_left', { t: this._duration(left) }) : this._t('charging');
+      // "Charging · 45 min left" with the pill saying "Charging": "45 min left".
+      if (pill !== 'charging') parts.push(text);
+      else if (left) parts.push(text.split(' · ').slice(1).join(' · ') || text);
+    } else {
+      if (doors && pill !== 'doors_open') parts.push(this._t('doors_open'));
+      else if (!doors && lockId && pill !== 'locked' && pill !== 'unlocked') parts.push(this._t(unlocked ? 'unlocked' : 'locked'));
+      else if (!doors && !lockId && plug && pill !== plug) parts.push(this._t(plug));
+      var total = this._totalRange(ent);
+      if (total != null) {
+        var rid = this._num(ent.fuel_autonomy) != null ? ent.fuel_autonomy : ent.battery_autonomy;
+        var unit = this._st(rid)?.attributes.unit_of_measurement || 'km';
+        if (!this._bodyShows(ent).range) parts.push(`${this._fmtNum(total)} ${unit}`);
+      }
+    }
+    if (offline) level = 'err';
+    else if (unlocked || doors || lowRange || lowTyres.length) level = 'warn';
+    else if (charging) level = 'ok';
+    else if (hvac) level = 'active';
+    var charger = null;
+    if (charging) charger = 'charging';
+    else if (plug) charger = plug;
+    else if (this._avail(ent.charging)) charger = 'unplugged';
+    // On the full card, the subtitle leaves out what a body tile or chip already says.
+    var shown = this._bodyShows(ent);
+    parts = parts.filter((part) => !shown.chips.some((t) => t === part || t.indexOf(part) >= 0));
+    // The entity behind the pill: a tap on it opens it, as the body's chip saying the same (hidden then) did.
+    var pillEntity = { locked: lockId, unlocked: lockId, offline: ent.cellular, low_tyre_pressure: lowTyres[0], charging: ent.charging,
+      plugged: ent.plugged_in, unplugged: ent.plugged_in }[pill] || null;
+    return { level: level, pill: pill ? this._t(pill) : '', entity: pillEntity, text: parts.join(' · '), charger: charger };
+  }
+
+  // The illustrated header: the round status icon (with the brand's logo in a badge) and the name and
+  // status on the sky, the roadside scene with the car's own picture on the right, the road strip below.
+  // The plate stays in the body, with the picture.
+  _banner(name, model, img) {
+    var c = this._config, st = this._r ? this._status(this._r.ent) : { level: 'idle', pill: '', text: '', charger: null };
+    // The status pill right after the title (on its own line under the subtitle when it does not fit there).
+    var pill = st.pill ? this._pill(st) : '';
+    var title = c.show_title !== false || pill ? `<div class="trow">${c.show_title !== false ? `<div class="name">${rnEsc(name)}</div>` : ''}${pill}</div>` : '';
+    var same = !st.text && model && name && String(model).trim().toLowerCase() === String(name).trim().toLowerCase();
+    var sub = st.text || (same && c.show_title !== false ? '' : model);
+    var subtitle = c.show_subtitle !== false && sub ? `<div class="model" title="${rnEsc(sub === model || !model ? sub : `${sub} · ${model}`)}">${rnEsc(sub)}</div>` : '';
+    var brand = c.show_logo ? rnBrandHtml(this._r?.brand, () => { this._sig = null; this._update(); }) : null;
+    return `<div class="banner${rnIsNight(this._hass, c) ? ' night' : ''}">` +
+      '<div class="g-road"></div>' + rnSceneSvg({ uid: this._uid, img: img, charger: st.charger }) +
+      `<div class="htext"><div class="vc-icon st-${st.level}" title="${rnEsc(model || name)}"><ha-icon icon="mdi:car"></ha-icon>` +
+      (brand ? `<span class="bbadge">${brand}</span>` : '') + `</div><div class="titles">${title}${subtitle}</div></div>` +
+      this._headerAction() + '</div>';
+  }
 
   // Device name (name_by_user, else the plate the integration names it after), shown name, model and
   // picture (custom image, else the MyRenault photo), shared by the full and mini cards.
@@ -4268,38 +4682,28 @@ class RenaultCard extends HTMLElement {
   }
 
   // "Charging · 45 min left", else "Plugged in" / "Unplugged"; null without either sensor.
-  _chargeChip(ent) {
-    if (this._val(ent.charging) === 'on') {
-      var left = this._chargeMinutes(ent.charging_remaining_time);
-      return '<span class="chip ok" data-more="' + rnEsc(ent.charging) + '" role="button" tabindex="0"><ha-icon icon="mdi:battery-charging"></ha-icon>' +
-        (left ? this._t('charging_left', { t: this._duration(left) }) : this._t('charging')) + '</span>';
-    }
-    if (!this._avail(ent.plugged_in)) return null;
-    var plugged = this._val(ent.plugged_in) === 'on';
-    return `<span class="chip" data-more="${rnEsc(ent.plugged_in)}" role="button" tabindex="0"><ha-icon icon="${plugged ? 'mdi:power-plug' : 'mdi:power-plug-off-outline'}"></ha-icon>${this._t(plugged ? 'plugged' : 'unplugged')}</span>`;
+  // The status chips; a chip that says word for word what the header pill says is hidden (.pill-echo), and comes back
+  // on a card so narrow that the pill keeps only its dot.
+  _chipsHtml(chips, ent) {
+    if (this._config.show_chips === false || !chips.length) return '';
+    var pill = this._status(ent).pill;
+    var shown = 0;
+    var html = chips.map((chip) => {
+      var m = /<\/ha-icon>([^<]*)<\/span>$/.exec(chip);
+      if (pill && m && (m[1] === pill || m[1] === rnEsc(pill))) return chip.replace(/^<span class="chip/, '<span class="chip pill-echo');
+      shown++;
+      return chip;
+    }).join('');
+    return `<div class="chips${shown ? '' : ' pill-echo'}">${html}</div>`;
   }
 
-  _render(r) {
-    var c = this._config, ent = r.ent, dev = r.device;
-    if (!r.deviceId) {
-      this.shadowRoot.innerHTML = `${this._styles()}<ha-card><div class="empty"><ha-icon icon="mdi:car-off"></ha-icon>${this._t('no_vehicle')}</div></ha-card>`;
-      return;
-    }
-    var id = this._identity(r);
-    var deviceName = id.deviceName, name = id.name, model = id.model, imgSrc = id.imgSrc;
-    var plate = c.show_plate && dev ? rnPlate(dev.name) : null;
-
-    var header = this._header(name, model, plate, imgSrc);
-    var imgH = Number(c.image_height) || 0;
-    var image = imgSrc ? `<div class="image"><img src="${rnEsc(imgSrc)}" alt="${rnEsc(name)}"${imgH > 0 ? ` style="max-height:${imgH}px"` : ''}></div>` : '';
-
-    // Status chips
+  // The full card's status chips (the mini card keeps only the charge one).
+  _bodyChips(ent) {
     var chips = [];
     if (this._lowRange(ent)) {
       chips.push(`<span class="chip warn"><ha-icon icon="mdi:gas-station-off-outline"></ha-icon>${this._t('low_range')}</span>`);
     }
-    var tyres = ent.tyres.filter((id) => this._avail(id));
-    var lowTyres = this._lowTyres(tyres);
+    var lowTyres = this._lowTyres(ent.tyres.filter((id) => this._avail(id)));
     if (lowTyres.length) {
       chips.push(`<span class="chip warn" data-more="${rnEsc(lowTyres[0])}" role="button" tabindex="0"><ha-icon icon="mdi:car-tire-alert"></ha-icon>${this._t('low_tyre_pressure')}</span>`);
     }
@@ -4321,6 +4725,50 @@ class RenaultCard extends HTMLElement {
     if (this._val(ent.cellular) === 'off' && this._val(ent.wifi) !== 'on') {
       chips.push(`<span class="chip warn" data-more="${rnEsc(ent.cellular)}" role="button" tabindex="0"><ha-icon icon="mdi:access-point-network-off"></ha-icon>${this._t('offline')}</span>`);
     }
+    return chips;
+  }
+
+  // The full card's header subtitle leaves out what the body shows (a range tile, a chip): there it gives the rest, else
+  // the model. The compact mini card keeps the whole subtitle.
+  _bodyShows(ent) {
+    if (this._zoomed === false) return { range: false, chips: [] };
+    var range = ['battery_autonomy', 'fuel_autonomy'].some((role) => this._tileOn(role) && this._avail(ent[role]));
+    var chips = this._config.show_chips === false ? [] : this._bodyChips(ent).map((chip) => (/<\/ha-icon>([^<]*)<\/span>$/.exec(chip) || [])[1] || '');
+    return { range: range, chips: chips.filter(Boolean) };
+  }
+
+  _chargeChip(ent) {
+    if (this._val(ent.charging) === 'on') {
+      var left = this._chargeMinutes(ent.charging_remaining_time);
+      return '<span class="chip ok" data-more="' + rnEsc(ent.charging) + '" role="button" tabindex="0"><ha-icon icon="mdi:battery-charging"></ha-icon>' +
+        (left ? this._t('charging_left', { t: this._duration(left) }) : this._t('charging')) + '</span>';
+    }
+    if (!this._avail(ent.plugged_in)) return null;
+    var plugged = this._val(ent.plugged_in) === 'on';
+    return `<span class="chip" data-more="${rnEsc(ent.plugged_in)}" role="button" tabindex="0"><ha-icon icon="${plugged ? 'mdi:power-plug' : 'mdi:power-plug-off-outline'}"></ha-icon>${this._t(plugged ? 'plugged' : 'unplugged')}</span>`;
+  }
+
+  _render(r) {
+    var c = this._config, ent = r.ent, dev = r.device;
+    if (!r.deviceId) {
+      this.shadowRoot.innerHTML = `${this._styles()}<ha-card><div class="empty"><ha-icon icon="mdi:car-off"></ha-icon>${this._t('no_vehicle')}</div></ha-card>`;
+      return;
+    }
+    var id = this._identity(r);
+    var deviceName = id.deviceName, name = id.name, model = id.model, imgSrc = id.imgSrc;
+    var plate = c.show_plate && dev ? rnPlate(dev.name) : null;
+
+    // Illustrated header: the plate goes to the body, at the top right of the picture (or on its own line).
+    var bodyPlate = this._illustrated() && plate ? rnPlateSvg(plate, c.plate_department) : '';
+    var header = this._header(name, model, bodyPlate ? null : plate, imgSrc, imgSrc);
+    var imgH = Number(c.image_height) || 0;
+    var image = imgSrc ? `<div class="image${bodyPlate ? ' with-plate' : ''}">${bodyPlate}<img src="${rnEsc(imgSrc)}" alt="${rnEsc(name)}"${imgH > 0 ? ` style="max-height:${imgH}px"` : ''}></div>`
+      : bodyPlate ? `<div class="plate-row">${bodyPlate}</div>` : '';
+
+    // Status chips
+    var chips = this._bodyChips(ent);
+    var tyres = ent.tyres.filter((id) => this._avail(id));
+    var lowTyres = this._lowTyres(tyres);
 
     // Stat tiles
     var tiles = [];
@@ -4423,7 +4871,7 @@ class RenaultCard extends HTMLElement {
     }
 
     this._setHtml(this._styles() + '<ha-card>' + header + image +
-      (c.show_chips !== false && chips.length ? `<div class="chips">${chips.join('')}</div>` : '') +
+      this._chipsHtml(chips, ent) +
       (tiles.length ? `<div class="tiles">${tiles.join('')}</div>` : '') +
       this._leaseHtml(ent) + locationHtml + planHtml + this._servicesHtml(ent) + actionsHtml + '</ha-card>');
   }
@@ -4462,6 +4910,7 @@ class RenaultCard extends HTMLElement {
     // The same entity can have several elements (tile and row): keep the rank among them.
     var rank = key ? focusables().filter((el) => keyOf(el) === key).indexOf(root.activeElement) : -1;
     root.innerHTML = html;
+    this._fitPill();
     if (!key) return;
     var hit = focusables().filter((el) => keyOf(el) === key);
     var el = hit[Math.max(0, Math.min(rank, hit.length - 1))];
@@ -4671,13 +5120,26 @@ class RenaultCard extends HTMLElement {
       '.titles { flex: 1 1 0; min-width: 5ch; }' +
       '.name { font-size: 16px; font-weight: 500; line-height: 1.25; color: var(--primary-text-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }' +
       '.model { font-size: 12px; color: var(--secondary-text-color); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }' +
+      // Classic header: the status pill after the title, tinted with the status colour.
+      '.header .bchip { background: color-mix(in srgb, var(--c) 15%, transparent); color: color-mix(in srgb, var(--c) 50%, var(--primary-text-color)); }' +
       '.plate { height: 32px; width: auto; flex: 0 1 auto; min-width: 0; max-width: 45%; display: block; filter: drop-shadow(0 1px 1px rgba(0,0,0,0.25)); }' +
       '.image { display: flex; justify-content: center; margin: 0 0 -4px; }' +
+      // Plate in the body: at the top right of the picture, the picture below it so they never overlap.
+      '.image.with-plate { position: relative; flex-direction: column; align-items: center; }' +
+      '.image.with-plate .plate { align-self: flex-end; max-width: 60%; margin-bottom: -18px; position: relative; z-index: 1; }' +
+      '.plate-row { display: flex; justify-content: flex-end; }' +
+      '.plate-row .plate, .image.with-plate .plate { height: 30px; }' +
+      RN_PILL_STYLE + (this._illustrated() ? RN_SCENE_STYLE : '') +
       '.image img { max-width: 100%; max-height: 150px; object-fit: contain; }' +
       '.chips { display: flex; flex-wrap: wrap; gap: 6px; }' +
       '.chip { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; padding: 1px 8px 1px 5px; border-radius: 12px;' +
         ' background: var(--secondary-background-color, rgba(128,128,128,0.12)); color: var(--secondary-text-color); }' +
       '.chip[data-more] { cursor: pointer; }' +
+      // What the header pill already says is not repeated in the chips, unless the pill keeps only its dot.
+      '.chips.pill-echo, .chip.pill-echo { display: none; }' +
+      '@container (max-width: 200px) { .chips.pill-echo { display: flex; } .chip.pill-echo { display: inline-flex; } }' +
+      'ha-card:has(.titles.dotonly) .chips.pill-echo { display: flex; } ha-card:has(.titles.dotonly) .chip.pill-echo { display: inline-flex; }' +
+      '.bchip[data-more] { cursor: pointer; }' +
       '.chip ha-icon { --mdc-icon-size: 13px; }' +
       '.chip.warn { background: color-mix(in srgb, ' + RN_WARN + ' 15%, transparent); color: ' + rnInk(RN_WARN) + '; }' +
       '.chip.ok { background: color-mix(in srgb, ' + RN_OK + ' 15%, transparent); color: ' + rnInk(RN_OK) + '; }' +
@@ -4801,6 +5263,7 @@ class RenaultCard extends HTMLElement {
       '@container (max-width: 210px) {' +
         ' .header { flex-wrap: wrap; row-gap: 6px; }' +
         ' .plate { order: 3; flex: none; max-width: 100%; margin: 0 auto; }' +
+        ' .image.with-plate .plate { align-self: center; margin-bottom: 4px; max-width: 100%; }' +
         ' .row > ha-icon, .row .chev { grid-row: 1; }' +
         ' .row .when { grid-column: 1 / -1; }' +
         ' .tile { padding-left: 8px; padding-right: 8px; }' +
@@ -4916,7 +5379,7 @@ function rnEnsureForm(editor) {
   editor.appendChild(editor._form);
 }
 
-var RN_EDITOR_DEFAULTS = { show_title: true, show_subtitle: true, show_logo: true, show_image: true, show_plate: true, show_chips: true, show_location: true, show_actions: true, show_data_plan: true, low_range: 100, expand_lease: false };
+var RN_EDITOR_DEFAULTS = { illustration: true, illustration_theme: 'auto', show_title: true, show_subtitle: true, show_logo: true, show_image: true, show_plate: true, show_chips: true, show_location: true, show_actions: true, show_data_plan: true, low_range: 100, expand_lease: false };
 
 class RenaultCardEditor extends HTMLElement {
   setConfig(config) {
@@ -4956,6 +5419,12 @@ class RenaultCardEditor extends HTMLElement {
           { name: 'fuel_tank_capacity', selector: { number: { min: 0, max: 150, step: 1, mode: 'box', unit_of_measurement: 'L' } } },
           { name: 'low_range', selector: { number: { min: 0, max: 500, step: 10, mode: 'box', unit_of_measurement: 'km' } } },
           { name: 'low_tyre_pressure', selector: { number: { min: 0, max: 5, step: 0.1, mode: 'box', unit_of_measurement: 'bar' } } },
+        ],
+      },
+      {
+        type: 'grid', name: '', schema: [
+          { name: 'illustration', selector: { boolean: {} } },
+          { name: 'illustration_theme', selector: { select: { mode: 'dropdown', options: ['auto', 'day', 'night'].map((v) => ({ value: v, label: t(`theme_${v}`) })) } } },
         ],
       },
       {
@@ -5161,9 +5630,9 @@ class RenaultMiniCard extends RenaultCard {
     var img = id.imgSrc ? `<div class="mimg"><img src="${rnEsc(id.imgSrc)}" alt="${rnEsc(id.name)}"></div>` : '';
     var charge = this._config.show_chips !== false ? this._chargeChip(ent) : null;
     // No picture in the header: the logo, or the car icon, keeps the header's 40 px icon.
-    this._setHtml(this._styles() + '<ha-card class="mini">' + this._header(id.name, id.model, null, null) +
+    this._setHtml(this._styles() + '<ha-card class="mini">' + this._header(id.name, id.model, null, null, id.imgSrc) +
       (img || tiles.length ? `<div class="mb${img && tiles.length ? '' : ' solo'}">${img}${tiles.length ? `<div class="mstats">${tiles.join('')}</div>` : ''}</div>` : '') +
-      (charge ? `<div class="chips">${charge}</div>` : '') + '</ha-card>');
+      this._chipsHtml(charge ? [charge] : [], ent) + '</ha-card>');
   }
 
   _styles() {
@@ -5171,6 +5640,8 @@ class RenaultMiniCard extends RenaultCard {
       // Only 240 px in an auto-width container (6 columns of a section), still no minimum.
       ':host([mini])::before { grid-template-columns: minmax(0, 240px); }' +
       'ha-card.mini { gap: 8px; }' +
+      // The compact banner's title reaches over the scene's left quarter: no street lamp under it.
+      'ha-card.mini .vc-lamp { display: none; }' +
       '.zoom { all: unset; flex: none; cursor: pointer; width: 24px; height: 24px; margin: -4px -4px -4px 0; border-radius: 50%; align-self: flex-start;' +
         ' display: grid; place-items: center; color: var(--secondary-text-color); --mdc-icon-size: 16px; }' +
       '.zoom:hover { background: color-mix(in srgb, var(--secondary-text-color) 14%, transparent); color: var(--primary-text-color); }' +

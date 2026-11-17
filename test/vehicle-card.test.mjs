@@ -1518,7 +1518,7 @@ test("mini card: picture, battery level, battery range and charging state, with 
 });
 
 test("mini card: the plug state when not charging, the fuel range without a battery range, the car icon without logo", () => {
-  const { card, root, states } = miniCard({ show_logo: false });
+  const { card, root, states } = miniCard({ show_logo: false, illustration: false });
   states["binary_sensor.car_charging"] = { state: "off", attributes: {} };
   delete states["sensor.car_battery_autonomy"];
   card.hass = { ...card._hass, states: { ...states } };
@@ -1676,7 +1676,15 @@ test("tyres: labelled by position in FL, FR, RL, RR order; low_tyre_pressure (ba
   assert.match(root.html, /<div class="tile warn" data-more="sensor.car_rear_left_pressure"/);
   assert.match(root.html, /<span class="tyre low"><span class="tpos">RL<\/span> 170<\/span>/);
   assert.equal((root.html.match(/tyre low/g) || []).length, 1);
-  assert.match(root.html, /<span class="chip warn" data-more="sensor.car_rear_left_pressure" role="button" tabindex="0"><ha-icon icon="mdi:car-tire-alert"><\/ha-icon>Low tyre pressure/);
+  // The header pill says "Low tyre pressure" and opens the tyre: the chip saying the same is hidden (.pill-echo), and
+  // comes back only on a card so narrow that the pill keeps just its dot.
+  assert.match(root.html, /<span class="bchip st-warn" title="Low tyre pressure" aria-label="Low tyre pressure" data-more="sensor.car_rear_left_pressure" role="button" tabindex="0">/);
+  assert.match(root.html, /<span class="chip pill-echo warn" data-more="sensor.car_rear_left_pressure" role="button" tabindex="0"><ha-icon icon="mdi:car-tire-alert"><\/ha-icon>Low tyre pressure/);
+  assert.match(root.html, /\.chips\.pill-echo, \.chip\.pill-echo \{ display: none; \}/);
+  assert.match(root.html, /@container \(max-width: 200px\) \{ \.chips\.pill-echo \{ display: flex; \} \.chip\.pill-echo \{ display: inline-flex; \} \}/);
+  // The pill keeps its dot alone at 200 px or less, or when the header has no room for its label (.titles.dotonly).
+  assert.match(root.html, /@container \(max-width: 200px\) \{ \.titles \.trow > \.bchip \{ padding: 4px; \} \.titles \.trow > \.bchip \.bchip-text \{ display: none; \} \}/);
+  assert.match(root.html, /ha-card:has\(\.titles\.dotonly\) \.chips\.pill-echo \{ display: flex; \}/);
 });
 
 test("card editor offers low_tyre_pressure in bar", () => {
@@ -1840,15 +1848,15 @@ test("connected services (VW group) row and the offline chip (Teslemetry)", () =
 test("show_title / show_subtitle hide the name and the model; a model equal to the name shows once", () => {
   const header = (config, name, model) => {
     const card = Object.create(RenaultCard.prototype);
-    card._config = { show_logo: false, ...config };
+    card._config = { show_logo: false, illustration: false, ...config };
     return card._header(name, model, null, "/car.png");
   };
   const both = header({}, "Espace", "Espace E-Tech");
   assert.match(both, /class="name">Espace</);
-  assert.match(both, /class="model">Espace E-Tech</);
+  assert.match(both, /class="model"[^>]*>Espace E-Tech</);
   const noTitle = header({ show_title: false }, "Espace", "Espace E-Tech");
   assert.doesNotMatch(noTitle, /class="name"/);
-  assert.match(noTitle, /class="model">Espace E-Tech</);
+  assert.match(noTitle, /class="model"[^>]*>Espace E-Tech</);
   const noSubtitle = header({ show_subtitle: false }, "Espace", "Espace E-Tech");
   assert.match(noSubtitle, /class="name">Espace</);
   assert.doesNotMatch(noSubtitle, /class="model"/);
@@ -1858,7 +1866,7 @@ test("show_title / show_subtitle hide the name and the model; a model equal to t
   const same = header({}, "Model 3", "model 3");
   assert.equal(same.match(/class="(name|model)"/g).length, 1);
   // Without the title, the model is the only text left: it stays
-  assert.match(header({ show_title: false }, "Model 3", "Model 3"), /class="model">Model 3</);
+  assert.match(header({ show_title: false }, "Model 3", "Model 3"), /class="model"[^>]*>Model 3</);
 });
 
 test("card editor offers show_title and show_subtitle, on by default", () => {
@@ -2016,4 +2024,78 @@ test("card editor: severity panels, kept short, YAML only for a list (#82)", () 
   const names = JSON.stringify(editor._schema());
   assert.doesNotMatch(names, /"fuel_severity"/);
   assert.match(names, /"battery_severity"/);
+});
+
+test("full card: the subtitle leaves out the range and the chips the body shows; the compact mini card keeps them", () => {
+  // Charging: the compact mini card's subtitle gives the time left.
+  const mini = miniCard();
+  assert.match(mini.root.html, /class="model"[^>]*>45 min left</);
+  // Zoomed (the full card): the charge chip says the time left: the subtitle gives the model instead.
+  mini.card._setZoom(true);
+  assert.match(mini.root.html, /Charging · 45 min left<\/span>/);
+  assert.match(mini.root.html, /class="model"[^>]*>Renault Espace</);
+  // Plugged in, not charging (the pill says "Plugged in"): the range in the compact subtitle; the full card shows it
+  // in a tile, so its subtitle gives the model.
+  const parked = miniCard();
+  parked.states["binary_sensor.car_charging"] = { state: "off", attributes: {} };
+  parked.card.hass = { ...parked.card._hass, states: { ...parked.states } };
+  assert.match(parked.root.html, /class="model"[^>]*>550 km</);
+  parked.card._setZoom(true);
+  assert.match(parked.root.html, /class="model"[^>]*>Renault Espace</);
+  // Without the range tiles and the chips, the full card's subtitle says them again.
+  const bare = miniCard({ tiles: [], show_chips: false });
+  bare.states["binary_sensor.car_charging"] = { state: "off", attributes: {} };
+  bare.card.hass = { ...bare.card._hass, states: { ...bare.states } };
+  bare.card._setZoom(true);
+  assert.match(bare.root.html, /class="model"[^>]*>550 km</);
+});
+
+test("illustrated header: car picture on the scene, status subtitle and icon colour, plate in the body", () => {
+  const { card, root, states } = miniCard();
+  assert.match(root.html, /<div class="banner">/);
+  assert.match(root.html, /<div class="g-road"><\/div>/);
+  assert.match(root.html, /<image href="\/pic.webp"/, "the car's own picture is parked on the scene");
+  assert.match(root.html, /class="mimg"><img src="\/pic.webp"/, "and stays in the card");
+  assert.match(root.html, /class="vc-icon st-ok"[^>]*><ha-icon icon="mdi:car">/, "charging: green icon");
+  assert.match(root.html, /class="trow"><div class="name">[^<]*<\/div><span class="bchip st-ok" title="Charging"[^>]*><span class="dot"><\/span><span class="bchip-text">Charging</, "status pill right after the title");
+  assert.match(root.html, /class="model"[^>]*>45 min left</, "the subtitle does not repeat the pill");
+  assert.match(root.html, /class="vc-led charging"/);
+  assert.match(root.html, /class="bbadge"><span class="brand"/, "Renault's logo in a badge on the icon");
+  states["binary_sensor.car_charging"] = { state: "off", attributes: {} };
+  card.hass = { ...card._hass, states: { ...states } };
+  assert.doesNotMatch(root.html, /vc-led charging/);
+  assert.doesNotMatch(root.html, /class="vc-icon st-ok"/);
+  // The full card: no plate in the header, the plate above the picture in the body
+  card._onClick({ composedPath: () => [{ classList: { contains: (c) => c === "zoom" } }], stopPropagation() {}, detail: 1 });
+  const banner = root.html.slice(root.html.indexOf('<div class="banner'), root.html.indexOf('<div class="image'));
+  assert.doesNotMatch(banner, /class="plate"/);
+  assert.match(root.html, /<div class="image with-plate"><svg class="plate"/);
+});
+
+test("illustrated header: night from illustration_theme, sun.sun or the dark theme; unique ids per card", () => {
+  const { card, root, states } = miniCard({ illustration_theme: "night" });
+  assert.match(root.html, /<div class="banner night">/);
+  const id = root.html.match(/radialGradient id="([^"]+)"/)[1];
+  card.setConfig({ device_id: "d1", illustration_theme: "day" });
+  assert.match(root.html, /<div class="banner">/);
+  card.setConfig({ device_id: "d1" });
+  card.hass = { ...card._hass, states: { ...states, "sun.sun": { state: "below_horizon", attributes: {} } } };
+  assert.match(root.html, /<div class="banner night">/);
+  card.hass = { ...card._hass, states: { ...states }, themes: { darkMode: true } };
+  assert.match(root.html, /<div class="banner night">/);
+  const sunUp = { ...states, "sun.sun": { state: "above_horizon", attributes: {} } };
+  card.hass = { ...card._hass, states: sunUp, themes: { darkMode: true } };
+  assert.match(root.html, /<div class="banner night">/, "dark theme while the sun is up: night");
+  card.hass = { ...card._hass, states: sunUp, themes: { darkMode: false } };
+  assert.match(root.html, /<div class="banner">/, "light theme while the sun is up: day");
+  card.setConfig({ device_id: "d1", illustration_theme: "day" });
+  card.hass = { ...card._hass, states: sunUp, themes: { darkMode: true } };
+  assert.match(root.html, /<div class="banner">/, "forced day wins over the dark theme");
+  card.setConfig({ device_id: "d1", illustration_theme: "night" });
+  card.hass = { ...card._hass, states: sunUp, themes: { darkMode: false } };
+  assert.match(root.html, /<div class="banner night">/, "forced night wins over the sun");
+  const other = miniCard();
+  assert.notEqual(other.root.html.match(/radialGradient id="([^"]+)"/)[1], id);
+  const classic = miniCard({ illustration: false });
+  assert.doesNotMatch(classic.root.html, /class="banner/);
 });
