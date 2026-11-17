@@ -139,14 +139,13 @@ test("status pill shows its whole label next to a readable title; the zoom butto
             continue;
           }
           const text = chip.querySelector(".bchip-text");
-          const cut = text.scrollWidth > text.clientWidth + 0.5 || text.clientWidth === 0;
+          // Its whole label, or its dot alone (where it goes in every language: pill-layout.test.mjs).
+          const cut = getComputedStyle(text).display !== "none" && text.scrollWidth > text.clientWidth + 0.5;
           if (cut) out.push(`${tag2}: label cut`);
           const nb = r.querySelector(".trow .name").getBoundingClientRect();
           if (nb.width < 24) out.push(`${tag2}: title ${Math.round(nb.width)}px`);
           const cb = chip.getBoundingClientRect();
           const onRow = Math.abs(cb.top + cb.height / 2 - (nb.top + nb.height / 2)) < 3;
-          const row = r.querySelector(".trow").getBoundingClientRect();
-          if (onRow && cb.width > row.width * 0.51 + 0.5) out.push(`${tag2}: pill ${Math.round(cb.width)} of ${Math.round(row.width)}px`);
           if (onRow && cb.left - nb.right > 10.5) out.push(`${tag2}: pill ${Math.round(cb.left - nb.right)}px after the title`);
           const banner = r.querySelector(".banner");
           if (banner) {

@@ -4050,19 +4050,31 @@ function rnSceneSvg(o) {
 }
 
 var RN_PILL_STYLE =
-  '.trow { display: flex; align-items: center; gap: 8px; min-width: 0; }' +
-  '.trow .name { flex: 0 100 auto; min-width: 4ch; }' +
   '.bchip { --c: #6b7a89; display: inline-flex; align-items: center; gap: 4px; flex: 0 1 auto; min-width: 0; max-width: 51%; box-sizing: border-box;' +
     ' overflow: hidden; white-space: nowrap; padding: 1px 8px; border-radius: 12px; font-size: 11px; font-weight: 500; line-height: 16px;' +
     ' background: color-mix(in srgb, var(--c) 18%, rgba(255,255,255,.78)); color: color-mix(in srgb, var(--c) 45%, #0d2a45); }' +
   '.bchip.st-ok { --c: ' + RN_OK + '; } .bchip.st-active { --c: var(--rn-accent); } .bchip.st-warn { --c: ' + RN_WARN + '; } .bchip.st-err { --c: ' + RN_ERR + '; }' +
   '.bchip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--c); flex: none; }' +
   '.bchip-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; }' +
-  // Not enough room after the title (measured by the card): the pill on its own line under the subtitle.
-  '[data-wrap] .titles { display: flex; flex-direction: column; } [data-wrap] .trow { display: contents; }' +
-  '[data-wrap] .bchip { order: 9; align-self: flex-start; max-width: 100%; margin-top: 3px; }' +
-  '@container (max-width: 200px) { .bchip { padding: 0; background: none; }' +
-    ' .bchip-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); } }';
+`
+  /* The status pill, in every header: on the title row right after the title only when the whole title and the pill's
+     whole label fit there; otherwise on its own line under the subtitle, cut to one line; its dot alone, beside the
+     title, when the banner has no room left above its ground strip, or on a card of 200 px or less. Decided by
+     measurement (see _fitPill), so that every language and every width gets it right. */
+  .titles .trow { display: flex; align-items: center; gap: 8px; min-width: 0; width: 100%; }
+  .titles .trow > .name { flex: 0 1 auto; min-width: 0; }
+  .titles .trow > .bchip { flex: none; max-width: none; margin: 0; align-self: center; }
+  .titles.below { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+  .titles.below > * { max-width: 100%; }
+  .titles.below .trow { display: contents; }
+  .titles.below .trow > .name { max-width: 100%; }
+  .titles.below .trow > .bchip { order: 9; max-width: 100%; margin-top: 2px; align-self: flex-start; }
+  /* In the banner, a pill on its own line may run over the picture, up to the banner's edge. */
+  .banner .titles.below .trow > .bchip { max-width: none; }
+  .titles.below :is(.model) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .titles.dotonly .trow > .bchip { padding: 4px; } .titles.dotonly .trow > .bchip .bchip-text { display: none; }
+  @container (max-width: 200px) { .titles .trow > .bchip { padding: 4px; } .titles .trow > .bchip .bchip-text { display: none; } }
+`;
 
 var RN_SCENE_STYLE =
   '.banner { position: relative; overflow: hidden; height: 90px; margin: -12px -12px -2px; flex: none; color: #0d2a45;' +
@@ -4094,7 +4106,7 @@ var RN_SCENE_STYLE =
   '.night .g-road { background: #2c323b; box-shadow: inset 0 1px 0 #3a414c; } .night .g-road::after { opacity: .6; }' +
   // The title on the sky, left of the scene (whose left quarter is only sky and hills).
   '.htext { position: absolute; left: 12px; top: 6px; bottom: 16px; right: calc(min(200px, 62%) * .74 + 4px); display: flex; align-items: center; gap: 10px; min-width: 0; }' +
-  '.htext .titles { flex: 1 1 auto; min-width: 0; }' +
+  '.htext .titles { flex: 1 1 0; min-width: 0; }' +
   '.banner .name { color: inherit; font-weight: 600; }' +
   '.banner .model { white-space: normal; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-height: 1.25; color: #3b5b78; } .banner.night .model { color: rgba(255,255,255,.78); }' +
   '.vc-icon { position: relative; width: 40px; height: 40px; flex: none; border-radius: 50%; display: grid; place-items: center; --mdc-icon-size: 24px;' +
@@ -4111,15 +4123,10 @@ var RN_SCENE_STYLE =
     ' display: grid; place-items: center; background: #fff; box-shadow: 0 0 0 1px rgba(13,42,69,.16), 0 1px 3px rgba(13,42,69,.18); }' +
   '.bbadge .brand { width: 100%; height: 100%; background: #1c1c1c; }' +
   '.bbadge .brand-svg { width: 100%; height: 100%; padding: 0; fill: #1c1c1c; }' +
-  // The status pill right after the title, in the icon's colour on a frosted tint; the title is cut first (about four
-  // characters kept). When it does not fit there (measured by the card, or a narrow card) it goes on its own line
-  // under the subtitle, where it may run over the left of the scene; very narrow, its dot alone.
+  // The status pill in the icon's colour on a frosted tint (where it goes: RN_PILL_STYLE and _fitPill).
   '.night .bchip { background: color-mix(in srgb, var(--c) 30%, rgba(8,18,38,.55)); color: color-mix(in srgb, var(--c) 35%, #ffffff); }' +
   '.night .bchip.st-idle { --c: #aab6c3; }' +
-  '.banner[data-wrap] .model, .banner .trow:has(> .bchip) ~ .model { -webkit-line-clamp: 1; }' +
-  '.banner[data-wrap] .bchip { order: 9; align-self: flex-start; max-width: calc(100cqw - 80px); margin-top: 3px; }' +
-  '@container (max-width: 260px) { .banner .titles { display: flex; flex-direction: column; } .banner .trow { display: contents; }' +
-    ' .banner .bchip { order: 9; align-self: flex-start; max-width: calc(100cqw - 80px); margin-top: 3px; } }' +
+  '.banner .trow:has(> .bchip) ~ .model { -webkit-line-clamp: 1; }' +
   // The mini card's expand / collapse button: 24 px, frosted, 5 px from the banner's top right corner.
   '.banner .zoom { position: absolute; top: 5px; right: 5px; z-index: 2; margin: 0; width: 24px; height: 24px; color: #33506b;' +
     ' background: rgba(255,255,255,.55); box-shadow: inset 0 0 0 1px rgba(255,255,255,.7); backdrop-filter: blur(4px); --mdc-icon-size: 16px; }' +
@@ -4200,25 +4207,52 @@ class RenaultCard extends HTMLElement {
     document.addEventListener('click', this._onOutside, true);
     // A new width fits the banner's status pill again (the banner keeps its height: no resize loop).
     if (typeof ResizeObserver === 'function') {
-      this._pillResize = this._pillResize || new ResizeObserver(() => this._fitPill());
+      this._pillResize = this._pillResize || new ResizeObserver(() => {
+        cancelAnimationFrame(this._fitFrame);
+        this._fitFrame = requestAnimationFrame(() => this._fitPill());
+      });
       this._pillResize.observe(this);
     }
+    document.fonts?.ready?.then(() => this._fitPill());
   }
 
-  // The header's status pill goes on its own line under the subtitle when it is cut next to the title. Measured with
-  // fractional widths: scrollWidth / clientWidth are rounded and miss a label cut by less than a pixel.
+  // The status pill goes right after the title only when the whole title and the pill's whole label fit on that row;
+  // otherwise it takes a line of its own under the subtitle (.titles.below, the subtitle cut to one line). In the
+  // banner (where that line may run over the picture), when the titles still run below the top of the ground strip or
+  // out of the banner, and in the classic header when the label does not fit even alone, the pill keeps its dot alone,
+  // beside the title (.titles.dotonly). Measured in fractional pixels.
   _fitPill() {
-    var chip = this.shadowRoot?.querySelector?.('.trow .bchip');
-    var banner = chip?.closest?.('.banner, .header');
-    if (!banner || !chip.getBoundingClientRect) return;
-    banner.removeAttribute('data-wrap');
-    var have = chip.getBoundingClientRect().width;
-    chip.style.maxWidth = 'none';
-    chip.style.flex = 'none';
-    var need = chip.getBoundingClientRect().width;
-    chip.style.maxWidth = '';
-    chip.style.flex = '';
-    if (need > have + 0.01) banner.setAttribute('data-wrap', '');
+    for (const t of this.shadowRoot?.querySelectorAll?.(".titles") || []) {
+      const row = t.querySelector?.(".trow");
+      const chips = row ? [...row.querySelectorAll(":scope > .bchip")] : [];
+      if (!chips.length || !row.getBoundingClientRect) continue;
+      t.classList.remove("below", "dotonly");
+      const name = row.querySelector(":scope > .name");
+      const gap = parseFloat(getComputedStyle(row).columnGap) || 0;
+      const widths = chips.map((c) => c.getBoundingClientRect().width);
+      let need = -gap;
+      if (name && getComputedStyle(name).display !== "none") {
+        name.style.flex = "none";
+        need = name.getBoundingClientRect().width;
+        name.style.flex = "";
+      }
+      for (const w of widths) need += gap + w;
+      const room = row.getBoundingClientRect().width + 0.01;
+      if (need <= room) continue;
+      t.classList.add("below");
+      const banner = t.closest(".banner");
+      const cut = !banner && widths.some((w) => w > room);
+      let out = false;
+      if (banner) {
+        const b = banner.getBoundingClientRect();
+        const floor = b.bottom - (banner.querySelector(".g-road")?.getBoundingClientRect().height ?? 10) + 0.5;
+        out = [...t.querySelectorAll(".name, .model, .bchip")].some((e) => {
+          const r = e.getBoundingClientRect();
+          return r.height && (r.bottom > floor || r.top < b.top - 0.5 || r.right > b.right + 0.5);
+        });
+      }
+      if (cut || out) t.classList.replace("below", "dotonly");
+    }
   }
 
   disconnectedCallback() {
@@ -4480,7 +4514,7 @@ class RenaultCard extends HTMLElement {
     var pill = st?.pill ? this._pill(st) : '';
     var title = c.show_title !== false || pill ? `<div class="trow">${c.show_title !== false ? `<div class="name">${rnEsc(name)}</div>` : ''}${pill}</div>` : '';
     var same = model && name && String(model).trim().toLowerCase() === String(name).trim().toLowerCase();
-    var subtitle = c.show_subtitle !== false && model && !(same && c.show_title !== false) ? `<div class="model">${rnEsc(model)}</div>` : '';
+    var subtitle = c.show_subtitle !== false && model && !(same && c.show_title !== false) ? `<div class="model" title="${rnEsc(model)}">${rnEsc(model)}</div>` : '';
     return '<div class="header">' +
       ((c.show_logo && rnBrandHtml(this._r?.brand, () => { this._sig = null; this._update(); })) ||
         (imgSrc && !c.show_logo ? '' : '<div class="badge"><ha-icon icon="mdi:car"></ha-icon></div>')) +
@@ -4492,7 +4526,7 @@ class RenaultCard extends HTMLElement {
   // The status pill: a dot and the car's status, in the colour of the header icon.
   _pill(st) {
     var more = st.entity ? ` data-more="${rnEsc(st.entity)}" role="button" tabindex="0"` : '';
-    return `<span class="bchip st-${st.level}" title="${rnEsc(st.pill)}"${more}><span class="dot"></span><span class="bchip-text">${rnEsc(st.pill)}</span></span>`;
+    return `<span class="bchip st-${st.level}" title="${rnEsc(st.pill)}" aria-label="${rnEsc(st.pill)}"${more}><span class="dot"></span><span class="bchip-text">${rnEsc(st.pill)}</span></span>`;
   }
 
   // Overridden by the mini card: its detail button.
@@ -4563,7 +4597,7 @@ class RenaultCard extends HTMLElement {
     var title = c.show_title !== false || pill ? `<div class="trow">${c.show_title !== false ? `<div class="name">${rnEsc(name)}</div>` : ''}${pill}</div>` : '';
     var same = !st.text && model && name && String(model).trim().toLowerCase() === String(name).trim().toLowerCase();
     var sub = st.text || (same && c.show_title !== false ? '' : model);
-    var subtitle = c.show_subtitle !== false && sub ? `<div class="model" title="${rnEsc(model || '')}">${rnEsc(sub)}</div>` : '';
+    var subtitle = c.show_subtitle !== false && sub ? `<div class="model" title="${rnEsc(sub === model || !model ? sub : `${sub} · ${model}`)}">${rnEsc(sub)}</div>` : '';
     var brand = c.show_logo ? rnBrandHtml(this._r?.brand, () => { this._sig = null; this._update(); }) : null;
     return `<div class="banner${rnIsNight(this._hass, c) ? ' night' : ''}">` +
       '<div class="g-road"></div>' + rnSceneSvg({ uid: this._uid, img: img, charger: st.charger }) +
@@ -5104,6 +5138,7 @@ class RenaultCard extends HTMLElement {
       // What the header pill already says is not repeated in the chips, unless the pill keeps only its dot.
       '.chips.pill-echo, .chip.pill-echo { display: none; }' +
       '@container (max-width: 200px) { .chips.pill-echo { display: flex; } .chip.pill-echo { display: inline-flex; } }' +
+      'ha-card:has(.titles.dotonly) .chips.pill-echo { display: flex; } ha-card:has(.titles.dotonly) .chip.pill-echo { display: inline-flex; }' +
       '.bchip[data-more] { cursor: pointer; }' +
       '.chip ha-icon { --mdc-icon-size: 13px; }' +
       '.chip.warn { background: color-mix(in srgb, ' + RN_WARN + ' 15%, transparent); color: ' + rnInk(RN_WARN) + '; }' +

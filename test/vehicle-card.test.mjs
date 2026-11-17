@@ -1678,11 +1678,13 @@ test("tyres: labelled by position in FL, FR, RL, RR order; low_tyre_pressure (ba
   assert.equal((root.html.match(/tyre low/g) || []).length, 1);
   // The header pill says "Low tyre pressure" and opens the tyre: the chip saying the same is hidden (.pill-echo), and
   // comes back only on a card so narrow that the pill keeps just its dot.
-  assert.match(root.html, /<span class="bchip st-warn" title="Low tyre pressure" data-more="sensor.car_rear_left_pressure" role="button" tabindex="0">/);
+  assert.match(root.html, /<span class="bchip st-warn" title="Low tyre pressure" aria-label="Low tyre pressure" data-more="sensor.car_rear_left_pressure" role="button" tabindex="0">/);
   assert.match(root.html, /<span class="chip pill-echo warn" data-more="sensor.car_rear_left_pressure" role="button" tabindex="0"><ha-icon icon="mdi:car-tire-alert"><\/ha-icon>Low tyre pressure/);
   assert.match(root.html, /\.chips\.pill-echo, \.chip\.pill-echo \{ display: none; \}/);
   assert.match(root.html, /@container \(max-width: 200px\) \{ \.chips\.pill-echo \{ display: flex; \} \.chip\.pill-echo \{ display: inline-flex; \} \}/);
-  assert.match(root.html, /@container \(max-width: 200px\) \{ \.bchip \{ padding: 0; background: none; \}/);
+  // The pill keeps its dot alone at 200 px or less, or when the header has no room for its label (.titles.dotonly).
+  assert.match(root.html, /@container \(max-width: 200px\) \{ \.titles \.trow > \.bchip \{ padding: 4px; \} \.titles \.trow > \.bchip \.bchip-text \{ display: none; \} \}/);
+  assert.match(root.html, /ha-card:has\(\.titles\.dotonly\) \.chips\.pill-echo \{ display: flex; \}/);
 });
 
 test("card editor offers low_tyre_pressure in bar", () => {
@@ -1851,10 +1853,10 @@ test("show_title / show_subtitle hide the name and the model; a model equal to t
   };
   const both = header({}, "Espace", "Espace E-Tech");
   assert.match(both, /class="name">Espace</);
-  assert.match(both, /class="model">Espace E-Tech</);
+  assert.match(both, /class="model"[^>]*>Espace E-Tech</);
   const noTitle = header({ show_title: false }, "Espace", "Espace E-Tech");
   assert.doesNotMatch(noTitle, /class="name"/);
-  assert.match(noTitle, /class="model">Espace E-Tech</);
+  assert.match(noTitle, /class="model"[^>]*>Espace E-Tech</);
   const noSubtitle = header({ show_subtitle: false }, "Espace", "Espace E-Tech");
   assert.match(noSubtitle, /class="name">Espace</);
   assert.doesNotMatch(noSubtitle, /class="model"/);
@@ -1864,7 +1866,7 @@ test("show_title / show_subtitle hide the name and the model; a model equal to t
   const same = header({}, "Model 3", "model 3");
   assert.equal(same.match(/class="(name|model)"/g).length, 1);
   // Without the title, the model is the only text left: it stays
-  assert.match(header({ show_title: false }, "Model 3", "Model 3"), /class="model">Model 3</);
+  assert.match(header({ show_title: false }, "Model 3", "Model 3"), /class="model"[^>]*>Model 3</);
 });
 
 test("card editor offers show_title and show_subtitle, on by default", () => {
