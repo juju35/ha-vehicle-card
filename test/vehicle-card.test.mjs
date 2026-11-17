@@ -1676,7 +1676,13 @@ test("tyres: labelled by position in FL, FR, RL, RR order; low_tyre_pressure (ba
   assert.match(root.html, /<div class="tile warn" data-more="sensor.car_rear_left_pressure"/);
   assert.match(root.html, /<span class="tyre low"><span class="tpos">RL<\/span> 170<\/span>/);
   assert.equal((root.html.match(/tyre low/g) || []).length, 1);
-  assert.match(root.html, /<span class="chip warn" data-more="sensor.car_rear_left_pressure" role="button" tabindex="0"><ha-icon icon="mdi:car-tire-alert"><\/ha-icon>Low tyre pressure/);
+  // The header pill says "Low tyre pressure" and opens the tyre: the chip saying the same is hidden (.pill-echo), and
+  // comes back only on a card so narrow that the pill keeps just its dot.
+  assert.match(root.html, /<span class="bchip st-warn" title="Low tyre pressure" data-more="sensor.car_rear_left_pressure" role="button" tabindex="0">/);
+  assert.match(root.html, /<span class="chip pill-echo warn" data-more="sensor.car_rear_left_pressure" role="button" tabindex="0"><ha-icon icon="mdi:car-tire-alert"><\/ha-icon>Low tyre pressure/);
+  assert.match(root.html, /\.chips\.pill-echo, \.chip\.pill-echo \{ display: none; \}/);
+  assert.match(root.html, /@container \(max-width: 200px\) \{ \.chips\.pill-echo \{ display: flex; \} \.chip\.pill-echo \{ display: inline-flex; \} \}/);
+  assert.match(root.html, /@container \(max-width: 200px\) \{ \.bchip \{ padding: 0; background: none; \}/);
 });
 
 test("card editor offers low_tyre_pressure in bar", () => {
@@ -2025,7 +2031,7 @@ test("illustrated header: car picture on the scene, status subtitle and icon col
   assert.match(root.html, /<image href="\/pic.webp"/, "the car's own picture is parked on the scene");
   assert.match(root.html, /class="mimg"><img src="\/pic.webp"/, "and stays in the card");
   assert.match(root.html, /class="vc-icon st-ok"[^>]*><ha-icon icon="mdi:car">/, "charging: green icon");
-  assert.match(root.html, /class="trow"><div class="name">[^<]*<\/div><span class="bchip st-ok" title="Charging"><span class="dot"><\/span><span class="bchip-text">Charging</, "status pill right after the title");
+  assert.match(root.html, /class="trow"><div class="name">[^<]*<\/div><span class="bchip st-ok" title="Charging"[^>]*><span class="dot"><\/span><span class="bchip-text">Charging</, "status pill right after the title");
   assert.match(root.html, /class="model"[^>]*>45 min left</, "the subtitle does not repeat the pill");
   assert.match(root.html, /class="vc-led charging"/);
   assert.match(root.html, /class="bbadge"><span class="brand"/, "Renault's logo in a badge on the icon");

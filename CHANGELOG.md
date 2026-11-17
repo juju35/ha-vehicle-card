@@ -7,6 +7,9 @@
 - Status pill (dot and status: Charging, Locked, Unlocked, Doors open, Offline, Parked…) right after the title on the illustrated and the classic header, in the colour of the header icon; on its own line under the subtitle when it does not fit next to the title, its dot only under 200 px. The subtitle keeps the rest ("45 min left", "806 km"). The mini card's expand / collapse button is a 24 px frosted round button 5 px from the banner's top right corner.
 - Night picture with the dark theme even while the sun is up.
 
+### Fixes
+- The body's status chips no longer repeat the header pill ("Locked" under a "Locked" pill, "Low tyre pressure", "Air conditioning on"…): the chip saying the same is hidden and comes back only when the pill keeps just its dot. The pill now opens the entity behind it (the lock, the tyre, the charge…), as that chip did.
+
 ## 3.7.0 - 2026-11-15
 
 ### Features

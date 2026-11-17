@@ -4491,7 +4491,8 @@ class RenaultCard extends HTMLElement {
 
   // The status pill: a dot and the car's status, in the colour of the header icon.
   _pill(st) {
-    return `<span class="bchip st-${st.level}" title="${rnEsc(st.pill)}"><span class="dot"></span><span class="bchip-text">${rnEsc(st.pill)}</span></span>`;
+    var more = st.entity ? ` data-more="${rnEsc(st.entity)}" role="button" tabindex="0"` : '';
+    return `<span class="bchip st-${st.level}" title="${rnEsc(st.pill)}"${more}><span class="dot"></span><span class="bchip-text">${rnEsc(st.pill)}</span></span>`;
   }
 
   // Overridden by the mini card: its detail button.
@@ -4543,7 +4544,10 @@ class RenaultCard extends HTMLElement {
     if (charging) charger = 'charging';
     else if (plug) charger = plug;
     else if (this._avail(ent.charging)) charger = 'unplugged';
-    return { level: level, pill: pill ? this._t(pill) : '', text: parts.join(' · '), charger: charger };
+    // The entity behind the pill: a tap on it opens it, as the body's chip saying the same (hidden then) did.
+    var pillEntity = { locked: lockId, unlocked: lockId, offline: ent.cellular, low_tyre_pressure: lowTyres[0], charging: ent.charging,
+      plugged: ent.plugged_in, unplugged: ent.plugged_in }[pill] || null;
+    return { level: level, pill: pill ? this._t(pill) : '', entity: pillEntity, text: parts.join(' · '), charger: charger };
   }
 
   // The illustrated header: the round status icon (with the brand's logo in a badge) and the name and
@@ -4641,6 +4645,21 @@ class RenaultCard extends HTMLElement {
   }
 
   // "Charging · 45 min left", else "Plugged in" / "Unplugged"; null without either sensor.
+  // The status chips; a chip that says word for word what the header pill says is hidden (.pill-echo), and comes back
+  // on a card so narrow that the pill keeps only its dot.
+  _chipsHtml(chips, ent) {
+    if (this._config.show_chips === false || !chips.length) return '';
+    var pill = this._status(ent).pill;
+    var shown = 0;
+    var html = chips.map((chip) => {
+      var m = /<\/ha-icon>([^<]*)<\/span>$/.exec(chip);
+      if (pill && m && (m[1] === pill || m[1] === rnEsc(pill))) return chip.replace(/^<span class="chip/, '<span class="chip pill-echo');
+      shown++;
+      return chip;
+    }).join('');
+    return `<div class="chips${shown ? '' : ' pill-echo'}">${html}</div>`;
+  }
+
   _chargeChip(ent) {
     if (this._val(ent.charging) === 'on') {
       var left = this._chargeMinutes(ent.charging_remaining_time);
@@ -4799,7 +4818,7 @@ class RenaultCard extends HTMLElement {
     }
 
     this._setHtml(this._styles() + '<ha-card>' + header + image +
-      (c.show_chips !== false && chips.length ? `<div class="chips">${chips.join('')}</div>` : '') +
+      this._chipsHtml(chips, ent) +
       (tiles.length ? `<div class="tiles">${tiles.join('')}</div>` : '') +
       this._leaseHtml(ent) + locationHtml + planHtml + this._servicesHtml(ent) + actionsHtml + '</ha-card>');
   }
@@ -5063,6 +5082,10 @@ class RenaultCard extends HTMLElement {
       '.chip { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; padding: 1px 8px 1px 5px; border-radius: 12px;' +
         ' background: var(--secondary-background-color, rgba(128,128,128,0.12)); color: var(--secondary-text-color); }' +
       '.chip[data-more] { cursor: pointer; }' +
+      // What the header pill already says is not repeated in the chips, unless the pill keeps only its dot.
+      '.chips.pill-echo, .chip.pill-echo { display: none; }' +
+      '@container (max-width: 200px) { .chips.pill-echo { display: flex; } .chip.pill-echo { display: inline-flex; } }' +
+      '.bchip[data-more] { cursor: pointer; }' +
       '.chip ha-icon { --mdc-icon-size: 13px; }' +
       '.chip.warn { background: color-mix(in srgb, ' + RN_WARN + ' 15%, transparent); color: ' + rnInk(RN_WARN) + '; }' +
       '.chip.ok { background: color-mix(in srgb, ' + RN_OK + ' 15%, transparent); color: ' + rnInk(RN_OK) + '; }' +
@@ -5555,7 +5578,7 @@ class RenaultMiniCard extends RenaultCard {
     // No picture in the header: the logo, or the car icon, keeps the header's 40 px icon.
     this._setHtml(this._styles() + '<ha-card class="mini">' + this._header(id.name, id.model, null, null, id.imgSrc) +
       (img || tiles.length ? `<div class="mb${img && tiles.length ? '' : ' solo'}">${img}${tiles.length ? `<div class="mstats">${tiles.join('')}</div>` : ''}</div>` : '') +
-      (charge ? `<div class="chips">${charge}</div>` : '') + '</ha-card>');
+      this._chipsHtml(charge ? [charge] : [], ent) + '</ha-card>');
   }
 
   _styles() {
