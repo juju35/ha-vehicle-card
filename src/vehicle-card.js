@@ -5685,7 +5685,7 @@ if (!customElements.get('renault-mini-card')) customElements.define('renault-min
 // ── renault-map-card ─────────────────────────────────────────────────────────
 // Leaflet and MapLibre ship with the card in dist/ (all .js, so HACS downloads them): no CDN,
 // only the map tiles come from the network. Same base maps as ha-carburants-france.
-var RN_MAP_DEFAULTS = { height: 400, show_icon: true, show_home: true, show_name: true, show_picture: true, show_fullscreen: true, map_style: 'ha', theme: 'auto' };
+var RN_MAP_DEFAULTS = { illustration: true, illustration_theme: 'auto', height: 400, show_icon: true, show_home: true, show_name: true, show_picture: true, show_fullscreen: true, map_style: 'ha', theme: 'auto' };
 
 var RN_OSM_ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors';
 var RN_IGN_WMTS = 'https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}';
@@ -6709,6 +6709,7 @@ class RenaultMapCard extends HTMLElement {
     if (!this._map) return;
     if (this._fsLink && !this._onFsChange) this._bindFs();
     if (this._resizeObserver) this._resizeObserver.observe(this._root.querySelector('.map'));
+    this._pillResize?.observe(this._root.querySelector('ha-card'));
     this._scheduleTokenRefresh();
     // The token may have expired while the card was detached.
     if (this._tiles?.getMaplibreMap) {
@@ -6721,6 +6722,7 @@ class RenaultMapCard extends HTMLElement {
 
   disconnectedCallback() {
     if (this._resizeObserver) this._resizeObserver.disconnect();
+    this._pillResize?.disconnect();
     clearInterval(this._tokenTimer);
     if (this._onFsChange) {
       document.removeEventListener('fullscreenchange', this._onFsChange);
@@ -6787,8 +6789,8 @@ class RenaultMapCard extends HTMLElement {
   _signature() {
     if (!this._hass || !this._config) return '';
     var hass = this._hass;
-    return JSON.stringify([this._lang(), this._vehicles().map((v) => [v.deviceId, v.lat, v.lon, v.tracker.state, v.name, rnPhotoKey(v.image),
-        ['fuel_autonomy', 'battery_autonomy', 'battery_level', 'fuel_quantity', 'mileage', 'location_last_activity'].map((r) => {
+    return JSON.stringify([this._lang(), this._illustrated() && rnIsNight(hass, this._config), this._vehicles().map((v) => [v.deviceId, v.lat, v.lon, v.tracker.state, v.name, rnPhotoKey(v.image),
+        ['fuel_autonomy', 'battery_autonomy', 'battery_level', 'fuel_quantity', 'mileage', 'location_last_activity', 'charging', 'plugged_in'].map((r) => {
           var s = v.ent[r] && hass.states[v.ent[r]];
           return s ? s.state : null;
         })])]);
@@ -6827,6 +6829,12 @@ class RenaultMapCard extends HTMLElement {
       '<style>' + RN_LEAFLET_CSS + '</style><style class="mlcss"></style>' +
       '<style>' + RenaultMapCard._styles() + '</style>' +
       '<ha-card><div class="header" hidden></div><div class="message" hidden></div><div class="map"></div></ha-card>';
+    // The status pill's place is measured (see RenaultCard._fitPill): again when the card's width changes.
+    if (window.ResizeObserver) {
+      this._pillResize = new ResizeObserver(() => { this._fitPill(); });
+      this._pillResize.observe(this._root.querySelector('ha-card'));
+    }
+    document.fonts?.ready?.then(() => this._fitPill());
     this._root.addEventListener('click', (ev) => {
       var btn = ev.composedPath().find((n) => n.dataset?.more);
       if (btn) this.dispatchEvent(new CustomEvent('hass-more-info', { detail: { entityId: btn.dataset.more }, bubbles: true, composed: true }));
@@ -6848,15 +6856,23 @@ class RenaultMapCard extends HTMLElement {
     var mt = this._mt();
     var header = this._root.querySelector('.header');
     var title = this._config.title === undefined ? mt.default_title : this._config.title;
-    var icon = this._config.show_icon ? this._brandIcon() : '';
-    header.hidden = !title && !icon;
-    header.innerHTML = icon + (title ? `<span class="title">${rnEsc(title)}</span>` : '');
+    var vehicles = this._vehicles();
+    if (this._illustrated()) {
+      header.hidden = false;
+      header.className = 'header illustrated';
+      header.innerHTML = this._banner(title, vehicles);
+      this._fitPill();
+    } else {
+      var icon = this._config.show_icon ? this._brandIcon() : '';
+      header.hidden = !title && !icon;
+      header.className = 'header';
+      header.innerHTML = icon + (title ? `<span class="title">${rnEsc(title)}</span>` : '');
+    }
     var mapEl = this._root.querySelector('.map');
     mapEl.style.height = `${Math.max(150, Number(this._config.height) || 400)}px`;
     mapEl.classList.toggle('dark', this._darkTiles());
     this._reloadTilesIfNeeded();
     var message = this._root.querySelector('.message');
-    var vehicles = this._vehicles();
     if (!vehicles.length) {
       // Clear stale markers left over from when vehicles still had a position.
       if (this._layer) {
@@ -6884,6 +6900,52 @@ class RenaultMapCard extends HTMLElement {
       message.hidden = false;
       message.textContent = String((err?.message) || err);
     });
+  }
+
+  _illustrated() { return this._config?.illustration !== false; }
+
+  _fitPill() { RenaultCard.prototype._fitPill.call(this); }
+
+  // Where the vehicles are, for the illustrated header. One vehicle: its zone in the pill (green at home,
+  // the accent colour in another zone, grey away), its model below the title, its charging post in the scene.
+  // Several: how many are at home in the pill (green when all of them), their names below the title.
+  _mapStatus(vehicles) {
+    var hass = this._hass, mt = this._mt();
+    var zone = (v) => (v.tracker?.state === 'home' ? 'home' : v.tracker?.state === 'not_home' ? 'away' : 'zone');
+    if (!vehicles.length) return { level: 'idle', pill: '', text: '', charger: null, entity: null };
+    if (vehicles.length === 1) {
+      var v = vehicles[0], z = zone(v);
+      var where = hass.formatEntityState ? hass.formatEntityState(v.tracker) : z === 'home' ? mt.home : v.tracker.state;
+      var val = (id) => (id && hass.states[id] ? hass.states[id].state : null);
+      var charger = null;
+      if (val(v.ent.charging) === 'on') charger = 'charging';
+      else if (val(v.ent.plugged_in) === 'on' || val(v.ent.plugged_in) === 'off') charger = val(v.ent.plugged_in) === 'on' ? 'plugged' : 'unplugged';
+      else if (v.ent.charging && RN_NO_VALUE.indexOf(String(val(v.ent.charging))) < 0 && val(v.ent.charging) != null) charger = 'unplugged';
+      return { level: z === 'home' ? 'ok' : z === 'zone' ? 'active' : 'idle', pill: where, text: v.model || '', charger: charger, entity: v.ent.location };
+    }
+    var home = vehicles.filter((v) => zone(v) === 'home').length;
+    return { level: home === vehicles.length ? 'ok' : 'idle', pill: `${mt.home} · ${home}/${vehicles.length}`,
+      text: vehicles.map((v) => v.name).join(', '), charger: null, entity: null };
+  }
+
+  // The illustrated header of the vehicle card, on the map: the round map-marker icon (its colour is where the
+  // vehicles are, the brand's logo in a badge), the title and status on the sky, the roadside scene with the
+  // car's own picture (the first one that has one when there are several), the road strip below.
+  _banner(title, vehicles) {
+    var c = this._config, st = this._mapStatus(vehicles);
+    if (!this._uid) this._uid = rnUid();
+    var pill = st.pill ? RenaultCard.prototype._pill.call(this, st) : '';
+    var trow = title || pill ? `<div class="trow">${title ? `<div class="name">${rnEsc(title)}</div>` : ''}${pill}</div>` : '';
+    var subtitle = st.text && st.text !== title ? `<div class="model" title="${rnEsc(st.text)}">${rnEsc(st.text)}</div>` : '';
+    var hass = this._hass;
+    var keys = this._discovered().ids.map((id) => rnBrandKey(hass, id, hass.devices?.[id]));
+    var one = keys.length && keys.every((k) => k === keys[0]) ? keys[0] : null;
+    var brand = c.show_icon ? rnBrandHtml(one, () => { this._sig = null; this._update(); }) : null;
+    var img = c.show_picture ? vehicles.map((v) => v.image).find(Boolean) || null : null;
+    return `<div class="banner${rnIsNight(hass, c) ? ' night' : ''}">` +
+      '<div class="g-road"></div>' + rnSceneSvg({ uid: this._uid, img: img, charger: st.charger }) +
+      `<div class="htext"><div class="vc-icon st-${st.level}"><ha-icon icon="${vehicles.length > 1 ? 'mdi:map-marker-multiple' : 'mdi:map-marker'}"></ha-icon>` +
+      (brand ? `<span class="bbadge">${brand}</span>` : '') + `</div><div class="titles">${trow}${subtitle}</div></div></div>`;
   }
 
   _ensureMap(L) {
@@ -7231,9 +7293,9 @@ class RenaultMapCard extends HTMLElement {
       // column) the card would be as narrow as its title. The empty :host::before grid gives the host a
       // 300 px max-content width there and a 0 min-content width, so in a 1fr grid track or a flex item
       // (even wrapped in a div or hui-card) the card shrinks to its share; elsewhere the parent sets it.
-      ':host { display: block; min-width: 0; }',
+      ':host { display: block; min-width: 0; --rn-accent: var(--primary-color, #03a9f4); }',
       ":host::before { content: ''; display: grid; grid-template-columns: minmax(0, 300px); height: 0; }",
-      'ha-card { display: block; overflow: hidden; contain: inline-size; }',
+      'ha-card { display: block; overflow: hidden; contain: inline-size; container-type: inline-size; }',
       '.header { display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 12px 12px 8px; font-size: 16px; font-weight: 500; line-height: 1.25; color: var(--primary-text-color); }',
       '.brand { width: 40px; height: 40px; flex: none; background: var(--primary-text-color);' +
         ' -webkit-mask: url(' + RN_RENAULT_LOGO + ') center / contain no-repeat; mask: url(' + RN_RENAULT_LOGO + ') center / contain no-repeat; }',
@@ -7241,6 +7303,13 @@ class RenaultMapCard extends HTMLElement {
       '.header .car { --mdc-icon-size: 28px; width: 40px; display: grid; place-items: center; flex: none; color: var(--primary-text-color); }',
       '.header .title { flex: 1 1 auto; min-width: 4ch; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }',
       '.header[hidden], .message[hidden] { display: none; }',
+      // The illustrated header, as on the vehicle card: edge to edge above the map.
+      '.header.illustrated { display: block; padding: 0; min-height: 0; }',
+      '.titles { flex: 1 1 0; min-width: 5ch; }',
+      '.name { font-size: 16px; font-weight: 500; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }',
+      '.model { font-size: 12px; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }',
+      RN_PILL_STYLE, RN_SCENE_STYLE,
+      '.banner { margin: 0; }',
       '.message { padding: 12px 16px; color: var(--secondary-text-color); }',
       '.map { width: 100%; background: var(--secondary-background-color, #e5e5e5); z-index: 0; }',
       ':host(:fullscreen) { background: var(--card-background-color, #fff); }',
@@ -7322,6 +7391,13 @@ class RenaultMapCardEditor extends HTMLElement {
       { name: 'title', selector: { text: {} } },
       {
         type: 'grid', name: '', schema: [
+          { name: 'illustration', selector: { boolean: {} } },
+          // The illustrated header's labels are the vehicle card's (same strings in every language).
+          { name: 'illustration_theme', selector: { select: { mode: 'dropdown', options: ['auto', 'day', 'night'].map((v) => ({ value: v, label: rnT(rnMapLang(this._hass), `theme_${v}`) })) } } },
+        ],
+      },
+      {
+        type: 'grid', name: '', schema: [
           { name: 'map_style', selector: { select: { mode: 'dropdown', options: styles } } },
           { name: 'theme', selector: { select: { mode: 'dropdown', options: themes } } },
         ],
@@ -7348,7 +7424,7 @@ class RenaultMapCardEditor extends HTMLElement {
     var mt = RnMapI18n[rnMapLang(this._hass)];
     this._form.hass = this._hass;
     this._form.schema = this._schema();
-    this._form.computeLabel = (s) => mt.editor[s.name] || s.name;
+    this._form.computeLabel = (s) => mt.editor[s.name] || (/^illustration/.test(s.name) ? rnT(rnMapLang(this._hass), `ed_${s.name}`) : s.name);
     var data = Object.assign({}, RN_MAP_DEFAULTS, this._config);
     if (data.title === undefined) data.title = mt.default_title;
     this._form.data = data;
