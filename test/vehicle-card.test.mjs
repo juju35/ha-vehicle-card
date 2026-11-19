@@ -2145,3 +2145,28 @@ test("illustrated header: night from illustration_theme or the dark theme alone;
   const classic = miniCard({ illustration: false });
   assert.doesNotMatch(classic.root.html, /class="banner/);
 });
+
+test("outside temperature: the device_class fallback skips coolant, engine, battery and cabin sensors (#99)", () => {
+  const temp = (id) => [{ entity_id: id }, { entity_id: id, attributes: { device_class: "temperature" } }];
+  const find = (ids) => {
+    const list = ids.map((id) => temp(id)[0]);
+    const states = Object.fromEntries(ids.map((id) => [id, temp(id)[1]]));
+    return ctx.rnFindRole({ states }, list, ctx.RN_ROLES.outside_temperature);
+  };
+  assert.equal(find(["sensor.car_coolant_temperature"]), undefined);
+  assert.equal(find(["sensor.car_engine_temperature", "sensor.car_battery_temperature", "sensor.car_cabin_temperature",
+    "sensor.car_kuhlmitteltemperatur", "sensor.car_inside_temperature"]), undefined);
+  assert.equal(find(["sensor.car_coolant_temperature", "sensor.car_temperature"]), "sensor.car_temperature");
+  assert.equal(find(["sensor.car_coolant_temperature", "sensor.car_aussentemperatur"]), "sensor.car_aussentemperatur");
+});
+
+test("outside temperature can be forced from the editor's Entities panel, any temperature sensor (#99)", () => {
+  const Editor = defined["renault-card-editor"] || defined["vehicle-card-editor"];
+  const ed = Object.create(Editor.prototype);
+  ed._config = {};
+  ed._hass = { language: "en", config: {} };
+  const panel = ed._schema().find((s) => s.name === "entities");
+  const field = panel.schema.find((s) => s.name === "outside_temperature");
+  assert.deepEqual(JSON.parse(JSON.stringify(field.selector)), { entity: { domain: "sensor", device_class: "temperature" } });
+  assert.equal(ctx.rnT("de", "en_outside_temperature"), "Außentemperatur");
+});

@@ -365,7 +365,7 @@ entities:
 | `show_lease_margin` | ❌ | `true` | Show the kilometre margin next to the lease status when you are within the allowance. `false` hides that (fluctuating) value — the over-allowance and warning messages still show, and the section still opens from the chevron |
 | `lease` | ❌ | — | Lease tracking: `start_date` (`YYYY-MM-DD`), `duration` (months) and `km_per_year` are required to show it; `start_mileage` (km at delivery) defaults to `0`; `forecast`: `90` or `30` to project from the last days (average since the start by default); `extra_km_cost`: cost per extra km |
 | `language` | ❌ | Auto | Force language: `en`, `fr`, `de`, `es`, `sr`, `sr-Latn`, `it`, `nl`, `pt`, `pl`, `ro`, `da`, `sv`, `bg`, `ru`, `uk`, `hu`, `sk`, `cs`, `sl`, `lv` or `el` (auto-detects from HA settings) |
-| `entities` | ❌ | Auto | Override detected entities: `mileage`, `fuel_autonomy`, `fuel_quantity`, `fuel_level`, `battery_level`, `battery_autonomy`, `location` |
+| `entities` | ❌ | Auto | Override detected entities: `mileage`, `fuel_autonomy`, `fuel_quantity`, `fuel_level`, `battery_level`, `battery_autonomy`, `outside_temperature`, `location`. `outside_temperature` takes any temperature sensor, for example an outdoor sensor of your home when the car has none |
 
 ## Mini card
 
