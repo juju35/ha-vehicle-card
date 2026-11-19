@@ -111,6 +111,7 @@ var RnI18n = {
     en_battery_level: 'Niveau de batterie',
     en_battery_autonomy: 'Autonomie batterie',
     en_location: 'Position',
+    en_outside_temperature: 'Température extérieure',
     lease: 'LOA',
     lease_ends: 'Fin {d}',
     lease_months_left_one: '{n} mois',
@@ -260,6 +261,7 @@ var RnI18n = {
     en_battery_level: 'Battery level',
     en_battery_autonomy: 'Battery range',
     en_location: 'Location',
+    en_outside_temperature: 'Outside temperature',
     lease: 'Lease',
     lease_ends: 'Ends {d}',
     lease_months_left_one: '{n} month',
@@ -409,6 +411,7 @@ var RnI18n = {
     en_battery_level: 'Batteriestand',
     en_battery_autonomy: 'Batteriereichweite',
     en_location: 'Standort',
+    en_outside_temperature: 'Außentemperatur',
     lease: 'Leasing',
     lease_ends: 'Ende {d}',
     lease_months_left_one: '{n} Monat',
@@ -558,6 +561,7 @@ var RnI18n = {
     en_battery_level: 'Nivel de batería',
     en_battery_autonomy: 'Autonomía de batería',
     en_location: 'Ubicación',
+    en_outside_temperature: 'Temperatura exterior',
     lease: 'Leasing',
     lease_ends: 'Termina en {d}',
     lease_months_left_one: '{n} mes',
@@ -707,6 +711,7 @@ var RnI18n = {
     en_battery_level: 'Ниво батерије',
     en_battery_autonomy: 'Домет на батерију',
     en_location: 'Локација',
+    en_outside_temperature: 'Спољна температура',
     lease: 'Лизинг',
     lease_ends: 'Истиче {d}',
     lease_months_left_one: '{n} мес.',
@@ -856,6 +861,7 @@ var RnI18n = {
     en_battery_level: 'Nivo baterije',
     en_battery_autonomy: 'Domet na bateriju',
     en_location: 'Lokacija',
+    en_outside_temperature: 'Spoljna temperatura',
     lease: 'Lizing',
     lease_ends: 'Ističe {d}',
     lease_months_left_one: '{n} mes.',
@@ -1005,6 +1011,7 @@ var RnI18n = {
     en_battery_level: 'Livello della batteria',
     en_battery_autonomy: 'Autonomia batteria',
     en_location: 'Posizione',
+    en_outside_temperature: 'Temperatura esterna',
     lease: 'Leasing',
     lease_ends: 'Fine {d}',
     lease_months_left_one: 'Manca {n} mese',
@@ -1154,6 +1161,7 @@ var RnI18n = {
     en_battery_level: 'Batterijniveau',
     en_battery_autonomy: 'Actieradius batterij',
     en_location: 'Locatie',
+    en_outside_temperature: 'Buitentemperatuur',
     lease: 'Lease',
     lease_ends: 'Einde {d}',
     lease_months_left_one: '{n} mnd',
@@ -1303,6 +1311,7 @@ var RnI18n = {
     en_battery_level: 'Nível da bateria',
     en_battery_autonomy: 'Autonomia da bateria',
     en_location: 'Localização',
+    en_outside_temperature: 'Temperatura exterior',
     lease: 'Leasing',
     lease_ends: 'Fim {d}',
     lease_months_left_one: 'Falta {n} mês',
@@ -1452,6 +1461,7 @@ var RnI18n = {
     en_battery_level: 'Poziom naładowania akumulatora',
     en_battery_autonomy: 'Zasięg na akumulatorze',
     en_location: 'Lokalizacja',
+    en_outside_temperature: 'Temperatura zewnętrzna',
     lease: 'Leasing',
     lease_ends: 'Koniec: {d}',
     lease_months_left_one: '{n} mies.',
@@ -1601,6 +1611,7 @@ var RnI18n = {
     en_battery_level: 'Nivelul bateriei',
     en_battery_autonomy: 'Autonomie baterie',
     en_location: 'Locație',
+    en_outside_temperature: 'Temperatură exterioară',
     lease: 'Leasing',
     lease_ends: 'Sfârșit {d}',
     lease_months_left_one: 'Luni rămase: {n}',
@@ -1750,6 +1761,7 @@ var RnI18n = {
     en_battery_level: 'Batteriniveau',
     en_battery_autonomy: 'Rækkevidde på batteri',
     en_location: 'Placering',
+    en_outside_temperature: 'Udetemperatur',
     lease: 'Leasing',
     lease_ends: 'Slutter {d}',
     lease_months_left_one: '{n} måned',
@@ -1899,6 +1911,7 @@ var RnI18n = {
     en_battery_level: 'Batterinivå',
     en_battery_autonomy: 'Räckvidd på batteri',
     en_location: 'Plats',
+    en_outside_temperature: 'Utomhustemperatur',
     lease: 'Leasing',
     lease_ends: 'Slutar {d}',
     lease_months_left_one: '{n} månad',
@@ -2048,6 +2061,7 @@ var RnI18n = {
     en_battery_level: 'Ниво на батерията',
     en_battery_autonomy: 'Пробег с батерията',
     en_location: 'Местоположение',
+    en_outside_temperature: 'Външна температура',
     lease: 'Лизинг',
     lease_ends: 'Край {d}',
     lease_months_left_one: '{n} месец',
@@ -2197,6 +2211,7 @@ var RnI18n = {
     en_battery_level: 'Уровень заряда батареи',
     en_battery_autonomy: 'Запас хода на батарее',
     en_location: 'Местоположение',
+    en_outside_temperature: 'Наружная температура',
     lease: 'Лизинг',
     lease_ends: 'Окончание {d}',
     lease_months_left_one: '{n} мес.',
@@ -2346,6 +2361,7 @@ var RnI18n = {
     en_battery_level: 'Рівень заряду батареї',
     en_battery_autonomy: 'Запас ходу на батареї',
     en_location: 'Розташування',
+    en_outside_temperature: 'Зовнішня температура',
     lease: 'Лізинг',
     lease_ends: 'Закінчення {d}',
     lease_months_left_one: '{n} міс.',
@@ -2495,6 +2511,7 @@ var RnI18n = {
     en_battery_level: 'Akkumulátor töltöttsége',
     en_battery_autonomy: 'Akkumulátoros hatótáv',
     en_location: 'Hely',
+    en_outside_temperature: 'Külső hőmérséklet',
     lease: 'Lízing',
     lease_ends: 'Vége: {d}',
     lease_months_left_one: '{n} hónap',
@@ -2644,6 +2661,7 @@ var RnI18n = {
     en_battery_level: 'Úroveň nabitia batérie',
     en_battery_autonomy: 'Dojazd na batériu',
     en_location: 'Poloha',
+    en_outside_temperature: 'Vonkajšia teplota',
     lease: 'Lízing',
     lease_ends: 'Koniec {d}',
     lease_months_left_one: '{n} mes.',
@@ -2793,6 +2811,7 @@ var RnI18n = {
     en_battery_level: 'Úroveň nabití baterie',
     en_battery_autonomy: 'Dojezd na baterii',
     en_location: 'Poloha',
+    en_outside_temperature: 'Venkovní teplota',
     lease: 'Leasing',
     lease_ends: 'Konec {d}',
     lease_months_left_one: '{n} měs.',
@@ -2942,6 +2961,7 @@ var RnI18n = {
     en_battery_level: 'Raven napolnjenosti baterije',
     en_battery_autonomy: 'Doseg z baterijo',
     en_location: 'Lokacija',
+    en_outside_temperature: 'Zunanja temperatura',
     lease: 'Lizing',
     lease_ends: 'Konec {d}',
     lease_months_left_one: '{n} mes.',
@@ -3091,6 +3111,7 @@ var RnI18n = {
     en_battery_level: 'Akumulatora uzlādes līmenis',
     en_battery_autonomy: 'Sniedzamība ar akumulatoru',
     en_location: 'Atrašanās vieta',
+    en_outside_temperature: 'Āra temperatūra',
     lease: 'Līzings',
     lease_ends: 'Beigas {d}',
     lease_months_left_one: '{n} mēn.',
@@ -3240,6 +3261,7 @@ var RnI18n = {
     en_battery_level: 'Επίπεδο μπαταρίας',
     en_battery_autonomy: 'Αυτονομία μπαταρίας',
     en_location: 'Τοποθεσία',
+    en_outside_temperature: 'Εξωτερική θερμοκρασία',
     lease: 'Λίζινγκ',
     lease_ends: 'Λήξη {d}',
     lease_months_left_one: '{n} μήνας',
@@ -3373,6 +3395,9 @@ function rnEsc(s) {
 // the integrations without translation keys), then attributes.
 function rnDc(v) { return (s) => s.attributes.device_class === v; }
 
+// Temperature sensors of a car that are not the outside air.
+var RN_NOT_OUTSIDE = /(coolant|engine|motor|oil|battery|batterie|cabin|inside|interior|inner|indoor|habitacle|interieur|innen|kuhl|kuehl|refroidissement|liquide|water|charger|charging|hv_|inverter|brake|tyre|tire|seat|target|set_?point|consigne)/;
+
 var RN_ROLES = {
   mileage: { domain: 'sensor', keys: ['mileage', 'vehicle_state_odometer', 'odometer', 'odometer_km'], id: /(mileage|kilometrage|odometer|odometer_km)$/,
     test: (s) => s.attributes.device_class === 'distance' && s.attributes.state_class === 'total_increasing' },
@@ -3389,8 +3414,11 @@ var RN_ROLES = {
     id: /(battery_autonomy|autonomie_de_la_batterie|autonomie_batterie|range_electric|ev_range|electric_range)$/ },
   charging_remaining_time: { domain: 'sensor', keys: ['charging_remaining_time', 'charge_state_minutes_to_full_charge', 'estimated_charging_time',
     'ev_time_to_full_charge', 'remaining_charge_time', 'ev_estimated_current_charge_duration'], id: /(charging_remaining_time|temps_de_charge_restant)$/, test: rnDc('duration') },
-  outside_temperature: { domain: 'sensor', keys: ['outside_temperature', 'climate_state_outside_temp', 'outside_temp'],
-    id: /(outside_temperature|temperature_exterieure|outside_temp)$/, test: rnDc('temperature') },
+  // The device_class fallback skips the car's other thermometers (coolant, engine, oil, battery, cabin…):
+  // a vehicle with no outside sensor shows no tile rather than the coolant's temperature (issue #99).
+  outside_temperature: { domain: 'sensor', keys: ['outside_temperature', 'climate_state_outside_temp', 'outside_temp', 'exterior_temperature', 'ambient_temperature'],
+    id: /(outside_temperature|temperature_exterieure|outside_temp|exterior_temperature|ambient_temperature|aussentemperatur)$/,
+    test: (s) => s.attributes.device_class === 'temperature' && !RN_NOT_OUTSIDE.test(s.entity_id) },
   location_last_activity: { domain: 'sensor', keys: ['location_last_activity'], id: /(location_last_activity|derniere_activite_de_localisation)$/ },
   location: { domain: 'device_tracker', keys: ['location', 'vehicle', 'parking_location', 'position'], test: () => true },
   plugged_in: { domain: 'binary_sensor', keys: ['plugged_in', 'charge_state_conn_charge_cable', 'ev_is_plugged_in', 'battery_plugged', 'ev_battery_is_plugged_in'],
@@ -3474,7 +3502,7 @@ var RN_LANGUAGE_FIELD = {
     },
   },
 };
-var RN_OVERRIDABLE = ['mileage', 'fuel_autonomy', 'fuel_quantity', 'fuel_level', 'battery_level', 'battery_autonomy', 'location'];
+var RN_OVERRIDABLE = ['mileage', 'fuel_autonomy', 'fuel_quantity', 'fuel_level', 'battery_level', 'battery_autonomy', 'outside_temperature', 'location'];
 
 // The device's visible entities from the registry, with or without a state.
 function rnRegistryEntities(hass, deviceId) {
@@ -5402,7 +5430,7 @@ class RenaultCardEditor extends HTMLElement {
   _schema() {
     var t = (k) => rnT(this._lang(), k);
     var domains = { mileage: 'sensor', fuel_autonomy: 'sensor', fuel_quantity: 'sensor', battery_level: 'sensor',
-      battery_autonomy: 'sensor', location: 'device_tracker' };
+      battery_autonomy: 'sensor', outside_temperature: 'sensor', location: 'device_tracker' };
     return [
       // Any vehicle: a device with a device_tracker (the supported integrations are found without it)
       { name: 'device_id', selector: { device: { entity: [{ domain: 'device_tracker' }] } } },
@@ -5482,7 +5510,7 @@ class RenaultCardEditor extends HTMLElement {
       RN_LANGUAGE_FIELD,
       {
         type: 'expandable', name: 'entities', title: t('ed_entities'), flatten: false,
-        schema: RN_OVERRIDABLE.map((r) => ({ name: r, selector: { entity: { domain: domains[r] } } })),
+        schema: RN_OVERRIDABLE.map((r) => ({ name: r, selector: { entity: r === 'outside_temperature' ? { domain: 'sensor', device_class: 'temperature' } : { domain: domains[r] } } })),
       },
     ];
   }

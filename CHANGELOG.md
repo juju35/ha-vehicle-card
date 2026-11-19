@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.10.0 - 2026-11-19
+
+### Features
+- **Outside temperature sensor of your choice** (#99): `entities: { outside_temperature: sensor.… }`, also in the visual editor's **Entities (advanced)** panel, which lists every temperature sensor — an outdoor sensor of the home works for a car that has none.
+
+### Fixes
+- The Outside tile no longer shows the coolant temperature: when no outside sensor is found by its key or entity ID, the temperature fallback now skips the car's other thermometers (coolant, engine, oil, battery, cabin…). German entity IDs (`…_aussentemperatur`) are recognised.
+
 ## 3.9.2 - 2026-11-18
 
 ### Fixes
