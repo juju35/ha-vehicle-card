@@ -2103,6 +2103,20 @@ test("card editor: severity panels, kept short, YAML only for a list (#82)", () 
   assert.match(names, /"battery_severity"/);
 });
 
+test("card editor: show_lease_margin is a toggle, left out of the YAML at its default", () => {
+  const editor = Object.create(defined["renault-card-editor"].prototype);
+  editor._hass = { language: "en" };
+  editor._config = {};
+  assert.match(JSON.stringify(editor._schema()), /"name":"show_lease_margin","selector":\{"boolean"/);
+  editor.dispatchEvent = (ev) => {
+    editor.last = ev.detail.config;
+  };
+  editor._valueChanged({ stopPropagation() {}, detail: { value: { show_lease_margin: true } } });
+  assert.equal(editor.last.show_lease_margin, undefined);
+  editor._valueChanged({ stopPropagation() {}, detail: { value: { show_lease_margin: false } } });
+  assert.equal(editor.last.show_lease_margin, false);
+});
+
 test("full card: the subtitle leaves out the range and the chips the body shows; the compact mini card keeps them", () => {
   // Charging: the compact mini card's subtitle gives the time left.
   const mini = miniCard();
