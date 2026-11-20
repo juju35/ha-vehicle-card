@@ -376,6 +376,10 @@ type: custom:vehicle-mini-card
 device_id: 5a8c1932ddf3f29163a275f06789b1bf
 ```
 
+| Option | Required | Default | Description |
+|---|---|---|---|
+| `zoom` | ❌ | `true` | Detail button at the top right of the mini card (in the visual editor too): it shows the full card and switches back. `false` removes the button, the card stays compact |
+
 | Mini card | Mini card, dark |
 |---|---|
 | <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/screenshots/mini.png" alt="Renault mini card" width="280"> | <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/screenshots/mini-dark.png" alt="Renault mini card, dark theme" width="280"> |

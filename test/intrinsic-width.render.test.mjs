@@ -146,7 +146,10 @@ test("status pill shows its whole label next to a readable title; the zoom butto
           if (nb.width < 24) out.push(`${tag2}: title ${Math.round(nb.width)}px`);
           const cb = chip.getBoundingClientRect();
           const onRow = Math.abs(cb.top + cb.height / 2 - (nb.top + nb.height / 2)) < 3;
-          if (onRow && cb.left - nb.right > 10.5) out.push(`${tag2}: pill ${Math.round(cb.left - nb.right)}px after the title`);
+          // On the title's row, the pill sits at the right end of the row (the charter's place for the status pill).
+          const rb = r.querySelector(".trow").getBoundingClientRect();
+          if (onRow && Math.abs(rb.right - cb.right) > 1) out.push(`${tag2}: pill ${Math.round(rb.right - cb.right)}px short of the row's end`);
+          if (onRow && cb.left < nb.right + 7.5) out.push(`${tag2}: pill over the title`);
           const banner = r.querySelector(".banner");
           if (banner) {
             const bb = banner.getBoundingClientRect();
@@ -164,4 +167,82 @@ test("status pill shows its whole label next to a readable title; the zoom butto
     return out;
   });
   assert.deepEqual(failures, []);
+});
+
+// A state update must not make the page jump: an update of another entity changes nothing in the card, and an update
+// of one of its entities patches the existing nodes (the vehicle photo, the banner picture and its animations kept),
+// the card keeping its height on every frame.
+test("state updates patch the cards in place: no node replaced, the photo kept, a steady height", async (t) => {
+  if (skip) return t.skip(skip);
+  const result = await page.evaluate(async () => {
+    const frames = (n) => new Promise((r) => {
+      const step = () => (n-- > 0 ? requestAnimationFrame(step) : r());
+      step();
+    });
+    const reg = (id, key) => ({ entity_id: id, device_id: "d1", platform: "renault", translation_key: key });
+    const entities = {
+      "sensor.car_battery_level": reg("sensor.car_battery_level", "battery_level"),
+      "sensor.car_battery_autonomy": reg("sensor.car_battery_autonomy", "battery_autonomy"),
+      "sensor.car_mileage": reg("sensor.car_mileage", "mileage"),
+    };
+    const states = {
+      "sensor.car_battery_level": { state: "80", attributes: { device_class: "battery", unit_of_measurement: "%" } },
+      "sensor.car_battery_autonomy": { state: "250", attributes: { unit_of_measurement: "km" } },
+      "sensor.car_mileage": { state: "12000", attributes: { unit_of_measurement: "km" } },
+    };
+    // A 1x1 picture: the photo node must survive the updates.
+    const image = "data:image/gif;base64,R0lGODlhAQABAAAAACw=";
+    const out = {};
+    for (const tag of ["renault-card", "renault-mini-card"]) {
+      const root = document.getElementById("root");
+      root.innerHTML = "";
+      root.style.width = "400px";
+      const card = document.createElement(tag);
+      card.setConfig({ type: `custom:${tag}`, device_id: "d1", image });
+      let hass = { entities, states, devices: { d1: { id: "d1", name: "Captur", model: "Model" } }, language: "en", locale: { language: "en" }, themes: {}, config: {}, callService: async () => {}, callWS: async () => ({}) };
+      card.hass = hass;
+      root.appendChild(card);
+      await frames(4);
+      const photo = card.shadowRoot.querySelector("img");
+      const heights = new Set();
+      let run = true;
+      const tick = () => {
+        if (!run) return;
+        heights.add(Math.round(card.getBoundingClientRect().height));
+        requestAnimationFrame(tick);
+      };
+      tick();
+      const counts = { unrelated: 0, removed: 0 };
+      let phase = "unrelated";
+      const obs = new MutationObserver((recs) => {
+        for (const r of recs) {
+          if (phase === "unrelated") counts.unrelated += 1;
+          else if (r.type === "childList") counts.removed += [...r.removedNodes].filter((n) => n.nodeType === 1).length;
+        }
+      });
+      obs.observe(card.shadowRoot, { subtree: true, childList: true, attributes: true, characterData: true });
+      for (let i = 0; i < 5; i++) {
+        hass = { ...hass, states: { ...hass.states, "sensor.other": { state: String(i), attributes: {} } } };
+        card.hass = hass;
+        await frames(2);
+      }
+      phase = "relevant";
+      for (let i = 0; i < 5; i++) {
+        const level = { ...hass.states["sensor.car_battery_level"], state: String(79 - i) };
+        hass = { ...hass, states: { ...hass.states, "sensor.car_battery_level": level } };
+        card.hass = hass;
+        await frames(2);
+      }
+      run = false;
+      obs.disconnect();
+      out[tag] = { ...counts, photoKept: card.shadowRoot.querySelector("img") === photo && !!photo, heights: [...heights] };
+    }
+    return out;
+  });
+  for (const [tag, r] of Object.entries(result)) {
+    assert.equal(r.unrelated, 0, `${tag}: an update of another entity changed the card`);
+    assert.equal(r.removed, 0, `${tag}: a battery update replaced nodes`);
+    assert.ok(r.photoKept, `${tag}: the photo was created again`);
+    assert.equal(r.heights.length, 1, `${tag}: the height changed (${r.heights.join(", ")} px)`);
+  }
 });

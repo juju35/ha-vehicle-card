@@ -1573,7 +1573,13 @@ test("mini card: the plug state when not charging, the fuel range without a batt
 test("mini card: the detail button shows the full card, a click outside (not in a dialog) folds it back", () => {
   const { card, root } = miniCard();
   card.connectedCallback();
-  const outside = listeners.filter((l) => l.on && l.type === "click").at(-1).fn;
+  // A tap elsewhere: the press and the release outside (caught on the pointer, as on iOS a tap sends no click).
+  const last = (type) => listeners.filter((l) => l.on && l.type === type).at(-1).fn;
+  const [down, up] = [last("pointerdown"), last("pointerup")];
+  const outside = (ev) => {
+    down(ev);
+    up(ev);
+  };
   card._onClick({ composedPath: () => [{ classList: { contains: (c) => c === "zoom" } }], stopPropagation() {}, detail: 1 });
   assert.match(root.html, /<ha-card>/);
   assert.match(root.html, /class="plate"/);
@@ -1587,7 +1593,16 @@ test("mini card: the detail button shows the full card, a click outside (not in 
   outside(outsideClick([{ localName: "div" }]));
   assert.match(root.html, /<ha-card class="mini">/);
   card.disconnectedCallback();
-  assert.ok(!listeners.some((l) => l.on && l.fn === outside));
+  assert.ok(!listeners.some((l) => l.on && (l.fn === down || l.fn === up)));
+  // Left while unfolded: back in the compact view on the page again.
+  card.connectedCallback();
+  card._onClick({ composedPath: () => [{ classList: { contains: (c) => c === "zoom" } }], stopPropagation() {}, detail: 1 });
+  assert.match(root.html, /<ha-card>/);
+  card.disconnectedCallback();
+  card.connectedCallback();
+  card._update();
+  assert.match(root.html, /<ha-card class="mini">/);
+  card.disconnectedCallback();
 });
 
 test("mini card styles: 240 px in an auto-width container, an unfilled detail button", () => {
@@ -1615,6 +1630,25 @@ function fullCard(config = {}, extra = {}) {
 }
 const km = (v) => ({ state: String(v), attributes: { unit_of_measurement: "km" } });
 const tileOf = (html, id) => html.match(new RegExp(`<div class="tile[^"]*" data-more="${id.replace(".", "\\.")}"`))?.[0] || "";
+
+test("lease section: a tap elsewhere (not in the card, not in a dialog) folds it back to its default", () => {
+  const { card } = fullCard();
+  card.connectedCallback();
+  const last = (type) => listeners.filter((l) => l.on && l.type === type).at(-1).fn;
+  const [down, up] = [last("pointerdown"), last("pointerup")];
+  const tap = (path) => {
+    down(outsideClick(path));
+    up(outsideClick(path));
+  };
+  card._leaseOpen = true;
+  tap([card]);
+  tap([{ localName: "ha-more-info-dialog" }]);
+  assert.equal(card._leaseOpen, true, "a tap in the card or in a dialog keeps it");
+  tap([{ localName: "div" }]);
+  assert.equal(card._leaseOpen, null);
+  card.disconnectedCallback();
+  assert.ok(!listeners.some((l) => l.on && (l.fn === down || l.fn === up)));
+});
 
 test("plug-in hybrid: an empty battery alone is not a low range; fuel plus battery under low_range is", () => {
   let { root } = fullCard({}, { "sensor.car_battery_autonomy": ["battery_autonomy", km(38)], "sensor.car_fuel_autonomy": ["fuel_autonomy", km(512)] });
@@ -2069,6 +2103,20 @@ test("card editor: severity panels, kept short, YAML only for a list (#82)", () 
   assert.match(names, /"battery_severity"/);
 });
 
+test("card editor: show_lease_margin is a toggle, left out of the YAML at its default", () => {
+  const editor = Object.create(defined["renault-card-editor"].prototype);
+  editor._hass = { language: "en" };
+  editor._config = {};
+  assert.match(JSON.stringify(editor._schema()), /"name":"show_lease_margin","selector":\{"boolean"/);
+  editor.dispatchEvent = (ev) => {
+    editor.last = ev.detail.config;
+  };
+  editor._valueChanged({ stopPropagation() {}, detail: { value: { show_lease_margin: true } } });
+  assert.equal(editor.last.show_lease_margin, undefined);
+  editor._valueChanged({ stopPropagation() {}, detail: { value: { show_lease_margin: false } } });
+  assert.equal(editor.last.show_lease_margin, false);
+});
+
 test("full card: the subtitle leaves out the range and the chips the body shows; the compact mini card keeps them", () => {
   // Charging: the compact mini card's subtitle gives the time left.
   const mini = miniCard();
@@ -2169,4 +2217,54 @@ test("outside temperature can be forced from the editor's Entities panel, any te
   const field = panel.schema.find((s) => s.name === "outside_temperature");
   assert.deepEqual(JSON.parse(JSON.stringify(field.selector)), { entity: { domain: "sensor", device_class: "temperature" } });
   assert.equal(ctx.rnT("de", "en_outside_temperature"), "Außentemperatur");
+});
+
+test("mini card: zoom: false removes the detail button; the mini editor offers it, left out of the YAML at true", () => {
+  assert.doesNotMatch(miniCard({ zoom: false }).root.html, /class="zoom"/);
+  assert.match(miniCard({ zoom: true }).root.html, /<button class="zoom"/);
+  assert.equal(RenaultMiniCard.getConfigElement.toString().includes("renault-mini-card-editor"), true);
+  const mini = Object.create(defined["renault-mini-card-editor"].prototype);
+  mini._hass = { language: "en" };
+  mini._config = {};
+  assert.match(JSON.stringify(mini._schema()), /"name":"zoom","selector":\{"boolean"/);
+  mini.dispatchEvent = (ev) => {
+    mini.last = ev.detail.config;
+  };
+  mini._valueChanged({ stopPropagation() {}, detail: { value: { zoom: true } } });
+  assert.equal(mini.last.zoom, undefined);
+  mini._valueChanged({ stopPropagation() {}, detail: { value: { zoom: false } } });
+  assert.equal(mini.last.zoom, false);
+  // The full card's editor has no detail button.
+  const full = Object.create(defined["renault-card-editor"].prototype);
+  full._hass = { language: "en" };
+  full._config = {};
+  assert.doesNotMatch(JSON.stringify(full._schema()), /"name":"zoom"/);
+});
+
+test("status pill: at the right end of the title's row, at the start of its own line below", () => {
+  const { root } = miniCard();
+  assert.match(root.html, /\.titles \.trow > \.bchip \{ flex: none; max-width: none; margin: 0 0 0 auto;/);
+  assert.match(root.html, /\.titles\.below \.trow > \.bchip \{ order: 9; max-width: 100%; margin: 2px 0 0;/);
+});
+
+test("a push for another entity of the instance costs no signature; a change of the car's does", () => {
+  const { card, root, states } = miniCard();
+  const VmJSON = vm.runInContext("JSON", ctx);
+  const stringify = VmJSON.stringify;
+  let calls = 0;
+  VmJSON.stringify = (...a) => {
+    calls++;
+    return stringify(...a);
+  };
+  try {
+    const hass = card._hass;
+    card.hass = { ...hass, states: { ...states, "light.kitchen": { state: "on", attributes: {} } } };
+    assert.equal(calls, 0);
+    const before = root.html;
+    card.hass = { ...hass, states: { ...states, "sensor.car_battery_level": { ...states["sensor.car_battery_level"], state: "12" } } };
+    assert.ok(calls > 0);
+    assert.notEqual(root.html, before);
+  } finally {
+    VmJSON.stringify = stringify;
+  }
 });

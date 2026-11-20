@@ -143,6 +143,8 @@ var RnI18n = {
     lease_no_history: 'Pas d\'historique pour l\'instant',
     ed_lease: 'Suivi de LOA',
     ed_expand_lease: 'LOA dépliée par défaut',
+    ed_show_lease_margin: 'Afficher la marge kilométrique de la LOA',
+    ed_zoom: 'Bouton détail',
     ed_flat: 'Fond uni',
     ed_illustration: 'Illustration animée',
     ed_illustration_theme: 'Thème de l\'illustration',
@@ -293,6 +295,8 @@ var RnI18n = {
     lease_no_history: 'No history yet',
     ed_lease: 'Lease tracking',
     ed_expand_lease: 'Lease expanded by default',
+    ed_show_lease_margin: 'Show the lease kilometre margin',
+    ed_zoom: 'Detail button',
     ed_flat: 'Flat background',
     ed_illustration: 'Animated illustration',
     ed_illustration_theme: 'Illustration theme',
@@ -443,6 +447,8 @@ var RnI18n = {
     lease_no_history: 'Noch kein Verlauf',
     ed_lease: 'Leasingverfolgung',
     ed_expand_lease: 'Leasing standardmäßig aufgeklappt',
+    ed_show_lease_margin: 'Kilometerspielraum des Leasings anzeigen',
+    ed_zoom: 'Detail-Schaltfläche',
     ed_flat: 'Einfarbiger Hintergrund',
     ed_illustration: 'Animierte Illustration',
     ed_illustration_theme: 'Thema der Illustration',
@@ -593,6 +599,8 @@ var RnI18n = {
     lease_no_history: 'Aún no hay historial',
     ed_lease: 'Seguimiento del leasing',
     ed_expand_lease: 'Leasing desplegado por defecto',
+    ed_show_lease_margin: 'Mostrar el margen de kilómetros del leasing',
+    ed_zoom: 'Botón de detalle',
     ed_flat: 'Fondo plano',
     ed_illustration: 'Ilustración animada',
     ed_illustration_theme: 'Tema de la ilustración',
@@ -743,6 +751,8 @@ var RnI18n = {
     lease_no_history: 'Још нема историје',
     ed_lease: 'Праћење лизинга',
     ed_expand_lease: 'Лизинг подразумевано проширен',
+    ed_show_lease_margin: 'Прикажи маргину километара лизинга',
+    ed_zoom: 'Дугме за детаље',
     ed_flat: 'Равна позадина',
     ed_illustration: 'Анимирана илустрација',
     ed_illustration_theme: 'Тема илустрације',
@@ -893,6 +903,8 @@ var RnI18n = {
     lease_no_history: 'Još nema istorije',
     ed_lease: 'Praćenje lizinga',
     ed_expand_lease: 'Lizing podrazumevano proširen',
+    ed_show_lease_margin: 'Prikaži marginu kilometara lizinga',
+    ed_zoom: 'Dugme za detalje',
     ed_flat: 'Ravna pozadina',
     ed_illustration: 'Animirana ilustracija',
     ed_illustration_theme: 'Tema ilustracije',
@@ -1043,6 +1055,8 @@ var RnI18n = {
     lease_no_history: 'Ancora nessuno storico',
     ed_lease: 'Monitoraggio del leasing',
     ed_expand_lease: 'Leasing espanso per impostazione predefinita',
+    ed_show_lease_margin: 'Mostra il margine chilometrico del leasing',
+    ed_zoom: 'Pulsante dettagli',
     ed_flat: 'Sfondo piatto',
     ed_illustration: 'Illustrazione animata',
     ed_illustration_theme: 'Tema dell\'illustrazione',
@@ -1193,6 +1207,8 @@ var RnI18n = {
     lease_no_history: 'Nog geen geschiedenis',
     ed_lease: 'Leaseopvolging',
     ed_expand_lease: 'Lease standaard uitgeklapt',
+    ed_show_lease_margin: 'Kilometermarge van de lease tonen',
+    ed_zoom: 'Detailknop',
     ed_flat: 'Vlakke achtergrond',
     ed_illustration: 'Geanimeerde illustratie',
     ed_illustration_theme: 'Thema van de illustratie',
@@ -1343,6 +1359,8 @@ var RnI18n = {
     lease_no_history: 'Ainda sem histórico',
     ed_lease: 'Acompanhamento do leasing',
     ed_expand_lease: 'Leasing expandido por predefinição',
+    ed_show_lease_margin: 'Mostrar a margem de quilómetros do leasing',
+    ed_zoom: 'Botão de detalhe',
     ed_flat: 'Fundo liso',
     ed_illustration: 'Ilustração animada',
     ed_illustration_theme: 'Tema da ilustração',
@@ -1493,6 +1511,8 @@ var RnI18n = {
     lease_no_history: 'Brak historii',
     ed_lease: 'Śledzenie leasingu',
     ed_expand_lease: 'Leasing domyślnie rozwinięty',
+    ed_show_lease_margin: 'Pokaż zapas kilometrów leasingu',
+    ed_zoom: 'Przycisk szczegółów',
     ed_flat: 'Płaskie tło',
     ed_illustration: 'Animowana ilustracja',
     ed_illustration_theme: 'Motyw ilustracji',
@@ -1643,6 +1663,8 @@ var RnI18n = {
     lease_no_history: 'Încă niciun istoric',
     ed_lease: 'Urmărirea leasingului',
     ed_expand_lease: 'Leasing extins implicit',
+    ed_show_lease_margin: 'Afișează marja de kilometri a leasingului',
+    ed_zoom: 'Buton de detalii',
     ed_flat: 'Fundal uniform',
     ed_illustration: 'Ilustrație animată',
     ed_illustration_theme: 'Tema ilustrației',
@@ -1793,6 +1815,8 @@ var RnI18n = {
     lease_no_history: 'Ingen historik endnu',
     ed_lease: 'Leasingopfølgning',
     ed_expand_lease: 'Leasing udfoldet som standard',
+    ed_show_lease_margin: 'Vis leasingens kilometermargin',
+    ed_zoom: 'Detaljeknap',
     ed_flat: 'Flad baggrund',
     ed_illustration: 'Animeret illustration',
     ed_illustration_theme: 'Illustrationens tema',
@@ -1943,6 +1967,8 @@ var RnI18n = {
     lease_no_history: 'Ingen historik ännu',
     ed_lease: 'Leasinguppföljning',
     ed_expand_lease: 'Leasing utfällt som standard',
+    ed_show_lease_margin: 'Visa leasingens kilometermarginal',
+    ed_zoom: 'Detaljknapp',
     ed_flat: 'Platt bakgrund',
     ed_illustration: 'Animerad illustration',
     ed_illustration_theme: 'Illustrationens tema',
@@ -2093,6 +2119,8 @@ var RnI18n = {
     lease_no_history: 'Все още няма история',
     ed_lease: 'Проследяване на лизинга',
     ed_expand_lease: 'Лизингът е разгънат по подразбиране',
+    ed_show_lease_margin: 'Показване на резерва от километри по лизинга',
+    ed_zoom: 'Бутон за подробности',
     ed_flat: 'Равен фон',
     ed_illustration: 'Анимирана илюстрация',
     ed_illustration_theme: 'Тема на илюстрацията',
@@ -2243,6 +2271,8 @@ var RnI18n = {
     lease_no_history: 'Истории пока нет',
     ed_lease: 'Отслеживание лизинга',
     ed_expand_lease: 'Лизинг развёрнут по умолчанию',
+    ed_show_lease_margin: 'Показывать запас километров по лизингу',
+    ed_zoom: 'Кнопка подробностей',
     ed_flat: 'Плоский фон',
     ed_illustration: 'Анимированная иллюстрация',
     ed_illustration_theme: 'Тема иллюстрации',
@@ -2393,6 +2423,8 @@ var RnI18n = {
     lease_no_history: 'Історії ще немає',
     ed_lease: 'Відстеження лізингу',
     ed_expand_lease: 'Лізинг типово розгорнуто',
+    ed_show_lease_margin: 'Показувати запас кілометрів за лізингом',
+    ed_zoom: 'Кнопка деталей',
     ed_flat: 'Плаский фон',
     ed_illustration: 'Анімована ілюстрація',
     ed_illustration_theme: 'Тема ілюстрації',
@@ -2543,6 +2575,8 @@ var RnI18n = {
     lease_no_history: 'Még nincs előzmény',
     ed_lease: 'Lízingkövetés',
     ed_expand_lease: 'Lízing alapértelmezetten kibontva',
+    ed_show_lease_margin: 'A lízing kilométer-tartalékának megjelenítése',
+    ed_zoom: 'Részletek gomb',
     ed_flat: 'Egyszínű háttér',
     ed_illustration: 'Animált illusztráció',
     ed_illustration_theme: 'Az illusztráció témája',
@@ -2693,6 +2727,8 @@ var RnI18n = {
     lease_no_history: 'Zatiaľ žiadna história',
     ed_lease: 'Sledovanie lízingu',
     ed_expand_lease: 'Lízing predvolene rozbalený',
+    ed_show_lease_margin: 'Zobraziť rezervu kilometrov lízingu',
+    ed_zoom: 'Tlačidlo podrobností',
     ed_flat: 'Ploché pozadie',
     ed_illustration: 'Animovaná ilustrácia',
     ed_illustration_theme: 'Téma ilustrácie',
@@ -2843,6 +2879,8 @@ var RnI18n = {
     lease_no_history: 'Zatím žádná historie',
     ed_lease: 'Sledování leasingu',
     ed_expand_lease: 'Leasing ve výchozím stavu rozbalený',
+    ed_show_lease_margin: 'Zobrazit rezervu kilometrů leasingu',
+    ed_zoom: 'Tlačítko podrobností',
     ed_flat: 'Ploché pozadí',
     ed_illustration: 'Animovaná ilustrace',
     ed_illustration_theme: 'Motiv ilustrace',
@@ -2993,6 +3031,8 @@ var RnI18n = {
     lease_no_history: 'Zgodovine še ni',
     ed_lease: 'Spremljanje lizinga',
     ed_expand_lease: 'Lizing privzeto razširjen',
+    ed_show_lease_margin: 'Prikaži rezervo kilometrov lizinga',
+    ed_zoom: 'Gumb za podrobnosti',
     ed_flat: 'Ravno ozadje',
     ed_illustration: 'Animirana ilustracija',
     ed_illustration_theme: 'Tema ilustracije',
@@ -3143,6 +3183,8 @@ var RnI18n = {
     lease_no_history: 'Vēstures vēl nav',
     ed_lease: 'Līzinga uzskaite',
     ed_expand_lease: 'Līzings pēc noklusējuma izvērsts',
+    ed_show_lease_margin: 'Rādīt līzinga kilometru rezervi',
+    ed_zoom: 'Detaļu poga',
     ed_flat: 'Vienkrāsains fons',
     ed_illustration: 'Animēta ilustrācija',
     ed_illustration_theme: 'Ilustrācijas tēma',
@@ -3293,6 +3335,8 @@ var RnI18n = {
     lease_no_history: 'Δεν υπάρχει ιστορικό ακόμη',
     ed_lease: 'Παρακολούθηση μίσθωσης',
     ed_expand_lease: 'Μίσθωση ανεπτυγμένη από προεπιλογή',
+    ed_show_lease_margin: 'Εμφάνιση του περιθωρίου χιλιομέτρων της μίσθωσης',
+    ed_zoom: 'Κουμπί λεπτομερειών',
     ed_flat: 'Επίπεδο φόντο',
     ed_illustration: 'Κινούμενη εικονογράφηση',
     ed_illustration_theme: 'Θέμα εικονογράφησης',
@@ -4083,18 +4127,18 @@ var RN_PILL_STYLE =
   '.bchip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--c); flex: none; }' +
   '.bchip-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; }' +
 `
-  /* The status pill, in every header: on the title row right after the title only when the whole title and the pill's
+  /* The status pill, in every header: at the right end of the title row only when the whole title and the pill's
      whole label fit there; otherwise on its own line under the subtitle, cut to one line; its dot alone, beside the
      title, when the banner has no room left above its ground strip, or on a card of 200 px or less. Decided by
      measurement (see _fitPill), so that every language and every width gets it right. */
   .titles .trow { display: flex; align-items: center; gap: 8px; min-width: 0; width: 100%; }
   .titles .trow > .name { flex: 0 1 auto; min-width: 0; }
-  .titles .trow > .bchip { flex: none; max-width: none; margin: 0; align-self: center; }
+  .titles .trow > .bchip { flex: none; max-width: none; margin: 0 0 0 auto; align-self: center; }
   .titles.below { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
   .titles.below > * { max-width: 100%; }
   .titles.below .trow { display: contents; }
   .titles.below .trow > .name { max-width: 100%; }
-  .titles.below .trow > .bchip { order: 9; max-width: 100%; margin-top: 2px; align-self: flex-start; }
+  .titles.below .trow > .bchip { order: 9; max-width: 100%; margin: 2px 0 0; align-self: flex-start; }
   /* In the banner, a pill on its own line may run over the picture, up to the banner's edge. */
   .banner .titles.below .trow > .bchip { max-width: none; }
   .titles.below :is(.model) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -4164,6 +4208,98 @@ var RN_SCENE_STYLE =
   '@keyframes vc-flow { to { stroke-dashoffset: -7; } }' +
   '@media (prefers-reduced-motion: reduce) { .vc-star, .vc-cloud, .vc-led, .vc-flow { animation: none !important; } }';
 
+// "A click elsewhere", caught on the pointer and not only on the click event: on iOS a tap on something that is not
+// clickable sends no click to the page. It counts when the press and the release are both outside (`outside(ev)`), a
+// scroll does not (the browser cancels the pointer); keyboard clicks (no click count) still go through the click event.
+// Patches `cur` in place to the markup `html`: kept nodes keep their size, their running animations, a loaded
+// <img> (the vehicle photo) and the focus, so a state update does not make the card jump (a stylesheet or an <img>
+// created again can leave the card without its height for a frame, and the sections grid reflows). Children are
+// matched by `data-tile`, else by position.
+function rnPatchAttrs(cur, next) {
+  for (const { name } of [...cur.attributes]) if (!next.hasAttribute(name)) cur.removeAttribute(name);
+  for (const { name, value } of next.attributes) if (cur.getAttribute(name) !== value) cur.setAttribute(name, value);
+  // A <select> the user changed no longer follows the selected attribute: its option is selected again.
+  if (cur.localName === 'option' && cur.selected !== next.hasAttribute('selected')) cur.selected = next.hasAttribute('selected');
+}
+function rnKey(n) {
+  return n?.nodeType === 1 ? n.getAttribute('data-tile') : null;
+}
+// A custom element with no markup inside (ha-icon) draws itself: it is kept as it is while its markup stays the same,
+// and replaced by the new one when that changes (its own attributes and content are never compared).
+function rnLeaf(n) {
+  return n.nodeType === 1 && n.localName.includes('-') && !n.childNodes.length;
+}
+function rnSig(n) {
+  return [...n.attributes].map((a) => `${a.name}=${a.value}`).join(' ');
+}
+function rnMark(n) {
+  if (n.nodeType !== 1) return;
+  if (rnLeaf(n)) n._morphSig = rnSig(n);
+  else for (const c of n.childNodes) rnMark(c);
+}
+function rnPatchChildren(cur, next) {
+  const old = [...cur.childNodes];
+  const fresh = [...next.childNodes];
+  const byKey = new Map();
+  for (const o of old) {
+    const k = rnKey(o);
+    if (k !== null && !byKey.has(k)) byKey.set(k, o);
+  }
+  const used = new Set();
+  fresh.forEach((n, i) => {
+    const k = rnKey(n);
+    let o = k !== null ? byKey.get(k) : old[i];
+    if (!o || o.nodeType !== n.nodeType || o.nodeName !== n.nodeName || used.has(o) || (k === null && rnKey(o) !== null)) o = null;
+    const ref = cur.childNodes[i] ?? null;
+    if (o && rnLeaf(n) && o._morphSig !== rnSig(n)) o = null;
+    if (!o) {
+      rnMark(n);
+      cur.insertBefore(n, ref);
+      return;
+    }
+    used.add(o);
+    if (o !== ref) cur.insertBefore(o, ref);
+    if (n.nodeType === 1) {
+      if (rnLeaf(n)) return;
+      rnPatchAttrs(o, n);
+      rnPatchChildren(o, n);
+    } else if (o.nodeValue !== n.nodeValue) o.nodeValue = n.nodeValue;
+  });
+  while (cur.childNodes.length > fresh.length) cur.removeChild(cur.lastChild);
+}
+function rnMorph(cur, html) {
+  // Not a DOM node (a stand-in in the unit tests): written as a whole.
+  if (!cur.childNodes) {
+    cur.innerHTML = html;
+    return;
+  }
+  const tpl = document.createElement('template');
+  tpl.innerHTML = html;
+  rnPatchChildren(cur, tpl.content);
+}
+
+function rnWatchOutside(outside, handler) {
+  var downOutside = false;
+  var onDown = (ev) => { downOutside = outside(ev); };
+  var onUp = (ev) => {
+    if (downOutside && outside(ev)) handler(ev);
+    downOutside = false;
+  };
+  var onClick = (ev) => { if (ev.detail === 0 && outside(ev)) handler(ev); };
+  return {
+    on() {
+      document.addEventListener('pointerdown', onDown, true);
+      document.addEventListener('pointerup', onUp, true);
+      document.addEventListener('click', onClick, true);
+    },
+    off() {
+      document.removeEventListener('pointerdown', onDown, true);
+      document.removeEventListener('pointerup', onUp, true);
+      document.removeEventListener('click', onClick, true);
+    },
+  };
+}
+
 class RenaultCard extends HTMLElement {
   static getConfigElement() {
     return document.createElement('renault-card-editor');
@@ -4224,13 +4360,15 @@ class RenaultCard extends HTMLElement {
     this._timer = setInterval(() => this._update(), 60000);
     // A click elsewhere folds the lease back to its default (as in ha-carburants-france). A click,
     // not a pointerdown: folding on press would shift the layout under the pointer before the click.
-    this._onOutside = this._onOutside || ((ev) => {
-      if (this._leaseOpen == null) return;
-      if ((ev.composedPath ? ev.composedPath() : []).indexOf(this) !== -1) return;
-      this._leaseOpen = null;
-      this._update();
-    });
-    document.addEventListener('click', this._onOutside, true);
+    this._outside = this._outside || rnWatchOutside(
+      (ev) => (ev.composedPath ? ev.composedPath() : []).indexOf(this) === -1 && !rnInDialog(ev),
+      () => {
+        if (this._leaseOpen == null) return;
+        this._leaseOpen = null;
+        this._update();
+      },
+    );
+    this._outside.on();
     // A new width fits the banner's status pill again (the banner keeps its height: no resize loop).
     if (typeof ResizeObserver === 'function') {
       this._pillResize = this._pillResize || new ResizeObserver(() => {
@@ -4242,7 +4380,7 @@ class RenaultCard extends HTMLElement {
     document.fonts?.ready?.then(() => this._fitPill());
   }
 
-  // The status pill goes right after the title only when the whole title and the pill's whole label fit on that row;
+  // The status pill goes at the right end of the title's row only when the whole title and the pill's whole label fit on that row;
   // otherwise it takes a line of its own under the subtitle (.titles.below, the subtitle cut to one line). In the
   // banner (where that line may run over the picture), when the titles still run below the top of the ground strip or
   // out of the banner, and in the classic header when the label does not fit even alone, the pill keeps its dot alone,
@@ -4289,7 +4427,7 @@ class RenaultCard extends HTMLElement {
     clearTimeout(this._holdTimer);
     this._armed = null;
     this._result = null;
-    document.removeEventListener('click', this._onOutside, true);
+    this._outside?.off();
   }
 
   getCardSize() { return 6; }
@@ -4452,14 +4590,21 @@ class RenaultCard extends HTMLElement {
     var ids = [];
     Object.keys(r.ent).forEach((k) => { ids = ids.concat(r.ent[k]); });
     if (r.plan) Object.keys(RN_PLAN_ROLES).forEach((k) => { ids.push(r.plan[k]); });
-    var sig = JSON.stringify([this._lang(), r.deviceId, this._illustrated() && rnIsNight(hass, this._config), this._armed, this._result, this._leaseOpen, this._leaseHist?.key, this._leaseHist?.at, rnPhotoKey(rnPhotoUrl(hass, r.photo)), this._timeSig(r), ids.map((id) => {
-      var s = id && hass.states[id];
+    var head = [this._lang(), r.deviceId, this._illustrated() && rnIsNight(hass, this._config), this._armed, this._result, this._leaseOpen, this._leaseHist?.key, this._leaseHist?.at, rnPhotoKey(rnPhotoUrl(hass, r.photo)), String(this._timeSig(r))];
+    // Home Assistant replaces a state object when it changes: the same objects and the same inputs need no signature
+    // (a push for another entity of the instance costs no serialisation).
+    var objs = ids.map((id) => (id ? hass.states[id] : undefined));
+    var last = this._sigIn;
+    if (this._sig && last && last.objs.length === objs.length && last.head.every((v, i) => v === head[i]) && last.objs.every((o, i) => o === objs[i])) return;
+    var sig = JSON.stringify([head, ids.map((id, i) => {
+      var s = objs[i];
       return s ? [id, s.state, s.attributes.options] : null;
     })]);
     if (sig === this._sig) return;
     var active = this.shadowRoot.activeElement;
     if (active && active.tagName === 'SELECT') return;
     this._sig = sig;
+    this._sigIn = { head, objs };
     this._r = r;
     this._render(r);
   }
@@ -4777,7 +4922,7 @@ class RenaultCard extends HTMLElement {
   _render(r) {
     var c = this._config, ent = r.ent, dev = r.device;
     if (!r.deviceId) {
-      this.shadowRoot.innerHTML = `${this._styles()}<ha-card><div class="empty"><ha-icon icon="mdi:car-off"></ha-icon>${this._t('no_vehicle')}</div></ha-card>`;
+      this._setHtml(`${this._styles()}<ha-card><div class="empty"><ha-icon icon="mdi:car-off"></ha-icon>${this._t('no_vehicle')}</div></ha-card>`);
       return;
     }
     var id = this._identity(r);
@@ -4918,9 +5063,9 @@ class RenaultCard extends HTMLElement {
       `<span class="when">${rnEsc(when)}</span><ha-icon class="chev" icon="mdi:chevron-right"></ha-icon></div>`;
   }
 
-  // Replaces the card content and gives the focus back to the same action button, tile or lease
-  // header: the re-render recreates them, so without this a keyboard user arming "Sound horn" with
-  // Enter would lose the focus and could not confirm it.
+  // Patches the card content in place (rnMorph) and, when the focused element was not kept (its place in the markup
+  // changed), gives the focus back to the same action button, tile or lease header: a keyboard user arming
+  // "Sound horn" with Enter keeps the focus to confirm it.
   _setHtml(html) {
     var root = this.shadowRoot;
     var keyOf = (el) => {
@@ -4935,9 +5080,17 @@ class RenaultCard extends HTMLElement {
     var key = keyOf(root.activeElement);
     // The same entity can have several elements (tile and row): keep the rank among them.
     var rank = key ? focusables().filter((el) => keyOf(el) === key).indexOf(root.activeElement) : -1;
-    root.innerHTML = html;
+    var active = root.activeElement;
+    rnMorph(root, html);
     this._fitPill();
-    if (!key) return;
+    // A new <ha-card> (first render) lays its content out only once it has rendered (a microtask later, Lit):
+    // measured then again, otherwise the pill keeps a place measured at 0 px.
+    var hc = root.querySelector?.('ha-card');
+    if (hc?.updateComplete && !hc._rnFitWait) {
+      hc._rnFitWait = true;
+      hc.updateComplete.then(() => this._fitPill());
+    }
+    if (!key || (active && root.activeElement === active)) return;
     var hit = focusables().filter((el) => keyOf(el) === key);
     var el = hit[Math.max(0, Math.min(rank, hit.length - 1))];
     if (el) el.focus({ preventScroll: true });
@@ -5405,7 +5558,7 @@ function rnEnsureForm(editor) {
   editor.appendChild(editor._form);
 }
 
-var RN_EDITOR_DEFAULTS = { illustration: true, illustration_theme: 'auto', show_title: true, show_subtitle: true, show_logo: true, show_image: true, show_plate: true, show_chips: true, show_location: true, show_actions: true, show_data_plan: true, low_range: 100, expand_lease: false };
+var RN_EDITOR_DEFAULTS = { illustration: true, illustration_theme: 'auto', show_title: true, show_subtitle: true, show_logo: true, show_image: true, show_plate: true, show_chips: true, show_location: true, show_actions: true, show_data_plan: true, low_range: 100, expand_lease: false, show_lease_margin: true };
 
 class RenaultCardEditor extends HTMLElement {
   setConfig(config) {
@@ -5425,6 +5578,16 @@ class RenaultCardEditor extends HTMLElement {
 
   _lang() {
     return rnResolveLang(RnI18n, this._hass?.language);
+  }
+
+  // The options left out of the YAML at these values (the mini card's editor adds its detail button).
+  _defaults() {
+    return RN_EDITOR_DEFAULTS;
+  }
+
+  // The mini card's own switches (its detail button), beside the full card's.
+  _ownSwitches() {
+    return [];
   }
 
   _schema() {
@@ -5465,7 +5628,9 @@ class RenaultCardEditor extends HTMLElement {
           { name: 'show_actions', selector: { boolean: {} } },
           { name: 'show_data_plan', selector: { boolean: {} } },
           { name: 'expand_lease', selector: { boolean: {} } },
+          { name: 'show_lease_margin', selector: { boolean: {} } },
           { name: 'flat', selector: { boolean: {} } },
+          ...this._ownSwitches(),
         ],
       },
       { name: 'tiles', selector: { select: { multiple: true, mode: 'list', options: RN_TILES.map((x) => ({ value: x[0], label: t(x[1]) })) } } },
@@ -5527,7 +5692,7 @@ class RenaultCardEditor extends HTMLElement {
       var txt = rnT(lang, key);
       return txt === key ? undefined : txt;
     };
-    var data = Object.assign({}, RN_EDITOR_DEFAULTS, this._config);
+    var data = Object.assign({}, this._defaults(), this._config);
     if (!Array.isArray(data.tiles)) data.tiles = RN_TILES.map((x) => x[0]);
     if (!Array.isArray(data.lease_figs)) data.lease_figs = RN_LEASE_FIGS.map((x) => x[0]);
     if (data.lease) data.lease = Object.assign({}, data.lease, { forecast: data.lease.forecast ? String(data.lease.forecast) : 'contract' });
@@ -5541,8 +5706,9 @@ class RenaultCardEditor extends HTMLElement {
     Object.keys(value).forEach((key) => {
       if (value[key] === '' || value[key] === null || value[key] === undefined) delete value[key];
     });
-    Object.keys(RN_EDITOR_DEFAULTS).forEach((key) => {
-      if (value[key] === RN_EDITOR_DEFAULTS[key]) delete value[key];
+    var defaults = this._defaults();
+    Object.keys(defaults).forEach((key) => {
+      if (value[key] === defaults[key]) delete value[key];
     });
     ['battery_severity', 'fuel_severity'].forEach((k) => {
       if (!value[k] || Array.isArray(value[k])) return;
@@ -5577,6 +5743,21 @@ if (!customElements.get('renault-card-editor')) {
   customElements.define('renault-card-editor', RenaultCardEditor);
 }
 
+// The mini card's editor: the full card's options (its expanded view uses them) and the detail button.
+class RenaultMiniCardEditor extends RenaultCardEditor {
+  _defaults() {
+    return Object.assign({}, RN_EDITOR_DEFAULTS, { zoom: true });
+  }
+
+  _ownSwitches() {
+    return [{ name: 'zoom', selector: { boolean: {} } }];
+  }
+}
+
+if (!customElements.get('renault-mini-card-editor')) {
+  customElements.define('renault-mini-card-editor', RenaultMiniCardEditor);
+}
+
 // vehicle-… since the cards cover every brand; renault-… (their former name) stays defined for the dashboards that use it.
 if (!customElements.get('vehicle-card')) {
   customElements.define('vehicle-card', class extends RenaultCard {});
@@ -5603,28 +5784,37 @@ function rnInDialog(ev) {
  * outside the card brings the compact view back. Same options and editor as renault-card.
  */
 class RenaultMiniCard extends RenaultCard {
+  static getConfigElement() {
+    return document.createElement('renault-mini-card-editor');
+  }
+
   constructor() {
     super();
     this._zoomed = false;
-    this._onZoomOutside = (ev) => {
-      if (this._zoomed && ev.composedPath().indexOf(this) === -1 && !rnInDialog(ev)) this._setZoom(false);
-    };
+    this._zoomOutside = rnWatchOutside(
+      (ev) => ev.composedPath().indexOf(this) === -1 && !rnInDialog(ev),
+      () => { if (this._zoomed) this._setZoom(false); },
+    );
   }
 
   setConfig(config) {
     // The host attribute behind the mini card's styles; never set in the constructor.
     this.setAttribute?.('mini', '');
     super.setConfig(config);
+    if (this._config.zoom === false && this._zoomed) this._setZoom(false);
   }
 
   connectedCallback() {
     super.connectedCallback();
-    document.addEventListener('click', this._onZoomOutside, true);
+    this._zoomOutside.on();
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    document.removeEventListener('click', this._onZoomOutside, true);
+    this._zoomOutside.off();
+    // Left (another view, a conditional card hidden): back to the compact view.
+    this._zoomed = false;
+    this._sig = null;
   }
 
   getCardSize() { return this._zoomed ? super.getCardSize() : 3; }
@@ -5638,6 +5828,8 @@ class RenaultMiniCard extends RenaultCard {
   }
 
   _headerAction() {
+    // zoom: false removes the detail button: the mini card stays compact.
+    if (this._config.zoom === false) return '';
     var label = rnEsc(this._t(this._zoomed ? 'zoom_out' : 'zoom_in'));
     return `<button class="zoom" title="${label}" aria-label="${label}"><ha-icon icon="mdi:${this._zoomed ? 'arrow-collapse' : 'arrow-expand'}"></ha-icon></button>`;
   }
@@ -6883,19 +7075,35 @@ class RenaultMapCard extends HTMLElement {
     var header = this._root.querySelector('.header');
     var title = this._config.title === undefined ? mt.default_title : this._config.title;
     var vehicles = this._vehicles();
+    // The header is patched in place, and only when it changes: the picture keeps its nodes and animations, the
+    // card its height (a vehicle moving only moves its marker).
+    var headerHtml, headerHidden, headerClass;
     if (this._illustrated()) {
-      header.hidden = false;
-      header.className = 'header illustrated';
-      header.innerHTML = this._banner(title, vehicles);
-      this._fitPill();
+      headerHidden = false;
+      headerClass = 'header illustrated';
+      headerHtml = this._banner(title, vehicles);
     } else {
       var icon = this._config.show_icon ? this._brandIcon() : '';
-      header.hidden = !title && !icon;
-      header.className = 'header';
-      header.innerHTML = icon + (title ? `<span class="title">${rnEsc(title)}</span>` : '');
+      headerHidden = !title && !icon;
+      headerClass = 'header';
+      headerHtml = icon + (title ? `<span class="title">${rnEsc(title)}</span>` : '');
+    }
+    if (header.hidden !== headerHidden) header.hidden = headerHidden;
+    if (header.className !== headerClass) header.className = headerClass;
+    if (headerHtml !== this._headerHtml) {
+      this._headerHtml = headerHtml;
+      rnMorph(header, headerHtml);
+      if (this._illustrated()) this._fitPill();
+    }
+    // The <ha-card> lays the header out once it has rendered (a microtask later, Lit): measured then again.
+    var hc = this._root.querySelector('ha-card');
+    if (hc?.updateComplete && !hc._rnFitWait) {
+      hc._rnFitWait = true;
+      hc.updateComplete.then(() => this._fitPill());
     }
     var mapEl = this._root.querySelector('.map');
-    mapEl.style.height = `${Math.max(150, Number(this._config.height) || 400)}px`;
+    var mapH = `${Math.max(150, Number(this._config.height) || 400)}px`;
+    if (mapEl.style.height !== mapH) mapEl.style.height = mapH;
     mapEl.classList.toggle('dark', this._darkTiles());
     this._reloadTilesIfNeeded();
     var message = this._root.querySelector('.message');
@@ -7239,9 +7447,10 @@ class RenaultMapCard extends HTMLElement {
       var text = this._config.show_name
         ? `<span class="ptext"><span class="pname">${rnEsc(v.name)}</span>${rangeTxt ? `<span class="prange">${rnEsc(rangeTxt)}</span>` : ''}</span>`
         : (rangeTxt ? `<span class="prange">${rnEsc(rangeTxt)}</span>` : '');
+      var pinHtml = `<div class="pin" title="${rnEsc(v.name)}">${pic}${text}</div>`;
       var icon = L.divIcon({
         className: 'rn-marker',
-        html: `<div class="pin" title="${rnEsc(v.name)}">${pic}${text}</div>`,
+        html: pinHtml,
         iconSize: null,
         iconAnchor: [0, 0],
       });
@@ -7249,7 +7458,8 @@ class RenaultMapCard extends HTMLElement {
       if (marker) {
         delete markers[v.deviceId];
         marker.setLatLng([v.lat, v.lon]);
-        marker.setIcon(icon);
+        // The same pin (a vehicle that only moved): its element, photo included, is kept.
+        if (marker._rnIconHtml !== pinHtml) marker.setIcon(icon);
         marker.setPopupContent(this._popup(v));
       } else {
         marker = L.marker([v.lat, v.lon], { icon: icon, riseOnHover: true });
@@ -7262,6 +7472,7 @@ class RenaultMapCard extends HTMLElement {
         marker.addTo(this._layer);
       }
       marker._rnId = v.deviceId;
+      marker._rnIconHtml = pinHtml;
       marker._rnVehicle = v;
       this._markers[v.deviceId] = marker;
       points.push([v.lat, v.lon]);
