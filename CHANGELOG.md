@@ -8,6 +8,7 @@
 ### Fixes
 - A tap elsewhere on the page now folds the lease section back and brings the mini card back to its compact view on iOS too: it is caught on the pointer (a tap on something that is not clickable sends no click there), as in the other cards; a tap in a dialog (more-info) no longer folds the lease section.
 - The mini card comes back in its compact view after leaving the page (another view, a conditional card hidden) while unfolded.
+- A state update no longer makes the page jump: the vehicle and mini cards patched their whole content (stylesheet, vehicle photo, banner picture) by rewriting it on every change of one of their entities, so the photo could lose its height for a frame, the banner animations restarted and the sections grid reflowed. They now patch the existing nodes in place; the map card rewrites its header only when it changes and keeps a vehicle's pin (photo included) when the vehicle only moves.
 
 ### Maintenance
 - The commitlint config is an ES module (the package is `"type": "module"`): the local `commit-msg` hook no longer crashes.

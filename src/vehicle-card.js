@@ -4189,6 +4189,73 @@ var RN_SCENE_STYLE =
 // "A click elsewhere", caught on the pointer and not only on the click event: on iOS a tap on something that is not
 // clickable sends no click to the page. It counts when the press and the release are both outside (`outside(ev)`), a
 // scroll does not (the browser cancels the pointer); keyboard clicks (no click count) still go through the click event.
+// Patches `cur` in place to the markup `html`: kept nodes keep their size, their running animations, a loaded
+// <img> (the vehicle photo) and the focus, so a state update does not make the card jump (a stylesheet or an <img>
+// created again can leave the card without its height for a frame, and the sections grid reflows). Children are
+// matched by `data-tile`, else by position.
+function rnPatchAttrs(cur, next) {
+  for (const { name } of [...cur.attributes]) if (!next.hasAttribute(name)) cur.removeAttribute(name);
+  for (const { name, value } of next.attributes) if (cur.getAttribute(name) !== value) cur.setAttribute(name, value);
+  // A <select> the user changed no longer follows the selected attribute: its option is selected again.
+  if (cur.localName === 'option' && cur.selected !== next.hasAttribute('selected')) cur.selected = next.hasAttribute('selected');
+}
+function rnKey(n) {
+  return n?.nodeType === 1 ? n.getAttribute('data-tile') : null;
+}
+// A custom element with no markup inside (ha-icon) draws itself: it is kept as it is while its markup stays the same,
+// and replaced by the new one when that changes (its own attributes and content are never compared).
+function rnLeaf(n) {
+  return n.nodeType === 1 && n.localName.includes('-') && !n.childNodes.length;
+}
+function rnSig(n) {
+  return [...n.attributes].map((a) => `${a.name}=${a.value}`).join(' ');
+}
+function rnMark(n) {
+  if (n.nodeType !== 1) return;
+  if (rnLeaf(n)) n._morphSig = rnSig(n);
+  else for (const c of n.childNodes) rnMark(c);
+}
+function rnPatchChildren(cur, next) {
+  const old = [...cur.childNodes];
+  const fresh = [...next.childNodes];
+  const byKey = new Map();
+  for (const o of old) {
+    const k = rnKey(o);
+    if (k !== null && !byKey.has(k)) byKey.set(k, o);
+  }
+  const used = new Set();
+  fresh.forEach((n, i) => {
+    const k = rnKey(n);
+    let o = k !== null ? byKey.get(k) : old[i];
+    if (!o || o.nodeType !== n.nodeType || o.nodeName !== n.nodeName || used.has(o) || (k === null && rnKey(o) !== null)) o = null;
+    const ref = cur.childNodes[i] ?? null;
+    if (o && rnLeaf(n) && o._morphSig !== rnSig(n)) o = null;
+    if (!o) {
+      rnMark(n);
+      cur.insertBefore(n, ref);
+      return;
+    }
+    used.add(o);
+    if (o !== ref) cur.insertBefore(o, ref);
+    if (n.nodeType === 1) {
+      if (rnLeaf(n)) return;
+      rnPatchAttrs(o, n);
+      rnPatchChildren(o, n);
+    } else if (o.nodeValue !== n.nodeValue) o.nodeValue = n.nodeValue;
+  });
+  while (cur.childNodes.length > fresh.length) cur.removeChild(cur.lastChild);
+}
+function rnMorph(cur, html) {
+  // Not a DOM node (a stand-in in the unit tests): written as a whole.
+  if (!cur.childNodes) {
+    cur.innerHTML = html;
+    return;
+  }
+  const tpl = document.createElement('template');
+  tpl.innerHTML = html;
+  rnPatchChildren(cur, tpl.content);
+}
+
 function rnWatchOutside(outside, handler) {
   var downOutside = false;
   var onDown = (ev) => { downOutside = outside(ev); };
@@ -4826,7 +4893,7 @@ class RenaultCard extends HTMLElement {
   _render(r) {
     var c = this._config, ent = r.ent, dev = r.device;
     if (!r.deviceId) {
-      this.shadowRoot.innerHTML = `${this._styles()}<ha-card><div class="empty"><ha-icon icon="mdi:car-off"></ha-icon>${this._t('no_vehicle')}</div></ha-card>`;
+      this._setHtml(`${this._styles()}<ha-card><div class="empty"><ha-icon icon="mdi:car-off"></ha-icon>${this._t('no_vehicle')}</div></ha-card>`);
       return;
     }
     var id = this._identity(r);
@@ -4967,9 +5034,9 @@ class RenaultCard extends HTMLElement {
       `<span class="when">${rnEsc(when)}</span><ha-icon class="chev" icon="mdi:chevron-right"></ha-icon></div>`;
   }
 
-  // Replaces the card content and gives the focus back to the same action button, tile or lease
-  // header: the re-render recreates them, so without this a keyboard user arming "Sound horn" with
-  // Enter would lose the focus and could not confirm it.
+  // Patches the card content in place (rnMorph) and, when the focused element was not kept (its place in the markup
+  // changed), gives the focus back to the same action button, tile or lease header: a keyboard user arming
+  // "Sound horn" with Enter keeps the focus to confirm it.
   _setHtml(html) {
     var root = this.shadowRoot;
     var keyOf = (el) => {
@@ -4984,9 +5051,10 @@ class RenaultCard extends HTMLElement {
     var key = keyOf(root.activeElement);
     // The same entity can have several elements (tile and row): keep the rank among them.
     var rank = key ? focusables().filter((el) => keyOf(el) === key).indexOf(root.activeElement) : -1;
-    root.innerHTML = html;
+    var active = root.activeElement;
+    rnMorph(root, html);
     this._fitPill();
-    if (!key) return;
+    if (!key || (active && root.activeElement === active)) return;
     var hit = focusables().filter((el) => keyOf(el) === key);
     var el = hit[Math.max(0, Math.min(rank, hit.length - 1))];
     if (el) el.focus({ preventScroll: true });
@@ -6937,19 +7005,29 @@ class RenaultMapCard extends HTMLElement {
     var header = this._root.querySelector('.header');
     var title = this._config.title === undefined ? mt.default_title : this._config.title;
     var vehicles = this._vehicles();
+    // The header is patched in place, and only when it changes: the picture keeps its nodes and animations, the
+    // card its height (a vehicle moving only moves its marker).
+    var headerHtml, headerHidden, headerClass;
     if (this._illustrated()) {
-      header.hidden = false;
-      header.className = 'header illustrated';
-      header.innerHTML = this._banner(title, vehicles);
-      this._fitPill();
+      headerHidden = false;
+      headerClass = 'header illustrated';
+      headerHtml = this._banner(title, vehicles);
     } else {
       var icon = this._config.show_icon ? this._brandIcon() : '';
-      header.hidden = !title && !icon;
-      header.className = 'header';
-      header.innerHTML = icon + (title ? `<span class="title">${rnEsc(title)}</span>` : '');
+      headerHidden = !title && !icon;
+      headerClass = 'header';
+      headerHtml = icon + (title ? `<span class="title">${rnEsc(title)}</span>` : '');
+    }
+    if (header.hidden !== headerHidden) header.hidden = headerHidden;
+    if (header.className !== headerClass) header.className = headerClass;
+    if (headerHtml !== this._headerHtml) {
+      this._headerHtml = headerHtml;
+      rnMorph(header, headerHtml);
+      if (this._illustrated()) this._fitPill();
     }
     var mapEl = this._root.querySelector('.map');
-    mapEl.style.height = `${Math.max(150, Number(this._config.height) || 400)}px`;
+    var mapH = `${Math.max(150, Number(this._config.height) || 400)}px`;
+    if (mapEl.style.height !== mapH) mapEl.style.height = mapH;
     mapEl.classList.toggle('dark', this._darkTiles());
     this._reloadTilesIfNeeded();
     var message = this._root.querySelector('.message');
@@ -7293,9 +7371,10 @@ class RenaultMapCard extends HTMLElement {
       var text = this._config.show_name
         ? `<span class="ptext"><span class="pname">${rnEsc(v.name)}</span>${rangeTxt ? `<span class="prange">${rnEsc(rangeTxt)}</span>` : ''}</span>`
         : (rangeTxt ? `<span class="prange">${rnEsc(rangeTxt)}</span>` : '');
+      var pinHtml = `<div class="pin" title="${rnEsc(v.name)}">${pic}${text}</div>`;
       var icon = L.divIcon({
         className: 'rn-marker',
-        html: `<div class="pin" title="${rnEsc(v.name)}">${pic}${text}</div>`,
+        html: pinHtml,
         iconSize: null,
         iconAnchor: [0, 0],
       });
@@ -7303,7 +7382,8 @@ class RenaultMapCard extends HTMLElement {
       if (marker) {
         delete markers[v.deviceId];
         marker.setLatLng([v.lat, v.lon]);
-        marker.setIcon(icon);
+        // The same pin (a vehicle that only moved): its element, photo included, is kept.
+        if (marker._rnIconHtml !== pinHtml) marker.setIcon(icon);
         marker.setPopupContent(this._popup(v));
       } else {
         marker = L.marker([v.lat, v.lon], { icon: icon, riseOnHover: true });
@@ -7316,6 +7396,7 @@ class RenaultMapCard extends HTMLElement {
         marker.addTo(this._layer);
       }
       marker._rnId = v.deviceId;
+      marker._rnIconHtml = pinHtml;
       marker._rnVehicle = v;
       this._markers[v.deviceId] = marker;
       points.push([v.lat, v.lon]);
