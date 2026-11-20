@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.11.0 - 2026-11-20
+
+### Features
+- Visual editor: new **Show the lease kilometre margin** toggle (`show_lease_margin`), translated into the 22 languages; it was YAML only.
+
+### Fixes
+- A tap elsewhere on the page now folds the lease section back and brings the mini card back to its compact view on iOS too: it is caught on the pointer (a tap on something that is not clickable sends no click there), as in the other cards; a tap in a dialog (more-info) no longer folds the lease section.
+- The mini card comes back in its compact view after leaving the page (another view, a conditional card hidden) while unfolded.
+
+### Maintenance
+- The commitlint config is an ES module (the package is `"type": "module"`): the local `commit-msg` hook no longer crashes.
+
 ## 3.10.0 - 2026-11-19
 
 ### Features
