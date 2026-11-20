@@ -4164,6 +4164,31 @@ var RN_SCENE_STYLE =
   '@keyframes vc-flow { to { stroke-dashoffset: -7; } }' +
   '@media (prefers-reduced-motion: reduce) { .vc-star, .vc-cloud, .vc-led, .vc-flow { animation: none !important; } }';
 
+// "A click elsewhere", caught on the pointer and not only on the click event: on iOS a tap on something that is not
+// clickable sends no click to the page. It counts when the press and the release are both outside (`outside(ev)`), a
+// scroll does not (the browser cancels the pointer); keyboard clicks (no click count) still go through the click event.
+function rnWatchOutside(outside, handler) {
+  var downOutside = false;
+  var onDown = (ev) => { downOutside = outside(ev); };
+  var onUp = (ev) => {
+    if (downOutside && outside(ev)) handler(ev);
+    downOutside = false;
+  };
+  var onClick = (ev) => { if (ev.detail === 0 && outside(ev)) handler(ev); };
+  return {
+    on() {
+      document.addEventListener('pointerdown', onDown, true);
+      document.addEventListener('pointerup', onUp, true);
+      document.addEventListener('click', onClick, true);
+    },
+    off() {
+      document.removeEventListener('pointerdown', onDown, true);
+      document.removeEventListener('pointerup', onUp, true);
+      document.removeEventListener('click', onClick, true);
+    },
+  };
+}
+
 class RenaultCard extends HTMLElement {
   static getConfigElement() {
     return document.createElement('renault-card-editor');
@@ -4224,13 +4249,15 @@ class RenaultCard extends HTMLElement {
     this._timer = setInterval(() => this._update(), 60000);
     // A click elsewhere folds the lease back to its default (as in ha-carburants-france). A click,
     // not a pointerdown: folding on press would shift the layout under the pointer before the click.
-    this._onOutside = this._onOutside || ((ev) => {
-      if (this._leaseOpen == null) return;
-      if ((ev.composedPath ? ev.composedPath() : []).indexOf(this) !== -1) return;
-      this._leaseOpen = null;
-      this._update();
-    });
-    document.addEventListener('click', this._onOutside, true);
+    this._outside = this._outside || rnWatchOutside(
+      (ev) => (ev.composedPath ? ev.composedPath() : []).indexOf(this) === -1 && !rnInDialog(ev),
+      () => {
+        if (this._leaseOpen == null) return;
+        this._leaseOpen = null;
+        this._update();
+      },
+    );
+    this._outside.on();
     // A new width fits the banner's status pill again (the banner keeps its height: no resize loop).
     if (typeof ResizeObserver === 'function') {
       this._pillResize = this._pillResize || new ResizeObserver(() => {
@@ -4289,7 +4316,7 @@ class RenaultCard extends HTMLElement {
     clearTimeout(this._holdTimer);
     this._armed = null;
     this._result = null;
-    document.removeEventListener('click', this._onOutside, true);
+    this._outside?.off();
   }
 
   getCardSize() { return 6; }
@@ -5606,9 +5633,10 @@ class RenaultMiniCard extends RenaultCard {
   constructor() {
     super();
     this._zoomed = false;
-    this._onZoomOutside = (ev) => {
-      if (this._zoomed && ev.composedPath().indexOf(this) === -1 && !rnInDialog(ev)) this._setZoom(false);
-    };
+    this._zoomOutside = rnWatchOutside(
+      (ev) => ev.composedPath().indexOf(this) === -1 && !rnInDialog(ev),
+      () => { if (this._zoomed) this._setZoom(false); },
+    );
   }
 
   setConfig(config) {
@@ -5619,12 +5647,15 @@ class RenaultMiniCard extends RenaultCard {
 
   connectedCallback() {
     super.connectedCallback();
-    document.addEventListener('click', this._onZoomOutside, true);
+    this._zoomOutside.on();
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    document.removeEventListener('click', this._onZoomOutside, true);
+    this._zoomOutside.off();
+    // Left (another view, a conditional card hidden): back to the compact view.
+    this._zoomed = false;
+    this._sig = null;
   }
 
   getCardSize() { return this._zoomed ? super.getCardSize() : 3; }

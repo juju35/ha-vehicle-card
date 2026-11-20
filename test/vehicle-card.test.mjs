@@ -1573,7 +1573,13 @@ test("mini card: the plug state when not charging, the fuel range without a batt
 test("mini card: the detail button shows the full card, a click outside (not in a dialog) folds it back", () => {
   const { card, root } = miniCard();
   card.connectedCallback();
-  const outside = listeners.filter((l) => l.on && l.type === "click").at(-1).fn;
+  // A tap elsewhere: the press and the release outside (caught on the pointer, as on iOS a tap sends no click).
+  const last = (type) => listeners.filter((l) => l.on && l.type === type).at(-1).fn;
+  const [down, up] = [last("pointerdown"), last("pointerup")];
+  const outside = (ev) => {
+    down(ev);
+    up(ev);
+  };
   card._onClick({ composedPath: () => [{ classList: { contains: (c) => c === "zoom" } }], stopPropagation() {}, detail: 1 });
   assert.match(root.html, /<ha-card>/);
   assert.match(root.html, /class="plate"/);
@@ -1587,7 +1593,16 @@ test("mini card: the detail button shows the full card, a click outside (not in 
   outside(outsideClick([{ localName: "div" }]));
   assert.match(root.html, /<ha-card class="mini">/);
   card.disconnectedCallback();
-  assert.ok(!listeners.some((l) => l.on && l.fn === outside));
+  assert.ok(!listeners.some((l) => l.on && (l.fn === down || l.fn === up)));
+  // Left while unfolded: back in the compact view on the page again.
+  card.connectedCallback();
+  card._onClick({ composedPath: () => [{ classList: { contains: (c) => c === "zoom" } }], stopPropagation() {}, detail: 1 });
+  assert.match(root.html, /<ha-card>/);
+  card.disconnectedCallback();
+  card.connectedCallback();
+  card._update();
+  assert.match(root.html, /<ha-card class="mini">/);
+  card.disconnectedCallback();
 });
 
 test("mini card styles: 240 px in an auto-width container, an unfilled detail button", () => {
@@ -1615,6 +1630,25 @@ function fullCard(config = {}, extra = {}) {
 }
 const km = (v) => ({ state: String(v), attributes: { unit_of_measurement: "km" } });
 const tileOf = (html, id) => html.match(new RegExp(`<div class="tile[^"]*" data-more="${id.replace(".", "\\.")}"`))?.[0] || "";
+
+test("lease section: a tap elsewhere (not in the card, not in a dialog) folds it back to its default", () => {
+  const { card } = fullCard();
+  card.connectedCallback();
+  const last = (type) => listeners.filter((l) => l.on && l.type === type).at(-1).fn;
+  const [down, up] = [last("pointerdown"), last("pointerup")];
+  const tap = (path) => {
+    down(outsideClick(path));
+    up(outsideClick(path));
+  };
+  card._leaseOpen = true;
+  tap([card]);
+  tap([{ localName: "ha-more-info-dialog" }]);
+  assert.equal(card._leaseOpen, true, "a tap in the card or in a dialog keeps it");
+  tap([{ localName: "div" }]);
+  assert.equal(card._leaseOpen, null);
+  card.disconnectedCallback();
+  assert.ok(!listeners.some((l) => l.on && (l.fn === down || l.fn === up)));
+});
 
 test("plug-in hybrid: an empty battery alone is not a low range; fuel plus battery under low_range is", () => {
   let { root } = fullCard({}, { "sensor.car_battery_autonomy": ["battery_autonomy", km(38)], "sensor.car_fuel_autonomy": ["fuel_autonomy", km(512)] });
