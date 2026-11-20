@@ -5054,6 +5054,13 @@ class RenaultCard extends HTMLElement {
     var active = root.activeElement;
     rnMorph(root, html);
     this._fitPill();
+    // A new <ha-card> (first render) lays its content out only once it has rendered (a microtask later, Lit):
+    // measured then again, otherwise the pill keeps a place measured at 0 px.
+    var hc = root.querySelector?.('ha-card');
+    if (hc?.updateComplete && !hc._rnFitWait) {
+      hc._rnFitWait = true;
+      hc.updateComplete.then(() => this._fitPill());
+    }
     if (!key || (active && root.activeElement === active)) return;
     var hit = focusables().filter((el) => keyOf(el) === key);
     var el = hit[Math.max(0, Math.min(rank, hit.length - 1))];
@@ -7024,6 +7031,12 @@ class RenaultMapCard extends HTMLElement {
       this._headerHtml = headerHtml;
       rnMorph(header, headerHtml);
       if (this._illustrated()) this._fitPill();
+    }
+    // The <ha-card> lays the header out once it has rendered (a microtask later, Lit): measured then again.
+    var hc = this._root.querySelector('ha-card');
+    if (hc?.updateComplete && !hc._rnFitWait) {
+      hc._rnFitWait = true;
+      hc.updateComplete.then(() => this._fitPill());
     }
     var mapEl = this._root.querySelector('.map');
     var mapH = `${Math.max(150, Number(this._config.height) || 400)}px`;
