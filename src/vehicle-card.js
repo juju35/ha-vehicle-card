@@ -144,6 +144,7 @@ var RnI18n = {
     ed_lease: 'Suivi de LOA',
     ed_expand_lease: 'LOA dépliée par défaut',
     ed_show_lease_margin: 'Afficher la marge kilométrique de la LOA',
+    ed_zoom: 'Bouton détail',
     ed_flat: 'Fond uni',
     ed_illustration: 'Illustration animée',
     ed_illustration_theme: 'Thème de l\'illustration',
@@ -295,6 +296,7 @@ var RnI18n = {
     ed_lease: 'Lease tracking',
     ed_expand_lease: 'Lease expanded by default',
     ed_show_lease_margin: 'Show the lease kilometre margin',
+    ed_zoom: 'Detail button',
     ed_flat: 'Flat background',
     ed_illustration: 'Animated illustration',
     ed_illustration_theme: 'Illustration theme',
@@ -446,6 +448,7 @@ var RnI18n = {
     ed_lease: 'Leasingverfolgung',
     ed_expand_lease: 'Leasing standardmäßig aufgeklappt',
     ed_show_lease_margin: 'Kilometerspielraum des Leasings anzeigen',
+    ed_zoom: 'Detail-Schaltfläche',
     ed_flat: 'Einfarbiger Hintergrund',
     ed_illustration: 'Animierte Illustration',
     ed_illustration_theme: 'Thema der Illustration',
@@ -597,6 +600,7 @@ var RnI18n = {
     ed_lease: 'Seguimiento del leasing',
     ed_expand_lease: 'Leasing desplegado por defecto',
     ed_show_lease_margin: 'Mostrar el margen de kilómetros del leasing',
+    ed_zoom: 'Botón de detalle',
     ed_flat: 'Fondo plano',
     ed_illustration: 'Ilustración animada',
     ed_illustration_theme: 'Tema de la ilustración',
@@ -748,6 +752,7 @@ var RnI18n = {
     ed_lease: 'Праћење лизинга',
     ed_expand_lease: 'Лизинг подразумевано проширен',
     ed_show_lease_margin: 'Прикажи маргину километара лизинга',
+    ed_zoom: 'Дугме за детаље',
     ed_flat: 'Равна позадина',
     ed_illustration: 'Анимирана илустрација',
     ed_illustration_theme: 'Тема илустрације',
@@ -899,6 +904,7 @@ var RnI18n = {
     ed_lease: 'Praćenje lizinga',
     ed_expand_lease: 'Lizing podrazumevano proširen',
     ed_show_lease_margin: 'Prikaži marginu kilometara lizinga',
+    ed_zoom: 'Dugme za detalje',
     ed_flat: 'Ravna pozadina',
     ed_illustration: 'Animirana ilustracija',
     ed_illustration_theme: 'Tema ilustracije',
@@ -1050,6 +1056,7 @@ var RnI18n = {
     ed_lease: 'Monitoraggio del leasing',
     ed_expand_lease: 'Leasing espanso per impostazione predefinita',
     ed_show_lease_margin: 'Mostra il margine chilometrico del leasing',
+    ed_zoom: 'Pulsante dettagli',
     ed_flat: 'Sfondo piatto',
     ed_illustration: 'Illustrazione animata',
     ed_illustration_theme: 'Tema dell\'illustrazione',
@@ -1201,6 +1208,7 @@ var RnI18n = {
     ed_lease: 'Leaseopvolging',
     ed_expand_lease: 'Lease standaard uitgeklapt',
     ed_show_lease_margin: 'Kilometermarge van de lease tonen',
+    ed_zoom: 'Detailknop',
     ed_flat: 'Vlakke achtergrond',
     ed_illustration: 'Geanimeerde illustratie',
     ed_illustration_theme: 'Thema van de illustratie',
@@ -1352,6 +1360,7 @@ var RnI18n = {
     ed_lease: 'Acompanhamento do leasing',
     ed_expand_lease: 'Leasing expandido por predefinição',
     ed_show_lease_margin: 'Mostrar a margem de quilómetros do leasing',
+    ed_zoom: 'Botão de detalhe',
     ed_flat: 'Fundo liso',
     ed_illustration: 'Ilustração animada',
     ed_illustration_theme: 'Tema da ilustração',
@@ -1503,6 +1512,7 @@ var RnI18n = {
     ed_lease: 'Śledzenie leasingu',
     ed_expand_lease: 'Leasing domyślnie rozwinięty',
     ed_show_lease_margin: 'Pokaż zapas kilometrów leasingu',
+    ed_zoom: 'Przycisk szczegółów',
     ed_flat: 'Płaskie tło',
     ed_illustration: 'Animowana ilustracja',
     ed_illustration_theme: 'Motyw ilustracji',
@@ -1654,6 +1664,7 @@ var RnI18n = {
     ed_lease: 'Urmărirea leasingului',
     ed_expand_lease: 'Leasing extins implicit',
     ed_show_lease_margin: 'Afișează marja de kilometri a leasingului',
+    ed_zoom: 'Buton de detalii',
     ed_flat: 'Fundal uniform',
     ed_illustration: 'Ilustrație animată',
     ed_illustration_theme: 'Tema ilustrației',
@@ -1805,6 +1816,7 @@ var RnI18n = {
     ed_lease: 'Leasingopfølgning',
     ed_expand_lease: 'Leasing udfoldet som standard',
     ed_show_lease_margin: 'Vis leasingens kilometermargin',
+    ed_zoom: 'Detaljeknap',
     ed_flat: 'Flad baggrund',
     ed_illustration: 'Animeret illustration',
     ed_illustration_theme: 'Illustrationens tema',
@@ -1956,6 +1968,7 @@ var RnI18n = {
     ed_lease: 'Leasinguppföljning',
     ed_expand_lease: 'Leasing utfällt som standard',
     ed_show_lease_margin: 'Visa leasingens kilometermarginal',
+    ed_zoom: 'Detaljknapp',
     ed_flat: 'Platt bakgrund',
     ed_illustration: 'Animerad illustration',
     ed_illustration_theme: 'Illustrationens tema',
@@ -2107,6 +2120,7 @@ var RnI18n = {
     ed_lease: 'Проследяване на лизинга',
     ed_expand_lease: 'Лизингът е разгънат по подразбиране',
     ed_show_lease_margin: 'Показване на резерва от километри по лизинга',
+    ed_zoom: 'Бутон за подробности',
     ed_flat: 'Равен фон',
     ed_illustration: 'Анимирана илюстрация',
     ed_illustration_theme: 'Тема на илюстрацията',
@@ -2258,6 +2272,7 @@ var RnI18n = {
     ed_lease: 'Отслеживание лизинга',
     ed_expand_lease: 'Лизинг развёрнут по умолчанию',
     ed_show_lease_margin: 'Показывать запас километров по лизингу',
+    ed_zoom: 'Кнопка подробностей',
     ed_flat: 'Плоский фон',
     ed_illustration: 'Анимированная иллюстрация',
     ed_illustration_theme: 'Тема иллюстрации',
@@ -2409,6 +2424,7 @@ var RnI18n = {
     ed_lease: 'Відстеження лізингу',
     ed_expand_lease: 'Лізинг типово розгорнуто',
     ed_show_lease_margin: 'Показувати запас кілометрів за лізингом',
+    ed_zoom: 'Кнопка деталей',
     ed_flat: 'Плаский фон',
     ed_illustration: 'Анімована ілюстрація',
     ed_illustration_theme: 'Тема ілюстрації',
@@ -2560,6 +2576,7 @@ var RnI18n = {
     ed_lease: 'Lízingkövetés',
     ed_expand_lease: 'Lízing alapértelmezetten kibontva',
     ed_show_lease_margin: 'A lízing kilométer-tartalékának megjelenítése',
+    ed_zoom: 'Részletek gomb',
     ed_flat: 'Egyszínű háttér',
     ed_illustration: 'Animált illusztráció',
     ed_illustration_theme: 'Az illusztráció témája',
@@ -2711,6 +2728,7 @@ var RnI18n = {
     ed_lease: 'Sledovanie lízingu',
     ed_expand_lease: 'Lízing predvolene rozbalený',
     ed_show_lease_margin: 'Zobraziť rezervu kilometrov lízingu',
+    ed_zoom: 'Tlačidlo podrobností',
     ed_flat: 'Ploché pozadie',
     ed_illustration: 'Animovaná ilustrácia',
     ed_illustration_theme: 'Téma ilustrácie',
@@ -2862,6 +2880,7 @@ var RnI18n = {
     ed_lease: 'Sledování leasingu',
     ed_expand_lease: 'Leasing ve výchozím stavu rozbalený',
     ed_show_lease_margin: 'Zobrazit rezervu kilometrů leasingu',
+    ed_zoom: 'Tlačítko podrobností',
     ed_flat: 'Ploché pozadí',
     ed_illustration: 'Animovaná ilustrace',
     ed_illustration_theme: 'Motiv ilustrace',
@@ -3013,6 +3032,7 @@ var RnI18n = {
     ed_lease: 'Spremljanje lizinga',
     ed_expand_lease: 'Lizing privzeto razširjen',
     ed_show_lease_margin: 'Prikaži rezervo kilometrov lizinga',
+    ed_zoom: 'Gumb za podrobnosti',
     ed_flat: 'Ravno ozadje',
     ed_illustration: 'Animirana ilustracija',
     ed_illustration_theme: 'Tema ilustracije',
@@ -3164,6 +3184,7 @@ var RnI18n = {
     ed_lease: 'Līzinga uzskaite',
     ed_expand_lease: 'Līzings pēc noklusējuma izvērsts',
     ed_show_lease_margin: 'Rādīt līzinga kilometru rezervi',
+    ed_zoom: 'Detaļu poga',
     ed_flat: 'Vienkrāsains fons',
     ed_illustration: 'Animēta ilustrācija',
     ed_illustration_theme: 'Ilustrācijas tēma',
@@ -3315,6 +3336,7 @@ var RnI18n = {
     ed_lease: 'Παρακολούθηση μίσθωσης',
     ed_expand_lease: 'Μίσθωση ανεπτυγμένη από προεπιλογή',
     ed_show_lease_margin: 'Εμφάνιση του περιθωρίου χιλιομέτρων της μίσθωσης',
+    ed_zoom: 'Κουμπί λεπτομερειών',
     ed_flat: 'Επίπεδο φόντο',
     ed_illustration: 'Κινούμενη εικονογράφηση',
     ed_illustration_theme: 'Θέμα εικονογράφησης',
@@ -5551,6 +5573,16 @@ class RenaultCardEditor extends HTMLElement {
     return rnResolveLang(RnI18n, this._hass?.language);
   }
 
+  // The options left out of the YAML at these values (the mini card's editor adds its detail button).
+  _defaults() {
+    return RN_EDITOR_DEFAULTS;
+  }
+
+  // The mini card's own switches (its detail button), beside the full card's.
+  _ownSwitches() {
+    return [];
+  }
+
   _schema() {
     var t = (k) => rnT(this._lang(), k);
     var domains = { mileage: 'sensor', fuel_autonomy: 'sensor', fuel_quantity: 'sensor', battery_level: 'sensor',
@@ -5591,6 +5623,7 @@ class RenaultCardEditor extends HTMLElement {
           { name: 'expand_lease', selector: { boolean: {} } },
           { name: 'show_lease_margin', selector: { boolean: {} } },
           { name: 'flat', selector: { boolean: {} } },
+          ...this._ownSwitches(),
         ],
       },
       { name: 'tiles', selector: { select: { multiple: true, mode: 'list', options: RN_TILES.map((x) => ({ value: x[0], label: t(x[1]) })) } } },
@@ -5652,7 +5685,7 @@ class RenaultCardEditor extends HTMLElement {
       var txt = rnT(lang, key);
       return txt === key ? undefined : txt;
     };
-    var data = Object.assign({}, RN_EDITOR_DEFAULTS, this._config);
+    var data = Object.assign({}, this._defaults(), this._config);
     if (!Array.isArray(data.tiles)) data.tiles = RN_TILES.map((x) => x[0]);
     if (!Array.isArray(data.lease_figs)) data.lease_figs = RN_LEASE_FIGS.map((x) => x[0]);
     if (data.lease) data.lease = Object.assign({}, data.lease, { forecast: data.lease.forecast ? String(data.lease.forecast) : 'contract' });
@@ -5666,8 +5699,9 @@ class RenaultCardEditor extends HTMLElement {
     Object.keys(value).forEach((key) => {
       if (value[key] === '' || value[key] === null || value[key] === undefined) delete value[key];
     });
-    Object.keys(RN_EDITOR_DEFAULTS).forEach((key) => {
-      if (value[key] === RN_EDITOR_DEFAULTS[key]) delete value[key];
+    var defaults = this._defaults();
+    Object.keys(defaults).forEach((key) => {
+      if (value[key] === defaults[key]) delete value[key];
     });
     ['battery_severity', 'fuel_severity'].forEach((k) => {
       if (!value[k] || Array.isArray(value[k])) return;
@@ -5702,6 +5736,21 @@ if (!customElements.get('renault-card-editor')) {
   customElements.define('renault-card-editor', RenaultCardEditor);
 }
 
+// The mini card's editor: the full card's options (its expanded view uses them) and the detail button.
+class RenaultMiniCardEditor extends RenaultCardEditor {
+  _defaults() {
+    return Object.assign({}, RN_EDITOR_DEFAULTS, { zoom: true });
+  }
+
+  _ownSwitches() {
+    return [{ name: 'zoom', selector: { boolean: {} } }];
+  }
+}
+
+if (!customElements.get('renault-mini-card-editor')) {
+  customElements.define('renault-mini-card-editor', RenaultMiniCardEditor);
+}
+
 // vehicle-… since the cards cover every brand; renault-… (their former name) stays defined for the dashboards that use it.
 if (!customElements.get('vehicle-card')) {
   customElements.define('vehicle-card', class extends RenaultCard {});
@@ -5728,6 +5777,10 @@ function rnInDialog(ev) {
  * outside the card brings the compact view back. Same options and editor as renault-card.
  */
 class RenaultMiniCard extends RenaultCard {
+  static getConfigElement() {
+    return document.createElement('renault-mini-card-editor');
+  }
+
   constructor() {
     super();
     this._zoomed = false;
@@ -5741,6 +5794,7 @@ class RenaultMiniCard extends RenaultCard {
     // The host attribute behind the mini card's styles; never set in the constructor.
     this.setAttribute?.('mini', '');
     super.setConfig(config);
+    if (this._config.zoom === false && this._zoomed) this._setZoom(false);
   }
 
   connectedCallback() {
@@ -5767,6 +5821,8 @@ class RenaultMiniCard extends RenaultCard {
   }
 
   _headerAction() {
+    // zoom: false removes the detail button: the mini card stays compact.
+    if (this._config.zoom === false) return '';
     var label = rnEsc(this._t(this._zoomed ? 'zoom_out' : 'zoom_in'));
     return `<button class="zoom" title="${label}" aria-label="${label}"><ha-icon icon="mdi:${this._zoomed ? 'arrow-collapse' : 'arrow-expand'}"></ha-icon></button>`;
   }

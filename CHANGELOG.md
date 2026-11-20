@@ -4,6 +4,7 @@
 
 ### Features
 - Visual editor: new **Show the lease kilometre margin** toggle (`show_lease_margin`), translated into the 22 languages; it was YAML only.
+- Mini card: new `zoom` option (also in its visual editor, translated into the 22 languages) — `false` removes the detail button so the card stays compact, as on the other ha-* mini cards.
 
 ### Fixes
 - A tap elsewhere on the page now folds the lease section back and brings the mini card back to its compact view on iOS too: it is caught on the pointer (a tap on something that is not clickable sends no click there), as in the other cards; a tap in a dialog (more-info) no longer folds the lease section.

@@ -2218,3 +2218,25 @@ test("outside temperature can be forced from the editor's Entities panel, any te
   assert.deepEqual(JSON.parse(JSON.stringify(field.selector)), { entity: { domain: "sensor", device_class: "temperature" } });
   assert.equal(ctx.rnT("de", "en_outside_temperature"), "Außentemperatur");
 });
+
+test("mini card: zoom: false removes the detail button; the mini editor offers it, left out of the YAML at true", () => {
+  assert.doesNotMatch(miniCard({ zoom: false }).root.html, /class="zoom"/);
+  assert.match(miniCard({ zoom: true }).root.html, /<button class="zoom"/);
+  assert.equal(RenaultMiniCard.getConfigElement.toString().includes("renault-mini-card-editor"), true);
+  const mini = Object.create(defined["renault-mini-card-editor"].prototype);
+  mini._hass = { language: "en" };
+  mini._config = {};
+  assert.match(JSON.stringify(mini._schema()), /"name":"zoom","selector":\{"boolean"/);
+  mini.dispatchEvent = (ev) => {
+    mini.last = ev.detail.config;
+  };
+  mini._valueChanged({ stopPropagation() {}, detail: { value: { zoom: true } } });
+  assert.equal(mini.last.zoom, undefined);
+  mini._valueChanged({ stopPropagation() {}, detail: { value: { zoom: false } } });
+  assert.equal(mini.last.zoom, false);
+  // The full card's editor has no detail button.
+  const full = Object.create(defined["renault-card-editor"].prototype);
+  full._hass = { language: "en" };
+  full._config = {};
+  assert.doesNotMatch(JSON.stringify(full._schema()), /"name":"zoom"/);
+});
