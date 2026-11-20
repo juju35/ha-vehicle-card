@@ -2240,3 +2240,9 @@ test("mini card: zoom: false removes the detail button; the mini editor offers i
   full._config = {};
   assert.doesNotMatch(JSON.stringify(full._schema()), /"name":"zoom"/);
 });
+
+test("status pill: at the right end of the title's row, at the start of its own line below", () => {
+  const { root } = miniCard();
+  assert.match(root.html, /\.titles \.trow > \.bchip \{ flex: none; max-width: none; margin: 0 0 0 auto;/);
+  assert.match(root.html, /\.titles\.below \.trow > \.bchip \{ order: 9; max-width: 100%; margin: 2px 0 0;/);
+});

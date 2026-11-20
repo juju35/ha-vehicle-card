@@ -4127,18 +4127,18 @@ var RN_PILL_STYLE =
   '.bchip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--c); flex: none; }' +
   '.bchip-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; }' +
 `
-  /* The status pill, in every header: on the title row right after the title only when the whole title and the pill's
+  /* The status pill, in every header: at the right end of the title row only when the whole title and the pill's
      whole label fit there; otherwise on its own line under the subtitle, cut to one line; its dot alone, beside the
      title, when the banner has no room left above its ground strip, or on a card of 200 px or less. Decided by
      measurement (see _fitPill), so that every language and every width gets it right. */
   .titles .trow { display: flex; align-items: center; gap: 8px; min-width: 0; width: 100%; }
   .titles .trow > .name { flex: 0 1 auto; min-width: 0; }
-  .titles .trow > .bchip { flex: none; max-width: none; margin: 0; align-self: center; }
+  .titles .trow > .bchip { flex: none; max-width: none; margin: 0 0 0 auto; align-self: center; }
   .titles.below { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
   .titles.below > * { max-width: 100%; }
   .titles.below .trow { display: contents; }
   .titles.below .trow > .name { max-width: 100%; }
-  .titles.below .trow > .bchip { order: 9; max-width: 100%; margin-top: 2px; align-self: flex-start; }
+  .titles.below .trow > .bchip { order: 9; max-width: 100%; margin: 2px 0 0; align-self: flex-start; }
   /* In the banner, a pill on its own line may run over the picture, up to the banner's edge. */
   .banner .titles.below .trow > .bchip { max-width: none; }
   .titles.below :is(.model) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -4380,7 +4380,7 @@ class RenaultCard extends HTMLElement {
     document.fonts?.ready?.then(() => this._fitPill());
   }
 
-  // The status pill goes right after the title only when the whole title and the pill's whole label fit on that row;
+  // The status pill goes at the right end of the title's row only when the whole title and the pill's whole label fit on that row;
   // otherwise it takes a line of its own under the subtitle (.titles.below, the subtitle cut to one line). In the
   // banner (where that line may run over the picture), when the titles still run below the top of the ground strip or
   // out of the banner, and in the classic header when the label does not fit even alone, the pill keeps its dot alone,
