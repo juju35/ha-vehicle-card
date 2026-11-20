@@ -4590,14 +4590,21 @@ class RenaultCard extends HTMLElement {
     var ids = [];
     Object.keys(r.ent).forEach((k) => { ids = ids.concat(r.ent[k]); });
     if (r.plan) Object.keys(RN_PLAN_ROLES).forEach((k) => { ids.push(r.plan[k]); });
-    var sig = JSON.stringify([this._lang(), r.deviceId, this._illustrated() && rnIsNight(hass, this._config), this._armed, this._result, this._leaseOpen, this._leaseHist?.key, this._leaseHist?.at, rnPhotoKey(rnPhotoUrl(hass, r.photo)), this._timeSig(r), ids.map((id) => {
-      var s = id && hass.states[id];
+    var head = [this._lang(), r.deviceId, this._illustrated() && rnIsNight(hass, this._config), this._armed, this._result, this._leaseOpen, this._leaseHist?.key, this._leaseHist?.at, rnPhotoKey(rnPhotoUrl(hass, r.photo)), String(this._timeSig(r))];
+    // Home Assistant replaces a state object when it changes: the same objects and the same inputs need no signature
+    // (a push for another entity of the instance costs no serialisation).
+    var objs = ids.map((id) => (id ? hass.states[id] : undefined));
+    var last = this._sigIn;
+    if (this._sig && last && last.objs.length === objs.length && last.head.every((v, i) => v === head[i]) && last.objs.every((o, i) => o === objs[i])) return;
+    var sig = JSON.stringify([head, ids.map((id, i) => {
+      var s = objs[i];
       return s ? [id, s.state, s.attributes.options] : null;
     })]);
     if (sig === this._sig) return;
     var active = this.shadowRoot.activeElement;
     if (active && active.tagName === 'SELECT') return;
     this._sig = sig;
+    this._sigIn = { head, objs };
     this._r = r;
     this._render(r);
   }

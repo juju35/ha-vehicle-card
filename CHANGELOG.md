@@ -12,6 +12,9 @@
 - The mini card comes back in its compact view after leaving the page (another view, a conditional card hidden) while unfolded.
 - A state update no longer makes the page jump: the vehicle and mini cards patched their whole content (stylesheet, vehicle photo, banner picture) by rewriting it on every change of one of their entities, so the photo could lose its height for a frame, the banner animations restarted and the sections grid reflowed. They now patch the existing nodes in place; the map card rewrites its header only when it changes and keeps a vehicle's pin (photo included) when the vehicle only moves.
 
+### Performance
+- A state change elsewhere in Home Assistant no longer serialises the vehicle's states: the card compares the state objects it reads (Home Assistant replaces one when it changes) and its other inputs first, and builds its signature only when one of them changed.
+
 ### Maintenance
 - The commitlint config is an ES module (the package is `"type": "module"`): the local `commit-msg` hook no longer crashes.
 

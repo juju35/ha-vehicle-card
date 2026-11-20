@@ -146,7 +146,10 @@ test("status pill shows its whole label next to a readable title; the zoom butto
           if (nb.width < 24) out.push(`${tag2}: title ${Math.round(nb.width)}px`);
           const cb = chip.getBoundingClientRect();
           const onRow = Math.abs(cb.top + cb.height / 2 - (nb.top + nb.height / 2)) < 3;
-          if (onRow && cb.left - nb.right > 10.5) out.push(`${tag2}: pill ${Math.round(cb.left - nb.right)}px after the title`);
+          // On the title's row, the pill sits at the right end of the row (the charter's place for the status pill).
+          const rb = r.querySelector(".trow").getBoundingClientRect();
+          if (onRow && Math.abs(rb.right - cb.right) > 1) out.push(`${tag2}: pill ${Math.round(rb.right - cb.right)}px short of the row's end`);
+          if (onRow && cb.left < nb.right + 7.5) out.push(`${tag2}: pill over the title`);
           const banner = r.querySelector(".banner");
           if (banner) {
             const bb = banner.getBoundingClientRect();

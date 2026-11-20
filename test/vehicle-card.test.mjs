@@ -2246,3 +2246,25 @@ test("status pill: at the right end of the title's row, at the start of its own 
   assert.match(root.html, /\.titles \.trow > \.bchip \{ flex: none; max-width: none; margin: 0 0 0 auto;/);
   assert.match(root.html, /\.titles\.below \.trow > \.bchip \{ order: 9; max-width: 100%; margin: 2px 0 0;/);
 });
+
+test("a push for another entity of the instance costs no signature; a change of the car's does", () => {
+  const { card, root, states } = miniCard();
+  const VmJSON = vm.runInContext("JSON", ctx);
+  const stringify = VmJSON.stringify;
+  let calls = 0;
+  VmJSON.stringify = (...a) => {
+    calls++;
+    return stringify(...a);
+  };
+  try {
+    const hass = card._hass;
+    card.hass = { ...hass, states: { ...states, "light.kitchen": { state: "on", attributes: {} } } };
+    assert.equal(calls, 0);
+    const before = root.html;
+    card.hass = { ...hass, states: { ...states, "sensor.car_battery_level": { ...states["sensor.car_battery_level"], state: "12" } } };
+    assert.ok(calls > 0);
+    assert.notEqual(root.html, before);
+  } finally {
+    VmJSON.stringify = stringify;
+  }
+});
