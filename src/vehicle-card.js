@@ -5915,7 +5915,7 @@ if (!customElements.get('vehicle-card')) {
     type: 'vehicle-card',
     name: rnT(rnPickerLang(), 'card_name'),
     description: rnT(rnPickerLang(), 'card_desc'),
-    preview: true,
+    preview: false,
     documentationURL: 'https://github.com/juju35/ha-vehicle-card',
   });
 }
@@ -6043,7 +6043,7 @@ if (!customElements.get('vehicle-mini-card')) {
     type: 'vehicle-mini-card',
     name: rnT(rnPickerLang(), 'mini_name'),
     description: rnT(rnPickerLang(), 'mini_desc'),
-    preview: true,
+    preview: false,
     documentationURL: 'https://github.com/juju35/ha-vehicle-card',
   });
 }
@@ -7860,7 +7860,7 @@ if (!customElements.get('vehicle-map-card')) {
     type: 'vehicle-map-card',
     name: 'Vehicle Map Card',
     description: 'Map of your vehicles, of any brand, with Home Assistant, OpenStreetMap, IGN or satellite base maps',
-    preview: true,
+    preview: false,
     documentationURL: 'https://github.com/juju35/ha-vehicle-card',
   });
 }
