@@ -319,6 +319,9 @@ const icons = {
   "power-plug": "M16,7V3H14V7H10V3H8V7H8C7,7 6,8 6,9V14.5L9.5,18V21H14.5V18L18,14.5V9C18,8 17,7 16,7Z",
   "power-plug-off": "M20.84 22.73L15.31 17.2L14.5 18V21H9.5V18L6 14.5V9C6 8.7 6.1 8.41 6.25 8.14L1.11 3L2.39 1.73L22.11 21.46L20.84 22.73M18 14.5V9C18 8 17 7 16 7V3H14V7H10.2L17.85 14.65L18 14.5M10 3H8V4.8L10 6.8V3Z",
   "power-plug-off-outline": "M22.11 21.46L2.39 1.73L1.11 3L6.25 8.14C6.1 8.41 6 8.7 6 9V14.5L9.5 18V21H14.5V18L15.31 17.2L20.84 22.73L22.11 21.46M13.09 16.59L12.67 17H11.33L10.92 16.59L8 13.67V9.89L13.89 15.78L13.09 16.59M12.2 9L10.2 7H14V3H16V7C17 7 18 8 18 9V14.5L17.85 14.65L16 12.8V9.09C16 9.06 15.95 9 15.92 9H12.2M10 6.8L8 4.8V3H10V6.8Z",
+  "battery-heart-variant": "M16.67 4H15V2H9V4H7.33A1.34 1.34 0 0 0 6 5.33V20.67A1.34 1.34 0 0 0 7.33 22H16.67A1.34 1.34 0 0 0 18 20.67V5.33A1.34 1.34 0 0 0 16.67 4M12.58 15.64L12 16.17L11.42 15.64C9.36 13.77 8 12.54 8 11A2.18 2.18 0 0 1 10.2 8.8A2.4 2.4 0 0 1 12 9.63A2.4 2.4 0 0 1 13.8 8.8A2.18 2.18 0 0 1 16 11C16 12.54 14.64 13.77 12.58 15.64Z",
+  "shield-car": "M14.42 7.5L16 11H8L9.42 7.5H14.42M9 12C8.45 12 8 12.45 8 13S8.45 14 9 14 10 13.55 10 13 9.55 12 9 12M15 12C14.45 12 14 12.45 14 13S14.45 14 15 14 16 13.55 16 13 15.55 12 15 12M21 5V11C21 16.55 17.16 21.74 12 23C6.84 21.74 3 16.55 3 11V5L12 1L21 5M18 12L15.84 7C15.64 6.42 15.08 6 14.42 6H9.42C8.76 6 8.2 6.42 8 7L6 12V16C6 16.55 6.45 17 7 17H8C8.55 17 9 16.55 9 16V15H15V16C15 16.55 15.45 17 16 17H17C17.55 17 18 16.55 18 16V12Z",
+  "speedometer": "M12,16A3,3 0 0,1 9,13C9,11.88 9.61,10.9 10.5,10.39L20.21,4.77L14.68,14.35C14.18,15.33 13.17,16 12,16M12,3C13.81,3 15.5,3.5 16.97,4.32L14.87,5.53C14,5.19 13,5 12,5A8,8 0 0,0 4,13C4,15.21 4.89,17.21 6.34,18.65H6.35C6.74,19.04 6.74,19.67 6.35,20.06C5.96,20.45 5.32,20.45 4.93,20.07V20.07C3.12,18.26 2,15.76 2,13A10,10 0 0,1 12,3M22,13C22,15.76 20.88,18.26 19.07,20.07V20.07C18.68,20.45 18.05,20.45 17.66,20.06C17.27,19.67 17.27,19.04 17.66,18.65V18.65C19.11,17.2 20,15.21 20,13C20,12 19.81,11 19.46,10.1L20.67,8C21.5,9.5 22,11.18 22,13Z",
   "thermometer": "M15 13V5A3 3 0 0 0 9 5V13A5 5 0 1 0 15 13M12 4A1 1 0 0 1 13 5V8H11V5A1 1 0 0 1 12 4Z"
 };
 
@@ -372,6 +375,12 @@ T("lock.model_3_lock", "vehicle_state_locked", "locked", { friendly_name: "Model
 T("device_tracker.model_3_location", "location", "home", { latitude: 48.11, longitude: -1.68, friendly_name: "Model 3 Location" });
 T("button.model_3_honk_horn", "honk", "unknown", { friendly_name: "Model 3 Honk horn" });
 T("button.model_3_flash_lights", "flash_lights", "unknown", { friendly_name: "Model 3 Flash lights" });
+// Extra tiles (extra_tiles): entities of another device, so the e-208's own tiles stay as they are.
+const XT = (...a) => add("e208_extra", "template", ...a);
+// The page has no formatEntityState: the state is written as Home Assistant shows it.
+XT("alarm_control_panel.e_208_alarm", "alarm", "Armed away", { friendly_name: "e-208 Alarm" });
+XT("sensor.e_208_speed", "speed", "0", { friendly_name: "e-208 Speed", device_class: "speed", unit_of_measurement: "km/h" });
+XT("sensor.e_208_battery_soh", "battery_soh", "96", { friendly_name: "e-208 Health", unit_of_measurement: "%", icon: "mdi:battery-heart-variant" });
 add("wallbox", "wallbox", "switch.wallbox_pause_resume", "pause_resume", "on", { friendly_name: "Wallbox", icon: "mdi:ev-station" });
 // One vehicle per car integration, with the translation keys (or, for mbapi2020, the entity IDs) the integration
 // gives, to show what the card reads from each brand (README, "Screenshots"). The pictures are the makers' renders
@@ -554,6 +563,12 @@ await render(
       { file: `mini-${d}`, type: "vehicle-mini-card", theme: "light", width: 280, config: brandConfig(d) },
       { file: `mini-${d}-dark`, type: "vehicle-mini-card", theme: "dark", width: 280, config: brandConfig(d) },
     ]),
+    // Extra tiles after the card's own, and a plate typed by hand (the integration does not give it).
+    ...["light", "dark"].map((theme) => ({
+      file: theme === "dark" ? "extra-tiles-dark" : "extra-tiles", type: "vehicle-card", theme, width: 460,
+      config: { ...brandConfig("e208"), plate: "AB-123-CD", show_actions: false, show_location: false,
+        extra_tiles: ["alarm_control_panel.e_208_alarm", "sensor.e_208_speed", "sensor.e_208_battery_soh"] },
+    })),
     { file: "mini", type: "vehicle-mini-card", theme: "light", width: 280, config: { device_id: "captur" } },
     { file: "mini-dark", type: "vehicle-mini-card", theme: "dark", width: 280, config: { device_id: "captur" } },
     // The mini card expanded with its top right button: the full card, at the full card's width.

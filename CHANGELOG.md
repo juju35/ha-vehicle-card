@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.12.0 - 2026-11-22
+
+### Features
+- **Extra tiles** (#104): `extra_tiles` adds any entity as a tile after the card's own (alarm, speed, fuel left, battery health…), of the car or of another device. Each tile takes its name (without the vehicle's name), icon and state from Home Assistant, a state in % gets a bar; an entry can set its own `name`, `icon`, `bar`, `tap_action` and `hold_action`. A list of entity IDs is in the visual editor (**Extra tiles**), translated into the 22 languages.
+- **Licence plate typed by hand** (#104): `plate` shows the registration when the integration does not give it in the device name; a French one gets its dashes, any other is shown as typed (and no longer stretched across the plate). Also in the visual editor, translated into the 22 languages.
+
 ## 3.11.0 - 2026-11-20
 
 ### Features

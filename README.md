@@ -262,6 +262,38 @@ tile_options:
 
 The action buttons and the lease section keep their own behaviour.
 
+### Extra tiles
+
+`extra_tiles` adds any entity as a tile after the card's own: one your integration exposes but the card does not show (alarm, speed, fuel left in litres and in %, battery health…), or an entity of another device. Each tile takes its name (without the vehicle's name), its icon and its state from Home Assistant; a state in % gets a bar. The `tiles` option does not hide them.
+
+```yaml
+extra_tiles:
+  - alarm_control_panel.e_208_alarm
+  - sensor.e_208_speed
+  - entity: sensor.e_208_fuel_level
+    name: Diesel
+    icon: mdi:fuel
+    bar: false            # no bar under a state in %
+    tap_action:
+      action: navigate
+      navigation_path: /energy
+```
+
+An entry is an entity ID, or an object with `entity` and optional `name`, `icon`, `bar`, `tap_action` and `hold_action` (which win over the card's). A list of entity IDs is in the visual editor (**Extra tiles**); with names or icons it is YAML only.
+
+| Light | Dark |
+|---|---|
+| <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/screenshots/extra-tiles.png" alt="Extra tiles and a typed plate" width="387"> | <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/screenshots/extra-tiles-dark.png" alt="Extra tiles and a typed plate, dark theme" width="387"> |
+
+### Licence plate
+
+The plate shows when the vehicle's device name is a French registration (`GW782EN` → `GW-782-EN`). When your integration does not give it, type it with `plate` (also in the visual editor): a French registration gets its dashes, any other is shown as typed.
+
+```yaml
+plate: AB-123-CD
+plate_department: "35"
+```
+
 ### Battery and fuel bar colours
 
 By default the bars of the battery and fuel tiles turn red under 10 %, orange under 25 % and use the accent colour above. `battery_severity` and `fuel_severity` set your own thresholds, as in Home Assistant's gauge card: each colour applies from its level up (the theme's success, warning and error colours), and a level under the lowest threshold takes the lowest colour. Also in the visual editor (**Battery bar colours**, **Fuel bar colours**).
@@ -308,10 +340,12 @@ fuel_tank_capacity: 55
 low_range: 100
 low_tyre_pressure: 2.2
 show_plate: true
+plate: AB-123-CD
 plate_department: "35"
 image_height: 150
 show_chips: true
 tiles: [battery_level, battery_autonomy, fuel_autonomy, fuel, mileage, outside_temperature, tyres]
+extra_tiles: [alarm_control_panel.espace_alarm, sensor.espace_speed]
 show_location: true
 show_actions: true
 show_data_plan: true
@@ -347,7 +381,8 @@ entities:
 | `fuel_tank_capacity` | ❌ | — | Tank capacity in litres; shows the fuel gauge |
 | `low_range` | ❌ | `100` | Range (km) below which the card shows a low range warning; `0` turns it off. Converted when the range sensor reads miles. On a plug-in hybrid it is compared with the fuel plus battery range, so an empty battery alone does not warn |
 | `low_tyre_pressure` | ❌ | — | Tyre pressure (bar, whatever unit the sensors use) below which the tyre tile and a chip show a warning; empty or `0` turns it off |
-| `show_plate` | ❌ | `true` | Show the licence plate (when the device name is a French plate) |
+| `show_plate` | ❌ | `true` | Show the licence plate (when the device name is a French plate, or with `plate`) |
+| `plate` | ❌ | — | Registration typed by hand, for an integration that does not give it in the device name; a French one gets its dashes (`AB123CD` → `AB-123-CD`), any other is shown as typed. See [Licence plate](#licence-plate) |
 | `plate_department` | ❌ | — | Department number on the right of the plate, e.g. `35`; departments of Brittany, Occitania, Île-de-France, Provence, Corsica and Burgundy get their traditional regional emblem |
 | `show_location` | ❌ | `true` | Show the location row |
 | `show_actions` | ❌ | `true` | Show the action buttons and charge mode |
@@ -356,6 +391,7 @@ entities:
 | `fuel_severity` | ❌ | — | Same for the fuel bar |
 | `tap_action` | ❌ | `more-info` | Action on a tap on a tile, chip or row ([Home Assistant actions](https://www.home-assistant.io/dashboards/actions/)); `action: none` for no dialog |
 | `hold_action` | ❌ | `none` | Action on a press held for half a second on a tile, chip or row |
+| `extra_tiles` | ❌ | — | Extra tiles after the card's own: a list of entity IDs, or of objects with `entity` and optional `name`, `icon`, `bar` (`false`: no bar under a state in %), `tap_action`, `hold_action`. In the visual editor while it is a list of entity IDs. See [Extra tiles](#extra-tiles) |
 | `tile_options` | ❌ | — | YAML only. Per tile (`battery_level`, `battery_autonomy`, `fuel_autonomy`, `fuel`, `mileage`, `outside_temperature`, `tyres`): `name`, `icon`, `tap_action`, `hold_action` (see [Tiles: names, icons and actions](#tiles-names-icons-and-actions)) |
 | `buttons` | ❌ | — | Extra action buttons: a list of entity IDs (`button`, `switch`, `input_boolean`, `script`, `scene`, `automation`, `lock`, `climate`, `light`, `fan`, `cover`…), after the vehicle's own buttons. A tap presses, runs, locks / unlocks or toggles the entity, after the confirmation tap |
 | `show_data_plan` | ❌ | `true` | Show the Orange Internet On the move section when a data plan is found, and the connected services subscription of the car |

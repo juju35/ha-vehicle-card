@@ -2268,3 +2268,73 @@ test("a push for another entity of the instance costs no signature; a change of 
     VmJSON.stringify = stringify;
   }
 });
+
+test("extra_tiles: one tile per entity after the card's own, with its name, icon, state and a bar for a %", () => {
+  const card = Object.create(RenaultCard.prototype);
+  card._config = {
+    extra_tiles: [
+      "alarm_control_panel.car_alarm",
+      { entity: "sensor.car_fuel_level", name: "Diesel", icon: "mdi:fuel" },
+      { entity: "sensor.car_battery_soh", bar: false },
+      "sensor.missing",
+    ],
+  };
+  card._hass = {
+    language: "en",
+    entities: {},
+    states: {
+      "alarm_control_panel.car_alarm": { state: "armed_away", attributes: { friendly_name: "Peugeot 3008 Alarm" } },
+      "sensor.car_fuel_level": { state: "42", attributes: { friendly_name: "Peugeot 3008 Fuel level", unit_of_measurement: "%" } },
+      "sensor.car_battery_soh": { state: "97", attributes: { friendly_name: "Battery health", unit_of_measurement: "%" } },
+    },
+    formatEntityState: (s) => (s.state === "armed_away" ? "Armed away" : `${s.state} ${s.attributes.unit_of_measurement}`),
+  };
+  const tiles = card._extraTiles("Peugeot 3008");
+  assert.equal(tiles.length, 3);
+  // Name without the vehicle's name, the domain's icon, the formatted state, its own key for patching and actions.
+  assert.match(tiles[0], /data-more="alarm_control_panel.car_alarm" data-tile="extra-0"/);
+  assert.match(tiles[0], /icon="mdi:shield-car"/);
+  assert.match(tiles[0], />Alarm</);
+  assert.match(tiles[0], />Armed away</);
+  assert.doesNotMatch(tiles[0], /class="bar"/);
+  // The entry's name and icon win; a state in % gets a bar, unless bar: false.
+  assert.match(tiles[1], />Diesel</);
+  assert.match(tiles[1], /icon="mdi:fuel"/);
+  assert.match(tiles[1], /class="fill" style="width:42%/);
+  assert.doesNotMatch(tiles[2], /class="bar"/);
+});
+
+test("extra_tiles: each tile takes its own tap_action / hold_action, else the card's", () => {
+  const card = Object.create(RenaultCard.prototype);
+  card._config = {
+    tap_action: { action: "none" },
+    extra_tiles: ["sensor.a", { entity: "sensor.b", tap_action: { action: "navigate", navigation_path: "/car" } }],
+  };
+  assert.equal(card._actionCfg({ dataset: { tile: "extra-0" } }, "tap"), null);
+  assert.equal(card._actionCfg({ dataset: { tile: "extra-1" } }, "tap").navigation_path, "/car");
+  assert.equal(card._tileOpt("extra-7").name, undefined);
+});
+
+test("plate option: a typed registration, French SIV with its dashes, others as typed", () => {
+  assert.equal(ctx.rnPlateOption("ab123cd"), "AB-123-CD");
+  assert.equal(ctx.rnPlateOption(" b-ab 1234 "), "B-AB 1234");
+  assert.equal(ctx.rnPlateOption(""), null);
+  assert.equal(ctx.rnPlateOption(undefined), null);
+  // A French plate keeps the regulation width; a shorter registration is not stretched across the plate.
+  assert.match(ctx.rnPlateSvg("AB-123-CD"), /textLength="400"/);
+  assert.match(ctx.rnPlateSvg("AB 12"), /textLength="285"/);
+});
+
+test("card editor: extra_tiles is an entity list while it holds entity IDs, YAML only with objects; an empty list is dropped", () => {
+  const Editor = defined["renault-card-editor"];
+  const names = (schema) => schema.flatMap((s) => (s.schema ? names(s.schema) : [s.name]));
+  const ed = new Editor();
+  ed._config = { extra_tiles: ["sensor.a"] };
+  assert.ok(names(ed._schema()).includes("extra_tiles"));
+  assert.ok(names(ed._schema()).includes("plate"));
+  ed._config = { extra_tiles: [{ entity: "sensor.a", name: "A" }] };
+  assert.ok(!names(ed._schema()).includes("extra_tiles"));
+  ed._config = { type: "custom:vehicle-card" };
+  ed._valueChanged({ stopPropagation() {}, detail: { value: { extra_tiles: [], plate: "" } } });
+  assert.deepEqual(Object.keys(ed._config), ["type"]);
+});
