@@ -1,3 +1,71 @@
+// ── Card picker: light previews ──────────────────────────────────────────────
+// Home Assistant's card picker builds a live preview of every card registered with `preview: true`, all at once and
+// with no lazy loading. A preview here is drawn only once it scrolls into view: the picker calls getStubConfig() right
+// before it creates the preview, which marks the next instance of that card; once connected under <hui-card-picker>,
+// that instance holds Home Assistant's state (no render, no history, no animation) until it is visible. Anywhere else
+// (a dashboard, the card editor) the card behaves as before. Editors and other elements are defined unchanged.
+function pickerDefine(tag, Card, options) {
+  const isCard = !tag.endsWith("-editor") && (typeof Card.getStubConfig === "function" || typeof Card.getConfigElement === "function");
+  if (!isCard || typeof IntersectionObserver !== "function") return customElements.define(tag, Card, options);
+  let marks = [];
+  const lazy = class extends Card {
+    static getStubConfig(...args) {
+      marks.push(Date.now());
+      return Card.getStubConfig ? Card.getStubConfig(...args) : {};
+    }
+
+    constructor() {
+      super();
+      const now = Date.now();
+      marks = marks.filter((t) => now - t < 5000);
+      if (marks.length) {
+        marks.shift();
+        this._plHold = true;
+      }
+    }
+
+    set hass(hass) {
+      if (this._plHold) this._plHass = hass;
+      else super.hass = hass;
+    }
+
+    get hass() {
+      return this._plHold ? this._plHass : super.hass;
+    }
+
+    connectedCallback() {
+      if (!this._plHold) return super.connectedCallback?.();
+      if (this.getRootNode()?.host?.localName !== "hui-card-picker") return this._plRelease();
+      if (this._plIo) return;
+      // A custom element is inline until its styles arrive: a block of a card's height keeps the cells apart, so
+      // that only the previews actually on screen intersect.
+      this.style.display = "block";
+      this.style.minHeight = "120px";
+      this._plIo = new IntersectionObserver((entries) => entries.some((e) => e.isIntersecting) && this._plRelease(), {
+        rootMargin: "200px",
+      });
+      this._plIo.observe(this);
+    }
+
+    disconnectedCallback() {
+      if (this._plHold) return;
+      super.disconnectedCallback?.();
+    }
+
+    _plRelease() {
+      this._plIo?.disconnect();
+      this._plIo = null;
+      this._plHold = false;
+      this.style.display = "";
+      this.style.minHeight = "";
+      if (this._plHass !== undefined) super.hass = this._plHass;
+      this._plHass = undefined;
+      if (this.isConnected) super.connectedCallback?.();
+    }
+  };
+  return customElements.define(tag, lazy, options);
+}
+
 var RENAULT_CARD_VERSION = '__VERSION__';
 
 // Leaflet 1.9.4 stylesheet (BSD-2-Clause, see licenses/LICENSE-leaflet), inlined for the map card's shadow root.
@@ -5889,7 +5957,7 @@ class RenaultCardEditor extends HTMLElement {
 }
 
 if (!customElements.get('renault-card-editor')) {
-  customElements.define('renault-card-editor', RenaultCardEditor);
+  pickerDefine('renault-card-editor', RenaultCardEditor);
 }
 
 // The mini card's editor: the full card's options (its expanded view uses them) and the detail button.
@@ -5904,22 +5972,22 @@ class RenaultMiniCardEditor extends RenaultCardEditor {
 }
 
 if (!customElements.get('renault-mini-card-editor')) {
-  customElements.define('renault-mini-card-editor', RenaultMiniCardEditor);
+  pickerDefine('renault-mini-card-editor', RenaultMiniCardEditor);
 }
 
 // vehicle-… since the cards cover every brand; renault-… (their former name) stays defined for the dashboards that use it.
 if (!customElements.get('vehicle-card')) {
-  customElements.define('vehicle-card', class extends RenaultCard {});
+  pickerDefine('vehicle-card', class extends RenaultCard {});
   window.customCards = window.customCards || [];
   window.customCards.push({
     type: 'vehicle-card',
     name: rnT(rnPickerLang(), 'card_name'),
     description: rnT(rnPickerLang(), 'card_desc'),
-    preview: false,
+    preview: true,
     documentationURL: 'https://github.com/juju35/ha-vehicle-card',
   });
 }
-if (!customElements.get('renault-card')) customElements.define('renault-card', class extends RenaultCard {});
+if (!customElements.get('renault-card')) pickerDefine('renault-card', class extends RenaultCard {});
 
 // ── renault-mini-card ────────────────────────────────────────────────────────
 // A click in a more-info or other dialog opened from the card is not "outside" it.
@@ -6037,17 +6105,17 @@ class RenaultMiniCard extends RenaultCard {
 
 // vehicle-… since the cards cover every brand; renault-… (their former name) stays defined for the dashboards that use it.
 if (!customElements.get('vehicle-mini-card')) {
-  customElements.define('vehicle-mini-card', class extends RenaultMiniCard {});
+  pickerDefine('vehicle-mini-card', class extends RenaultMiniCard {});
   window.customCards = window.customCards || [];
   window.customCards.push({
     type: 'vehicle-mini-card',
     name: rnT(rnPickerLang(), 'mini_name'),
     description: rnT(rnPickerLang(), 'mini_desc'),
-    preview: false,
+    preview: true,
     documentationURL: 'https://github.com/juju35/ha-vehicle-card',
   });
 }
-if (!customElements.get('renault-mini-card')) customElements.define('renault-mini-card', class extends RenaultMiniCard {});
+if (!customElements.get('renault-mini-card')) pickerDefine('renault-mini-card', class extends RenaultMiniCard {});
 
 // ── renault-map-card ─────────────────────────────────────────────────────────
 // Leaflet and MapLibre ship with the card in dist/ (all .js, so HACS downloads them): no CDN,
@@ -7849,21 +7917,21 @@ class RenaultMapCardEditor extends HTMLElement {
 }
 
 if (!customElements.get('renault-map-card-editor')) {
-  customElements.define('renault-map-card-editor', RenaultMapCardEditor);
+  pickerDefine('renault-map-card-editor', RenaultMapCardEditor);
 }
 
 // vehicle-… since the cards cover every brand; renault-… (their former name) stays defined for the dashboards that use it.
 if (!customElements.get('vehicle-map-card')) {
-  customElements.define('vehicle-map-card', class extends RenaultMapCard {});
+  pickerDefine('vehicle-map-card', class extends RenaultMapCard {});
   window.customCards = window.customCards || [];
   window.customCards.push({
     type: 'vehicle-map-card',
     name: 'Vehicle Map Card',
     description: 'Map of your vehicles, of any brand, with Home Assistant, OpenStreetMap, IGN or satellite base maps',
-    preview: false,
+    preview: true,
     documentationURL: 'https://github.com/juju35/ha-vehicle-card',
   });
 }
-if (!customElements.get('renault-map-card')) customElements.define('renault-map-card', class extends RenaultMapCard {});
+if (!customElements.get('renault-map-card')) pickerDefine('renault-map-card', class extends RenaultMapCard {});
 
 console.info(`%c VEHICLE-CARD %c v${RENAULT_CARD_VERSION} `, 'color:#000;background:#ffcc33;font-weight:700', 'color:#000;background:#fff');
