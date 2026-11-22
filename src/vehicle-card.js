@@ -83,6 +83,10 @@ var RnI18n = {
     ed_show_plate: 'Plaque d\'immatriculation',
     ed_plate_department: 'Département de la plaque',
     ed_plate_department_helper: 'Numéro affiché à droite de la plaque, par exemple 35 (emblème régional traditionnel affiché selon le département : Bretagne, Occitanie, Île-de-France, Provence, Corse, Bourgogne)',
+    ed_plate: 'Plaque d\'immatriculation (saisie)',
+    ed_plate_helper: 'Si l\'intégration ne la donne pas, par exemple AB-123-CD',
+    ed_extra_tiles: 'Tuiles supplémentaires',
+    ed_extra_tiles_helper: 'N\'importe quelle entité (alarme, vitesse, gazole…), affichée en tuile après celles de la carte',
     ed_show_location: 'Position',
     ed_show_actions: 'Boutons d\'action',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -235,6 +239,10 @@ var RnI18n = {
     ed_show_plate: 'Licence plate',
     ed_plate_department: 'Plate department',
     ed_plate_department_helper: 'Number shown on the right of the plate, for example 35 (traditional regional emblem shown by department: Brittany, Occitania, Île-de-France, Provence, Corsica, Burgundy)',
+    ed_plate: 'Licence plate (typed)',
+    ed_plate_helper: 'When the integration does not give it, for example AB-123-CD',
+    ed_extra_tiles: 'Extra tiles',
+    ed_extra_tiles_helper: 'Any entity (alarm, speed, diesel left…), shown as a tile after the card\'s own',
     ed_show_location: 'Location',
     ed_show_actions: 'Action buttons',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -387,6 +395,10 @@ var RnI18n = {
     ed_show_plate: 'Kennzeichen',
     ed_plate_department: 'Département auf dem Kennzeichen',
     ed_plate_department_helper: 'Nummer rechts auf dem Kennzeichen, zum Beispiel 35 (traditionelles Regionalwappen je nach Département: Bretagne, Okzitanien, Île-de-France, Provence, Korsika, Burgund)',
+    ed_plate: 'Kennzeichen (eingegeben)',
+    ed_plate_helper: 'Wenn die Integration es nicht liefert, zum Beispiel AB-123-CD',
+    ed_extra_tiles: 'Zusätzliche Kacheln',
+    ed_extra_tiles_helper: 'Beliebige Entität (Alarm, Geschwindigkeit, Diesel…), als Kachel nach denen der Karte angezeigt',
     ed_show_location: 'Standort',
     ed_show_actions: 'Aktionsschaltflächen',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -539,6 +551,10 @@ var RnI18n = {
     ed_show_plate: 'Matrícula',
     ed_plate_department: 'Departamento de la matrícula',
     ed_plate_department_helper: 'Número que aparece a la derecha de la matrícula, por ejemplo 35 (emblema regional tradicional según el departamento: Bretaña, Occitania, Isla de Francia, Provenza, Córcega, Borgoña)',
+    ed_plate: 'Matrícula (introducida)',
+    ed_plate_helper: 'Si la integración no la proporciona, por ejemplo AB-123-CD',
+    ed_extra_tiles: 'Mosaicos adicionales',
+    ed_extra_tiles_helper: 'Cualquier entidad (alarma, velocidad, gasóleo…), mostrada como mosaico tras los de la tarjeta',
     ed_show_location: 'Ubicación',
     ed_show_actions: 'Botones de acción',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -691,6 +707,10 @@ var RnI18n = {
     ed_show_plate: 'Регистарска таблица',
     ed_plate_department: 'Департман на таблици',
     ed_plate_department_helper: 'Број приказан десно на таблици, на пример 35 (традиционални регионални амблем према департману: Бретања, Окситанија, Ил де Франс, Прованса, Корзика, Бургундија)',
+    ed_plate: 'Регистарска таблица (унета)',
+    ed_plate_helper: 'Ако је интеграција не даје (текст се приказује онако како је унет)',
+    ed_extra_tiles: 'Додатне плочице',
+    ed_extra_tiles_helper: 'Било који ентитет (аларм, брзина, дизел…), приказан као плочица после плочица картице',
     ed_show_location: 'Локација',
     ed_show_actions: 'Дугмад за радње',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -843,6 +863,10 @@ var RnI18n = {
     ed_show_plate: 'Registarska tablica',
     ed_plate_department: 'Departman na tablici',
     ed_plate_department_helper: 'Broj prikazan desno na tablici, na primer 35 (tradicionalni regionalni amblem prema departmanu: Bretanja, Oksitanija, Il de Frans, Provansa, Korzika, Burgundija)',
+    ed_plate: 'Registarska tablica (uneta)',
+    ed_plate_helper: 'Ako je integracija ne daje, na primer AB-123-CD',
+    ed_extra_tiles: 'Dodatne pločice',
+    ed_extra_tiles_helper: 'Bilo koji entitet (alarm, brzina, dizel…), prikazan kao pločica posle pločica kartice',
     ed_show_location: 'Lokacija',
     ed_show_actions: 'Dugmad za radnje',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -995,6 +1019,10 @@ var RnI18n = {
     ed_show_plate: 'Targa',
     ed_plate_department: 'Dipartimento della targa',
     ed_plate_department_helper: 'Numero mostrato a destra della targa, ad esempio 35 (emblema regionale tradizionale mostrato in base al dipartimento: Bretagna, Occitania, Île-de-France, Provenza, Corsica, Borgogna)',
+    ed_plate: 'Targa (inserita)',
+    ed_plate_helper: 'Se l\'integrazione non la fornisce, ad esempio AB-123-CD',
+    ed_extra_tiles: 'Riquadri aggiuntivi',
+    ed_extra_tiles_helper: 'Qualsiasi entità (allarme, velocità, gasolio…), mostrata come riquadro dopo quelli della scheda',
     ed_show_location: 'Posizione',
     ed_show_actions: 'Pulsanti di azione',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -1147,6 +1175,10 @@ var RnI18n = {
     ed_show_plate: 'Kenteken',
     ed_plate_department: 'Departement van het kenteken',
     ed_plate_department_helper: 'Nummer rechts op het kenteken, bijvoorbeeld 35 (traditioneel regionaal embleem volgens het departement: Bretagne, Occitanië, Île-de-France, Provence, Corsica, Bourgondië)',
+    ed_plate: 'Kenteken (ingevoerd)',
+    ed_plate_helper: 'Als de integratie het niet geeft, bijvoorbeeld AB-123-CD',
+    ed_extra_tiles: 'Extra tegels',
+    ed_extra_tiles_helper: 'Elke entiteit (alarm, snelheid, diesel…), getoond als tegel na die van de kaart',
     ed_show_location: 'Locatie',
     ed_show_actions: 'Actieknoppen',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -1299,6 +1331,10 @@ var RnI18n = {
     ed_show_plate: 'Matrícula',
     ed_plate_department: 'Departamento da matrícula',
     ed_plate_department_helper: 'Número mostrado à direita da matrícula, por exemplo 35 (emblema regional tradicional mostrado conforme o departamento: Bretanha, Occitânia, Île-de-France, Provença, Córsega, Borgonha)',
+    ed_plate: 'Matrícula (introduzida)',
+    ed_plate_helper: 'Se a integração não a fornecer, por exemplo AB-123-CD',
+    ed_extra_tiles: 'Mosaicos adicionais',
+    ed_extra_tiles_helper: 'Qualquer entidade (alarme, velocidade, gasóleo…), mostrada como mosaico após os do cartão',
     ed_show_location: 'Localização',
     ed_show_actions: 'Botões de ação',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -1451,6 +1487,10 @@ var RnI18n = {
     ed_show_plate: 'Tablica rejestracyjna',
     ed_plate_department: 'Departament na tablicy',
     ed_plate_department_helper: 'Numer wyświetlany po prawej stronie tablicy, na przykład 35 (tradycyjny herb regionu wyświetlany zależnie od departamentu: Bretania, Oksytania, Île-de-France, Prowansja, Korsyka, Burgundia)',
+    ed_plate: 'Tablica rejestracyjna (wpisana)',
+    ed_plate_helper: 'Gdy integracja jej nie podaje, na przykład AB-123-CD',
+    ed_extra_tiles: 'Dodatkowe kafelki',
+    ed_extra_tiles_helper: 'Dowolna encja (alarm, prędkość, olej napędowy…), wyświetlana jako kafelek po kafelkach karty',
     ed_show_location: 'Lokalizacja',
     ed_show_actions: 'Przyciski akcji',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -1603,6 +1643,10 @@ var RnI18n = {
     ed_show_plate: 'Număr de înmatriculare',
     ed_plate_department: 'Departamentul de pe număr',
     ed_plate_department_helper: 'Numărul afișat în dreapta plăcuței, de exemplu 35 (stema regională tradițională afișată în funcție de departament: Bretania, Occitania, Île-de-France, Provence, Corsica, Burgundia)',
+    ed_plate: 'Număr de înmatriculare (introdus)',
+    ed_plate_helper: 'Dacă integrarea nu îl oferă, de exemplu AB-123-CD',
+    ed_extra_tiles: 'Plăci suplimentare',
+    ed_extra_tiles_helper: 'Orice entitate (alarmă, viteză, motorină…), afișată ca placă după cele ale cardului',
     ed_show_location: 'Locație',
     ed_show_actions: 'Butoane de acțiune',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -1755,6 +1799,10 @@ var RnI18n = {
     ed_show_plate: 'Nummerplade',
     ed_plate_department: 'Departement på nummerpladen',
     ed_plate_department_helper: 'Nummer til højre på nummerpladen, for eksempel 35 (traditionelt regionalt våbenskjold efter departement: Bretagne, Occitanien, Île-de-France, Provence, Korsika, Bourgogne)',
+    ed_plate: 'Nummerplade (indtastet)',
+    ed_plate_helper: 'Når integrationen ikke giver den, for eksempel AB-123-CD',
+    ed_extra_tiles: 'Ekstra felter',
+    ed_extra_tiles_helper: 'Enhver enhed (alarm, hastighed, diesel…), vist som felt efter kortets egne',
     ed_show_location: 'Placering',
     ed_show_actions: 'Handlingsknapper',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -1907,6 +1955,10 @@ var RnI18n = {
     ed_show_plate: 'Registreringsskylt',
     ed_plate_department: 'Departement på skylten',
     ed_plate_department_helper: 'Nummer till höger på skylten, till exempel 35 (traditionellt regionalt vapen beroende på departement: Bretagne, Occitanien, Île-de-France, Provence, Korsika, Bourgogne)',
+    ed_plate: 'Registreringsskylt (inskriven)',
+    ed_plate_helper: 'När integrationen inte ger den, till exempel AB-123-CD',
+    ed_extra_tiles: 'Extra rutor',
+    ed_extra_tiles_helper: 'Vilken entitet som helst (larm, hastighet, diesel…), visad som ruta efter kortets egna',
     ed_show_location: 'Plats',
     ed_show_actions: 'Åtgärdsknappar',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -2059,6 +2111,10 @@ var RnI18n = {
     ed_show_plate: 'Регистрационен номер',
     ed_plate_department: 'Департамент на номера',
     ed_plate_department_helper: 'Число вдясно на номера, например 35 (традиционен регионален герб според департамента: Бретан, Окситания, Ил дьо Франс, Прованс, Корсика, Бургундия)',
+    ed_plate: 'Регистрационен номер (въведен)',
+    ed_plate_helper: 'Когато интеграцията не го дава, например AB-123-CD',
+    ed_extra_tiles: 'Допълнителни плочки',
+    ed_extra_tiles_helper: 'Всеки обект (аларма, скорост, дизел…), показан като плочка след тези на картата',
     ed_show_location: 'Местоположение',
     ed_show_actions: 'Бутони за действия',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -2211,6 +2267,10 @@ var RnI18n = {
     ed_show_plate: 'Номерной знак',
     ed_plate_department: 'Департамент на номере',
     ed_plate_department_helper: 'Число справа на номерном знаке, например 35 (традиционный герб региона в зависимости от департамента: Бретань, Окситания, Иль-де-Франс, Прованс, Корсика, Бургундия)',
+    ed_plate: 'Номерной знак (введённый)',
+    ed_plate_helper: 'Если интеграция его не передаёт, например AB-123-CD',
+    ed_extra_tiles: 'Дополнительные плитки',
+    ed_extra_tiles_helper: 'Любая сущность (сигнализация, скорость, дизель…), показанная плиткой после плиток карточки',
     ed_show_location: 'Местоположение',
     ed_show_actions: 'Кнопки действий',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -2363,6 +2423,10 @@ var RnI18n = {
     ed_show_plate: 'Номерний знак',
     ed_plate_department: 'Департамент на номері',
     ed_plate_department_helper: 'Число праворуч на номерному знаку, наприклад 35 (традиційний герб регіону залежно від департаменту: Бретань, Окситанія, Іль-де-Франс, Прованс, Корсика, Бургундія)',
+    ed_plate: 'Номерний знак (введений)',
+    ed_plate_helper: 'Якщо інтеграція його не передає, наприклад AB-123-CD',
+    ed_extra_tiles: 'Додаткові плитки',
+    ed_extra_tiles_helper: 'Будь-яка сутність (сигналізація, швидкість, дизель…), показана плиткою після плиток картки',
     ed_show_location: 'Розташування',
     ed_show_actions: 'Кнопки дій',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -2515,6 +2579,10 @@ var RnI18n = {
     ed_show_plate: 'Rendszámtábla',
     ed_plate_department: 'Département a rendszámon',
     ed_plate_department_helper: 'A rendszám jobb oldalán látható szám, például 35 (a megyétől függően hagyományos regionális címer: Bretagne, Okszitánia, Île-de-France, Provence, Korzika, Burgundia)',
+    ed_plate: 'Rendszám (beírt)',
+    ed_plate_helper: 'Ha az integráció nem adja meg, például AB-123-CD',
+    ed_extra_tiles: 'További csempék',
+    ed_extra_tiles_helper: 'Bármely entitás (riasztó, sebesség, gázolaj…), csempeként a kártya sajátjai után',
     ed_show_location: 'Hely',
     ed_show_actions: 'Műveletgombok',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -2667,6 +2735,10 @@ var RnI18n = {
     ed_show_plate: 'Evidenčné číslo',
     ed_plate_department: 'Departement na tabuľke',
     ed_plate_department_helper: 'Číslo zobrazené vpravo na tabuľke, napríklad 35 (tradičný regionálny erb podľa departementu: Bretónsko, Okcitánia, Île-de-France, Provensalsko, Korzika, Burgundsko)',
+    ed_plate: 'Evidenčné číslo (zadané)',
+    ed_plate_helper: 'Ak ho integrácia neposkytuje, napríklad AB-123-CD',
+    ed_extra_tiles: 'Ďalšie dlaždice',
+    ed_extra_tiles_helper: 'Ľubovoľná entita (alarm, rýchlosť, nafta…), zobrazená ako dlaždica za dlaždicami karty',
     ed_show_location: 'Poloha',
     ed_show_actions: 'Akčné tlačidlá',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -2819,6 +2891,10 @@ var RnI18n = {
     ed_show_plate: 'Registrační značka',
     ed_plate_department: 'Departement na značce',
     ed_plate_department_helper: 'Číslo zobrazené vpravo na značce, například 35 (tradiční regionální znak podle departementu: Bretaň, Okcitánie, Île-de-France, Provence, Korsika, Burgundsko)',
+    ed_plate: 'SPZ (zadaná)',
+    ed_plate_helper: 'Pokud ji integrace neposkytuje, například AB-123-CD',
+    ed_extra_tiles: 'Další dlaždice',
+    ed_extra_tiles_helper: 'Libovolná entita (alarm, rychlost, nafta…), zobrazená jako dlaždice za dlaždicemi karty',
     ed_show_location: 'Poloha',
     ed_show_actions: 'Akční tlačítka',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -2971,6 +3047,10 @@ var RnI18n = {
     ed_show_plate: 'Registrska tablica',
     ed_plate_department: 'Departma na tablici',
     ed_plate_department_helper: 'Številka na desni strani tablice, na primer 35 (tradicionalni regionalni grb glede na departma: Bretanija, Okcitanija, Île-de-France, Provansa, Korzika, Burgundija)',
+    ed_plate: 'Registrska tablica (vnesena)',
+    ed_plate_helper: 'Če je integracija ne poda, na primer AB-123-CD',
+    ed_extra_tiles: 'Dodatne ploščice',
+    ed_extra_tiles_helper: 'Katera koli entiteta (alarm, hitrost, dizel…), prikazana kot ploščica za ploščicami kartice',
     ed_show_location: 'Lokacija',
     ed_show_actions: 'Gumbi za dejanja',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -3123,6 +3203,10 @@ var RnI18n = {
     ed_show_plate: 'Numura zīme',
     ed_plate_department: 'Departaments uz numura zīmes',
     ed_plate_department_helper: 'Numurs numura zīmes labajā pusē, piemēram, 35 (tradicionālais reģiona ģerbonis atkarībā no departamenta: Bretaņa, Oksitānija, Ildefransa, Provansa, Korsika, Burgundija)',
+    ed_plate: 'Numura zīme (ievadīta)',
+    ed_plate_helper: 'Ja integrācija to nesniedz, piemēram, AB-123-CD',
+    ed_extra_tiles: 'Papildu flīzes',
+    ed_extra_tiles_helper: 'Jebkura entītija (signalizācija, ātrums, dīzeļdegviela…), parādīta kā flīze pēc kartes flīzēm',
     ed_show_location: 'Atrašanās vieta',
     ed_show_actions: 'Darbību pogas',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -3275,6 +3359,10 @@ var RnI18n = {
     ed_show_plate: 'Πινακίδα κυκλοφορίας',
     ed_plate_department: 'Διαμέρισμα στην πινακίδα',
     ed_plate_department_helper: 'Αριθμός στα δεξιά της πινακίδας, για παράδειγμα 35 (παραδοσιακό περιφερειακό έμβλημα ανάλογα με το διαμέρισμα: Βρετάνη, Οξιτανία, Île-de-France, Προβηγκία, Κορσική, Βουργουνδία)',
+    ed_plate: 'Πινακίδα (πληκτρολογημένη)',
+    ed_plate_helper: 'Όταν η ενσωμάτωση δεν τη δίνει, για παράδειγμα AB-123-CD',
+    ed_extra_tiles: 'Επιπλέον πλακίδια',
+    ed_extra_tiles_helper: 'Οποιαδήποτε οντότητα (συναγερμός, ταχύτητα, ντίζελ…), ως πλακίδιο μετά από αυτά της κάρτας',
     ed_show_location: 'Τοποθεσία',
     ed_show_actions: 'Κουμπιά ενεργειών',
     ed_show_data_plan: 'Orange Internet On the move',
@@ -3894,7 +3982,7 @@ function rnPlateSvg(plate, dept) {
     '<path d="M470 5 H511 a4 4 0 0 1 4 4 V101 a4 4 0 0 1 -4 4 H470 Z" fill="' + blue + '"/>' + right +
     // Registration: ≈ 76 mm cap height, centred between the bands (50 → 470) with ≥ 5 mm clearance.
     '<text x="260" y="93" text-anchor="middle" fill="#111" font-size="107" font-weight="700"' +
-    ' font-family="\'Roboto Condensed\',\'Arial Narrow\',\'DIN Condensed\',Arial,sans-serif" textLength="400" lengthAdjust="spacingAndGlyphs">' + rnEsc(plate) + '</text>' +
+    ' font-family="\'Roboto Condensed\',\'Arial Narrow\',\'DIN Condensed\',Arial,sans-serif" textLength="' + Math.min(400, Math.max(1, String(plate).length) * 57) + '" lengthAdjust="spacingAndGlyphs">' + rnEsc(plate) + '</text>' +
     '</svg>';
 }
 
@@ -3902,6 +3990,36 @@ function rnPlateSvg(plate, dept) {
 function rnPlate(text) {
   var m = String(text || '').replace(/[\s-]/g, '').toUpperCase().match(/^([A-Z]{2})(\d{3})([A-Z]{2})$/);
   return m ? `${m[1]}-${m[2]}-${m[3]}` : null;
+}
+
+// The plate option, typed by hand for an integration that does not give it: a French SIV plate gets its dashes,
+// any other registration is shown as typed (in capitals).
+function rnPlateOption(text) {
+  var t = String(text == null ? '' : text).trim().toUpperCase();
+  return t ? (rnPlate(t) || t) : null;
+}
+
+// extra_tiles: entity IDs, or { entity, name, icon, bar, tap_action, hold_action }.
+function rnExtraTiles(config) {
+  return (Array.isArray(config.extra_tiles) ? config.extra_tiles : [])
+    .map((x) => (typeof x === 'string' ? { entity: x } : x && typeof x === 'object' ? x : null))
+    .filter((x) => x && typeof x.entity === 'string' && x.entity);
+}
+
+// An extra tile's icon when neither the tile, the entity nor the registry gives one.
+var RN_CLASS_ICONS = {
+  speed: 'mdi:speedometer', temperature: 'mdi:thermometer', battery: 'mdi:battery', distance: 'mdi:map-marker-distance',
+  pressure: 'mdi:gauge', voltage: 'mdi:flash', current: 'mdi:current-ac', power: 'mdi:flash', energy: 'mdi:lightning-bolt',
+  volume: 'mdi:gas-station', volume_storage: 'mdi:gas-station', duration: 'mdi:timer-outline', timestamp: 'mdi:clock-outline',
+  door: 'mdi:car-door', lock: 'mdi:lock', window: 'mdi:car-door', problem: 'mdi:alert-circle-outline', safety: 'mdi:shield-alert-outline',
+  connectivity: 'mdi:wifi', moving: 'mdi:car-arrow-right', plug: 'mdi:power-plug', battery_charging: 'mdi:battery-charging',
+};
+var RN_DOMAIN_ICONS = {
+  alarm_control_panel: 'mdi:shield-car', lock: 'mdi:lock', device_tracker: 'mdi:map-marker', switch: 'mdi:toggle-switch-outline',
+  binary_sensor: 'mdi:checkbox-blank-circle-outline', climate: 'mdi:air-conditioner', number: 'mdi:ray-vertex', select: 'mdi:format-list-bulleted',
+};
+function rnEntityIcon(id, st, reg) {
+  return st?.attributes.icon || reg?.icon || RN_CLASS_ICONS[st?.attributes.device_class] || RN_DOMAIN_ICONS[String(id).split('.')[0]] || 'mdi:information-outline';
 }
 
 var RN_BUTTON_ICONS = [
@@ -4469,6 +4587,8 @@ class RenaultCard extends HTMLElement {
       var id = typeof b === 'string' ? b : b?.entity;
       if (id && ent.buttons.indexOf(id) < 0 && hass.states[id]) ent.buttons.push(id);
     });
+    // extra_tiles: any entity, of the car or not, shown as a tile after the card's own.
+    ent.extra = rnExtraTiles(c).map((x) => x.entity).filter((id) => hass.states[id]);
 
     var plan = null;
     if (c.show_data_plan) {
@@ -4623,6 +4743,9 @@ class RenaultCard extends HTMLElement {
 
   // tile_options: per tile (the keys of tiles) name, icon, tap_action and hold_action.
   _tileOpt(key) {
+    // An extra tile (extra-N): its own entry of extra_tiles.
+    var m = /^extra-(\d+)$/.exec(key || '');
+    if (m) return rnExtraTiles(this._config)[Number(m[1])] || {};
     var o = key && this._config.tile_options;
     return (o && typeof o === 'object' && o[key] && typeof o[key] === 'object') ? o[key] : {};
   }
@@ -4657,6 +4780,22 @@ class RenaultCard extends HTMLElement {
     return '<div class="tile' + (extra?.warn ? ' warn' : '') + '"' + (id ? ` data-more="${rnEsc(id)}"${extra?.key ? ` data-tile="${rnEsc(extra.key)}"` : ''} role="button" tabindex="0"` : '') + '>' +
       '<div class="tile-head"><ha-icon icon="' + rnEsc(icon) + '"></ha-icon><span class="lbl">' + rnEsc(label) + '</span></div>' +
       '<span class="val">' + rnEsc(value) + '</span>' + (extra && extra.bar != null ? this._bar(extra.bar, this._levelColor(extra.bar, extra.key)) : '') + '</div>';
+  }
+
+  // extra_tiles: one tile per entity, after the card's own (tiles does not hide them). Its name, without the vehicle's
+  // name, its icon and its state come from Home Assistant unless the entry sets them; a state in % gets a bar
+  // (bar: false removes it).
+  _extraTiles(deviceName) {
+    var hass = this._hass;
+    return rnExtraTiles(this._config).map((x, i) => {
+      var st = hass.states[x.entity];
+      if (!st) return '';
+      var u = st.attributes.unit_of_measurement;
+      var n = Number(st.state);
+      var bar = u === '%' && x.bar !== false && st.state !== '' && !Number.isNaN(n) ? n : null;
+      return this._tile(x.entity, rnEntityIcon(x.entity, st, hass.entities?.[x.entity]), this._entityLabel(x.entity, deviceName),
+        this._fmtState(x.entity), { key: `extra-${i}`, bar: bar });
+    }).filter(Boolean);
   }
 
   _bar(pct, color) {
@@ -4927,7 +5066,8 @@ class RenaultCard extends HTMLElement {
     }
     var id = this._identity(r);
     var deviceName = id.deviceName, name = id.name, model = id.model, imgSrc = id.imgSrc;
-    var plate = c.show_plate && dev ? rnPlate(dev.name) : null;
+    // plate: typed by hand when the integration does not give it in the device name.
+    var plate = !c.show_plate ? null : c.plate ? rnPlateOption(c.plate) : dev ? rnPlate(dev.name) : null;
 
     // Illustrated header: the plate goes to the body, at the top right of the picture (or on its own line).
     var bodyPlate = this._illustrated() && plate ? rnPlateSvg(plate, c.plate_department) : '';
@@ -4965,6 +5105,7 @@ class RenaultCard extends HTMLElement {
       tiles.push(this._tile(ent.outside_temperature, 'mdi:thermometer', this._t('outside_temperature'), this._fmtState(ent.outside_temperature), { key: 'outside_temperature' }));
     }
     if (this._tileOn('tyres') && tyres.length) tiles.push(this._tyreTile(tyres, lowTyres));
+    tiles = tiles.concat(this._extraTiles(deviceName));
 
     // Location
     var locationHtml = '';
@@ -5634,6 +5775,8 @@ class RenaultCardEditor extends HTMLElement {
         ],
       },
       { name: 'tiles', selector: { select: { multiple: true, mode: 'list', options: RN_TILES.map((x) => ({ value: x[0], label: t(x[1]) })) } } },
+      // extra_tiles in the editor while it is a list of entity IDs; with names or icons (objects) it is YAML only.
+      ...((this._config?.extra_tiles || []).every((x) => typeof x === 'string') ? [{ name: 'extra_tiles', selector: { entity: { multiple: true } } }] : []),
       { name: 'lease_figs', selector: { select: { multiple: true, mode: 'list', options: RN_LEASE_FIGS.map((x) => ({ value: x[0], label: t(x[1]) })) } } },
       {
         type: 'grid', name: '', schema: [
@@ -5647,7 +5790,12 @@ class RenaultCardEditor extends HTMLElement {
       })),
       { name: 'image_height', selector: { number: { min: 40, max: 400, step: 10, mode: 'box', unit_of_measurement: 'px' } } },
       { name: 'buttons', selector: { entity: { multiple: true, domain: ['button', 'input_button', 'switch', 'input_boolean', 'script', 'scene', 'automation', 'lock', 'climate', 'light', 'fan', 'cover'] } } },
-      { name: 'plate_department', selector: { text: {} } },
+      {
+        type: 'grid', name: '', schema: [
+          { name: 'plate', selector: { text: {} } },
+          { name: 'plate_department', selector: { text: {} } },
+        ],
+      },
       { name: 'data_plan_device_id', selector: { device: { integration: 'orange_internet_on_the_move' } } },
       {
         type: 'expandable', name: 'lease', title: t('ed_lease'), flatten: false, icon: 'mdi:file-sign',
@@ -5718,6 +5866,7 @@ class RenaultCardEditor extends HTMLElement {
     });
     // Every tile checked is the default: no tiles option (an empty list, no tile, is kept).
     if (Array.isArray(value.tiles) && RN_TILES.every((x) => value.tiles.indexOf(x[0]) >= 0)) delete value.tiles;
+    if (Array.isArray(value.extra_tiles) && !value.extra_tiles.length) delete value.extra_tiles;
     // Same for the lease figures: every one checked is the default, so no lease_figs option (an empty list is kept).
     if (Array.isArray(value.lease_figs) && RN_LEASE_FIGS.every((x) => value.lease_figs.indexOf(x[0]) >= 0)) delete value.lease_figs;
     if (value.entities) {
