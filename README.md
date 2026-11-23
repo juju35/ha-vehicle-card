@@ -98,26 +98,26 @@ The card picks the vehicle's entities by their translation keys (and entity IDs)
 
 | Integration | Brands | Picture |
 |---|---|---|
-| [Renault](https://www.home-assistant.io/integrations/renault/) (built in) | Renault, Dacia | With [Renault Picture](https://github.com/juju35/ha-renault-picture) |
-| [Tesla Fleet](https://www.home-assistant.io/integrations/tesla_fleet/), [Teslemetry](https://www.home-assistant.io/integrations/teslemetry/), [Tessie](https://www.home-assistant.io/integrations/tessie/) (built in) | Tesla | — |
-| [Volvo](https://www.home-assistant.io/integrations/volvo/) (built in) | Volvo | ✅ (`volvo.get_image_url` action) |
-| [Škoda](https://www.home-assistant.io/integrations/skoda/) (built in), [MySkoda](https://github.com/skodaconnect/homeassistant-myskoda) | Škoda | — |
-| [Subaru](https://www.home-assistant.io/integrations/subaru/), [Nissan Leaf](https://www.home-assistant.io/integrations/nissan_leaf/) (built in) | Subaru, Nissan | — |
-| [Stellantis Vehicles](https://github.com/andreadegiovine/homeassistant-stellantis-vehicles) | Peugeot, Citroën, DS, Opel, Vauxhall, Fiat, Jeep, Alfa Romeo… | ✅ |
-| [Kia / Hyundai (kia_uvo)](https://github.com/Hyundai-Kia-Connect/kia_uvo) | Kia, Hyundai, Genesis | — |
-| [Mercedes-Benz (mbapi2020)](https://github.com/ReneNulschDE/mbapi2020) | Mercedes-Benz, smart | — |
-| [Toyota](https://github.com/pytoyoda/ha_toyota) | Toyota, Lexus | ✅ |
-| [VW Group Connect (vag_connect)](https://github.com/its-me-prash/vwgroup-connect-ha), [Volkswagen We Connect](https://github.com/robinostlund/homeassistant-volkswagencarnet) | Volkswagen, Audi, Seat, Cupra, Škoda | ✅ (renders) |
-| [Uconnect](https://github.com/hass-uconnect/hass-uconnect) | Fiat, Jeep, Alfa Romeo, Ram, Chrysler, Dodge | ✅ |
-| [Polestar](https://github.com/leeyuentuen/polestar_api), [FordPass](https://github.com/itchannel/fordpass-ha) | Polestar, Ford | — |
+| <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/brands/renault.svg" alt="" width="16"> [Renault](https://www.home-assistant.io/integrations/renault/) (built in) | Renault, Dacia | With [Renault Picture](https://github.com/juju35/ha-renault-picture) |
+| <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/brands/tesla.svg" alt="" width="16"> [Tesla Fleet](https://www.home-assistant.io/integrations/tesla_fleet/), <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/teslemetry.png" alt="" width="16"> [Teslemetry](https://www.home-assistant.io/integrations/teslemetry/), <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/tessie.png" alt="" width="16"> [Tessie](https://www.home-assistant.io/integrations/tessie/) (built in) | Tesla | — |
+| <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/brands/volvo.svg" alt="" width="16"> [Volvo](https://www.home-assistant.io/integrations/volvo/) (built in) | Volvo | ✅ (`volvo.get_image_url` action) |
+| <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/brands/skoda.svg" alt="" width="16"> [Škoda](https://www.home-assistant.io/integrations/skoda/) (built in), <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/brands/skoda.svg" alt="" width="16"> [MySkoda](https://github.com/skodaconnect/homeassistant-myskoda) | Škoda | — |
+| <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/brands/subaru.svg" alt="" width="16"> [Subaru](https://www.home-assistant.io/integrations/subaru/), <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/brands/nissan.svg" alt="" width="16"> [Nissan Leaf](https://www.home-assistant.io/integrations/nissan_leaf/) (built in) | Subaru, Nissan | — |
+| <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/stellantis_vehicles.png" alt="" width="16"> [Stellantis Vehicles](https://github.com/andreadegiovine/homeassistant-stellantis-vehicles) | Peugeot, Citroën, DS, Opel, Vauxhall, Fiat, Jeep, Alfa Romeo… | ✅ |
+| <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/brands/kia.svg" alt="" width="16"> [Kia / Hyundai (kia_uvo)](https://github.com/Hyundai-Kia-Connect/kia_uvo) | Kia, Hyundai, Genesis | — |
+| <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/logos/mercedes.png" alt="" width="16"> [Mercedes-Benz (mbapi2020)](https://github.com/ReneNulschDE/mbapi2020) | Mercedes-Benz, smart | — |
+| <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/brands/toyota.svg" alt="" width="16"> [Toyota](https://github.com/pytoyoda/ha_toyota) | Toyota, Lexus | ✅ |
+| [VW Group Connect (vag_connect)](https://github.com/its-me-prash/vwgroup-connect-ha), <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/brands/volkswagen.svg" alt="" width="16"> [Volkswagen We Connect](https://github.com/robinostlund/homeassistant-volkswagencarnet) | Volkswagen, Audi, Seat, Cupra, Škoda | ✅ (renders) |
+| <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/uconnect.png" alt="" width="16"> [Uconnect](https://github.com/hass-uconnect/hass-uconnect) | Fiat, Jeep, Alfa Romeo, Ram, Chrysler, Dodge | ✅ |
+| <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/brands/polestar.svg" alt="" width="16"> [Polestar](https://github.com/leeyuentuen/polestar_api), <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/fordpass.png" alt="" width="16"> [FordPass](https://github.com/itchannel/fordpass-ha) | Polestar, Ford | — |
 | Any other integration | Any car with a `device_tracker` and sensors | Your own `image` |
 
 Optional integrations:
 
 | Integration | What the cards show |
 |---|---|
-| [Renault Picture](https://github.com/juju35/ha-renault-picture) (Marketplace) | The official MyRenault photo of the vehicle |
-| [Orange Internet On the move](https://github.com/juju35/ha-orange-internet-on-the-move) (Marketplace) | Data left, percentage, renewal or expiry date of the car's data plan |
+| <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/brands/renault.svg" alt="" width="16"> [Renault Picture](https://github.com/juju35/ha-renault-picture) (Marketplace) | The official MyRenault photo of the vehicle |
+| <img src="https://raw.githubusercontent.com/juju35/ha-vehicle-card/main/images/orange.svg" alt="" width="16"> [Orange Internet On the move](https://github.com/juju35/ha-orange-internet-on-the-move) (Marketplace) | Data left, percentage, renewal or expiry date of the car's data plan |
 
 > **Note:** the original [rexave/hass-orange-internet-on-the-move](https://github.com/rexave/hass-orange-internet-on-the-move) integration is no longer maintained (it triggers Home Assistant deprecation warnings due in 2027.5 and 2027.8). [ha-orange-internet-on-the-move](https://github.com/juju35/ha-orange-internet-on-the-move) replaces it in place: same domain, devices and entities, so the card keeps working without any change. See its [migration guide](https://github.com/juju35/ha-orange-internet-on-the-move#migrating-from-rexaves-integration).
 
