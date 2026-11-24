@@ -1,16 +1,17 @@
-// Builds src/vehicle-card.js into dist/vehicle-card.js, stamping the package version, and copies the
+// Builds the ES modules of src/ (entry src/index.js, assembled by scripts/bundle.mjs) into dist/vehicle-card.js, stamping the package version, and copies the
 // vendored map libraries (vendor/: Leaflet, MapLibre GL and its Leaflet adapter) next to it.
 // Usage: node scripts/build.mjs  (dist/ is not committed: CI and the release workflow build it)
 import { copyFileSync, mkdirSync, readdirSync, readFileSync, realpathSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { splitDist } from "./i18n-split.mjs";
+import { bundle } from "./bundle.mjs";
 
 const FILE = "vehicle-card.js";
 const ALIASES = [];
 const root = fileURLToPath(new URL("..", import.meta.url));
 const pkg = JSON.parse(readFileSync(`${root}package.json`, "utf8"));
 
-const out = readFileSync(`${root}src/${FILE}`, "utf8").replace("__VERSION__", pkg.version);
+const out = bundle("src/index.js").replace("__VERSION__", pkg.version);
 
 const target = `${root}dist/${FILE}`;
 mkdirSync(`${root}dist`, { recursive: true });
