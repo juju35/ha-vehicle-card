@@ -1,9 +1,10 @@
-// Unit tests for the pure parts of src/vehicle-card.js, loaded in a VM with minimal browser stubs.
+// Unit tests for the pure parts of the bundled card source (test/source.mjs), loaded in a VM with minimal browser stubs.
 // Run with: npm test
 import assert from "node:assert/strict";
-import { readdirSync, readFileSync } from "node:fs";
+import { readdirSync } from "node:fs";
 import { test } from "node:test";
 import vm from "node:vm";
+import { source } from "./source.mjs";
 
 function loadCard(lang = "en") {
   const defined = {};
@@ -45,7 +46,7 @@ function loadCard(lang = "en") {
   };
   ctx.window = ctx;
   vm.createContext(ctx);
-  vm.runInContext(readFileSync(new URL("../src/vehicle-card.js", import.meta.url), "utf8"), ctx);
+  vm.runInContext(source, ctx);
   return { ctx, defined, listeners };
 }
 
