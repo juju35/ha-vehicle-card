@@ -141,7 +141,7 @@ Or manually:
 3. Open **Vehicle Card** and click **Install** (all three cards come in the same package)
 4. Clear your browser cache and refresh
 
-The Marketplace registers the dashboard resource for you.
+The Marketplace registers the dashboard resource for you: `/local/community/ha-vehicle-card/vehicle-card.js`.
 
 ### Manual
 
